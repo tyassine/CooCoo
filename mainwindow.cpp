@@ -15,12 +15,24 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->b7, SIGNAL(clicked()), this, SLOT(slot7()));
     QObject::connect(ui->b8, SIGNAL(clicked()), this, SLOT(slot8()));
     QObject::connect(ui->b9, SIGNAL(clicked()), this, SLOT(slot9()));
+    QObject::connect(ui->bEsp, SIGNAL(clicked()), this, SLOT(on_espace()));
+    QObject::connect(ui->bVirg, SIGNAL(clicked()), this, SLOT(on_virgule()));
+    QObject::connect(ui->bCommit, SIGNAL(clicked()), this, SLOT(on_commit()));
+    QObject::connect(ui->bAdd, SIGNAL(clicked()), this, SLOT(on_addition()));
+    QObject::connect(ui->bSoustr, SIGNAL(clicked()), this, SLOT(on_soustraction()));
+    QObject::connect(ui->bMult, SIGNAL(clicked()), this, SLOT(on_multiplication()));
+    QObject::connect(ui->bDiv, SIGNAL(clicked()), this, SLOT(on_division()));
+    QObject::connect(ui->bC, SIGNAL(clicked()), this, SLOT(on_effacer()));
+    QObject::connect(ui->bSwap, SIGNAL(clicked()), this, SLOT(on_swap()));
+    QObject::connect(ui->bSum, SIGNAL(clicked()), this, SLOT(on_sum()));
+    QObject::connect(ui->bDup, SIGNAL(clicked()), this, SLOT(on_dup()));
+    QObject::connect(ui->cClavier, SIGNAL(toggled(bool)), this, SLOT(on_clavier(bool)));
+   // QObject::connect(ui->cClavier, SIGNAL(released()), this, SLOT(on_clavier()));
 }
 
 void MainWindow::slot1(){
     ui->Afficheur->setText(ui->Afficheur->text() + "1");
 }
-
 
 void MainWindow::slot2(){
     ui->Afficheur->setText(ui->Afficheur->text() + "2");
@@ -57,11 +69,53 @@ void MainWindow::slot9(){
 void MainWindow::slot0(){
     ui->Afficheur->setText(ui->Afficheur->text() + "0");
 }
-/*
-void MainWindow::on_virguleBouton_clicked(){
-    ui->Afficheur->setText(ui->Afficheur->toPlainText() + ".");
+
+void MainWindow::on_virgule(){
+    ui->Afficheur->setText(ui->Afficheur->text() + ".");
 }
-*/
+
+void MainWindow::on_espace(){
+    ui->Afficheur->setText(ui->Afficheur->text() + " ");
+}
+
+
+void MainWindow::on_addition(){
+    ui->Afficheur->setText(ui->Afficheur->text() + "+");
+}
+void MainWindow::on_soustraction(){
+    ui->Afficheur->setText(ui->Afficheur->text() + "-");
+}
+
+void MainWindow::on_multiplication(){
+    ui->Afficheur->setText(ui->Afficheur->text() + "x");
+}
+void MainWindow::on_division(){
+    ui->Afficheur->setText(ui->Afficheur->text() + "/");
+}
+void MainWindow::on_effacer(){
+    ui->Afficheur->setText("");
+}
+
+void MainWindow::on_clavier(bool checked){
+    if (checked)
+        ui->Clavier->hide();
+    else
+        ui->Clavier->show();
+}
+
+
+
+void MainWindow::on_commit(){
+
+}
+void MainWindow::on_swap(){
+}
+void MainWindow::on_sum(){
+}
+void MainWindow::on_dup(){
+}
+
+
 MainWindow::~MainWindow(){
     delete ui;
 }
