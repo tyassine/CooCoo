@@ -27,7 +27,18 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bSum, SIGNAL(clicked()), this, SLOT(on_sum()));
     QObject::connect(ui->bDup, SIGNAL(clicked()), this, SLOT(on_dup()));
     QObject::connect(ui->cClavier, SIGNAL(toggled(bool)), this, SLOT(on_clavier(bool)));
-   // QObject::connect(ui->cClavier, SIGNAL(released()), this, SLOT(on_clavier()));
+    ui->b0->setShortcut(Qt::Key_0);
+    ui->b1->setShortcut(Qt::Key_1);
+    ui->b2->setShortcut(Qt::Key_2);
+    ui->b3->setShortcut(Qt::Key_3);
+    ui->b4->setShortcut(Qt::Key_4);
+    ui->b5->setShortcut(Qt::Key_5);
+    ui->b6->setShortcut(Qt::Key_6);
+    ui->b7->setShortcut(Qt::Key_7);
+    ui->b8->setShortcut(Qt::Key_8);
+    ui->b9->setShortcut(Qt::Key_9);
+
+
 }
 
 void MainWindow::slot1(){
@@ -102,8 +113,6 @@ void MainWindow::on_clavier(bool checked){
     else
         ui->Clavier->show();
 }
-
-
 
 void MainWindow::on_commit(){
 
