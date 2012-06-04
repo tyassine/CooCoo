@@ -929,12 +929,12 @@
            </property>
            <item>
             <property name="text">
-             <string>Oui</string>
+             <string>Non</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Non</string>
+             <string>Oui</string>
             </property>
            </item>
           </widget>
@@ -956,7 +956,7 @@
           </widget>
          </item>
          <item row="1" column="4">
-          <widget class="QComboBox" name="UniteDegre">
+          <widget class="QComboBox" name="UniteAngle">
            <property name="minimumSize">
             <size>
              <width>70</width>

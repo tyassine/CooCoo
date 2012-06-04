@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bParD, SIGNAL(clicked()), this, SLOT(on_parenthese_droite()));
     QObject::connect(ui->bParG, SIGNAL(clicked()), this, SLOT(on_parenthese_gauche()));
 
+
     ui->b0->setShortcut(Qt::Key_0);
     ui->b1->setShortcut(Qt::Key_1);
     ui->b2->setShortcut(Qt::Key_2);
@@ -46,15 +47,31 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // Connections slot/signaux des boutons des paramètres
     QObject::connect(ui->cClavier, SIGNAL(toggled(bool)), this, SLOT(on_clavier(bool)));
+    QObject::connect(ui->Complexes, SIGNAL(currentIndexChanged(int)), this, SLOT(on_complexe()));
+    QObject::connect(ui->UniteAngle, SIGNAL(currentIndexChanged(int)), this, SLOT(on_angle()));
+    QObject::connect(ui->TypeConstante, SIGNAL(currentIndexChanged(int)), this, SLOT(on_constante()));
 
     // Connections slot/signaux des boutons des fonctions
     QObject::connect(ui->bQuote, SIGNAL(clicked()), this, SLOT(on_quote()));
+    QObject::connect(ui->bEval, SIGNAL(clicked()), this, SLOT(on_eval()));
+
     QObject::connect(ui->bCos, SIGNAL(clicked()), this, SLOT(on_cos()));
     QObject::connect(ui->bSin, SIGNAL(clicked()), this, SLOT(on_sin()));
     QObject::connect(ui->bTan, SIGNAL(clicked()), this, SLOT(on_tan()));
     QObject::connect(ui->bCosh, SIGNAL(clicked()), this, SLOT(on_cosh()));
     QObject::connect(ui->bSinh, SIGNAL(clicked()), this, SLOT(on_sinh()));
     QObject::connect(ui->bTanh, SIGNAL(clicked()), this, SLOT(on_tanh()));
+
+    QObject::connect(ui->bMod, SIGNAL(clicked()), this, SLOT(on_mod()));
+    QObject::connect(ui->bLn, SIGNAL(clicked()), this, SLOT(on_ln()));
+    QObject::connect(ui->bLog, SIGNAL(clicked()), this, SLOT(on_log()));
+    QObject::connect(ui->bInv, SIGNAL(clicked()), this, SLOT(on_inv()));
+    QObject::connect(ui->bCarre, SIGNAL(clicked()), this, SLOT(on_sqr()));
+    QObject::connect(ui->bRacine, SIGNAL(clicked()), this, SLOT(on_sqrt()));
+    QObject::connect(ui->bCube, SIGNAL(clicked()), this, SLOT(on_cube()));
+    QObject::connect(ui->bSign, SIGNAL(clicked()), this, SLOT(on_sign()));
+    QObject::connect(ui->bPow, SIGNAL(clicked()), this, SLOT(on_pow()));
+
 }
 
 
@@ -108,7 +125,7 @@ void MainWindow::on_division(){
     ui->Afficheur->setText(ui->Afficheur->text() + "/");
 }
 void MainWindow::on_effacer(){
-    ui->Afficheur->setText("");
+    ui->Afficheur->clear();
 }
 void MainWindow::on_parenthese_gauche(){
       ui->Afficheur->setText(ui->Afficheur->text()+"(");
@@ -158,13 +175,19 @@ void MainWindow::on_sqr(){
 void MainWindow::on_sqrt(){
     ui->Afficheur->setText(ui->Afficheur->text()+"sqrt");
  }
+void MainWindow::on_cube(){
+    ui->Afficheur->setText(ui->Afficheur->text()+"cube");
+ }
 void MainWindow::on_sign(){
     ui->Afficheur->setText(ui->Afficheur->text()+"sign");
  }
 void MainWindow::on_pow(){
     ui->Afficheur->setText(ui->Afficheur->text()+"pow");
  }
-
+void MainWindow::on_eval(){
+    // ici il faut empiler =)
+     ui->Afficheur->clear();
+}
 
 // Slots paramètres
 
@@ -174,6 +197,111 @@ void MainWindow::on_clavier(bool checked){
     else
         ui->Clavier->show();
 }
+void MainWindow::on_Annuler_triggered(){
+}
+void MainWindow::on_Retablir_triggered(){
+}
+
+void MainWindow::on_complexe(){
+    if (ui->Complexes->currentIndex()==1){// complexes
+        if (ui->TypeConstante->currentIndex()==1){ // entiers
+            refresh_complexe(ui);
+        }
+        else {//Reels & rationnels
+            refresh_complexe(ui);
+        }
+    }
+    else{ // non complexes
+        if (ui->TypeConstante->currentIndex()==0){//Entiers
+            refresh_entier(ui);
+        }
+        else {//Reels & rationnels
+            refresh_reel_rationnel(ui);
+        }
+    }
+
+}
+
+void refresh_entier(Ui::MainWindow *ui){
+    ui->bCarre->setEnabled(true);//sqr
+    ui->bRacine->setEnabled(true);//sqrt
+    ui->bCube->setEnabled(true);
+    ui->bSign->setEnabled(true);
+    ui->bFact->setEnabled(true);
+    ui->bPow->setEnabled(true);
+    ui->bMod->setEnabled(true);
+    ui->bLn->setEnabled(true);
+    ui->bLog->setEnabled(true);
+    ui->bInv->setEnabled(true);
+    ui->bCos->setEnabled(true);
+    ui->bSin->setEnabled(true);
+    ui->bTan->setEnabled(true);
+    ui->bCosh->setEnabled(true);
+    ui->bSinh->setEnabled(true);
+    ui->bTanh->setEnabled(true);
+}
+
+void refresh_reel_rationnel(Ui::MainWindow *ui){
+    ui->bMod->setEnabled(false);
+    ui->bFact->setEnabled(false);
+
+    ui->bCarre->setEnabled(true);//sqr
+    ui->bRacine->setEnabled(true);//sqrt
+    ui->bCube->setEnabled(true);
+    ui->bSign->setEnabled(true);
+    ui->bPow->setEnabled(true);
+    ui->bLn->setEnabled(true);
+    ui->bLog->setEnabled(true);
+    ui->bInv->setEnabled(true);
+    ui->bCos->setEnabled(true);
+    ui->bSin->setEnabled(true);
+    ui->bTan->setEnabled(true);
+    ui->bCosh->setEnabled(true);
+    ui->bSinh->setEnabled(true);
+    ui->bTanh->setEnabled(true);
+
+}
+
+void refresh_complexe(Ui::MainWindow *ui){
+    ui->bCarre->setEnabled(true);//sqr
+    ui->bCube->setEnabled(true);
+    ui->bSign->setEnabled(true);
+
+    ui->bRacine->setEnabled(false);//sqrt
+    ui->bFact->setEnabled(false);
+    ui->bPow->setEnabled(false);
+    ui->bMod->setEnabled(false);
+    ui->bLn->setEnabled(false);
+    ui->bLog->setEnabled(false);
+    ui->bInv->setEnabled(false);
+    ui->bCos->setEnabled(false);
+    ui->bSin->setEnabled(false);
+    ui->bTan->setEnabled(false);
+    ui->bCosh->setEnabled(false);
+    ui->bSinh->setEnabled(false);
+    ui->bTanh->setEnabled(false);
+}
+
+void MainWindow::on_constante(){
+
+    if (ui->TypeConstante->currentIndex()==0){//entiers
+        if (ui->Complexes->currentIndex()==1){//complexes
+            refresh_complexe(ui);
+        }
+        else // entiers non complexes
+            refresh_entier(ui);
+    }
+    else {//reels et rationnels
+        if (ui->Complexes->currentIndex()==1){//complexes
+            refresh_complexe(ui);
+        }
+        else //reels et rationnels non complexes
+            refresh_reel_rationnel(ui);
+    }
+}
+void MainWindow::on_angle(){}
+
+// slots operations sur pile
 
 void MainWindow::on_commit(){
 
@@ -184,7 +312,12 @@ void MainWindow::on_sum(){
 }
 void MainWindow::on_dup(){
 }
-
+void MainWindow::on_mean(){
+}
+void MainWindow::on_clear(){
+}
+void MainWindow::on_drop(){
+}
 
 MainWindow::~MainWindow(){
     delete ui;
