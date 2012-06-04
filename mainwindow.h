@@ -2,6 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStringListModel>
+#include <QKeyEvent>
+#include <QStack>
+#include <iostream>
+#include <cstdio>
+#include <fstream>
+#include <string>
+#include "exceptionCooCoo.h"
+
 
 namespace Ui {
 class MainWindow;
@@ -14,12 +23,20 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void AffichageEcran();
+    void InitParam();
+    void MAJParam();
 
+    void calcul_plus();
+    void calcul_moins();
+    void calcul_mult();
+    void keyPressEvent(QKeyEvent *);
 
-    signals:
+/* TODO    signals:
         void pushStack_signal(const QString&);
         void cleanList_signal();
         void refresh_signal();
+*/
 
 
 private slots:
@@ -44,6 +61,7 @@ private slots:
     void on_effacer();
     void on_parenthese_droite();
     void on_parenthese_gauche();
+    void on_dollar();
 
     // slots des opérations sur la pile
     void on_swap();
@@ -96,6 +114,13 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QStack<int> *pile;
+    bool complexe; //0 pour non complexe et 1 pour complexe
+    std::string typeDeCste;
+    bool clavier; //0 pour caché et 1 pour visible
+    std::string operateur;
+    std::string angle;
+
 };
 
 
@@ -103,7 +128,6 @@ private:
 void refresh_entier(Ui::MainWindow *);
 void refresh_reel_rationnel(Ui::MainWindow *);
 void refresh_complexe(Ui::MainWindow *);
-
 
 
 #endif // MAINWINDOW_H
