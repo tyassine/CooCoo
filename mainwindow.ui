@@ -1116,7 +1116,7 @@
           </widget>
          </item>
          <item row="0" column="7">
-          <widget class="QSpinBox" name="spinBox">
+          <widget class="QSpinBox" name="NbElementPile">
            <property name="maximumSize">
             <size>
              <width>50</width>
@@ -1169,7 +1169,7 @@
     </property>
     <addaction name="separator"/>
     <addaction name="actionAnnuler"/>
-    <addaction name="actionR_tablir"/>
+    <addaction name="actionRetablir"/>
    </widget>
    <addaction name="menuFichier"/>
   </widget>
@@ -1178,7 +1178,7 @@
     <string>Annuler</string>
    </property>
   </action>
-  <action name="actionR_tablir">
+  <action name="actionRetablir">
    <property name="text">
     <string>&amp;Rétablir</string>
    </property>

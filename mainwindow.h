@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QStringListModel>
 #include <QKeyEvent>
-#include <QStack>
+#include <QMessageBox>
 #include <iostream>
 #include <cstdio>
 #include <fstream>
@@ -74,9 +74,13 @@ private slots:
 
     // slots des paramètres
     void on_clavier(bool);
+    void on_nbPile(bool);
     void on_complexe();
     void on_angle();
     void on_constante();
+
+    void on_Annuler_triggered();
+    void on_Retablir_triggered();
 
     // slots des fonctions
     void on_quote();
@@ -102,24 +106,20 @@ private slots:
     void on_cube();
     void on_sqr();
     void on_sqrt();
+    void on_fact();
 
-
-
-
-    void on_Annuler_triggered();
-    void on_Retablir_triggered();
 
 
 
 
 private:
     Ui::MainWindow *ui;
-    QStack<int> *pile;
+    //QStack<int> *pile;
     bool complexe; //0 pour non complexe et 1 pour complexe
     std::string typeDeCste;
     bool clavier; //0 pour caché et 1 pour visible
-    std::string operateur;
     std::string angle;
+    int nb_elem_affiche;
 
 };
 
