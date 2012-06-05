@@ -192,8 +192,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Enter:
         on_commit();
         break;
-    case Qt::Key_LaunchC:
-        on_clear();
+    case Qt::Key_C:
+        on_effacer();
         break;
     }
 }

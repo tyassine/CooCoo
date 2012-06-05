@@ -31,7 +31,6 @@ public:
     void calcul_moins();
     void calcul_mult();
     void keyPressEvent(QKeyEvent *);
- //   bool eventFilter(QObject *, QEvent *);
 
 /* TODO    signals:
         void pushStack_signal(const QString&);

@@ -20,7 +20,7 @@ class Pile
     Pile(const Pile&);
     void operator=(const Pile&);
     //~Pile()
-
+    // Il faut depiler et empiler comme methodes
 
 public:
 
