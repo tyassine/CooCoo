@@ -5,11 +5,15 @@
 
 class Rationnel : public Constante
 {
+    // Pas forcément nécessaire, on pourrait mettre des entiers tout simple... Mais ça serait moins stylé sur l'UML ^^
     Entier ent1;
     Entier ent2;
 public:
-    Rationnel(const Entier& aEntier1, const Entier& aEntier2) : ent1(aEntier1), ent2(aEntier2){}
-    virtual const string afficher() const;
+    // Rationnel : plutôt le construire avec une QString!
+    // Le seul intérêt de stocker sous valeur numérique est pour faire les calculs.
+    // Tout le reste, les entrées, les sorties, c'est du QString!
+    Rationnel(const QString& aQString = "0/1");
+    virtual QString toQString() const;
 
 };
 

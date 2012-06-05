@@ -1,9 +1,18 @@
 #include "rationnel.h"
 #include <sstream>
 
-const string Rationnel::afficher() const
+Rationnel::Rationnel(const QString& aQString)
 {
-    ostringstream oss;
-    oss << ent1.afficher() << "/" << ent2.afficher();
-    return oss.str();
+    // En attendant de trouver comment parser, je mets des valeurs factices pour pouvoir compiler
+    ent1 = Entier("0");
+    ent2 = Entier("1");
+}
+
+
+
+
+QString Rationnel::toQString() const
+{
+    QString res = ent1.toQString() + "/" + ent2.toQString();
+    return res;
 }

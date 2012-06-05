@@ -5,10 +5,10 @@
 
 class Reel : public Constante
 {
-    float valeur;
+    double valeur;
 public:
-    Reel(const float aReel) : valeur(aReel) {}
-    virtual const string afficher() const;
+    Reel(const QString& aQString = "0") : valeur(aQString.toDouble()) {}
+    virtual QString toQString() const;
 };
 
 #endif // REEL_H

@@ -7,8 +7,8 @@ class Entier : public Constante
 {
     int valeur;
 public:
-    Entier(int aInt) : valeur(aInt) {}
-    virtual const string afficher() const;
+    Entier(const QString& aQString ="0") : valeur(aQString.toInt()) {}
+    virtual QString toQString() const;
 };
 
 #endif // ENTIER_H
