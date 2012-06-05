@@ -11,9 +11,25 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    reel.cpp \
+    rationnel.cpp \
+    pile.cpp \
+    entier.cpp \
+    donnee.cpp \
+    constanteexp.cpp \
+    constante.cpp \
+    complexe.cpp
 
 HEADERS  += mainwindow.h \
-    exceptionCooCoo.h
+    exceptionCooCoo.h \
+    reel.h \
+    rationnel.h \
+    pile.h \
+    entier.h \
+    donnee.h \
+    constanteexp.h \
+    constante.h \
+    complexe.h
 
 FORMS    += mainwindow.ui
