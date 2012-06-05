@@ -1,9 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 // DANS LA FONCTION EMPILER IL FAUT EMPILER TORATIONNEL(S), TOREEL(S)...
-// REMPLACER les set text par des insert
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
+    this->grabKeyboard();
    // pile(new Pile()); d'abord implementer la pile
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
@@ -162,12 +162,54 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_9:
         on_1();
         break;
-
-        case Qt::Key_Period:
-            on_virgule();
-            break;
+    case Qt::Key_Comma:
+        on_virgule();
+        break;
+    case Qt::Key_Space:
+        on_espace();
+        break;
+    case Qt::Key_Plus:
+        on_addition();
+        break;
+    case Qt::Key_Minus:
+        on_soustraction();
+        break;
+    case Qt::Key_Asterisk:
+        on_multiplication();
+        break;
+    case Qt::Key_Slash:
+        on_division();
+        break;
+    case Qt::Key_ParenLeft:
+        on_parenthese_gauche();
+        break;
+    case Qt::Key_ParenRight:
+        on_parenthese_droite();
+        break;
+    case Qt::Key_Dollar:
+        on_dollar();
+        break;
+    case Qt::Key_Enter:
+        on_commit();
+        break;
+    case Qt::Key_LaunchC:
+        on_clear();
+        break;
     }
 }
+/*
+bool MainWindow::eventFilter(QObject *ob, QEvent *e)
+{
+   if(ob == MainWindow::parent()&& e->type() == QEvent::KeyPress) {
+        const QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+        if(ke->key()==Qt::Key_Space){
+            on_espace();
+        }
+        return true;
+    }
+    return QWidget::eventFilter(ob, e);
+}
+*/
 // Slots fonctions
 void MainWindow::on_quote(){
       ui->Afficheur->insert("'");
