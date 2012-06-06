@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     constanteexp.cpp \
     constante.cpp \
     complexe.cpp \
-    fabriquedonnee.cpp
+    fabriquedonnee.cpp \
+    slotsPushButton.cpp
 
 HEADERS  += mainwindow.h \
     exceptionCooCoo.h \

@@ -11,6 +11,7 @@
 #include <fstream>
 #include <string>
 #include "exceptionCooCoo.h"
+#include "pile.h"
 
 
 namespace Ui {
@@ -21,16 +22,16 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
     Q_ENUMS(angle)
-
+    Q_ENUMS(cste)
 
 private:
     Ui::MainWindow *ui;
-    //QStack<int> *pile;
+    //Pile::instance pile;
     bool complexe; //0 pour non complexe et 1 pour complexe
-    bool clavier; //0 pour caché et 1 pour visible
-    enum TypeAngle {degre, radian};
+    bool clavier; //1 pour caché et 0 pour visible
+    enum TypeAngle {DEGRE, RADIAN};
     TypeAngle angle;
-    enum TypeConstante {entier, rationnel, reel};
+    enum TypeConstante {ENTIER, RATIONNEL, REEL};
     TypeConstante cste;
     int nb_elem_affiche;
 
@@ -38,7 +39,7 @@ private:
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void AffichageEcran();
+    //void AffichageEcran();
     void InitParam();
     void MAJParam();
 
@@ -104,6 +105,7 @@ private slots:
     void on_multiplication();
     void on_division();
     void on_effacer();
+    void on_effacer_el();
     void on_parenthese_droite();
     void on_parenthese_gauche();
     void on_dollar();

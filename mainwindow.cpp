@@ -27,6 +27,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bMult, SIGNAL(clicked()), this, SLOT(on_multiplication()));
     QObject::connect(ui->bDiv, SIGNAL(clicked()), this, SLOT(on_division()));
     QObject::connect(ui->bC, SIGNAL(clicked()), this, SLOT(on_effacer()));
+    QObject::connect(ui->bCE, SIGNAL(clicked()), this, SLOT(on_effacer_el()));
     QObject::connect(ui->bParD, SIGNAL(clicked()), this, SLOT(on_parenthese_droite()));
     QObject::connect(ui->bParG, SIGNAL(clicked()), this, SLOT(on_parenthese_gauche()));
     QObject::connect(ui->bDollar, SIGNAL(clicked()), this, SLOT(on_dollar()));
@@ -126,6 +127,9 @@ void MainWindow::on_division(){
 }
 void MainWindow::on_effacer(){
     ui->Afficheur->clear();
+}
+void MainWindow::on_effacer_el(){
+    // TODO
 }
 void MainWindow::on_parenthese_gauche(){
       ui->Afficheur->insert("(");
@@ -237,8 +241,8 @@ void MainWindow::on_complexe(int c){
 
 void MainWindow::on_constante(int c){
 
+    setConstante(TypeConstante(c));
     if (c==0){//entiers
-        setConstante(entier);
         if (getComplexe()==1){//complexes
             refresh_complexe(ui);
         }
@@ -246,8 +250,6 @@ void MainWindow::on_constante(int c){
             refresh_entier(ui);
     }
     else {//reels et rationnels
-        if (c==1)setConstante(rationnel);
-        else if (c==2) setConstante(reel);
         if (getComplexe()==1){//complexes
             refresh_complexe(ui);
         }
@@ -256,11 +258,9 @@ void MainWindow::on_constante(int c){
     }
 }
 void MainWindow::on_angle(int a){
-    if (a==0)
-        setAngle(degre);
-    if (a==1)
-        setAngle(radian);
-    }
+    setAngle(TypeAngle(a));
+}
+
 void MainWindow::on_nbPile(int n){
     setNbPile(n);
 }
@@ -390,6 +390,14 @@ void MainWindow::on_drop(){
 }
 
 MainWindow::~MainWindow(){
+    int maj = QMessageBox::question(this, "Sauvegarde contexte", "Voulez-vous sauvegarder la pile et les paramètres pour la prochaine utilisation ?", QMessageBox::Yes | QMessageBox::No);
+    if (maj== QMessageBox::Yes){
+        MAJParam();
+    }
+    else{
+        if(remove("sauvegarde_CooCoo.txt")!= 0)
+            std::cerr << "Fichier inexistant" << std::endl;
+    }
     delete ui;
 }
 
@@ -470,32 +478,28 @@ faire avec des getstring
 }*/
 
 void MainWindow::InitParam(){
-    std::ifstream fichier("sauvegarde_CooCoo", std::ios::in); // Ouverture en lecture du fichier de sauvegarde
+    std::ifstream fichier("sauvegarde_CooCoo.txt", std::ios::in); // Ouverture en lecture du fichier de sauvegarde
     if(fichier)
     {
-        std::cout<<"initialisation avec sauvegarde"<<std::endl;
+        QMessageBox::information(this, "Initialisation", "Initialisation des paramètres et de la pile avec la sauvegarde de la dernière utilisation de CooCoo.");
         // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), Pile
         std::string tmp, pile;
 
         getline(fichier, tmp);
         setComplexe(atoi(tmp.c_str()));
         ui->Complexes->setCurrentIndex(getComplexe());
-        std::cout<<getComplexe()<<std::endl;
 
         getline(fichier, tmp);
         setClavier(atoi(tmp.c_str()));
         ui->cClavier->setChecked(getClavier());
-        std::cout<<getClavier()<<std::endl;
 
         getline(fichier, tmp);
         setConstante(TypeConstante(atoi(tmp.c_str())));
         ui->TypeConstante->setCurrentIndex(getConstante());
-        std::cout<<getConstante()<<std::endl;
 
         getline(fichier, tmp);
         setAngle(TypeAngle(atoi(tmp.c_str())));
         ui->UniteAngle->setCurrentIndex(getAngle());
-        std::cout<<getAngle()<<std::endl;
 
         getline(fichier, pile);
         if(pile!="pile vide"){
@@ -518,15 +522,15 @@ void MainWindow::InitParam(){
         }
     }
     else{ // Sinon le fichier n'existait pas, on ouvre en écriture et on l'initialise avec les valeurs pas défaut
-        std::cout<<"pas de sauvegarde existante"<<std::endl;
+        QMessageBox::information(this, "Initialisation", "Il n'existe pas de fichier de sauvegarde.");
         std::ofstream fichier("sauvegarde_CooCoo.txt", std::ios::out);
 
         if(fichier)
         {   // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), Pile
             fichier<<0<<std::endl;
             setComplexe(0);
-            fichier<<1<<std::endl;
-            setClavier(1);
+            fichier<<0<<std::endl;
+            setClavier(0);
             fichier<<0<<std::endl;
             setConstante(TypeConstante(0));
             fichier<<0<<std::endl;
@@ -539,23 +543,23 @@ void MainWindow::InitParam(){
     }
     fichier.close();
 }
-/*
+
 void MainWindow::MAJParam(){
-    std::ofstream fichier("param.txt", std::ios::out | std::ios::trunc); //ouverture du fichier
+    std::ofstream fichier("sauvegarde_CooCoo.txt", std::ios::out | std::ios::trunc); //ouverture du fichier
 
     if(fichier) // si l'ouverture a réussi
     {
-        fichier<<complexe<<std::endl;
-        fichier<<typeDeCste<<std::endl;
-        fichier<<clavier<<std::endl;
-        fichier<<angle<<std::endl;
-        fichier<<"pile"<<std::endl;
-        //pa->Save(fichier);
+        fichier<<getComplexe()<<std::endl;
+        fichier<<getClavier()<<std::endl;
+        fichier<<getConstante()<<std::endl;
+        fichier<<getAngle()<<std::endl;
+        fichier<<"pile vide"<<std::endl; //sauvegarde de la pile
         fichier.close();
     }
     else // sinon
-        cerr << "Erreur à l'ouverture !" << endl;
-}*/
+        std::cerr << "Erreur à l'ouverture !" << std::endl;
+}
+
 /*
 // Fonctions post commit de calcul
 void MainWindow::calcul_plus()
