@@ -33,6 +33,7 @@ HEADERS  += mainwindow.h \
     constanteexp.h \
     constante.h \
     complexe.h \
-    fabriquedonnee.h
+    fabriquedonnee.h \
+    gardien.h
 
 FORMS    += mainwindow.ui
