@@ -1,6 +1,11 @@
 #ifndef EXCEPTIONCOOCOO_H
 #define EXCEPTIONCOOCOO_H
 
+/*!
+* \file exceptionCooCoo.h
+* \author Letellier/Yassine
+*/
+
 #include <QString>
 #include <iostream>
 

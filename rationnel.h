@@ -1,6 +1,11 @@
 #ifndef RATIONNEL_H
 #define RATIONNEL_H
 
+/*!
+* \file rationnel.h
+* \author Letellier/Yassine
+*/
+
 #include "entier.h"
 
 class Rationnel : public Constante

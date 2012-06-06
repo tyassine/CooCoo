@@ -1,6 +1,11 @@
 #ifndef ENTIER_H
 #define ENTIER_H
 
+/*!
+* \file entier.h
+* \author Letellier/Yassine
+*/
+
 #include "constante.h"
 
 class Entier : public Constante

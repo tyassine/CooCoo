@@ -5,7 +5,9 @@ Pile* Pile::instance = 0;
 
 Pile::~Pile()
 {
-    // Faire suppression propre
+    for(unsigned int i=0; i<sommet; ++i)
+        delete tab[i];
+    delete[] tab;
 }
 
 
@@ -22,24 +24,44 @@ void Pile::libereInstance()
 
 void Pile::push(Donnee* aDonnee)
 {
-    if ( (sommet+1) == nbMax )  // Pile pleine
+    if ( pilePleine() )  // Pile pleine
     {
-        Donnee** newtab = new Donnee*[nbMax+10];
-        for (unsigned int i=0; i<sommet; i++) newtab[i] = tab[i];
         nbMax += 10;
+        Donnee** newtab = new Donnee*[nbMax];
+        for (unsigned int i=0; i<sommet; i++) newtab[i] = tab[i];
+
         delete[] tab;
         tab = newtab;
     }
-    sommet++;
     tab[sommet] = aDonnee;
+    sommet++;
 }
 
 Donnee* Pile::pop() const
 {
-    if (sommet != -1)   // La pile n'est pas vide
+    if (!pileVide())   // La pile n'est pas vide
     {
         sommet--;
-        return tab[sommet+1];
+        return tab[sommet];
     }
     // Sinon, glisser une exception?
+}
+
+
+bool Pile::pileVide()
+{
+    return(sommet==0);
+}
+
+bool Pile::pilePleine()
+{
+    return(sommet==max);
+}
+
+void Pile::viderPile(){
+    if(!pileVide()){
+        for(unsigned int i=0; i<sommet; ++i)
+            delete tab[i];
+        sommet=0;
+    }
 }

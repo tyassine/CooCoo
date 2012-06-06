@@ -1,6 +1,11 @@
 #ifndef FABRIQUEDONNEE_H
 #define FABRIQUEDONNEE_H
 
+/*!
+* \file fabriquedonne.h
+* \author Letellier/Yassine
+*/
+
 #include "complexe.h"
 #include "rationnel.h"
 #include "reel.h"

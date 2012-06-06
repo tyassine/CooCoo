@@ -1,6 +1,12 @@
 #ifndef CONSTANTEEXP_H
 #define CONSTANTEEXP_H
 
+/*!
+* \file constanteExp.h
+* \brief definition de la classe des constantes expression qui herite de la classe Donnee
+* \author Letellier/Yassine
+*/
+
 #include "donnee.h"
 
 class ConstanteExp : public Donnee

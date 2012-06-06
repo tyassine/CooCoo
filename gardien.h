@@ -20,8 +20,6 @@ class Pile;
 
 class gardien
 {
-    int currentStack;/*!< Position de la Pile actuelle*/
-    QVector <Pile> tabPile;/*!< Vector de pile*/
 
 public:
     gardien();

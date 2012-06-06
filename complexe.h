@@ -1,6 +1,11 @@
 #ifndef COMPLEXE_H
 #define COMPLEXE_H
 
+/*!
+* \file complexe.h
+* \author Letellier/Yassine
+*/
+
 #include "donnee.h"
 #include <sstream>
 

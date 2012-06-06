@@ -1,6 +1,11 @@
 #ifndef REEL_H
 #define REEL_H
 
+/*!
+* \file reel.h
+* \author Letellier/Yassine
+*/
+
 #include "constante.h"
 
 class Reel : public Constante

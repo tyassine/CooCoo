@@ -1,6 +1,11 @@
 #ifndef DONNEE_H
 #define DONNEE_H
 
+/*!
+* \file donnee.h
+* \author Letellier/Yassine
+*/
+
 #include <QString>
 #include <QRegExp>
 

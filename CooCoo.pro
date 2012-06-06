@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     constante.cpp \
     complexe.cpp \
     fabriquedonnee.cpp \
-    slotsPushButton.cpp
+    slotsPushButton.cpp \
+    gardien.cpp
 
 HEADERS  += mainwindow.h \
     exceptionCooCoo.h \

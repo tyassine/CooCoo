@@ -1,6 +1,11 @@
 #ifndef CONSTANTE_H
 #define CONSTANTE_H
 
+/*!
+* \file constante.h
+* \author Letellier/Yassine
+*/
+
 #include "donnee.h"
 
 // ABSTRAITE
