@@ -5,10 +5,10 @@
 
 class ConstanteExp : public Donnee
 {
-    string chaine;
+    QString chaine;
 public:
-    ConstanteExp(const string& aString) : chaine(aString) {}
-    virtual const string afficher() const {return chaine;}
+    ConstanteExp(const QString& aQString) : chaine(aQString) {}
+    virtual QString toQString() const {return chaine;}
 };
 
 #endif // CONSTANTEEXP_H

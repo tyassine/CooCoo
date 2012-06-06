@@ -1,7 +1,7 @@
 #ifndef DONNEE_H
 #define DONNEE_H
 
-#include <string>
+#include <QString>
 
 using namespace std;
 
@@ -11,7 +11,7 @@ class Donnee
 {
 public:
     Donnee();
-    virtual const string afficher() const = 0; // Définit ce qui va être lu par l'utilisateur
+    virtual QString toQString() const = 0; // Méthode virtuelle pure, redéfinie à chaque fois, permet la conversion de la valeur en QString
 };
 
 #endif // DONNEE_H

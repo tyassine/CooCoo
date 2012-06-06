@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     donnee.cpp \
     constanteexp.cpp \
     constante.cpp \
-    complexe.cpp
+    complexe.cpp \
+    fabriquedonnee.cpp
 
 HEADERS  += mainwindow.h \
     exceptionCooCoo.h \
@@ -30,6 +31,7 @@ HEADERS  += mainwindow.h \
     donnee.h \
     constanteexp.h \
     constante.h \
-    complexe.h
+    complexe.h \
+    fabriquedonnee.h
 
 FORMS    += mainwindow.ui

@@ -1,9 +1,9 @@
 #include "entier.h"
 #include <sstream>
 
-const string Entier::afficher() const
+QString Entier::toQString() const
 {
-    ostringstream oss;
-    oss << valeur;
-    return oss.str();
+    QString res;
+    res.setNum(valeur);
+    return res;
 }

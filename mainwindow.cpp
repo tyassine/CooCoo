@@ -41,10 +41,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     // Connections slot/signaux des boutons des paramètres
     QObject::connect(ui->cClavier, SIGNAL(toggled(bool)), this, SLOT(on_clavier(bool)));
-    QObject::connect(ui->NbElementPile, SIGNAL(valueChanged(int)), this, SLOT(on_nbPile(bool)));
-    QObject::connect(ui->Complexes, SIGNAL(currentIndexChanged(int)), this, SLOT(on_complexe()));
-    QObject::connect(ui->UniteAngle, SIGNAL(currentIndexChanged(int)), this, SLOT(on_angle()));
-    QObject::connect(ui->TypeConstante, SIGNAL(currentIndexChanged(int)), this, SLOT(on_constante()));
+    QObject::connect(ui->NbElementPile, SIGNAL(valueChanged(int)), this, SLOT(on_nbPile(int)));
+    QObject::connect(ui->Complexes, SIGNAL(currentIndexChanged(int)), this, SLOT(on_complexe(int)));
+    QObject::connect(ui->UniteAngle, SIGNAL(currentIndexChanged(int)), this, SLOT(on_angle(int)));
+    QObject::connect(ui->TypeConstante, SIGNAL(currentIndexChanged(int)), this, SLOT(on_constante(int)));
     QObject::connect(ui->actionAnnuler, SIGNAL(triggered()), this, SLOT(on_Annuler_triggered()));
     QObject::connect(ui->actionRetablir, SIGNAL(triggered()), this, SLOT(on_Retablir_triggered()));
     ui->actionAnnuler->setShortcut(QKeySequence("Ctrl+Z"));
@@ -201,19 +201,22 @@ void MainWindow::on_eval(){
 // Slots paramètres
 
 void MainWindow::on_clavier(bool checked){
-    if (checked)
+    if (checked){
         ui->Clavier->hide();
+    }
     else
         ui->Clavier->show();
+    setClavier(checked);
 }
 void MainWindow::on_Annuler_triggered(){
 }
 void MainWindow::on_Retablir_triggered(){
 }
 
-void MainWindow::on_complexe(){
-    if (ui->Complexes->currentIndex()==1){// complexes
-        if (ui->TypeConstante->currentIndex()==1){ // entiers
+void MainWindow::on_complexe(int c){
+    if (c==1){// complexes
+        setComplexe(1);
+        if (getConstante()==1){ // entiers
             refresh_complexe(ui);
         }
         else {//Reels & rationnels
@@ -221,7 +224,8 @@ void MainWindow::on_complexe(){
         }
     }
     else{ // non complexes
-        if (ui->TypeConstante->currentIndex()==0){//Entiers
+        setComplexe(0);
+        if (getConstante()==0){//Entiers
             refresh_entier(ui);
         }
         else {//Reels & rationnels
@@ -231,25 +235,35 @@ void MainWindow::on_complexe(){
 
 }
 
-void MainWindow::on_constante(){
+void MainWindow::on_constante(int c){
 
-    if (ui->TypeConstante->currentIndex()==0){//entiers
-        if (ui->Complexes->currentIndex()==1){//complexes
+    if (c==0){//entiers
+        setConstante(entier);
+        if (getComplexe()==1){//complexes
             refresh_complexe(ui);
         }
         else // entiers non complexes
             refresh_entier(ui);
     }
     else {//reels et rationnels
-        if (ui->Complexes->currentIndex()==1){//complexes
+        if (c==1)setConstante(rationnel);
+        else if (c==2) setConstante(reel);
+        if (getComplexe()==1){//complexes
             refresh_complexe(ui);
         }
         else //reels et rationnels non complexes
             refresh_reel_rationnel(ui);
     }
 }
-void MainWindow::on_angle(){}
-void MainWindow::on_nbPile(bool){}
+void MainWindow::on_angle(int a){
+    if (a==0)
+        setAngle(degre);
+    if (a==1)
+        setAngle(radian);
+    }
+void MainWindow::on_nbPile(int n){
+    setNbPile(n);
+}
 
 // slots operations sur pile
 void MainWindow::on_commit(){
@@ -452,21 +466,39 @@ void MainWindow::AffichageEcran(){
        /*TODO AFFICHER LES LIGNES ui->AffichagePile->
                 append(pile->GetVal(i));
 
-faire avec des getstring*//*
-}
+faire avec des getstring
+}*/
+
 void MainWindow::InitParam(){
-    std::ifstream fichier("sauvegarde_CooCoo", std::ios::in); // Ouverture en lecture du fichier de paramètres
-    if(fichier) // l'ouverture fonctionne -> on récupère les valeurs des paramètres
+    std::ifstream fichier("sauvegarde_CooCoo", std::ios::in); // Ouverture en lecture du fichier de sauvegarde
+    if(fichier)
     {
-        string tmp, pile;
+        std::cout<<"initialisation avec sauvegarde"<<std::endl;
+        // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), Pile
+        std::string tmp, pile;
+
         getline(fichier, tmp);
-        complexe=atoi(tmp.c_str());
-        getline(fichier, typeDeCste);
+        setComplexe(atoi(tmp.c_str()));
+        ui->Complexes->setCurrentIndex(getComplexe());
+        std::cout<<getComplexe()<<std::endl;
+
         getline(fichier, tmp);
-        clavier=atoi(tmp.c_str());
-        getline(fichier, angle);
+        setClavier(atoi(tmp.c_str()));
+        ui->cClavier->setChecked(getClavier());
+        std::cout<<getClavier()<<std::endl;
+
+        getline(fichier, tmp);
+        setConstante(TypeConstante(atoi(tmp.c_str())));
+        ui->TypeConstante->setCurrentIndex(getConstante());
+        std::cout<<getConstante()<<std::endl;
+
+        getline(fichier, tmp);
+        setAngle(TypeAngle(atoi(tmp.c_str())));
+        ui->UniteAngle->setCurrentIndex(getAngle());
+        std::cout<<getAngle()<<std::endl;
+
         getline(fichier, pile);
-        if(tmp_pile!="pile vide"){
+        if(pile!="pile vide"){
             while(getline(fichier, pile)){
                 QString* tmp2= new QString(pile.c_str());
 
@@ -479,33 +511,34 @@ void MainWindow::InitParam(){
                 else {Entier* c=new Entier(*tmp2); ps->Empiler(c); pa->Empiler(*tmp2);}
                 */
 
-            /*}
+            }
 
-            AffichageEcran();
+           // AffichageEcran();
 
         }
     }
     else{ // Sinon le fichier n'existait pas, on ouvre en écriture et on l'initialise avec les valeurs pas défaut
+        std::cout<<"pas de sauvegarde existante"<<std::endl;
         std::ofstream fichier("sauvegarde_CooCoo.txt", std::ios::out);
 
         if(fichier)
-        {
+        {   // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), Pile
             fichier<<0<<std::endl;
-            complexe=0;
-            fichier<<"entier"<<std::endl;
-            typeDeCste="entier";
+            setComplexe(0);
             fichier<<1<<std::endl;
-            clavier=1;
-            fichier<<"degre"<<std::endl;
-            angle="degres";
+            setClavier(1);
+            fichier<<0<<std::endl;
+            setConstante(TypeConstante(0));
+            fichier<<0<<std::endl;
+            setAngle(TypeAngle(0));
             fichier<<"pile vide"<<std::endl;
         }
         else
-            cerr << "Erreur à l'ouverture !" << endl;
+            std::cerr << "Erreur à l'ouverture !" << std::endl;
 
     }
     fichier.close();
-}*/
+}
 /*
 void MainWindow::MAJParam(){
     std::ofstream fichier("param.txt", std::ios::out | std::ios::trunc); //ouverture du fichier

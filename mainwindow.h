@@ -5,11 +5,12 @@
 #include <QStringListModel>
 #include <QKeyEvent>
 #include <QMessageBox>
+#include <QMetaEnum>
 #include <iostream>
 #include <cstdio>
 #include <fstream>
 #include <string>
-//#include "exceptionCooCoo.h"
+#include "exceptionCooCoo.h"
 
 
 namespace Ui {
@@ -19,7 +20,21 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+    Q_ENUMS(angle)
+
+
+private:
+    Ui::MainWindow *ui;
+    //QStack<int> *pile;
+    bool complexe; //0 pour non complexe et 1 pour complexe
+    bool clavier; //0 pour caché et 1 pour visible
+    enum TypeAngle {degre, radian};
+    TypeAngle angle;
+    enum TypeConstante {entier, rationnel, reel};
+    TypeConstante cste;
+    int nb_elem_affiche;
+
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -31,6 +46,36 @@ public:
     void calcul_moins();
     void calcul_mult();
     void keyPressEvent(QKeyEvent *);
+    void setAngle(TypeAngle a){
+        angle=a;
+    }
+    TypeAngle getAngle(){
+        return angle;
+    }
+    void setConstante(TypeConstante c){
+        cste=c;
+    }
+    TypeConstante getConstante(){
+        return cste;
+    }
+    bool getComplexe(){
+        return complexe;
+    }
+    void setComplexe(bool c){
+        complexe=c;
+    }
+    bool getClavier(){
+        return clavier;
+    }
+    void setClavier(bool c){
+        clavier=c;
+    }
+    int getNbPile(){
+        return nb_elem_affiche;
+    }
+    void setNbPile(int n){
+        nb_elem_affiche=n;
+    }
 
 /* TODO    signals:
         void pushStack_signal(const QString&);
@@ -74,10 +119,10 @@ private slots:
 
     // slots des paramètres
     void on_clavier(bool);
-    void on_nbPile(bool);
-    void on_complexe();
-    void on_angle();
-    void on_constante();
+    void on_nbPile(int);
+    void on_complexe(int);
+    void on_angle(int);
+    void on_constante(int);
 
     void on_Annuler_triggered();
     void on_Retablir_triggered();
@@ -111,15 +156,6 @@ private slots:
 
 
 
-
-private:
-    Ui::MainWindow *ui;
-    //QStack<int> *pile;
-    bool complexe; //0 pour non complexe et 1 pour complexe
-    std::string typeDeCste;
-    bool clavier; //0 pour caché et 1 pour visible
-    std::string angle;
-    int nb_elem_affiche;
 
 };
 
