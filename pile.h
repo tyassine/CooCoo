@@ -2,11 +2,17 @@
 #define PILE_H
 
 #include "donnee.h"
+//#include <QStack>
 
 // Design pattern Singleton
 
 // Je préfère faire ma propre pile plutôt que de réutiliser QStack, ça évite de lire la doc et de prendre connaissance de la tonne d'attributs et méthodes... Et ça fait réviser les piles :p
 // Et c'est plus sûr pour le Singleton
+
+
+// on peut faire
+//QStack<Donnee *> pile;
+//avec un singleton plutot sur la classe du "groupe de piles" si on traite les onglets
 
 class Pile
 {

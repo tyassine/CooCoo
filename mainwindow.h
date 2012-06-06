@@ -1,6 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+/*!
+* \file mainwindow.h
+* \brief Fenêtre principale
+* \author Letellier/Yassine
+*/
+
 #include <QMainWindow>
 #include <QStringListModel>
 #include <QKeyEvent>
