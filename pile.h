@@ -19,11 +19,18 @@ class Pile
     Pile(unsigned int n) : sommet(-1), nbMax(n), tab(new Donnee*[n]) {}
     Pile(const Pile&);
     void operator=(const Pile&);
-    //~Pile()
-    // Il faut depiler et empiler comme methodes
+    ~Pile();
+
 
 public:
+    static Pile& getInstance();
+    static void libereInstance();
+    void push(Donnee* aDonnee);
+    Donnee* pop() const;
 
+    // Il faut depiler et empiler comme methodes
+
+    // En profiter pour glisser un iterator?
 };
 
 #endif // PILE_H
