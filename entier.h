@@ -13,7 +13,11 @@ class Entier : public Constante
     int valeur;
 public:
     Entier(const QString& aQString ="0") : valeur(aQString.toInt()) {}
+
     virtual QString toQString() const;
+
+    int getValeur() const {return valeur;}
+    void setValeur(int aValeur) {valeur = aValeur;}
 
     /*
     virtual Donnee* operator+(Donnee & t);

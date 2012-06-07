@@ -13,7 +13,11 @@ class Reel : public Constante
     double valeur;
 public:
     Reel(const QString& aQString = "0") : valeur(aQString.toDouble()) {}
+
     virtual QString toQString() const;
+
+    double getValeur() const {return valeur;}
+    void setValeur(double aValeur) {valeur = aValeur;}
 
     /*
     virtual Donnee* operator+(Donnee & t);
