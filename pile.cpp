@@ -37,7 +37,7 @@ void Pile::push(Donnee* aDonnee)
     sommet++;
 }
 
-Donnee* Pile::pop() const
+Donnee* Pile::pop()
 {
     if (!pileVide())   // La pile n'est pas vide
     {
@@ -55,7 +55,7 @@ bool Pile::pileVide()
 
 bool Pile::pilePleine()
 {
-    return(sommet==max);
+    return(sommet==nbMax);
 }
 
 void Pile::viderPile(){

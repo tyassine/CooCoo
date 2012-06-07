@@ -4,7 +4,6 @@
 
 #include <QVector>
 #include <QStack>
-#include "type.h"
 
 /*!
 * \file gardien.h

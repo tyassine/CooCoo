@@ -16,7 +16,7 @@ using namespace std;
 class Donnee
 {
 public:
-    Donnee();
+    Donnee() {}
     virtual QString toQString() const = 0; // Méthode virtuelle pure, redéfinie à chaque fois, permet la conversion de la valeur en QString
 
     virtual Donnee* operator+(Donnee & t)=0;
@@ -25,7 +25,7 @@ public:
     virtual Donnee* operator-(Donnee & t)=0;
 
     virtual Donnee* pow(Donnee & t)=0;
-    virtual Donnee* mod(Donnee & t);
+    virtual Donnee* mod(Donnee & t)=0;
     virtual Donnee* sign()=0;
 
     virtual Donnee* sin()=0;
@@ -41,7 +41,7 @@ public:
     virtual Donnee* sqrt()=0;
     virtual Donnee* sqr()=0;
     virtual Donnee* cube()=0;
-    virtual Donnee* fact();
+    virtual Donnee* fact()=0;
     virtual Donnee* eval()=0;
 
     static bool isEntier(const QString& s){

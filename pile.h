@@ -27,20 +27,13 @@ class Pile
     unsigned int nbMax;/*!< Taille du tableau */
    // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
 
-    /**
-    * \fn bool pilePleine()
-    * \brief Fonction : Tester si la pile est vide
-    * \return true si la pile est vide et false si la pile est non-vide
-    */
-    bool pilePleine();
-
     // Constructeurs et destructeur en private pour interdire leur utilisation
     /**
     * \fn Pile(unsigned int n=10)
     * \brief Fonction : Créer une nouvelle instance de l'objet Pile
     * \param n taille initiale de la pile, optionnel
     */
-    Pile(unsigned int n=10) : sommet(0), nbMax(n), nbCur(0), tab(new Donnee*[n]) {}
+    Pile(unsigned int n=10) : sommet(0), nbMax(n), tab(new Donnee*[n]) {}
 
     /**
     * \fn Pile(const Pile& p)
@@ -76,12 +69,12 @@ public:
     void push(Donnee* aDonnee); //Estce que ça devrait pas être une référence?
 
     /**
-    * \fn Donnee* pop() const
+    * \fn Donnee* pop()
     * \brief Fonction : Dépiler la pile et renvoyer l'objet dépilé
     *
     * \return pointeur vers l'objet dépilé
     */
-    Donnee* pop() const; //Estce que ça devrait pas être une référence?
+    Donnee* pop(); //Estce que ça devrait pas être une référence?
 
     /**
     * \fn bool pileVide()
