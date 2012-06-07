@@ -31,6 +31,8 @@ public:
         QString res = pRe.toQString() + "$" + pIm.toQString();
         return res;
     }
+
+    /*
     virtual Donnee* operator+(Donnee & t);
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);
@@ -55,6 +57,7 @@ public:
     virtual Donnee* cube();
     virtual Donnee* fact();
     virtual Donnee* eval();
+    */
 
 };
 

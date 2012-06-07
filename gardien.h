@@ -3,7 +3,6 @@
 
 
 #include <QVector>
-#include <QStack>
 
 /*!
 * \file gardien.h

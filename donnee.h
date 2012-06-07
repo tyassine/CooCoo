@@ -19,6 +19,7 @@ public:
     Donnee() {}
     virtual QString toQString() const = 0; // Méthode virtuelle pure, redéfinie à chaque fois, permet la conversion de la valeur en QString
 
+    /*
     virtual Donnee* operator+(Donnee & t)=0;
     virtual Donnee* operator/(Donnee & t)=0;
     virtual Donnee* operator*(Donnee & t)=0;
@@ -44,6 +45,8 @@ public:
     virtual Donnee* fact()=0;
     virtual Donnee* eval()=0;
 
+    */
+
     static bool isEntier(const QString& s){
         QRegExp rx("^-?\\d+$");
         return s.contains (rx);
@@ -66,6 +69,8 @@ public:
         QRegExp rx("^-?\\d*(/|\\.)?\\$-?\\d*(/|\\.)?$");
         return s.contains (rx);
     }
+
+
 };
 
 #endif // DONNEE_H

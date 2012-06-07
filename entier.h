@@ -14,6 +14,8 @@ class Entier : public Constante
 public:
     Entier(const QString& aQString ="0") : valeur(aQString.toInt()) {}
     virtual QString toQString() const;
+
+    /*
     virtual Donnee* operator+(Donnee & t);
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);
@@ -38,7 +40,7 @@ public:
     virtual Donnee* cube();
     virtual Donnee* fact();
     virtual Donnee* eval();
-
+*/
 
 };
 
