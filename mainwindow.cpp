@@ -28,8 +28,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bDiv, SIGNAL(clicked()), this, SLOT(on_division()));
     QObject::connect(ui->bC, SIGNAL(clicked()), this, SLOT(on_effacer()));
     QObject::connect(ui->bCE, SIGNAL(clicked()), this, SLOT(on_effacer_el()));
-    QObject::connect(ui->bParD, SIGNAL(clicked()), this, SLOT(on_parenthese_droite()));
-    QObject::connect(ui->bParG, SIGNAL(clicked()), this, SLOT(on_parenthese_gauche()));
+    //QObject::connect(ui->bParD, SIGNAL(clicked()), this, SLOT(on_parenthese_droite()));
+    //QObject::connect(ui->bParG, SIGNAL(clicked()), this, SLOT(on_parenthese_gauche()));
     QObject::connect(ui->bDollar, SIGNAL(clicked()), this, SLOT(on_dollar()));
 
     // Connections slot/signaux des boutons des fonctions de la pile
@@ -111,6 +111,10 @@ void MainWindow::on_virgule(){
     ui->Afficheur->insert(".");
 }
 void MainWindow::on_espace(){
+    QString str = ui->Afficheur->text();
+    if (str.endsWith(" ", Qt::CaseInsensitive))
+        QMessageBox::warning(this, "Insertion d'espace", "Attention, il y a déjà un espace d'entré !");
+    else
     ui->Afficheur->insert(" ");
 }
 void MainWindow::on_addition(){
@@ -129,19 +133,27 @@ void MainWindow::on_effacer(){
     ui->Afficheur->clear();
 }
 void MainWindow::on_effacer_el(){
-    // TODO
+    QString aff = ui->Afficheur->text();
+    aff.chop(1);
+    ui->Afficheur->setText(aff);
+
 }
+/*
 void MainWindow::on_parenthese_gauche(){
       ui->Afficheur->insert("(");
 }
 void MainWindow::on_parenthese_droite(){
+    QString str = ui->Afficheur->text();
+    QRegExp rx("^($");
+    if (str.contains (rx))
+        QMessageBox::warning(this, "Insertion parenthese", "Attention, il faut ouvrir une parenthèse auparavant !");
       ui->Afficheur->insert(")");
-}
+}*/
 void MainWindow::on_dollar(){
-    if (ui->Complexes->currentIndex()==0){// complexes non autorisés
+   /* if (ui->Complexes->currentIndex()==0){// complexes non autorisés
         QMessageBox::warning(this, "Mode complexe", "Attention, le mode complexe doit être activé !");
     }
-    else
+    else*/
         ui->Afficheur->insert("$");
 }
 
@@ -324,12 +336,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Slash:
         on_division();
         break;
-    case Qt::Key_ParenLeft:
+    /*case Qt::Key_ParenLeft:
         on_parenthese_gauche();
         break;
     case Qt::Key_ParenRight:
         on_parenthese_droite();
-        break;
+        break;*/
     case Qt::Key_Dollar:
         on_dollar();
         break;
@@ -338,6 +350,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_C:
         on_effacer();
+        break;
+    case Qt::Key_Backspace:
+        on_effacer_el();
         break;
     }
 }
@@ -482,7 +497,7 @@ void MainWindow::InitParam(){
     if(fichier)
     {
         QMessageBox::information(this, "Initialisation", "Initialisation des paramètres et de la pile avec la sauvegarde de la dernière utilisation de CooCoo.");
-        // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), Pile
+        // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), NbElementAffichés, Pile
         std::string tmp, pile;
 
         getline(fichier, tmp);
@@ -500,6 +515,10 @@ void MainWindow::InitParam(){
         getline(fichier, tmp);
         setAngle(TypeAngle(atoi(tmp.c_str())));
         ui->UniteAngle->setCurrentIndex(getAngle());
+
+        getline(fichier, tmp);
+        setNbPile(atoi(tmp.c_str()));
+        ui->NbElementPile->setValue(getNbPile());
 
         getline(fichier, pile);
         if(pile!="pile vide"){
@@ -535,6 +554,9 @@ void MainWindow::InitParam(){
             setConstante(TypeConstante(0));
             fichier<<0<<std::endl;
             setAngle(TypeAngle(0));
+            fichier<<10<<std::endl;
+            setNbPile(10);
+            ui->NbElementPile->setValue(getNbPile());
             fichier<<"pile vide"<<std::endl;
         }
         else
@@ -552,7 +574,9 @@ void MainWindow::MAJParam(){
         fichier<<getComplexe()<<std::endl;
         fichier<<getClavier()<<std::endl;
         fichier<<getConstante()<<std::endl;
+        std::cout<<getConstante()<<std::endl;
         fichier<<getAngle()<<std::endl;
+        fichier<<getNbPile()<<std::endl;
         fichier<<"pile vide"<<std::endl; //sauvegarde de la pile
         fichier.close();
     }

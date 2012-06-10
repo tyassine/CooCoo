@@ -21,7 +21,7 @@ SOURCES += main.cpp\
     constante.cpp \
     complexe.cpp \
     fabriquedonnee.cpp \
-    gardien.cpp
+    memento.cpp
 
 HEADERS  += mainwindow.h \
     exceptionCooCoo.h \
@@ -34,6 +34,6 @@ HEADERS  += mainwindow.h \
     constante.h \
     complexe.h \
     fabriquedonnee.h \
-    gardien.h
+    memento.h
 
 FORMS    += mainwindow.ui

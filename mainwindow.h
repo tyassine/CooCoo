@@ -12,6 +12,7 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QMetaEnum>
+#include <QChar>
 #include <iostream>
 #include <cstdio>
 #include <fstream>
@@ -45,7 +46,6 @@ private:
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    //void AffichageEcran();
     void InitParam();
     void MAJParam();
 
@@ -112,8 +112,8 @@ private slots:
     void on_division();
     void on_effacer();
     void on_effacer_el();
-    void on_parenthese_droite();
-    void on_parenthese_gauche();
+    //void on_parenthese_droite();
+    //void on_parenthese_gauche();
     void on_dollar();
 
     // slots des opérations sur la pile

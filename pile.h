@@ -6,8 +6,9 @@
 * \author Letellier/Yassine
 */
 
+#include"memento.h"
 #include "donnee.h"
-//#include <QStack>
+
 
 // Design pattern Singleton
 
@@ -23,9 +24,9 @@ class Pile
 {
     static Pile* instance;
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
-    unsigned int sommet;
-    unsigned int nbMax;/*!< Taille du tableau */
-   // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
+    unsigned int sommet;/*!< Nombre d'éléments dans le tableau */
+    unsigned int nbMax;/*!< Taille maximale du tableau */
+    // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
 
     // Constructeurs et destructeur en private pour interdire leur utilisation
     /**
@@ -97,6 +98,19 @@ public:
     * \brief Fonction : Vider la pile
     */
     void viderPile();
+
+
+    Memento *createMemento()
+       {
+           return new Memento(tab, sommet, nbMax);
+       }
+
+   void reinstateMemento(Memento *mem)
+   {
+       tab = mem->tabCur;
+       sommet = mem->sommetCur;
+       nbMax = mem->maxCur;
+   }
 
     // En profiter pour glisser un iterator? oui
 };
