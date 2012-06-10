@@ -5,7 +5,7 @@ Pile* Pile::instance = 0;
 
 Pile::~Pile()
 {
-    for(unsigned int i=0; i<sommet; ++i)
+    for(unsigned int i=0; i<=sommet; ++i)
         delete tab[i];
     delete[] tab;
 }
@@ -13,7 +13,7 @@ Pile::~Pile()
 
 Pile& Pile::getInstance()
 {
-    if (!instance) instance = new Pile(100);
+    if (!instance) instance = new Pile;
     return *instance;
 }
 
@@ -24,11 +24,11 @@ void Pile::libereInstance()
 
 void Pile::push(Donnee* aDonnee)
 {
-    if ( pilePleine() )  // Pile pleine
+    if ( pilePleine() )
     {
         nbMax += 10;
         Donnee** newtab = new Donnee*[nbMax];
-        for (unsigned int i=0; i<sommet; i++) newtab[i] = tab[i];
+        for (unsigned int i=0; i<=sommet; i++) newtab[i] = tab[i];
 
         delete[] tab;
         tab = newtab;
@@ -39,10 +39,10 @@ void Pile::push(Donnee* aDonnee)
 
 Donnee* Pile::pop()
 {
-    if (!pileVide())   // La pile n'est pas vide
+    if (!pileVide())
     {
         sommet--;
-        return tab[sommet];
+        return tab[sommet+1];
     }
     // Sinon, glisser une exception?
 }
@@ -50,18 +50,18 @@ Donnee* Pile::pop()
 
 bool Pile::pileVide()
 {
-    return(sommet==0);
+    return(sommet==-1);
 }
 
 bool Pile::pilePleine()
 {
-    return(sommet==nbMax);
+    return(sommet==nbMax-1);
 }
 
 void Pile::viderPile(){
     if(!pileVide()){
-        for(unsigned int i=0; i<sommet; ++i)
+        for(unsigned int i=0; i<=sommet; ++i)
             delete tab[i];
-        sommet=0;
+        sommet=-1;
     }
 }

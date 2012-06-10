@@ -34,7 +34,7 @@ class Pile
     * \brief Fonction : Créer une nouvelle instance de l'objet Pile
     * \param n taille initiale de la pile, optionnel
     */
-    Pile(unsigned int n=10) : sommet(0), nbMax(n), tab(new Donnee*[n]) {}
+    Pile(unsigned int n=100) : sommet(-1), nbMax(n), tab(new Donnee*[n]) {}
 
     /**
     * \fn Pile(const Pile& p)
@@ -65,9 +65,9 @@ public:
     * \fn void push(Donnee* aDonnee);
     * \brief Fonction : Empiler un objet sur la pile
     *
-    * \param pointeur const vers l'objet à empiler
+    * \param pointeur vers l'objet à empiler
     */
-    void push(Donnee* aDonnee); //Estce que ça devrait pas être une référence?
+    void push(Donnee* aDonnee);
 
     /**
     * \fn Donnee* pop()
@@ -75,7 +75,7 @@ public:
     *
     * \return pointeur vers l'objet dépilé
     */
-    Donnee* pop(); //Estce que ça devrait pas être une référence?
+    Donnee* pop();
 
     /**
     * \fn bool pileVide()
