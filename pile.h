@@ -24,7 +24,7 @@ class Pile
 {
     static Pile* instance;
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
-    unsigned int sommet;/*!< Nombre d'éléments dans le tableau */
+    unsigned int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
     unsigned int nbMax;/*!< Taille maximale du tableau */
     // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
 
@@ -59,23 +59,26 @@ class Pile
 
 
 public:
-    static Pile& getInstance();
+    Donnee** getTab() const {return tab;}
+    int getSommet() const {return sommet;}
+
+    static Pile* getInstance();
     static void libereInstance();
     /**
-    * \fn void push(Donnee* aDonnee);
+    * \fn void empiler(Donnee* aDonnee);
     * \brief Fonction : Empiler un objet sur la pile
     *
     * \param pointeur vers l'objet à empiler
     */
-    void push(Donnee* aDonnee);
+    void empiler(Donnee* aDonnee);
 
     /**
-    * \fn Donnee* pop()
+    * \fn Donnee* depiler()
     * \brief Fonction : Dépiler la pile et renvoyer l'objet dépilé
     *
     * \return pointeur vers l'objet dépilé
     */
-    Donnee* pop();
+    Donnee* depiler();
 
     /**
     * \fn bool pileVide()

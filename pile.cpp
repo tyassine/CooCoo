@@ -11,10 +11,10 @@ Pile::~Pile()
 }
 
 
-Pile& Pile::getInstance()
+Pile *Pile::getInstance()
 {
     if (!instance) instance = new Pile;
-    return *instance;
+    return instance;
 }
 
 void Pile::libereInstance()
@@ -22,7 +22,7 @@ void Pile::libereInstance()
     if (instance) delete instance;
 }
 
-void Pile::push(Donnee* aDonnee)
+void Pile::empiler(Donnee* aDonnee)
 {
     if ( pilePleine() )
     {
@@ -37,7 +37,7 @@ void Pile::push(Donnee* aDonnee)
     sommet++;
 }
 
-Donnee* Pile::pop()
+Donnee* Pile::depiler()
 {
     if (!pileVide())
     {

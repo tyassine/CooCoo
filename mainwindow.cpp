@@ -1,12 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 // DANS LA FONCTION EMPILER IL FAUT EMPILER TORATIONNEL(S), TOREEL(S)...
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     this->grabKeyboard();
-   // pile(new Pile()); d'abord implementer la pile
+    instancePile = Pile::getInstance();
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
+
+
 
     // Connections slot/signaux des boutons du clavier
     QObject::connect(ui->b0, SIGNAL(clicked()), this, SLOT(on_0()));
@@ -275,12 +278,14 @@ void MainWindow::on_angle(int a){
 
 void MainWindow::on_nbPile(int n){
     setNbPile(n);
+    refresh();
 }
 
-// slots operations sur pile
+
 void MainWindow::on_commit(){
-    //ici il faut empiler
+    parser();
     ui->Afficheur->clear();
+    refresh();
 }
 
 //reimplémentation keyPressEvent pour le clavier
@@ -582,6 +587,44 @@ void MainWindow::MAJParam(){
     }
     else // sinon
         std::cerr << "Erreur à l'ouverture !" << std::endl;
+}
+
+void MainWindow::parser()
+{
+    QString tmp = ui->Afficheur->text();
+    Donnee* objetTerme;
+
+    QStringList listeTermes = tmp.split(" ");
+    // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
+    for (unsigned int i=0; i<listeTermes.size(); i++)
+    {
+        // détecter nombre ou opérateur, coucou Perrine <3
+        objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
+        instancePile->empiler(objetTerme);
+    }
+}
+
+
+
+void MainWindow::refresh()
+{
+    ui->AffichagePile->clear();
+    Donnee** tab = instancePile->getTab();
+    int taillePileInterne = instancePile->getSommet() + 1;
+    int limite = min(nb_elem_affiche, taillePileInterne);
+
+    if (!(instancePile->pileVide()))
+    {
+        QMessageBox::information(this, "blabla", tab[0]->toQString());
+
+    }
+/*
+    for (unsigned int i=0; i<limite; i++)
+        ui->AffichagePile->addItem(tab[i]->toQString());*/
+    /*
+    delete[] tab;
+    delete tab;
+    */
 }
 
 /*

@@ -9,6 +9,7 @@
 #include "complexe.h"
 #include "rationnel.h"
 #include "reel.h"
+#include "constanteexp.h"
 #include "exceptionCooCoo.h"
 #include <QString>
 
@@ -29,25 +30,8 @@ public:
     */
     static Donnee* creerDonnee(const QString& terme);
 
-    /*
-    Deuxième fonction... Y'a peut etre mieux?:
-    - récupère la valeur sous forme de string (pas le choix, car on ne connait pas son type à l'avance!)
-         ===> ex rationnel : impossible à passer autrement qu'en string ?!
-    - récupère l'entier décrivant le type final (correspondance liste déroulante)
-        0 ==> entier
-        1 ==> rationnel
-        2 ==> réel
-    - récupère un booléen précisant si l'on est en complexe ou non
-    - détecte le type via les fonctions isEntier, isReel... comme dans la première fonction
-    - le convertit vers le type désiré (encore un passage string ==> num ==> string?)
-    - construit l'objet et le renvoie
-    */
 
-    static Donnee* creerDonnee(const QString& valeur, int typeFinal, bool complexeActive);
-
-    // Méthodes de conversion, appelées dans creerDonnee et pourquoi pas ailleurs, plus tard...
-
-    static double int2double(int x);
+    // Autres : VOIR ORGANISATION FEUILLE !
 
 
 };
