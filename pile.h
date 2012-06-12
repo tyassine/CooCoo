@@ -26,6 +26,7 @@ class Pile
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
     unsigned int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
     unsigned int nbMax;/*!< Taille maximale du tableau */
+    Gardien* gard;
     // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
 
     // Constructeurs et destructeur en private pour interdire leur utilisation
@@ -97,12 +98,30 @@ public:
     bool pilePleine();
 
     /**
-    * \fn void viderPile()
+    * \fn void clear()
     * \brief Fonction : Vider la pile
     */
-    void viderPile();
+    void clear();
+
+    Pile& cloner() const;
+    void swap(unsigned int, unsigned int);
+    void sum(unsigned int);
+    void mean(unsigned int);
+    void dup();
+    void drop();
+
+
+    void setgardien(Gardien* g)
+    {
+        gard=g;
+    }
+    Gardien* getgardien()const
+    {
+        return gard;
+    }
 
 /*
+
     Memento *createMemento()
        {
            return new Memento(tab, sommet, nbMax);
@@ -111,8 +130,6 @@ public:
    void reinstateMemento(Memento *mem)
    {
        tab = mem->tabCur;
-       sommet = mem->sommetCur;
-       nbMax = mem->maxCur;
    }
 */
     // En profiter pour glisser un iterator? oui

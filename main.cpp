@@ -19,6 +19,5 @@ int main(int argc, char *argv[])
     fenetre.InitParam();
     fenetre.show();
 
-
     return CooCoo.exec();
 }

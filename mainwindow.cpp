@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bMean, SIGNAL(clicked()), this, SLOT(on_mean()));
     QObject::connect(ui->bDrop, SIGNAL(clicked()), this, SLOT(on_drop()));
     QObject::connect(ui->bClear, SIGNAL(clicked()), this, SLOT(on_clear()));
+    ui->bClear->setShortcut(QKeySequence("Ctrl+C"));
 
     // Connections slot/signaux des boutons des paramètres
     QObject::connect(ui->cClavier, SIGNAL(toggled(bool)), this, SLOT(on_clavier(bool)));
@@ -136,22 +137,16 @@ void MainWindow::on_effacer(){
     ui->Afficheur->clear();
 }
 void MainWindow::on_effacer_el(){
-    QString aff = ui->Afficheur->text();
-    aff.chop(1);
-    ui->Afficheur->setText(aff);
+    if (ui->Afficheur->text().isEmpty())
+        on_drop();
+    else{
+        QString aff = ui->Afficheur->text();
+        aff.chop(1);
+        ui->Afficheur->setText(aff);
+    }
 
 }
-/*
-void MainWindow::on_parenthese_gauche(){
-      ui->Afficheur->insert("(");
-}
-void MainWindow::on_parenthese_droite(){
-    QString str = ui->Afficheur->text();
-    QRegExp rx("^($");
-    if (str.contains (rx))
-        QMessageBox::warning(this, "Insertion parenthese", "Attention, il faut ouvrir une parenthèse auparavant !");
-      ui->Afficheur->insert(")");
-}*/
+
 void MainWindow::on_dollar(){
    /* if (ui->Complexes->currentIndex()==0){// complexes non autorisés
         QMessageBox::warning(this, "Mode complexe", "Attention, le mode complexe doit être activé !");
@@ -283,9 +278,13 @@ void MainWindow::on_nbPile(int n){
 
 
 void MainWindow::on_commit(){
+    if (ui->Afficheur->text().isEmpty())
+        on_dup();
+    else{
     parser();
     ui->Afficheur->clear();
     refresh();
+    }
 }
 
 //reimplémentation keyPressEvent pour le clavier

@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <QMetaEnum>
 #include <QChar>
+#include <QString>
 #include <iostream>
 #include <cstdio>
 #include <fstream>
