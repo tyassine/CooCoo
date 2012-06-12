@@ -11,29 +11,27 @@
 * \brief Classe representant un gardien
 */
 
+#include <QVector>
 #include "donnee.h"
-/*
-class Pile;
 
+class Pile;
 class Memento
 {
 
     public:
-        Memento(Pile tabCur);
+        Memento(Pile current);
 
     private:
         friend class Pile;
-        Pile* tabCur;
+        Pile* current;
 
+};
 
 class Gardien
 {
     protected:
-        Pile *receveur;
-        static Gardien *gardienList[20];
-        static Memento *mementoList[20];
-        static int numGardien;
-        static int max;
+        QVector <Pile> tabPile;
+        int curPile;
 
     public:
         Gardien();
@@ -43,7 +41,6 @@ class Gardien
 
 };
 
-*/
 
 
 #endif // MEMENTO_H

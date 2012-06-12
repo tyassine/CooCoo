@@ -1,14 +1,12 @@
 #include "rationnel.h"
 #include <sstream>
 
-Rationnel::Rationnel(const QString& aQString)
+Rationnel::Rationnel(const QString& aNum,const QString& aDenum)
 {
-    // En attendant de trouver comment parser, je mets des valeurs factices pour pouvoir compiler
-    ent1 = Entier("0");
-    ent2 = Entier("1");
+
+    num = Entier(aNum);
+    denum = Entier(aDenum);
 }
-
-
 
 
 QString Rationnel::toQString() const

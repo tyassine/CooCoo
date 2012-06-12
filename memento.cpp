@@ -1,36 +1,37 @@
 #include "memento.h"
 #include "pile.h"
-/*
-Gardien::Gardien(Pile * receveur, QAction action )
+
+
+Gardien::Gardien()
 {
+    curPile = -1;
 }
-Command(Number *receiver, Action action)
-    {
-        _receiver = receiver;
-        _action = action;
-    }
 
 void static Gardien::undo()
    {
-       if (numGardien <= 0)
-       {
-           throw ExceptionCooCoo("Vous ne pouvez pas Annuler d'avantage");
-           return 0;
-       }
-       gardienList[numGardien - 1]->receiver->reinstateMemento(mementoList[numGardien - 1]);
-       numGardien--;
-       return &tabCur
+    if(curPile > 0)
+        {
+         curPile -= 1;
+         return &tabPile.at(curPile).clone();
+        }
+        return;
    }
 
 void static Gardien::redo()
 {
-   if (numGardien > highWater)
-   {
-       throw ExceptionCooCoo("Vous ne pouvez pas Retablir d'avantage");
-       return ;
-   }
-   (gardienList[numGardien]->receiver->*(gardienList[numGardien]->action))();
-   numGardien++;
+    if(curPile >= 0 && curPile < tabPile.size()-1)
+        {
+         curPile += 1;
+         return &tabPile.at(curPile).clone();
+        }
+        return 0;
 }
-*/
+
+void Gardien::execute(Pile p){
+    tabPile.append(p.clone);
+    curPile++;
+
+}
+
+
 
