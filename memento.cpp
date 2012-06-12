@@ -1,20 +1,25 @@
 #include "memento.h"
 #include "pile.h"
-
-Gardien::Gardien()
+/*
+Gardien::Gardien(Pile * receveur, QAction action )
 {
-
 }
+Command(Number *receiver, Action action)
+    {
+        _receiver = receiver;
+        _action = action;
+    }
 
-static void Gardien::undo()
+void static Gardien::undo()
    {
-       if (numGardien == 0)
+       if (numGardien <= 0)
        {
            throw ExceptionCooCoo("Vous ne pouvez pas Annuler d'avantage");
-           return ;
+           return 0;
        }
        gardienList[numGardien - 1]->receiver->reinstateMemento(mementoList[numGardien - 1]);
        numGardien--;
+       return &tabCur
    }
 
 void static Gardien::redo()
@@ -27,11 +32,5 @@ void static Gardien::redo()
    (gardienList[numGardien]->receiver->*(gardienList[numGardien]->action))();
    numGardien++;
 }
-
-
-/*
-
-
-
-void gardien::addMemento(Pile pile){
 */
+

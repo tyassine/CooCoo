@@ -99,7 +99,7 @@ public:
     */
     void viderPile();
 
-
+/*
     Memento *createMemento()
        {
            return new Memento(tab, sommet, nbMax);
@@ -111,7 +111,7 @@ public:
        sommet = mem->sommetCur;
        nbMax = mem->maxCur;
    }
-
+*/
     // En profiter pour glisser un iterator? oui
 };
 
