@@ -208,6 +208,7 @@ void MainWindow::on_pow(){
 void MainWindow::on_eval(){
     // ici il faut empiler =)
      ui->Afficheur->clear();
+     refresh();
 }
 
 // Slots paramètres
