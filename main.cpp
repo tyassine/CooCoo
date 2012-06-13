@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     MainWindow fenetre;
     fenetre.InitParam();
     fenetre.show();
+    fenetre.refresh();
 
     return CooCoo.exec();
 }

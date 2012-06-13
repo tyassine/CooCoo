@@ -31,8 +31,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bDiv, SIGNAL(clicked()), this, SLOT(on_division()));
     QObject::connect(ui->bC, SIGNAL(clicked()), this, SLOT(on_effacer()));
     QObject::connect(ui->bCE, SIGNAL(clicked()), this, SLOT(on_effacer_el()));
-    //QObject::connect(ui->bParD, SIGNAL(clicked()), this, SLOT(on_parenthese_droite()));
-    //QObject::connect(ui->bParG, SIGNAL(clicked()), this, SLOT(on_parenthese_gauche()));
     QObject::connect(ui->bDollar, SIGNAL(clicked()), this, SLOT(on_dollar()));
 
     // Connections slot/signaux des boutons des fonctions de la pile
@@ -349,7 +347,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Dollar:
         on_dollar();
         break;
-    case Qt::Key_Enter:
+    case Qt::Key_Return:
         on_commit();
         break;
     case Qt::Key_C:
@@ -361,51 +359,32 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
-/*
-void MainWindow::on_commit(){
-    QString s = ui->Afficheur->text();
-    bool arret=0;
-    /*list = st.split(" ");
-    QStringListModel * modele = new QStringListModel(list);
-    ui->AffichagePile->setModel(modele);
-    ui->Afficheur->clear(); // c'est pas ça qu'il faut faire*/
-/*    QRegExp exp("'*'");
-    exp.setPatternSyntax(QRegExp::Wildcard);
-    if(exp.exactMatch(s)){pile->Empiler(new Expression(s));}
-    else if(s.contains("$")){
-        if(!complexe){
-            arret=1;
-            std::cout<<"Le mode complexe n'est pas activé"<<std::endl;
-        }
-        else{
-            Complexe* c=ToComplexe(s);
-            pile->Empiler(c);
-        }
-    }
-    else if(s=="+"){arret=1; calcul_plus();}
-    else if(s=="-"){arret=1; calcul_moins();}
-    else if(s=="*"){arret=1; calcul_mult();}
-
-    if(!arret){
-        try {pile->Empiler(s);}
-        catch(ExceptionCooCoo e){e.GetInfos();}
-    }
-
-    ui->Afficheur->clear();
-    AffichageEcran();
-}
-*/
 void MainWindow::on_swap(){
+    ui->Afficheur->insert("SWAP");
+    instancePile->swap(1,2);
+    refresh();
 }
 void MainWindow::on_sum(){
+    ui->Afficheur->insert("SUM");
+    //instancePile->sum(10);
+    refresh();
 }
 void MainWindow::on_dup(){
+    instancePile->dup();
+    refresh();
 }
 void MainWindow::on_mean(){
+    ui->Afficheur->insert("MEAN");
+    //instancePile->mean(10);
+    refresh();
 }
 void MainWindow::on_clear(){
+    instancePile->clear();
+    refresh();
 }
 void MainWindow::on_drop(){
+    instancePile->drop();
+    refresh();
 }
 
 MainWindow::~MainWindow(){

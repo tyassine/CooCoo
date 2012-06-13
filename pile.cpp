@@ -107,13 +107,15 @@ void Pile::mean(const unsigned int x){
             empiler(res);
     }
 }
+*/
 
 void Pile::dup(){
     empiler(tab[sommet]);
 }
+
 void Pile::drop(){
     if(!pileVide()){
         depiler();
     }
 }
-*/
+
