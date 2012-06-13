@@ -13,7 +13,7 @@
 
 #include <QVector>
 #include "donnee.h"
-
+/*
 class Pile;
 class Memento
 {
@@ -41,6 +41,6 @@ class Gardien
 
 };
 
-
+*/
 
 #endif // MEMENTO_H

@@ -24,9 +24,9 @@ class Pile
 {
     static Pile* instance;
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
-    unsigned int sommet;/*!< Nombre d'éléments dans le tableau */
+    unsigned int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
     unsigned int nbMax;/*!< Taille maximale du tableau */
-    Gardien* gard;
+    //Gardien* gard;
     // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
 
     // Constructeurs et destructeur en private pour interdire leur utilisation
@@ -60,7 +60,10 @@ class Pile
 
 
 public:
-    static Pile& getInstance();
+    Donnee** getTab() const {return tab;}
+    int getSommet() const {return sommet;}
+
+    static Pile* getInstance();
     static void libereInstance();
     /**
     * \fn void empiler(Donnee* aDonnee);
@@ -107,7 +110,7 @@ public:
     void dup();
     void drop();
 
-
+/*
     void setgardien(Gardien* g)
     {
         gard=g;
@@ -115,7 +118,7 @@ public:
     Gardien* getgardien()const
     {
         return gard;
-    }
+    }*/
 
 /*
 

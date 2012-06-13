@@ -11,10 +11,10 @@ Pile::~Pile()
 }
 
 
-Pile& Pile::getInstance()
+Pile *Pile::getInstance()
 {
     if (!instance) instance = new Pile;
-    return *instance;
+    return instance;
 }
 
 void Pile::libereInstance()
@@ -65,7 +65,7 @@ void Pile::clear(){
         sommet=-1;
     }
 }
-
+/*
 Pile& Pile::cloner() const{
     Pile *p=new Pile(nbMax);
     for(int i=0; i<sommet; i++){
@@ -74,7 +74,7 @@ Pile& Pile::cloner() const{
     p->setgardien(this->getgardien());
     return *p;
 }
-
+*/
 
 void Pile::swap(const unsigned int x, const unsigned int y){
     if (x < this->sommet && y < this->sommet){

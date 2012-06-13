@@ -20,6 +20,7 @@
 #include <string>
 #include "exceptionCooCoo.h"
 #include "pile.h"
+#include "fabriquedonnee.h"
 
 
 namespace Ui {
@@ -34,7 +35,7 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
-    //Pile::instance pile;
+    Pile* instancePile;
     bool complexe; //0 pour non complexe et 1 pour complexe
     bool clavier; //1 pour caché et 0 pour visible
     enum TypeAngle {DEGRE, RADIAN};
@@ -49,7 +50,8 @@ public:
     ~MainWindow();
     void InitParam();
     void MAJParam();
-
+    void parser();
+    void refresh();
     void calcul_plus();
     void calcul_moins();
     void calcul_mult();

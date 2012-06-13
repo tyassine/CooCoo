@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>521</height>
+    <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,16 +45,6 @@
      <property name="verticalSpacing">
       <number>0</number>
      </property>
-     <item row="1" column="2" rowspan="3">
-      <widget class="QListView" name="AffichagePile">
-       <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1" rowspan="3">
       <spacer name="horizontalSpacer_7">
        <property name="orientation">
@@ -115,7 +105,7 @@
             <x>10</x>
             <y>20</y>
             <width>261</width>
-            <height>170</height>
+            <height>181</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="LayoutFonction">
@@ -389,7 +379,7 @@
             <x>10</x>
             <y>20</y>
             <width>281</width>
-            <height>171</height>
+            <height>181</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="LayoutClavier">
@@ -933,8 +923,8 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>10</x>
           <y>20</y>
-          <width>593</width>
-          <height>51</height>
+          <width>571</width>
+          <height>62</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="LayoutParametre">
@@ -1115,7 +1105,7 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label">
            <property name="minimumSize">
             <size>
-             <width>155</width>
+             <width>150</width>
              <height>0</height>
             </size>
            </property>
@@ -1144,6 +1134,9 @@ p, li { white-space: pre-wrap; }
            <property name="maximum">
             <number>115</number>
            </property>
+           <property name="value">
+            <number>10</number>
+           </property>
           </widget>
          </item>
         </layout>
@@ -1169,6 +1162,16 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="readOnly">
         <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2" rowspan="3">
+      <widget class="QListWidget" name="AffichagePile">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
        </property>
       </widget>
      </item>

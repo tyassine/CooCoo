@@ -1,7 +1,7 @@
 #include "memento.h"
 #include "pile.h"
 
-
+/*
 Gardien::Gardien()
 {
     curPile = -1;
@@ -33,5 +33,5 @@ void Gardien::execute(Pile p){
 
 }
 
-
+*/
 

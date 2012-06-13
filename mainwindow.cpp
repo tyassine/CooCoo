@@ -5,9 +5,11 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     this->grabKeyboard();
-   // pile(new Pile()); d'abord implementer la pile
+    instancePile = Pile::getInstance();
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
+
+
 
     // Connections slot/signaux des boutons du clavier
     QObject::connect(ui->b0, SIGNAL(clicked()), this, SLOT(on_0()));
@@ -271,15 +273,17 @@ void MainWindow::on_angle(int a){
 
 void MainWindow::on_nbPile(int n){
     setNbPile(n);
+    refresh();
 }
 
-// slots operations sur pile
+
 void MainWindow::on_commit(){
     if (ui->Afficheur->text().isEmpty())
         on_dup();
     else{
-    //ici il faut empiler
+    parser();
     ui->Afficheur->clear();
+    refresh();
     }
 }
 
@@ -523,23 +527,10 @@ void MainWindow::InitParam(){
         getline(fichier, pile);
         if(pile!="pile vide"){
             while(getline(fichier, pile)){
-                QString* tmp2= new QString(pile.c_str());
-
-                /*QRegExp exp("'*'");
-                exp.setPatternSyntax(QRegExp::Wildcard);
-                if(exp.exactMatch(pile.c_str())){Expression* c=new Expression(*tmp2); ps->Empiler(c); pa->Empiler(*tmp2);}
-                else if(tmp_pile.find('$')){Complexe* c=ToComplexe(*tmp2); ps->Empiler(c); pa->Empiler(*tmp2);}
-                else if(tmp_pile.find(',')){Reel* c=ToReel(*tmp2); ps->Empiler(c); pa->Empiler(*tmp2);}
-                else if(tmp_pile.find('/')){Rationnel* c=ToRationnel(*tmp2); ps->Empiler(c); pa->Empiler(*tmp2);}
-                else {Entier* c=new Entier(*tmp2); ps->Empiler(c); pa->Empiler(*tmp2);}
-                */
-
-            }
-
-           // AffichageEcran();
-
+                instancePile->empiler(FabriqueDonnee::creerDonnee((QString)pile.c_str()));
+             }
         }
-    }
+      }
     else{ // Sinon le fichier n'existait pas, on ouvre en écriture et on l'initialise avec les valeurs pas défaut
         QMessageBox::information(this, "Initialisation", "Il n'existe pas de fichier de sauvegarde.");
         std::ofstream fichier("sauvegarde_CooCoo.txt", std::ios::out);
@@ -556,7 +547,6 @@ void MainWindow::InitParam(){
             setAngle(TypeAngle(0));
             fichier<<10<<std::endl;
             setNbPile(10);
-            ui->NbElementPile->setValue(getNbPile());
             fichier<<"pile vide"<<std::endl;
         }
         else
@@ -577,11 +567,57 @@ void MainWindow::MAJParam(){
         std::cout<<getConstante()<<std::endl;
         fichier<<getAngle()<<std::endl;
         fichier<<getNbPile()<<std::endl;
-        fichier<<"pile vide"<<std::endl; //sauvegarde de la pile
+        if (instancePile->pileVide())//sauvegarde de la pile
+            fichier<<"pile vide"<<std::endl;
+        else {
+            fichier<<"pile remplie"<<std::endl;
+            Donnee** tab=instancePile->getTab();
+            for(unsigned int i=0;i<=instancePile->getSommet();i++){
+                fichier<<tab[i]->toQString().toStdString()<<std::endl;
+            }
+        }
         fichier.close();
     }
     else // sinon
         std::cerr << "Erreur à l'ouverture !" << std::endl;
+}
+
+void MainWindow::parser()
+{
+    QString tmp = ui->Afficheur->text();
+    Donnee* objetTerme;
+
+    QStringList listeTermes = tmp.split(" ");
+    // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
+    for (unsigned int i=0; i<listeTermes.size(); i++)
+    {
+        // détecter nombre ou opérateur, coucou Perrine <3
+        objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
+        instancePile->empiler(objetTerme);
+    }
+}
+
+
+
+void MainWindow::refresh()
+{
+    ui->AffichagePile->clear();
+    Donnee** tab = instancePile->getTab();
+    int taillePileInterne = instancePile->getSommet() + 1;
+    int limite = min(nb_elem_affiche, taillePileInterne);
+
+    if (!(instancePile->pileVide()))
+    {
+        QMessageBox::information(this, "blabla", tab[0]->toQString());
+
+    }
+/*
+    for (unsigned int i=0; i<limite; i++)
+        ui->AffichagePile->addItem(tab[i]->toQString());*/
+    /*
+    delete[] tab;
+    delete tab;
+    */
 }
 
 /*
