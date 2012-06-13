@@ -591,7 +591,11 @@ void MainWindow::parser()
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
     for (unsigned int i=0; i<listeTermes.size(); i++)
     {
-        // détecter nombre ou opérateur, coucou Perrine <3
+        // détecter nombre ou opérateur, appeler la bonne fonction, coucou Perrine <3
+
+
+
+        // fin détection
         objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
         instancePile->empiler(objetTerme);
     }
