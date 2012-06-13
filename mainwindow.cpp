@@ -320,7 +320,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         on_8();
         break;
     case Qt::Key_9:
-        on_1();
+        on_9();
         break;
     case Qt::Key_Comma:
         on_virgule();
