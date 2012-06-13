@@ -35,7 +35,6 @@ void Pile::empiler(Donnee* aDonnee)
     }
     sommet++;
     tab[sommet] = aDonnee;
-
 }
 
 Donnee* Pile::depiler()
