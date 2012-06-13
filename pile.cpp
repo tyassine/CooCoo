@@ -33,8 +33,8 @@ void Pile::empiler(Donnee* aDonnee)
         delete[] tab;
         tab = newtab;
     }
-    tab[sommet] = aDonnee;
     sommet++;
+    tab[sommet] = aDonnee;
 }
 
 Donnee* Pile::depiler()

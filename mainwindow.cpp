@@ -320,7 +320,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         on_8();
         break;
     case Qt::Key_9:
-        on_1();
+        on_9();
         break;
     case Qt::Key_Comma:
         on_virgule();
@@ -606,18 +606,12 @@ void MainWindow::refresh()
     int taillePileInterne = instancePile->getSommet() + 1;
     int limite = min(nb_elem_affiche, taillePileInterne);
 
-    if (!(instancePile->pileVide()))
-    {
-        QMessageBox::information(this, "blabla", tab[0]->toQString());
-
-    }
-/*
     for (unsigned int i=0; i<limite; i++)
-        ui->AffichagePile->addItem(tab[i]->toQString());*/
-    /*
+        ui->AffichagePile->insertItem(0, tab[instancePile->getSommet() - i]->toQString());
+/*
     delete[] tab;
     delete tab;
-    */
+*/
 }
 
 /*
