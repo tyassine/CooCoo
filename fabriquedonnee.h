@@ -9,6 +9,7 @@
 #include "complexe.h"
 #include "rationnel.h"
 #include "reel.h"
+#include "constanteexp.h"
 #include "exceptionCooCoo.h"
 #include <QString>
 
