@@ -339,12 +339,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Slash:
         on_division();
         break;
-    /*case Qt::Key_ParenLeft:
-        on_parenthese_gauche();
-        break;
-    case Qt::Key_ParenRight:
-        on_parenthese_droite();
-        break;*/
     case Qt::Key_Dollar:
         on_dollar();
         break;
@@ -462,19 +456,6 @@ void refresh_complexe(Ui::MainWindow *ui){
 }
 
 // fonctions de récupération ou suppression d'historique
-/*
-
-void MainWindow::AffichageEcran(){
-    ui->AffichagePile->clear();
-
-    std::deque<QString> ptr=pile->GetPtr();
-
-    for(unsigned int i=0;i<ptr.size();i++)
-       /*TODO AFFICHER LES LIGNES ui->AffichagePile->
-                append(pile->GetVal(i));
-
-faire avec des getstring
-}*/
 
 void MainWindow::InitParam(){
     std::ifstream fichier("sauvegarde_CooCoo.txt", std::ios::in); // Ouverture en lecture du fichier de sauvegarde
@@ -571,14 +552,136 @@ void MainWindow::parser()
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
     for (unsigned int i=0; i<listeTermes.size(); i++)
     {
-        // détecter nombre ou opérateur, coucou Perrine <3
-        objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
-        instancePile->empiler(objetTerme);
+        if (listeTermes[i]=="+"){ // 4 5 +
+                Donnee* tmpdte=instancePile->depiler(); //5
+                Donnee* tmpgch=instancePile->depiler(); //4
+                /*Donnee* res=FabriqueDonnee::creerDonnee((tmpgch) operator +(tmpdte));// ne marche pas il faut donner une qstring a la factory
+                instancePile->empiler(res);*/
+                delete tmpdte;
+                delete tmpgch;
+        }
+        else if (listeTermes[i]=="-"){
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
+            delete tmpdte;
+            delete tmpgch;
+        }
+        else if (listeTermes[i]=="/"){
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
+            delete tmpdte;
+            delete tmpgch;
+        }
+        else if (listeTermes[i]=="*"){
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
+            delete tmpdte;
+            delete tmpgch;
+        }
+        else if (listeTermes[i]=="pow"){
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
+            delete tmpdte;
+            delete tmpgch;
+        }
+        else if (listeTermes[i]=="mod"){
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
+            delete tmpdte;
+            delete tmpgch;
+        }
+        else if (listeTermes[i]=="sign"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="sin"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="cos"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="tan"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="sinh"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="cosh"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="tanh"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="ln"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="log"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="inv"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="sqrt"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="sqr"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="cube"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else if (listeTermes[i]=="!"){
+            Donnee* tmp=instancePile->depiler();
+            delete tmp;
+        }
+        else
+        {
+            objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
+            if (objetTerme)
+                instancePile->empiler(objetTerme);
+            else
+            {
+                QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
+            }
+         }
+        // fin détection
+
     }
 }
 
+/*
+if(!Expression::isExpression(s)){
+        type* test=0;
 
+        QRegExp rx("\\s+");
+        QStringList t=(s.split(rx));
+        for(int i=0; i<t.size();i++)
+        {
 
+        }
+    }
+
+    else
+    {
+
+        instancePile->empiler(new Expression(s));
+    }
+
+}
+
+*/
 void MainWindow::refresh()
 {
     ui->AffichagePile->clear();
