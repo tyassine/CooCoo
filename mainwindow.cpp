@@ -5,7 +5,8 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     this->grabKeyboard();
-    instancePile = Pile::getInstance();
+    instancePile = new Pile;
+    instanceFD = FabriqueDonnee::getInstance();
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
 
@@ -488,7 +489,7 @@ void MainWindow::InitParam(){
         getline(fichier, pile);
         if(pile!="pile vide"){
             while(getline(fichier, pile)){
-                instancePile->empiler(FabriqueDonnee::creerDonnee((QString)pile.c_str()));
+                instancePile->empiler(instanceFD->creerDonnee((QString)pile.c_str()));
              }
         }
       }
@@ -555,7 +556,7 @@ void MainWindow::parser()
         if (listeTermes[i]=="+"){ // 4 5 +
                 Donnee* tmpdte=instancePile->depiler(); //5
                 Donnee* tmpgch=instancePile->depiler(); //4
-                /*Donnee* res=FabriqueDonnee::creerDonnee((tmpgch) operator +(tmpdte));// ne marche pas il faut donner une qstring a la factory
+                /*Donnee* res=instanceFD->creerDonnee((tmpgch) operator +(tmpdte));// ne marche pas il faut donner une qstring a la factory
                 instancePile->empiler(res);*/
                 delete tmpdte;
                 delete tmpgch;
@@ -648,7 +649,7 @@ void MainWindow::parser()
         }
         else
         {
-            objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
+            objetTerme = instanceFD->creerDonnee(listeTermes[i]);
             if (objetTerme)
                 instancePile->empiler(objetTerme);
             else

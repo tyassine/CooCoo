@@ -15,12 +15,22 @@
 
 // Implémentation d'un design pattern de type factory
 
-// 1 seule factory ==> utiliser un singleton, pour faire 1 unique instance qui fait tout?
-// Ou la mettre en statique, et en faire une sorte d'agglomérat de méthodes?
+// 1 seule factory : on en fait un singleton
 
 class FabriqueDonnee
 {
+    static FabriqueDonnee* instance;
+
+    // Constructeurs, destructeur et operator= en private pour interdire leur utilisation
+    FabriqueDonnee() {}
+    FabriqueDonnee(const FabriqueDonnee& fd) {}
+    void operator=(const FabriqueDonnee& fd) {}
+    ~FabriqueDonnee() {}
+
 public:
+
+    static FabriqueDonnee* getInstance();
+    static void libereInstance();
 
     /*
     Première fonction :
@@ -28,7 +38,7 @@ public:
     - teste son type (méthodes statiques isEntier, isReel...)
     - construit l'objet correspondant et le renvoie
     */
-    static Donnee* creerDonnee(const QString& terme);
+    Donnee* creerDonnee(const QString& terme);
 
 
     // Autres : VOIR ORGANISATION FEUILLE !

@@ -10,7 +10,6 @@
 
 class Rationnel : public Constante
 {
-    // Pas forcément nécessaire, on pourrait mettre des entiers tout simple... Mais ça serait moins stylé sur l'UML ^^
     Entier num;
     Entier denum;
 public:
