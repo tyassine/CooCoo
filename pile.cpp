@@ -83,7 +83,7 @@ void Pile::swap(const unsigned int x, const unsigned int y){
         this->tab[sommet-y]=tmp;
     }
 }
-/* Marche pas car il faut implementer les opérateurs
+
 void Pile::sum(const unsigned int x){
     if(!pileVide()){
         Donnee* res;
@@ -94,7 +94,7 @@ void Pile::sum(const unsigned int x){
         empiler(res);
     }
 }
-
+/*
 void Pile::mean(const unsigned int x){
     if(!pileVide()){
             Donnee* res;
