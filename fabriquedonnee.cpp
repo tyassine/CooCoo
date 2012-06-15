@@ -39,3 +39,7 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
     else
         return NULL;
 }
+
+
+
+

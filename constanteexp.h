@@ -16,8 +16,9 @@ public:
     ConstanteExp(const QString& aQString) : chaine(aQString) {}
     virtual QString toQString() const {return chaine;}
 
+
+    virtual Donnee* operator+(Donnee & t) {}
     /*
-    virtual Donnee* operator+(Donnee & t);
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);
     virtual Donnee* operator-(Donnee & t);

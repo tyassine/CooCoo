@@ -6,22 +6,39 @@
 * \author Letellier/Yassine
 */
 
-#include "entier.h"
+#include "constante.h"
+class Entier;
+class Reel;
 
 class Rationnel : public Constante
 {
-    Entier num;
-    Entier denum;
+    int num;
+    int denum;
+    // On aurait pu mettre des objets Entier mais ça devient vraiment trop lourd...
 public:
-    // Rationnel : plutôt le construire avec une QString!
-    // Le seul intérêt de stocker sous valeur numérique est pour faire les calculs.
-    // Tout le reste, les entrées, les sorties, c'est du QString!
-    Rationnel(const QString& aQString1 = "0", const QString &aQString2 = "1")
-        : num(Entier(aQString1)), denum(Entier(aQString2)) {}
-    virtual QString toQString() const;
 
     /*
-    virtual Donnee* operator+(Donnee & t);
+      Constructeur par QString : utilisé par la factory lors du parsing
+      Constructeurs par valeur : utilisés par la factory pour les conversions
+    */
+
+    Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denum(aInt2) {}
+    Rationnel(const QString& aQString1 = "0", const QString &aQString2 = "1")
+        : num(aQString1.toInt()), denum(aQString2.toInt()) {}
+    Rationnel(Entier* aEntier);
+    Rationnel(Reel* aReel);
+
+
+    virtual QString toQString() const;
+
+    int getNum() const {return num;}
+    int getDenum() const {return denum;}
+    void setNum(int aNum) {num = aNum;}
+    void setDenum(int aDenum) {denum = aDenum;}
+
+
+    virtual Donnee* operator+(Donnee & t) {}
+    /*
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);
     virtual Donnee* operator-(Donnee & t);

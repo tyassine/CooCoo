@@ -1,9 +1,9 @@
 #ifndef CONVERTISSEUR_H
 #define CONVERTISSEUR_H
 
-#include "entier.h"
-#include "reel.h"
-#include "rationnel.h"
+class Entier;
+class Reel;
+class Rationnel;
 
 class Convertisseur
 {

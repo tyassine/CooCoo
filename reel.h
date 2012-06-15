@@ -6,21 +6,37 @@
 * \author Letellier/Yassine
 */
 
+
 #include "constante.h"
+
+class Entier;
+class Rationnel;
+
 
 class Reel : public Constante
 {
     double valeur;
 public:
+    /*
+      Constructeur par QString : utilisé par la factory lors du parsing
+      Constructeurs par valeur : utilisés par la factory pour les conversions
+    */
+    Reel(double val=0) : valeur(val) {}
     Reel(const QString& aQString = "0") : valeur(aQString.toDouble()) {}
+    Reel(Entier* aEntier);
+    Reel(Rationnel* aRationnel);
 
     virtual QString toQString() const;
 
     double getValeur() const {return valeur;}
     void setValeur(double aValeur) {valeur = aValeur;}
 
+
+    virtual Donnee* operator+(Donnee & t) {}
+    // Surcharger? Ou tester le type de l'argument dans la méthode?
+    // Qu'est-ce qui marche? Qu'est-ce qu'on peut changer sans nous séparer
+    // des méthodes virtuelles pures de la classe Donnee?
     /*
-    virtual Donnee* operator+(Donnee & t);
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);
     virtual Donnee* operator-(Donnee & t);
