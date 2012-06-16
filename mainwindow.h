@@ -35,7 +35,8 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
-    Pile* instancePile;
+    Pile* instancePile; // Ce n'est plus un singleton
+    FabriqueDonnee* instanceFD; // Mais la factory en est un maintenant.
     bool complexe; //0 pour non complexe et 1 pour complexe
     bool clavier; //1 pour caché et 0 pour visible
     enum TypeAngle {DEGRE, RADIAN};

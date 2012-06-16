@@ -1,11 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "entier.h"
+#include "reel.h"
+#include "rationnel.h"
+
 // DANS LA FONCTION EMPILER IL FAUT EMPILER TORATIONNEL(S), TOREEL(S)...
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
     this->grabKeyboard();
-    instancePile = Pile::getInstance();
+    instancePile = new Pile;
+    instanceFD = FabriqueDonnee::getInstance();
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
 
@@ -488,7 +493,7 @@ void MainWindow::InitParam(){
         getline(fichier, pile);
         if(pile!="pile vide"){
             while(getline(fichier, pile)){
-                instancePile->empiler(FabriqueDonnee::creerDonnee((QString)pile.c_str()));
+                instancePile->empiler(instanceFD->creerDonnee((QString)pile.c_str()));
              }
         }
       }
@@ -555,8 +560,10 @@ void MainWindow::parser()
         if (listeTermes[i]=="+"){ // 4 5 +
                 Donnee* tmpdte=instancePile->depiler(); //5
                 Donnee* tmpgch=instancePile->depiler(); //4
-                /*Donnee* res=FabriqueDonnee::creerDonnee((tmpgch) operator +(tmpdte));// ne marche pas il faut donner une qstring a la factory
-                instancePile->empiler(res);*/
+                Donnee* res = *tmpdte + *tmpgch;
+                // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
+                // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
+                // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
                 delete tmpdte;
                 delete tmpgch;
         }
@@ -648,7 +655,7 @@ void MainWindow::parser()
         }
         else
         {
-            objetTerme = FabriqueDonnee::creerDonnee(listeTermes[i]);
+            objetTerme = instanceFD->creerDonnee(listeTermes[i]);
             if (objetTerme)
                 instancePile->empiler(objetTerme);
             else

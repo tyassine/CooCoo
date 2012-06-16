@@ -9,31 +9,54 @@
 #include "complexe.h"
 #include "rationnel.h"
 #include "reel.h"
+#include "entier.h"
 #include "constanteexp.h"
 #include "exceptionCooCoo.h"
 #include <QString>
 
 // Implémentation d'un design pattern de type factory
 
-// 1 seule factory ==> utiliser un singleton, pour faire 1 unique instance qui fait tout?
-// Ou la mettre en statique, et en faire une sorte d'agglomérat de méthodes?
+// 1 seule factory : on en fait un singleton
 
 class FabriqueDonnee
 {
+    static FabriqueDonnee* instance;
+
+    // Constructeurs, destructeur et operator= en private pour interdire leur utilisation
+    FabriqueDonnee() {}
+    FabriqueDonnee(const FabriqueDonnee& fd) {}
+    void operator=(const FabriqueDonnee& fd) {}
+    ~FabriqueDonnee() {}
+
 public:
+
+    static FabriqueDonnee* getInstance();
+    static void libereInstance();
 
     /*
     Première fonction :
     - récupère un terme envoyé par le parser,
     - teste son type (méthodes statiques isEntier, isReel...)
-    - construit l'objet correspondant et le renvoie
+    - construit l'objet correspondant en appelant le constructeur de son type, et le renvoie
     */
-    static Donnee* creerDonnee(const QString& terme);
+    Donnee* creerDonnee(const QString& terme);
 
-
-    // Autres : VOIR ORGANISATION FEUILLE !
-
-
+    /*
+      Deuxième fonction :
+      - récupère un objet et une chaîne décrivant le type souhaité (ou un entier si tu préfères?)
+      - réalise la conversion en appelant le constructeur approprié du type souhaité
+    */
+    template <class T>
+    Donnee* creerDonnee(const T* donneeDepart, const QString typeSouhaite)
+    {
+        if (typeSouhaite == "Entier") return new Entier(donneeDepart);
+        if (typeSouhaite == "Reel") return new Reel(donneeDepart);
+        if (typeSouhaite == "Rationnel") return new Rationnel(donneeDepart);
+    }
+    // Ce template permet d'éviter de faire une fonction creerDonnee pour chaque type différent.
+    // En effet, si on prend juste un Donnee* donneeDepart, et qu'on appelle un constructeur dessus,
+    // Il y aura ambiguïté, car le type n'aura pas été identifié!
+    // A ce niveau, on est obligé d'appeler le constructeur avec un argument de type bien défini, et le template s'occupe donc de ça
 };
 
 

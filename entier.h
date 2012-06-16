@@ -1,6 +1,8 @@
 #ifndef ENTIER_H
 #define ENTIER_H
 
+
+
 /*!
 * \file entier.h
 * \author Letellier/Yassine
@@ -8,19 +10,35 @@
 
 #include "constante.h"
 
+class Reel;
+class Rationnel;
+
 class Entier : public Constante
 {
     int valeur;
 public:
+
+    /*
+      Constructeur par QString : utilisé par la factory lors du parsing
+      Constructeurs par valeur : utilisés par la factory pour les conversions
+    */
+
+    Entier(int val=0) : valeur(val) {}
     Entier(const QString& aQString ="0") : valeur(aQString.toInt()) {}
+    Entier(Reel* aReel);
+    Entier(Rationnel* aRationnel);
+
+
+
 
     virtual QString toQString() const;
 
     int getValeur() const {return valeur;}
     void setValeur(int aValeur) {valeur = aValeur;}
 
+
+    virtual Donnee* operator+(Donnee& t) {}
     /*
-    virtual Donnee* operator+(Donnee & t);
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);
     virtual Donnee* operator-(Donnee & t);
@@ -44,7 +62,7 @@ public:
     virtual Donnee* cube();
     virtual Donnee* fact();
     virtual Donnee* eval();
-*/
+    */
 
 };
 

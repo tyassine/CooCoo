@@ -1,25 +1,12 @@
 #include "pile.h"
 
-// Initialisation du membre statique du singleton
-Pile* Pile::instance = 0;
+
 
 Pile::~Pile()
 {
     for(unsigned int i=0; i<=sommet; ++i)
         delete tab[i];
     delete[] tab;
-}
-
-
-Pile *Pile::getInstance()
-{
-    if (!instance) instance = new Pile;
-    return instance;
-}
-
-void Pile::libereInstance()
-{
-    if (instance) delete instance;
 }
 
 void Pile::empiler(Donnee* aDonnee)

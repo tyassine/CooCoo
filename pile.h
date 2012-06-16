@@ -6,71 +6,37 @@
 * \author Letellier/Yassine
 */
 
-#include"memento.h"
+#include <QStack>
+#include "memento.h"
 #include "donnee.h"
 
 
-// Design pattern Singleton
-
-// Je préfère faire ma propre pile plutôt que de réutiliser QStack, ça évite de lire la doc et de prendre connaissance de la tonne d'attributs et méthodes... Et ça fait réviser les piles :p
-// Et c'est plus sûr pour le Singleton
 
 
-// on peut faire
-//QStack<Donnee *> pile;
-//avec un singleton plutot sur la classe du "groupe de piles" si on traite les onglets
-
-class Pile
+class Pile: public QStack<Donnee*>
 {
-    static Pile* instance;
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
     unsigned int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
     unsigned int nbMax;/*!< Taille maximale du tableau */
     //Gardien* gard;
-    // unsigned int nbCur; /*!< Nombre d'éléments qui sont dans la pile */
-
-    // Constructeurs et destructeur en private pour interdire leur utilisation
-    /**
-    * \fn Pile(unsigned int n=10)
-    * \brief Fonction : Créer une nouvelle instance de l'objet Pile
-    * \param n taille initiale de la pile, optionnel
-    */
-    Pile(unsigned int n=100) : sommet(-1), nbMax(n), tab(new Donnee*[n]) {}
-
-    /**
-    * \fn Pile(const Pile& p)
-    * \brief Fonction : Créer une nouvelle instance de l'objet Pile à partir d'une autre instance passée en paramètre
-    * \param p instance de pile à copier
-    */
-
-    Pile(const Pile& p);
-    /**
-    * \fn void operator=(const Pile& p)
-    * \brief Fonction : copier une instance de l'objet Pile dans cette instance de l'objet Pile
-    *
-    * \param p instance de pile à copier
-    */
-    void operator=(const Pile& p);
-
-    /**
-    * \fn ~Pile()
-    * \brief Fonction : destruction de l'objet pile
-    */
-    ~Pile();
-
+*/
 
 public:
+    Pile(unsigned int n=100) : sommet(-1), nbMax(n), tab(new Donnee*[n]) {}
+    Pile(const Pile& p) : sommet(p.sommet), nbMax(p.nbMax), tab(new Donnee*[p.nbMax])
+        {for (unsigned int i=0; i<p.nbMax; i++) tab[i] = p.tab[i]; }
+    ~Pile();
+
     Donnee** getTab() const {return tab;}
     int getSommet() const {return sommet;}
 
-    static Pile* getInstance();
-    static void libereInstance();
     /**
     * \fn void empiler(Donnee* aDonnee);
     * \brief Fonction : Empiler un objet sur la pile
     *
     * \param pointeur vers l'objet à empiler
     */
+
     void empiler(Donnee* aDonnee);
 
     /**

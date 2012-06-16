@@ -1,6 +1,19 @@
 #include "fabriquedonnee.h"
 #include <QStringList>
 
+// Initialisation du membre statique du singleton
+FabriqueDonnee* FabriqueDonnee::instance = 0;
+
+FabriqueDonnee* FabriqueDonnee::getInstance()
+{
+    if (!instance) instance = new FabriqueDonnee;
+    return instance;
+}
+
+void FabriqueDonnee::libereInstance()
+{
+    if (instance) delete instance;
+}
 
 Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
 {
@@ -26,3 +39,7 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
     else
         return NULL;
 }
+
+
+
+
