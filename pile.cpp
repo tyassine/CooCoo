@@ -1,57 +1,19 @@
 #include "pile.h"
 
 
-
-Pile::~Pile()
-{
-    for(unsigned int i=0; i<=sommet; ++i)
-        delete tab[i];
-    delete[] tab;
+Pile::Pile():nbElement(10){
+   /* gard=new gardien;*/
 }
 
-void Pile::empiler(Donnee* aDonnee)
-{
-    if ( pilePleine() )
-    {
-        nbMax += 10;
-        Donnee** newtab = new Donnee*[nbMax];
-        for (unsigned int i=0; i<=sommet; i++) newtab[i] = tab[i];
-
-        delete[] tab;
-        tab = newtab;
+Pile::~Pile(){
+    for(int i=0; i<this->size(); i++){
+       delete at(i);
     }
-    sommet++;
-    tab[sommet] = aDonnee;
+    /*
+    if(gard)
+    delete gard;*/
 }
 
-Donnee* Pile::depiler()
-{
-    if (!pileVide())
-    {
-        sommet--;
-        return tab[sommet+1];
-    }
-    // Sinon, glisser une exception?
-}
-
-
-bool Pile::pileVide()
-{
-    return(sommet==-1);
-}
-
-bool Pile::pilePleine()
-{
-    return(sommet==nbMax-1);
-}
-
-void Pile::clear(){
-    if(!pileVide()){
-        for(unsigned int i=0; i<=sommet; ++i)
-            delete tab[i];
-        sommet=-1;
-    }
-}
 /*
 Pile& Pile::cloner() const{
     Pile *p=new Pile(nbMax);

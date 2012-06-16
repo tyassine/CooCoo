@@ -21,8 +21,7 @@ SOURCES += main.cpp\
     constante.cpp \
     complexe.cpp \
     fabriquedonnee.cpp \
-    memento.cpp \
-    convertisseur.cpp
+    memento.cpp
 
 HEADERS  += mainwindow.h \
     exceptionCooCoo.h \
@@ -35,7 +34,6 @@ HEADERS  += mainwindow.h \
     constante.h \
     complexe.h \
     fabriquedonnee.h \
-    memento.h \
-    convertisseur.h
+    memento.h
 
 FORMS    += mainwindow.ui

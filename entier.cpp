@@ -3,6 +3,7 @@
 
 #include "reel.h"
 #include "rationnel.h"
+#include "complexe.h"
 
 QString Entier::toQString() const
 {
@@ -28,3 +29,4 @@ Entier::Entier(Rationnel* aRationnel)
 }
 
 
+Entier::Entier(Complexe* aRationnel)
