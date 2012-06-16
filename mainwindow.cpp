@@ -555,7 +555,7 @@ void MainWindow::parser()
 
     QStringList listeTermes = tmp.split(" ");
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
-    for (unsigned int i=0; i<listeTermes.size(); i++)
+    for (int i=0; i<listeTermes.size(); i++)
     {
         if (listeTermes[i]=="+"){ // 4 5 +
                 Donnee* tmpdte=instancePile->depiler(); //5
@@ -693,8 +693,8 @@ void MainWindow::refresh()
 {
     ui->AffichagePile->clear();
     Donnee** tab = instancePile->getTab();
-    int taillePileInterne = instancePile->getSommet() + 1;
-    int limite = min(nb_elem_affiche, taillePileInterne);
+    int taillePileInterne = instancePile->size();
+    unsigned int limite = min(nb_elem_affiche, taillePileInterne);
 
     for (unsigned int i=0; i<limite; i++)
         ui->AffichagePile->insertItem(0, tab[instancePile->getSommet() - i]->toQString());

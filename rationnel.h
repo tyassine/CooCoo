@@ -1,3 +1,4 @@
+
 #ifndef RATIONNEL_H
 #define RATIONNEL_H
 
@@ -37,6 +38,9 @@ public:
     void setNum(int aNum) {num = aNum;}
     void setDenom(int adenom) {denom = adenom;}
 
+    int pgcd(int a, int b) const;
+    void simplifier();
+
 
     virtual Donnee* operator+(Donnee & t) {}
     /*
@@ -68,3 +72,4 @@ public:
 };
 
 #endif // RATIONNEL_H
+

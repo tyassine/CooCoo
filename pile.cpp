@@ -1,3 +1,4 @@
+
 #include "pile.h"
 
 
@@ -52,6 +53,7 @@ void Pile::clear(){
         sommet=-1;
     }
 }
+
 /*
 Pile& Pile::cloner() const{
     Pile *p=new Pile(nbMax);
@@ -107,4 +109,3 @@ void Pile::drop(){
         depiler();
     }
 }
-

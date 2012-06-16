@@ -1,3 +1,4 @@
+
 #ifndef PILE_H
 #define PILE_H
 
@@ -6,7 +7,7 @@
 * \author Letellier/Yassine
 */
 
-#include <QStack>
+//#include <QStack>
 #include "memento.h"
 #include "donnee.h"
 
@@ -27,6 +28,7 @@ public:
         {for (unsigned int i=0; i<p.nbMax; i++) tab[i] = p.tab[i]; }
     ~Pile();
 
+    int size() {return sommet+1;}
     Donnee** getTab() const {return tab;}
     int getSommet() const {return sommet;}
 
