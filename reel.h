@@ -23,8 +23,9 @@ public:
     */
     Reel(double val=0) : valeur(val) {}
     Reel(const QString& aQString = "0") : valeur(aQString.toDouble()) {}
-    Reel(Entier* aEntier);
-    Reel(Rationnel* aRationnel);
+    Reel(const Reel* aReel) : valeur(aReel->valeur) {}
+    Reel(const Entier* aEntier);
+    Reel(const Rationnel* aRationnel);
 
     virtual QString toQString() const;
 

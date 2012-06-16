@@ -13,13 +13,13 @@ QString Rationnel::toQString() const
     return res;
 }
 
-Rationnel::Rationnel(Entier* aEntier)
+Rationnel::Rationnel(const Entier* aEntier)
 {
     num = aEntier->getValeur();
     denum = 1;
 }
 
-Rationnel::Rationnel(Reel* aReel)
+Rationnel::Rationnel(const Reel* aReel)
 {
    /*
      Ca a l'air d'être un algo compliqué... ce qui semble logique,

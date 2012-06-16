@@ -17,10 +17,15 @@ void FabriqueDonnee::libereInstance()
 
 Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
 {
-    /*
+
     if(Donnee::isComplexe(terme))
-        return new Complexe(terme);
-    */
+    {
+        QStringList nombres = terme.split("$");
+        // Static cast car on est SUR que l'on n'obtiendra jamais une ConstanteExp, et donc que le résultat sera toujours de type Constante!
+        Constante* pRe = static_cast<Constante*>(creerDonnee(nombres[0]));
+        Constante* pIm = static_cast<Constante*>(creerDonnee(nombres[1]));
+        return new Complexe(pRe, pIm);
+    }
 
     if(Donnee::isEntier(terme))
         return new Entier(terme);

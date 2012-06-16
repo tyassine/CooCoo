@@ -25,8 +25,9 @@ public:
     Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denum(aInt2) {}
     Rationnel(const QString& aQString1 = "0", const QString &aQString2 = "1")
         : num(aQString1.toInt()), denum(aQString2.toInt()) {}
-    Rationnel(Entier* aEntier);
-    Rationnel(Reel* aReel);
+    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denum(aRationnel->denum) {}
+    Rationnel(const Entier* aEntier);
+    Rationnel(const Reel* aReel);
 
 
     virtual QString toQString() const;

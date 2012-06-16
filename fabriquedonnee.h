@@ -42,21 +42,28 @@ public:
     Donnee* creerDonnee(const QString& terme);
 
     /*
-      Deuxième fonction :
-      - récupère un objet et une chaîne décrivant le type souhaité (ou un entier si tu préfères?)
-      - réalise la conversion en appelant le constructeur approprié du type souhaité
+      Deuxième fonction : convertisseuse
     */
-    template <class T>
-    Donnee* creerDonnee(const T* donneeDepart, const QString typeSouhaite)
+
+    Donnee* creerDonnee(const Donnee* donneeDepart, const QString typeSouhaite)
     {
+        if (dynamic_cast<const Entier*>(donneeDepart))
+            return creerDonneeStatic(static_cast<const Entier*>(donneeDepart), typeSouhaite);
+        if (dynamic_cast<const Reel*>(donneeDepart))
+            return creerDonneeStatic(static_cast<const Reel*>(donneeDepart), typeSouhaite);
+        if (dynamic_cast<const Rationnel*>(donneeDepart))
+            return creerDonneeStatic(static_cast<const Rationnel*>(donneeDepart), typeSouhaite);
+
+    }
+
+private:
+    template<typename T>
+    inline Donnee* creerDonneeStatic(const T* donneeDepart, const QString typeSouhaite) {
         if (typeSouhaite == "Entier") return new Entier(donneeDepart);
         if (typeSouhaite == "Reel") return new Reel(donneeDepart);
         if (typeSouhaite == "Rationnel") return new Rationnel(donneeDepart);
     }
-    // Ce template permet d'éviter de faire une fonction creerDonnee pour chaque type différent.
-    // En effet, si on prend juste un Donnee* donneeDepart, et qu'on appelle un constructeur dessus,
-    // Il y aura ambiguïté, car le type n'aura pas été identifié!
-    // A ce niveau, on est obligé d'appeler le constructeur avec un argument de type bien défini, et le template s'occupe donc de ça
+
 };
 
 

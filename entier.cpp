@@ -11,13 +11,13 @@ QString Entier::toQString() const
     return res;
 }
 
-Entier::Entier(Reel* aReel)
+Entier::Entier(const Reel* aReel)
 {
     // Perte d'information
     valeur = static_cast<int>(aReel->getValeur());
 }
 
-Entier::Entier(Rationnel* aRationnel)
+Entier::Entier(const Rationnel* aRationnel)
 {
     // Perte d'information
     double num = static_cast<double>(aRationnel->getNum());

@@ -11,12 +11,12 @@ QString Reel::toQString() const
     return res;
 }
 
-Reel::Reel(Entier* aEntier)
+Reel::Reel(const Entier* aEntier)
 {
     valeur = static_cast<double>(aEntier->getValeur());
 }
 
-Reel::Reel(Rationnel* aRationnel)
+Reel::Reel(const Rationnel* aRationnel)
 {
     // Perte d'information
     double num = static_cast<double>(aRationnel->getNum());

@@ -23,12 +23,12 @@ public:
       Constructeurs par valeur : utilisés par la factory pour les conversions
     */
 
+
     Entier(int val=0) : valeur(val) {}
     Entier(const QString& aQString ="0") : valeur(aQString.toInt()) {}
-    Entier(Reel* aReel);
-    Entier(Rationnel* aRationnel);
-
-
+    Entier(const Entier* aEntier) : valeur(aEntier->valeur) {}
+    Entier(const Reel* aReel);
+    Entier(const Rationnel* aRationnel);
 
 
     virtual QString toQString() const;

@@ -13,13 +13,13 @@
 
 
 
-class Pile: public QStack<Donnee*>
+class Pile//: public QStack<Donnee*>
 {
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
     unsigned int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
     unsigned int nbMax;/*!< Taille maximale du tableau */
     //Gardien* gard;
-*/
+
 
 public:
     Pile(unsigned int n=100) : sommet(-1), nbMax(n), tab(new Donnee*[n]) {}
