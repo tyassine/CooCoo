@@ -20,6 +20,6 @@ Reel::Reel(const Rationnel* aRationnel)
 {
     // Perte d'information
     double num = static_cast<double>(aRationnel->getNum());
-    double denum = static_cast<double>(aRationnel->getDenum());
-    valeur = num/denum;
+    double denom = static_cast<double>(aRationnel->getDenom());
+    valeur = num/denom;
 }

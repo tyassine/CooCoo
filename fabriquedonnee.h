@@ -45,16 +45,7 @@ public:
       Deuxième fonction : convertisseuse
     */
 
-    Donnee* creerDonnee(const Donnee* donneeDepart, const QString typeSouhaite)
-    {
-        if (dynamic_cast<const Entier*>(donneeDepart))
-            return creerDonneeStatic(static_cast<const Entier*>(donneeDepart), typeSouhaite);
-        if (dynamic_cast<const Reel*>(donneeDepart))
-            return creerDonneeStatic(static_cast<const Reel*>(donneeDepart), typeSouhaite);
-        if (dynamic_cast<const Rationnel*>(donneeDepart))
-            return creerDonneeStatic(static_cast<const Rationnel*>(donneeDepart), typeSouhaite);
-
-    }
+    Donnee* creerDonnee(const Donnee* donneeDepart, const QString typeSouhaite);
 
 private:
     template<typename T>

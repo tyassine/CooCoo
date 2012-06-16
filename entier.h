@@ -26,7 +26,7 @@ public:
 
     Entier(int val=0) : valeur(val) {}
     Entier(const QString& aQString ="0") : valeur(aQString.toInt()) {}
-    Entier(const Entier* aEntier) : valeur(aEntier->valeur) {}
+    Entier(const Entier* aEntier) : valeur(aEntier->valeur) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
     Entier(const Reel* aReel);
     Entier(const Rationnel* aRationnel);
 

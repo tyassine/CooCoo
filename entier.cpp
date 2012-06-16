@@ -21,10 +21,9 @@ Entier::Entier(const Rationnel* aRationnel)
 {
     // Perte d'information
     double num = static_cast<double>(aRationnel->getNum());
-    double denum = static_cast<double>(aRationnel->getDenum());
-    double nombre = num/denum;
+    double denom = static_cast<double>(aRationnel->getDenom());
+    double nombre = num/denom;
     // Ex : pour convertir 70/8 en entier, on fait 70/8 ==> 8,75 ==> 8
     valeur = static_cast<int>(nombre);
 }
-
 

@@ -6,17 +6,17 @@
 
 QString Rationnel::toQString() const
 {
-    QString resNum, resDenum, res;
+    QString resNum, resDenom, res;
     resNum.setNum(num);
-    resDenum.setNum(denum);
-    res = resNum + "/" + resDenum;
+    resDenom.setNum(denom);
+    res = resNum + "/" + resDenom;
     return res;
 }
 
 Rationnel::Rationnel(const Entier* aEntier)
 {
     num = aEntier->getValeur();
-    denum = 1;
+    denom = 1;
 }
 
 Rationnel::Rationnel(const Reel* aReel)
@@ -28,6 +28,6 @@ Rationnel::Rationnel(const Reel* aReel)
 
     // En attendant :
     num = 999;
-    denum = 999;
+    denom = 999;
 }
 

@@ -13,7 +13,7 @@ class Reel;
 class Rationnel : public Constante
 {
     int num;
-    int denum;
+    int denom;
     // On aurait pu mettre des objets Entier mais ça devient vraiment trop lourd...
 public:
 
@@ -22,10 +22,10 @@ public:
       Constructeurs par valeur : utilisés par la factory pour les conversions
     */
 
-    Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denum(aInt2) {}
+    Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denom(aInt2) {}
     Rationnel(const QString& aQString1 = "0", const QString &aQString2 = "1")
-        : num(aQString1.toInt()), denum(aQString2.toInt()) {}
-    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denum(aRationnel->denum) {}
+        : num(aQString1.toInt()), denom(aQString2.toInt()) {}
+    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}
     Rationnel(const Entier* aEntier);
     Rationnel(const Reel* aReel);
 
@@ -33,9 +33,9 @@ public:
     virtual QString toQString() const;
 
     int getNum() const {return num;}
-    int getDenum() const {return denum;}
+    int getDenom() const {return denom;}
     void setNum(int aNum) {num = aNum;}
-    void setDenum(int aDenum) {denum = aDenum;}
+    void setDenom(int adenom) {denom = adenom;}
 
 
     virtual Donnee* operator+(Donnee & t) {}

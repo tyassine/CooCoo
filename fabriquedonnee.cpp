@@ -47,4 +47,15 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
 
 
 
+Donnee* FabriqueDonnee::creerDonnee(const Donnee* donneeDepart, const QString typeSouhaite)
+{
+    if (dynamic_cast<const Entier*>(donneeDepart))
+        return creerDonneeStatic(static_cast<const Entier*>(donneeDepart), typeSouhaite);
+    if (dynamic_cast<const Reel*>(donneeDepart))
+        return creerDonneeStatic(static_cast<const Reel*>(donneeDepart), typeSouhaite);
+    if (dynamic_cast<const Rationnel*>(donneeDepart))
+        return creerDonneeStatic(static_cast<const Rationnel*>(donneeDepart), typeSouhaite);
+
+}
+
 
