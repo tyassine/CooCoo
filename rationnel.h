@@ -7,7 +7,6 @@
 */
 
 #include "constante.h"
-#include "complexe.h"
 class Entier;
 class Reel;
 
@@ -27,8 +26,10 @@ public:
     Rationnel(const QString& aQString1 = "0", const QString &aQString2 = "1")
         : num(aQString1.toInt()), denum(aQString2.toInt()) {}
     Rationnel(Entier* aEntier);
+    //Rationnel(Complexe* aComplexe);
     Rationnel(Reel* aReel);
-    Rationnel(Complexe* aComplexe);
+
+
 
 
     virtual QString toQString() const;
@@ -38,8 +39,6 @@ public:
     void setNum(int aNum) {num = aNum;}
     void setDenum(int aDenum) {denum = aDenum;}
 
-    void simplifier();
-    int pgcd(int a, int b) const;
 
     virtual Donnee* operator+(Donnee & t) {}
     /*

@@ -35,7 +35,7 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
-    Pile* instancePile;
+    Pile* instancePile; // Ce n'est plus un singleton
     FabriqueDonnee* instanceFD; // Mais la factory en est un maintenant.
     bool complexe; //0 pour non complexe et 1 pour complexe
     bool clavier; //1 pour caché et 0 pour visible
@@ -114,9 +114,10 @@ private slots:
     void on_soustraction();
     void on_multiplication();
     void on_division();
-    void on_negatif();
     void on_effacer();
     void on_effacer_el();
+    //void on_parenthese_droite();
+    //void on_parenthese_gauche();
     void on_dollar();
 
     // slots des opérations sur la pile

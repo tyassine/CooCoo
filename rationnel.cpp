@@ -1,9 +1,6 @@
 #include "rationnel.h"
 #include <sstream>
 
-#include "entier.h"
-#include "reel.h"
-
 QString Rationnel::toQString() const
 {
     QString resNum, resDenum, res;
@@ -12,8 +9,6 @@ QString Rationnel::toQString() const
     res = resNum + "/" + resDenum;
     return res;
 }
-
-
 
 Rationnel::Rationnel(Entier* aEntier)
 {
@@ -73,7 +68,7 @@ void Rationnel::simplifier(){
         num=-num;
     }
 }
-
+/*
 Rationnel::Rationnel(Complexe* aComplexe){
     if (dynamic_cast<Rationnel>(aComplexe->pRe)){
         num=aComplexe->pRe->num;
@@ -85,3 +80,4 @@ Rationnel::Rationnel(Complexe* aComplexe){
         simplifier();
     }
 }
+*/

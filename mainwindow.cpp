@@ -34,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     QObject::connect(ui->bSoustr, SIGNAL(clicked()), this, SLOT(on_soustraction()));
     QObject::connect(ui->bMult, SIGNAL(clicked()), this, SLOT(on_multiplication()));
     QObject::connect(ui->bDiv, SIGNAL(clicked()), this, SLOT(on_division()));
-    QObject::connect(ui->bNeg, SIGNAL(clicked()), this, SLOT(on_negatif()));
     QObject::connect(ui->bC, SIGNAL(clicked()), this, SLOT(on_effacer()));
     QObject::connect(ui->bCE, SIGNAL(clicked()), this, SLOT(on_effacer_el()));
     QObject::connect(ui->bDollar, SIGNAL(clicked()), this, SLOT(on_dollar()));
@@ -136,9 +135,6 @@ void MainWindow::on_multiplication(){
 }
 void MainWindow::on_division(){
     ui->Afficheur->insert("/");
-}
-void MainWindow::on_negatif(){
-    ui->Afficheur->insert("-");
 }
 void MainWindow::on_effacer(){
     ui->Afficheur->clear();
@@ -365,11 +361,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::on_swap(){
     ui->Afficheur->insert("SWAP");
-    on_commit();
+    instancePile->swap(1,2);
+    refresh();
 }
 void MainWindow::on_sum(){
     ui->Afficheur->insert("SUM");
-    on_commit();
+    //instancePile->sum(10);
+    refresh();
 }
 void MainWindow::on_dup(){
     instancePile->dup();
@@ -377,7 +375,8 @@ void MainWindow::on_dup(){
 }
 void MainWindow::on_mean(){
     ui->Afficheur->insert("MEAN");
-    on_commit();
+    //instancePile->mean(10);
+    refresh();
 }
 void MainWindow::on_clear(){
     instancePile->clear();
@@ -494,7 +493,7 @@ void MainWindow::InitParam(){
         getline(fichier, pile);
         if(pile!="pile vide"){
             while(getline(fichier, pile)){
-                instancePile->push(instanceFD->creerDonnee((QString)pile.c_str()));
+                instancePile->empiler(instanceFD->creerDonnee((QString)pile.c_str()));
              }
         }
       }
@@ -556,13 +555,12 @@ void MainWindow::parser()
 
     QStringList listeTermes = tmp.split(" ");
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
-    for (unsigned int i=0; i<listeTermes.size(); i++)
+    for (int i=0; i<listeTermes.size(); i++)
     {
         if (listeTermes[i]=="+"){ // 4 5 +
-                Donnee* tmpdte=instancePile->pop(); //5
-                Donnee* tmpgch=instancePile->pop(); //4
+                Donnee* tmpdte=instancePile->depiler(); //5
+                Donnee* tmpgch=instancePile->depiler(); //4
                 Donnee* res = *tmpdte + *tmpgch;
-
                 // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
                 // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
                 // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
@@ -570,108 +568,96 @@ void MainWindow::parser()
                 delete tmpgch;
         }
         else if (listeTermes[i]=="-"){
-            Donnee* tmpdte=instancePile->pop();
-            Donnee* tmpgch=instancePile->pop();
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
             delete tmpdte;
             delete tmpgch;
         }
         else if (listeTermes[i]=="/"){
-            Donnee* tmpdte=instancePile->pop();
-            Donnee* tmpgch=instancePile->pop();
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
             delete tmpdte;
             delete tmpgch;
         }
         else if (listeTermes[i]=="*"){
-            Donnee* tmpdte=instancePile->pop();
-            Donnee* tmpgch=instancePile->pop();
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
             delete tmpdte;
             delete tmpgch;
         }
         else if (listeTermes[i]=="pow"){
-            Donnee* tmpdte=instancePile->pop();
-            Donnee* tmpgch=instancePile->pop();
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
             delete tmpdte;
             delete tmpgch;
         }
         else if (listeTermes[i]=="mod"){
-            Donnee* tmpdte=instancePile->pop();
-            Donnee* tmpgch=instancePile->pop();
+            Donnee* tmpdte=instancePile->depiler();
+            Donnee* tmpgch=instancePile->depiler();
             delete tmpdte;
             delete tmpgch;
         }
         else if (listeTermes[i]=="sign"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="sin"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="cos"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="tan"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="sinh"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="cosh"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="tanh"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="ln"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="log"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="inv"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="sqrt"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="sqr"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="cube"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else if (listeTermes[i]=="!"){
-            Donnee* tmp=instancePile->pop();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="SWAP"){
-            Donnee* tmp=instancePile->pop();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="MEAN"){
-            Donnee* tmp=instancePile->pop();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="SUM"){
-            Donnee* tmp=instancePile->pop();
+            Donnee* tmp=instancePile->depiler();
             delete tmp;
         }
         else
         {
             objetTerme = instanceFD->creerDonnee(listeTermes[i]);
             if (objetTerme)
-                instancePile->push(objetTerme);
+                instancePile->empiler(objetTerme);
             else
             {
                 QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
@@ -697,7 +683,7 @@ if(!Expression::isExpression(s)){
     else
     {
 
-        instancePile->push(new Expression(s));
+        instancePile->empiler(new Expression(s));
     }
 
 }
@@ -706,12 +692,11 @@ if(!Expression::isExpression(s)){
 void MainWindow::refresh()
 {
     ui->AffichagePile->clear();
-    Donnee** tab = instancePile->getTab();
-    int taillePileInterne = instancePile->getSommet() + 1;
-    int limite = min(nb_elem_affiche, taillePileInterne);
+    int taillePileInterne = instancePile->size();
+    unsigned int limite = min(nb_elem_affiche, taillePileInterne);
 
     for (unsigned int i=0; i<limite; i++)
-        ui->AffichagePile->insertItem(0, tab[instancePile->getSommet() - i]->toQString());
+        ui->AffichagePile->insertItem(0, instancePile->at[size - i]->toQString());
 /*
     delete[] tab;
     delete tab;
@@ -731,12 +716,12 @@ void MainWindow::calcul_plus()
     {
         try
         {
-            Constante* tmp1=&(pile->pop());
-            Constante* tmp2=&(pile->pop());
+            Constante* tmp1=&(pile->Depiler());
+            Constante* tmp2=&(pile->Depiler());
             Constante* c;
             c = tmp2+ tmp1; //&(tmp2->operator +(tmp1));
 
-            pile->push(c);
+            pile->Empiler(c);
          }
         catch(ExceptionCooCoo e){e.GetInfos();}
 
@@ -756,12 +741,12 @@ void MainWindow::calcul_moins()
     {
         try
         {
-            Constante* tmp1=&(pile->pop());
-            Constante* tmp2=&(pile->pop());
+            Constante* tmp1=&(pile->Depiler());
+            Constante* tmp2=&(pile->Depiler());
             Constante* c;
             c = tmp2-tmp1;
 
-            pile->push(c);
+            pile->Empiler(c);
         }
         catch(ExceptionCooCoo e){e.GetInfos();}
 
@@ -780,12 +765,12 @@ void MainWindow::calcul_mult()
     {
         try
         {
-            Constante* tmp1=&(pile->pop());
-            Constante* tmp2=&(pile->pop());
+            Constante* tmp1=&(pile->Depiler());
+            Constante* tmp2=&(pile->Depiler());
             Constante* c;
             c = tmp2 *tmp1;
 
-            pile->push(c);
+            pile->Empiler(c);
         }
         catch(ExceptionCooCoo e){e.GetInfos();}
     }

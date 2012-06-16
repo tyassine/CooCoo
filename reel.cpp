@@ -1,10 +1,8 @@
 #include "reel.h"
 #include <sstream>
-#include <QMessageBox>
 
 #include "entier.h"
 #include "rationnel.h"
-#include "complexe.h"
 
 QString Reel::toQString() const
 {
@@ -20,10 +18,8 @@ Reel::Reel(Entier* aEntier)
 
 Reel::Reel(Rationnel* aRationnel)
 {
-    QMessageBox::information(this, "Conversion", "Perte d'information à la conversion d'un réel vers un rationnel !");
+    // Perte d'information
     double num = static_cast<double>(aRationnel->getNum());
     double denum = static_cast<double>(aRationnel->getDenum());
     valeur = num/denum;
 }
-
-Reel::Reel(Complexe* aComplexe){}
