@@ -20,7 +20,7 @@ public:
     virtual QString toQString() const = 0; // Méthode virtuelle pure, redéfinie à chaque fois, permet la conversion de la valeur en QString
 
 
-    virtual Donnee* operator+(Donnee & t)=0;
+    virtual Donnee* operator+(Donnee& t)=0;
     /*
     virtual Donnee* operator/(Donnee & t)=0;
     virtual Donnee* operator*(Donnee & t)=0;

@@ -101,7 +101,7 @@ void Pile::mean(const unsigned int x){
 */
 
 void Pile::dup(){
-    empiler(tab[sommet]);
+    if (!pileVide()) empiler(tab[sommet]);
 }
 
 void Pile::drop(){

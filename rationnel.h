@@ -10,6 +10,7 @@
 #include "constante.h"
 class Entier;
 class Reel;
+class Complexe;
 
 class Rationnel : public Constante
 {
@@ -26,9 +27,10 @@ public:
     Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denom(aInt2) {}
     Rationnel(const QString& aQString1 = "0", const QString &aQString2 = "1")
         : num(aQString1.toInt()), denom(aQString2.toInt()) {}
-    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}
+    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
     Rationnel(const Entier* aEntier);
     Rationnel(const Reel* aReel);
+    Rationnel(const Complexe* aComplexe);
 
 
     virtual QString toQString() const;

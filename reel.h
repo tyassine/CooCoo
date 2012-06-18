@@ -11,6 +11,7 @@
 
 class Entier;
 class Rationnel;
+class Complexe;
 
 
 class Reel : public Constante
@@ -23,9 +24,10 @@ public:
     */
     Reel(double val=0) : valeur(val) {}
     Reel(const QString& aQString = "0") : valeur(aQString.toDouble()) {}
-    Reel(const Reel* aReel) : valeur(aReel->valeur) {}
+    Reel(const Reel* aReel) : valeur(aReel->valeur) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
     Reel(const Entier* aEntier);
     Reel(const Rationnel* aRationnel);
+    Reel(const Complexe* aComplexe);
 
     virtual QString toQString() const;
 

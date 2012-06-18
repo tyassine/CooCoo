@@ -9,6 +9,9 @@
 #include "constante.h"
 #include <sstream>
 
+class Entier;
+class Reel;
+class Rationnel;
 
 class Complexe : public Donnee
 {
@@ -17,6 +20,10 @@ class Complexe : public Donnee
 public:
 
     Complexe(Constante* D1, Constante* D2) : pRe(D1), pIm(D2) {}
+    Complexe(const Complexe* aComplexe);    // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
+    Complexe(const Entier* aEntier);
+    Complexe(const Reel* aReel);
+    Complexe(const Rationnel* aRationnel);
     ~Complexe() {delete pRe; delete pIm;}
 
     virtual QString toQString() const
@@ -24,6 +31,9 @@ public:
         QString res = pRe->toQString() + "$" + pIm->toQString();
         return res;
     }
+
+    Constante* getPRe() const {return pRe;}
+    Constante* getPIm() const {return pIm;}
 
 
     virtual Donnee* operator+(Donnee & t) {}

@@ -4,6 +4,7 @@
 #include <cmath>
 #include "entier.h"
 #include "reel.h"
+#include "fabriquedonnee.h"
 
 QString Rationnel::toQString() const
 {
@@ -73,6 +74,22 @@ void Rationnel::simplifier(){
         num=-num;
     }
 }
+
+Rationnel::Rationnel(const Complexe* aComplexe)
+{
+    // Perte d'information
+    Constante* tmp = aComplexe->getPRe();
+    // Besoin de l'instance factory... Du coup include sale, mais bon.
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, "Rationnel"));
+    // static_cast pour permettre la conversion Donnee* ==> Rationnel*
+    // On est surs que ça sera un Rationnel*, puisqu'on le demande spécifiquement!
+    num = tmp2->getNum();
+    denom = tmp2->getDenom();
+    delete tmp;
+    delete tmp2;
+}
+
 
 /*
 Rationnel::Rationnel(Complexe* aComplexe){

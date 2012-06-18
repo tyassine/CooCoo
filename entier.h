@@ -12,6 +12,7 @@
 
 class Reel;
 class Rationnel;
+class Complexe;
 
 class Entier : public Constante
 {
@@ -29,6 +30,7 @@ public:
     Entier(const Entier* aEntier) : valeur(aEntier->valeur) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
     Entier(const Reel* aReel);
     Entier(const Rationnel* aRationnel);
+    Entier(const Complexe* aComplexe);
 
 
     virtual QString toQString() const;
@@ -36,8 +38,10 @@ public:
     int getValeur() const {return valeur;}
     void setValeur(int aValeur) {valeur = aValeur;}
 
+    // Impossible de séparer ça proprement en plusieurs constructeurs
+    // Tant pis je vais faire comme Nico, en testant les types à chaque fois
 
-    virtual Donnee* operator+(Donnee& t) {}
+    virtual Donnee* operator+(Donnee& t);
     /*
     virtual Donnee* operator/(Donnee & t);
     virtual Donnee* operator*(Donnee & t);

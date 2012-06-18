@@ -555,118 +555,211 @@ void MainWindow::parser()
 
     QStringList listeTermes = tmp.split(" ");
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
+    QString opBinaires = "+-/*powmod";
+    QString opUnaires = "signsincostansinhcoshtanhlnloginvsqrtsqrcube!";
     for (int i=0; i<listeTermes.size(); i++)
     {
-        if (listeTermes[i]=="+"){ // 4 5 +
-                Donnee* tmpdte=instancePile->depiler(); //5
-                Donnee* tmpgch=instancePile->depiler(); //4
-                Donnee* res = *tmpdte + *tmpgch;
-                // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
-                // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
-                // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
+        if (opBinaires.contains(listeTermes[i]))
+        {
+            // Opérateur binaire
+            if (instancePile->size() >= 2)  // Au moins 2 éléments
+            {
+                Donnee* tmpdte = instancePile->depiler();
+                Donnee* tmpgch = instancePile->depiler();
+
+                if (listeTermes[i]=="+"){ // 4 5 +
+                        //Donnee* res = *tmpdte + *tmpgch;
+                        // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
+                        // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
+                        // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
+                }
+                else if (listeTermes[i]=="-"){
+                }
+                else if (listeTermes[i]=="/"){
+                }
+                else if (listeTermes[i]=="*"){
+                }
+                else if (listeTermes[i]=="pow"){
+                }
+                else if (listeTermes[i]=="mod"){
+                }
+
+                // Ici : placer test, si type obtenu différent de celui souhaité par l'utilisateur, lancer la conversion
+
                 delete tmpdte;
                 delete tmpgch;
+            }
         }
-        else if (listeTermes[i]=="-"){
-            Donnee* tmpdte=instancePile->depiler();
-            Donnee* tmpgch=instancePile->depiler();
-            delete tmpdte;
-            delete tmpgch;
-        }
-        else if (listeTermes[i]=="/"){
-            Donnee* tmpdte=instancePile->depiler();
-            Donnee* tmpgch=instancePile->depiler();
-            delete tmpdte;
-            delete tmpgch;
-        }
-        else if (listeTermes[i]=="*"){
-            Donnee* tmpdte=instancePile->depiler();
-            Donnee* tmpgch=instancePile->depiler();
-            delete tmpdte;
-            delete tmpgch;
-        }
-        else if (listeTermes[i]=="pow"){
-            Donnee* tmpdte=instancePile->depiler();
-            Donnee* tmpgch=instancePile->depiler();
-            delete tmpdte;
-            delete tmpgch;
-        }
-        else if (listeTermes[i]=="mod"){
-            Donnee* tmpdte=instancePile->depiler();
-            Donnee* tmpgch=instancePile->depiler();
-            delete tmpdte;
-            delete tmpgch;
-        }
-        else if (listeTermes[i]=="sign"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="sin"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="cos"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="tan"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="sinh"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="cosh"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="tanh"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="ln"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="log"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="inv"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="sqrt"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="sqr"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="cube"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
-        }
-        else if (listeTermes[i]=="!"){
-            Donnee* tmp=instancePile->depiler();
-            delete tmp;
+        else if (opUnaires.contains(listeTermes[i]))
+        {
+            // Opérateur unaire
+            if (!(instancePile->pileVide()))    // Au moins 1 élément
+            {
+                Donnee* tmp = instancePile->depiler();
+                if (listeTermes[i]=="sign"){
+                }
+                else if (listeTermes[i]=="sin"){
+                }
+                else if (listeTermes[i]=="cos"){
+                }
+                else if (listeTermes[i]=="tan"){
+                }
+                else if (listeTermes[i]=="sinh"){
+                }
+                else if (listeTermes[i]=="cosh"){
+                }
+                else if (listeTermes[i]=="tanh"){
+                }
+                else if (listeTermes[i]=="ln"){
+                }
+                else if (listeTermes[i]=="log"){
+                }
+                else if (listeTermes[i]=="inv"){
+                }
+                else if (listeTermes[i]=="sqrt"){
+                }
+                else if (listeTermes[i]=="sqr"){
+                }
+                else if (listeTermes[i]=="cube"){
+                }
+                else if (listeTermes[i]=="!"){
+                }
+
+                delete tmp;
+            }
         }
         else
         {
+            // Constante
             objetTerme = instanceFD->creerDonnee(listeTermes[i]);
             if (objetTerme)
                 instancePile->empiler(objetTerme);
             else
-            {
                 QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
-            }
-         }
-        // fin détection
-
+        }
     }
 }
+
+// BACKUP OLD PARSER
+
+    /*
+    if (listeTermes[i]=="+"){ // 4 5 +
+            Donnee* tmpdte=instancePile->depiler(); //5
+            Donnee* tmpgch=instancePile->depiler(); //4
+            Donnee* res = *tmpdte + *tmpgch;
+            // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
+            // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
+            // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
+            delete tmpdte;
+            delete tmpgch;
+    }
+    else if (listeTermes[i]=="-"){
+        Donnee* tmpdte=instancePile->depiler();
+        Donnee* tmpgch=instancePile->depiler();
+        delete tmpdte;
+        delete tmpgch;
+    }
+    else if (listeTermes[i]=="/"){
+        Donnee* tmpdte=instancePile->depiler();
+        Donnee* tmpgch=instancePile->depiler();
+        delete tmpdte;
+        delete tmpgch;
+    }
+    else if (listeTermes[i]=="*"){
+        Donnee* tmpdte=instancePile->depiler();
+        Donnee* tmpgch=instancePile->depiler();
+        delete tmpdte;
+        delete tmpgch;
+    }
+    else if (listeTermes[i]=="pow"){
+        Donnee* tmpdte=instancePile->depiler();
+        Donnee* tmpgch=instancePile->depiler();
+        delete tmpdte;
+        delete tmpgch;
+    }
+    else if (listeTermes[i]=="mod"){
+        Donnee* tmpdte=instancePile->depiler();
+        Donnee* tmpgch=instancePile->depiler();
+        delete tmpdte;
+        delete tmpgch;
+    }
+    else if (listeTermes[i]=="sign"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="sin"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="cos"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="tan"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="sinh"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="cosh"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="tanh"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="ln"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="log"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="inv"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="sqrt"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="sqr"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="cube"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else if (listeTermes[i]=="!"){
+        Donnee* tmp=instancePile->depiler();
+        delete tmp;
+    }
+    else
+    {
+        objetTerme = instanceFD->creerDonnee(listeTermes[i]);
+        if (objetTerme)
+            instancePile->empiler(objetTerme);
+        else
+        {
+            QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
+        }
+     }
+    // fin détection
+    */
+
+// FIN BACKUP OLD PARSER
+
+
+
+
+
+
+
 
 /*
 if(!Expression::isExpression(s)){
