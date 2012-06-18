@@ -67,7 +67,7 @@ public:
     }
 
     static bool isComplexe(const QString& s){
-        QRegExp rx("^-?\\d*(/|\\.)?\\d*?\\$-?\\d*(/|\\.)?\\d*?$");
+        QRegExp rx("^-?\\d+((/|\\.)\\d+)?\\$-?\\d+((/|\\.)\\d+)?$");
         return s.contains (rx);
     }
 
