@@ -23,31 +23,19 @@ Rationnel::Rationnel(const Entier* aEntier)
 
 Rationnel::Rationnel(const Reel* aReel)
 {
-    double fractpart, intpart;
-    float numerateur(0);
-    float denominateur(0);
-    float resPGCD(0);
-    //on cherche si le réel est fini ou pas
-    fractpart = std::modf(aReel->getValeur(), &intpart);
-    fractpart *= 1000000; // on le récupère en "entier"
-    if(std::fmod(fractpart, 10) == 0){ // ici le réel est fini, il n'y a pas de reste car ce sera divisible par 10
-        numerateur = fractpart + 1000000*intpart; // on lui met la partie entière avant
-        //On simplifie la fraction
-        resPGCD = pgcd(numerateur, 1000000);
-        numerateur /= resPGCD;
-        denominateur = 1000000 / resPGCD;
-    }
-    else //Si le reel a a une partie décimal infinie
-    {/*
-        numerateur = fractpart + 999999*intpart;
-        //On simplifie la fraction
-        pgcd = pgcd(numerateur, 999999);
-        numerateur /= P;
-        denominateur = 999999 / P;*/
-    }
-    num=numerateur;
-    denom=denominateur;
+    QStringList chaine = QString::aReel->toQString().split(".");
+    QString x("1");
+    for(int i=0; i<chaine[1].length(); i++)
+    x += "0";
+    num=aReel*x;
+    denom=x.toInt();
+    float p=pgcd(num, denom);
+    num/=p;
+    denom/=p;
+
 }
+
+
 
 int Rationnel::pgcd(int a, int b) const {
     if (a==0||b==0) return 0;
