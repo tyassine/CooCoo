@@ -1,5 +1,6 @@
 #include "fabriquedonnee.h"
 #include <QStringList>
+#include <QMessageBox>
 
 // Initialisation du membre statique du singleton
 FabriqueDonnee* FabriqueDonnee::instance = 0;
@@ -38,18 +39,18 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
         try{
             return new Rationnel(terme);
         }
-        catch (std::exception &e) {
-            QMessageBox msgBox;
+        catch (ExceptionCooCoo &e) {
+             QMessageBox msgBox;
              msgBox.setText(e.GetInfos());
              msgBox.exec();
         }
-        else return NULL;
+        return NULL;
     }
 
 
     if(Donnee::isComplexe(terme))
     {
-        return new complexe(s);
+        return new Complexe(terme);
     }
 
     if(Donnee::isExpression(terme))

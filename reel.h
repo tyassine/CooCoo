@@ -37,9 +37,10 @@ public:
        return toQString().section('.', 1,1).size();
     }
 
-
+    Reel* sign(){
+        Reel* res=new Reel(-valeur);
+        return res;}
     Donnee* operator+(Donnee & t);
-
     Donnee* operator/(Donnee & t);
     Donnee* operator*(Donnee & t);
     Donnee* operator-(Donnee & t);

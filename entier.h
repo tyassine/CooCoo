@@ -34,7 +34,9 @@ public:
 
 
     virtual QString toQString() const;
-
+    Entier* sign(){
+        Entier* res=new Entier(-valeur);
+        return res;}
     int getValeur() const {return valeur;}
     void setValeur(int aValeur) {valeur = aValeur;}
 

@@ -45,7 +45,9 @@ public:
     Donnee* operator/(Donnee & t);
     Donnee* operator*(Donnee & t);
     Donnee* operator-(Donnee & t);
-    Complexe* sign();
+    Complexe* sign(){
+        Complexe* res=new Complexe(pRe->sign(),pIm->sign());
+        return res;}
 /*
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);

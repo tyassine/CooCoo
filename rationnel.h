@@ -35,7 +35,10 @@ public:
 
 
     virtual QString toQString() const;
-
+    Rationnel* sign(){
+        Rationnel* res=new Rationnel(-num,denom);
+        return res;
+    }
     int getNum() const {return num;}
     int getDenom() const {return denom;}
     void setNum(int aNum) {num = aNum;}
