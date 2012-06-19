@@ -19,7 +19,7 @@ class Complexe : public Donnee
     Constante* pIm;
 public:
 
-    Complexe(Constante* D1, Constante* D2) : pRe(D1), pIm(D2) {}
+    Complexe(Constante* D1=0, Constante* D2=0) : pRe(D1), pIm(D2) {}
     Complexe(const Complexe* aComplexe);    // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
     Complexe(const Entier* aEntier);
     Complexe(const Reel* aReel);
@@ -37,14 +37,16 @@ public:
 
     Constante* getPRe() const {return pRe;}
     Constante* getPIm() const {return pIm;}
+    Donnee* conj();
 
 
-    virtual Donnee* operator+(Donnee & t) {}
-    /*
-    virtual Donnee* operator/(Donnee & t);
-    virtual Donnee* operator*(Donnee & t);
-    virtual Donnee* operator-(Donnee & t);
+    Donnee* operator+(Donnee & t);
 
+    Donnee* operator/(Donnee & t);
+    Donnee* operator*(Donnee & t);
+    Donnee* operator-(Donnee & t);
+    Complexe* sign();
+/*
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);
     virtual Donnee* sign();

@@ -82,12 +82,12 @@ Donnee* Entier::operator+(Donnee& t)
     try{
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " +'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
-    throw ExceptionCooCoo("Erreur opération avec un entier");
+    throw ExceptionCooCoo("Erreur sur operateur + avec un entier");
 }
 
 Donnee* Entier::operator /(Donnee& t)
@@ -126,12 +126,12 @@ Donnee* Entier::operator /(Donnee& t)
     try{
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " /'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " /'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
-    throw ExceptionCooCoo("Erreur opération avec un entier");
+    throw ExceptionCooCoo("Erreur sur operateur / avec un entier");
 }
 
 Donnee* Entier::operator*(Donnee& t){
@@ -170,12 +170,12 @@ Donnee* Entier::operator*(Donnee& t){
 
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() +" "+ tmp.toQString().remove("'") + " *'";
+       nouv = "'" + toQString() +" "+ tmp.toQString() + " *'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
-    throw Entier("Erreur opération avec un entier");
+    throw Entier("Erreur sur operateur * avec un entier");
 }
 
 Donnee* Entier::operator-(Donnee& t){
@@ -216,12 +216,12 @@ Donnee* Entier::operator-(Donnee& t){
 
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " -'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " -'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
-    throw Entier("Erreur opération avec un entier");
+    throw Entier("Erreur sur operateur - avec un entier");
 }
 
 

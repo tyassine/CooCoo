@@ -17,12 +17,12 @@ public:
     virtual QString toQString() const {return chaine;}
 
 
-    virtual Donnee* operator+(Donnee & t) {}
-    /*
-    virtual Donnee* operator/(Donnee & t);
-    virtual Donnee* operator*(Donnee & t);
-    virtual Donnee* operator-(Donnee & t);
+    Donnee* operator+(Donnee & t);
 
+    Donnee* operator/(Donnee & t);
+    Donnee* operator*(Donnee & t);
+    Donnee* operator-(Donnee & t);
+/*
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);
     virtual Donnee* sign();

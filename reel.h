@@ -33,7 +33,7 @@ public:
 
     double getValeur() const {return valeur;}
     void setValeur(double aValeur) {valeur = aValeur;}
-    int getTaille(){
+    int getTaille() const {
        return toQString().section('.', 1,1).size();
     }
 

@@ -87,13 +87,13 @@ Donnee* Reel::operator +(Donnee& d){
     try{
 
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
-       QString e;
-       e = "'" + toQString() + " "+ tmp.toQString().remove("'") + " +'";
-       return new ConstanteExp(e);
+       QString nouv;
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
+       return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
-    throw ExceptionCooCoo("erreur sur operateur avec un reel");
+    throw ExceptionCooCoo("erreur sur operateur + avec un reel");
 
 
 }
@@ -102,7 +102,7 @@ Donnee* Reel::operator /(Donnee& d){
     try{
        Entier &tmp=dynamic_cast<Entier&>(d);
        Rationnel cur(this);
-       Rationnel ent(tmp);
+       Rationnel ent(&tmp);
        Donnee *res=cur/ent;
        return res;
     }
@@ -111,7 +111,7 @@ Donnee* Reel::operator /(Donnee& d){
     try{
        Reel &tmp=dynamic_cast<Reel&>(d); // pour eviter la perte de données
        Rationnel cur(this);
-       Rationnel re(tmp);
+       Rationnel re(&tmp);
        Donnee *res=cur/re;
        return res;
     }
@@ -140,12 +140,12 @@ Donnee* Reel::operator /(Donnee& d){
 
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " /'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " /'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
-    throw ExceptionCooCoo("erreur sur operateur avec un reel");
+    throw ExceptionCooCoo("erreur sur operateur / avec un reel");
 }
 
 Donnee* Reel::operator*(Donnee& d){
@@ -187,12 +187,12 @@ Donnee* Reel::operator*(Donnee& d){
 
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
        QString e;
-       e = "'" + toQString() +" "+ tmp.toQString().remove("'") + " *'";
+       e = "'" + toQString() +" "+ tmp.toQString() + " *'";
        return new ConstanteExp(e);
     }
     catch(std::exception &e){}
 
-    throw ExceptionCooCoo("erreur Reel");
+    throw ExceptionCooCoo("erreur sur operateur * avec un reel");
 }
 
 Donnee* Reel::operator-(Donnee& d){
@@ -235,12 +235,12 @@ Donnee* Reel::operator-(Donnee& d){
 
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
        QString e;
-       e = "'" + toQString() + " "+ tmp.toQString().remove("'") + " -'";
+       e = "'" + toQString() + " "+ tmp.toQString() + " -'";
        return new ConstanteExp(e);
     }
     catch(std::exception &e){}
 
-    throw ExceptionCooCoo("erreur Reel");
+    throw ExceptionCooCoo("erreur sur operateur - avec un reel");
 }
 
 

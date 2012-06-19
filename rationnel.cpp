@@ -90,14 +90,14 @@ Donnee* Rationnel::operator +(Donnee & t){
 
     try{
        Entier &tmp=dynamic_cast<Entier&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return cur+*this;
     }
     catch(std::exception &e){}
 
     try{
        Reel &tmp=dynamic_cast<Reel&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return cur+*this;
     }
     catch(std::exception &e){}
@@ -114,7 +114,7 @@ Donnee* Rationnel::operator +(Donnee & t){
     try{
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " +'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
@@ -132,14 +132,14 @@ Donnee* Rationnel::operator -(Donnee & t){
 
     try{
        Entier &tmp=dynamic_cast<Entier&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return *this-cur;
     }
     catch(std::exception &e){}
 
     try{
        Reel &tmp=dynamic_cast<Reel&>(t);
-       Rationnel cur=Rationnel(tmp);;
+       Rationnel cur=Rationnel(&tmp);;
        return *this-cur;
     }
     catch(std::exception &e){}
@@ -156,7 +156,7 @@ Donnee* Rationnel::operator -(Donnee & t){
     try{
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " -'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " -'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
@@ -175,7 +175,7 @@ Donnee* Rationnel::operator /(Donnee & t){
 
     try{
        Entier &tmp=dynamic_cast<Entier&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return *this/cur;
     }
     catch(std::exception &e){}
@@ -183,7 +183,7 @@ Donnee* Rationnel::operator /(Donnee & t){
 
     try{
        Reel &tmp=dynamic_cast<Reel&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return *this/cur;
     }
     catch(std::exception &e){}
@@ -200,7 +200,7 @@ Donnee* Rationnel::operator /(Donnee & t){
     try{
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString e;
-       e = "'" + toQString() + " "+ tmp.toQString().remove("'") + " /'";
+       e = "'" + toQString() + " "+ tmp.toQString() + " /'";
        return new ConstanteExp(e);
     }
     catch(std::exception &e){}
@@ -220,14 +220,14 @@ Donnee* Rationnel::operator*(Donnee& t)
 
     try{
        Entier &tmp=dynamic_cast<Entier&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return tmp*cur;
     }
     catch(std::exception &e){}
 
     try{
        Reel &tmp=dynamic_cast<Reel&>(t);
-       Rationnel cur=Rationnel(tmp);
+       Rationnel cur=Rationnel(&tmp);
        return tmp*cur;
     }
     catch(std::exception &e){}
@@ -244,7 +244,7 @@ Donnee* Rationnel::operator*(Donnee& t)
     try{
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
-       nouv = "'" + toQString() +" "+ tmp.toQString().remove("'") + " *'";
+       nouv = "'" + toQString() +" "+ tmp.toQString() + " *'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
