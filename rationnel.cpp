@@ -80,30 +80,30 @@ Rationnel::Rationnel(const Complexe* aComplexe)
     delete tmp;
 }
 
-Donnee* Rationnel::operator +(Donnee & t){
+Donnee* Rationnel::operator +(Donnee * t){
     try{
-       Rationnel &tmp=dynamic_cast<Rationnel&>(t);
-       Rationnel *res=new Rationnel(num*tmp.denom+tmp.num*denom,denom*tmp.denom);
+       Rationnel *tmp=dynamic_cast<Rationnel*>(t);
+       Rationnel *res=new Rationnel(num*tmp->denom+tmp->num*denom,denom*tmp->denom);
        return res;
     }
     catch(std::exception &e){}
 
     try{
-       Entier &tmp=dynamic_cast<Entier&>(t);
-       Rationnel cur=Rationnel(&tmp);
-       return cur+*this;
+       Entier *tmp=dynamic_cast<Entier*>(t);
+       Rationnel cur=Rationnel(tmp);
+       return cur+this;
     }
     catch(std::exception &e){}
 
     try{
-       Reel &tmp=dynamic_cast<Reel&>(t);
-       Rationnel cur=Rationnel(&tmp);
-       return cur+*this;
+       Reel *tmp=dynamic_cast<Reel*>(t);
+       Rationnel cur=Rationnel(tmp);
+       return cur+this;
     }
     catch(std::exception &e){}
 
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(t);
+       Complexe *tmp=dynamic_cast<Complexe*>(t);
        Complexe cur(this);
        Donnee * res;
        res=cur+tmp;
@@ -112,16 +112,16 @@ Donnee* Rationnel::operator +(Donnee & t){
     catch(std::exception &e){}
 
     try{
-       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
+       ConstanteExp *tmp=dynamic_cast<ConstanteExp*>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
+       nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur + avec un rationnel");
 }
-
+/*
 Donnee* Rationnel::operator -(Donnee & t){
     try{
        Rationnel &tmp=dynamic_cast<Rationnel&>(t);
@@ -251,3 +251,4 @@ Donnee* Rationnel::operator*(Donnee& t)
 
     throw ExceptionCooCoo("erreur sur operateur avec un rationnel");
 }
+*/

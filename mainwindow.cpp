@@ -568,7 +568,10 @@ void MainWindow::parser()
                 Donnee* tmpgch = instancePile->depiler();
 
                 if (listeTermes[i]=="+"){ // 4 5 +
-                        //Donnee* res = *tmpdte + *tmpgch;
+                        Entier *tmp=static_cast<Entier *>(tmpgch);
+                        Donnee*res=*tmp+tmpdte;
+                        instancePile->empiler(res);
+
                         // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
                         // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
                         // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory

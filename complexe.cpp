@@ -48,31 +48,47 @@ Donnee* Complexe::conj(){
 }
 
 
-Donnee* Complexe::operator +(Donnee & t){
+Donnee* Complexe::operator +(Donnee * t){
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(t);
-       if ((*pIm + *tmp.getPIm())->toQString()=="0")
-           return *pRe + *tmp.pRe;
+       Complexe *tmp=dynamic_cast<Complexe*>(t);
+       if ((*pIm + (tmp->getPIm()))->toQString()=="0")
+           return *pRe + tmp->getPRe();
        Complexe *res=new Complexe;
-       res->pRe= dynamic_cast<Constante*> (*pRe + *tmp.getPRe());
-       res->pIm= dynamic_cast<Constante*>(*pIm + *tmp.getPIm());
+       res->pRe= dynamic_cast<Constante*> (*pRe + tmp->getPRe());
+       res->pIm= dynamic_cast<Constante*>(*pIm + tmp->getPIm());
        return res;
     }
     catch(std::exception &e){}
 
 
     try{
-       Constante &tmp=dynamic_cast<Constante&>(t);
+       Entier *tmp=dynamic_cast<Entier*>(t);
        Donnee * res;
-       res=tmp+*this;
+       res=*this+tmp;
        return res;
     }
     catch(std::exception &e){}
 
     try{
-        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
+       Reel *tmp=dynamic_cast<Reel*>(t);
+       Donnee * res;
+       res=*this+tmp;
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Rationnel *tmp=dynamic_cast<Rationnel*>(t);
+       Donnee * res;
+       res=*this+tmp;
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+        ConstanteExp *tmp=dynamic_cast<ConstanteExp*>(t);
         QString nouv;
-        nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
+        nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
         return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
@@ -81,7 +97,7 @@ Donnee* Complexe::operator +(Donnee & t){
 
 
 }
-
+/*
 Donnee* Complexe::operator /(Donnee & t)
 {
     try{
@@ -118,7 +134,7 @@ Donnee* Complexe::operator /(Donnee & t)
 Donnee* Complexe::operator*(Donnee& t){
     try{
        Complexe &tmp=dynamic_cast<Complexe&>(t);
-       if ((*(*pRe * *tmp.pIm)+*(*pIm * *tmp.pRe))->toQString()=="0")
+       if ((*(*pRe * *tmp.getPIm())+*(*pIm * *tmp.getPRe()))->toQString()=="0")
            return FabriqueDonnee::getInstance()->creerDonnee((*(*pRe * *tmp.pRe)-*(*pIm * *tmp.pIm))->toQString());
        Complexe *res=new Complexe;
        res->pRe= dynamic_cast<Constante*> (*(*pRe * *tmp.pRe)-*(*pIm * *tmp.pIm));
@@ -213,3 +229,4 @@ Donnee* Complexe::operator-(Donnee& t){
     catch(std::exception &e){}
     throw ExceptionCooCoo("erreur sur operateur - avec un complexe");
 }
+*/

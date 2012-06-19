@@ -40,11 +40,12 @@ public:
     Donnee* conj();
 
 
-    Donnee* operator+(Donnee & t);
-
+    Donnee* operator+(Donnee * t);
+/*
     Donnee* operator/(Donnee & t);
     Donnee* operator*(Donnee & t);
     Donnee* operator-(Donnee & t);
+    */
     Complexe* sign(){
         Complexe* res=new Complexe(pRe->sign(),pIm->sign());
         return res;}

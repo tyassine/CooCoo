@@ -47,36 +47,36 @@ Reel::Reel(const Complexe* aComplexe)
     delete tmp;
 }
 
-Donnee* Reel::operator +(Donnee& d){
+Donnee* Reel::operator +(Donnee* d){
 
     try{
 
-       Entier &tmp=dynamic_cast<Entier&>(d);
-       Reel *res=new Reel(valeur+tmp.getValeur());
+       Entier *tmp=dynamic_cast<Entier*>(d);
+       Reel *res=new Reel(valeur+tmp->getValeur());
        return res;
     }
     catch(std::exception &e){}
 
     try{
 
-       Reel &tmp=dynamic_cast<Reel&>(d);
-       Reel *res=new Reel(valeur+tmp.getValeur());
+       Reel *tmp=dynamic_cast<Reel*>(d);
+       Reel *res=new Reel(valeur+tmp->getValeur());
        return res;
     }
     catch(std::exception &e){}
 
     try{
 
-       Rationnel &tmp=dynamic_cast<Rationnel&>(d);
+       Rationnel *tmp=dynamic_cast<Rationnel*>(d);
        Rationnel cur(this);
        Donnee* res;
-       res=tmp+cur; // simplification dans le + du rationnel
+       res=cur+tmp; // simplification dans le + du rationnel
        return res;
     }
     catch(std::exception &e){}
 
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(d);
+       Complexe *tmp=dynamic_cast<Complexe*>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur+tmp;
@@ -86,9 +86,9 @@ Donnee* Reel::operator +(Donnee& d){
 
     try{
 
-       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
+       ConstanteExp *tmp=dynamic_cast<ConstanteExp*>(d);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
+       nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
@@ -97,7 +97,7 @@ Donnee* Reel::operator +(Donnee& d){
 
 
 }
-
+/*
 Donnee* Reel::operator /(Donnee& d){
     try{
        Entier &tmp=dynamic_cast<Entier&>(d);
@@ -122,7 +122,7 @@ Donnee* Reel::operator /(Donnee& d){
        Rationnel &tmp=dynamic_cast<Rationnel&>(d);
        Rationnel cur(this);
        Donnee* res;
-       res=tmp+cur;
+       res=cur/tmp;
        return res;
     }
     catch(std::exception &e){}
@@ -244,3 +244,4 @@ Donnee* Reel::operator-(Donnee& d){
 }
 
 
+*/

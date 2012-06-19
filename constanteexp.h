@@ -17,7 +17,7 @@ public:
     virtual QString toQString() const {return chaine;}
 
 
-    Donnee* operator+(Donnee & t);
+    Donnee* operator+(Donnee* t);
 
     Donnee* operator/(Donnee & t);
     Donnee* operator*(Donnee & t);

@@ -44,34 +44,34 @@ Entier::Entier(const Complexe* aComplexe)
     delete tmp;
 }
 
-Donnee* Entier::operator+(Donnee& t)
+Donnee* Entier::operator+(Donnee* t)
 {
     //ici il faut mieux faire des try catch car les if nous obligent a faire 2 dynamic cast
     try{
-       Entier &tmp=dynamic_cast<Entier&>(t);
-       Entier *res=new Entier(valeur+tmp.getValeur());
+       Entier *tmp=dynamic_cast<Entier*>(t);
+       Entier *res=new Entier(valeur+tmp->getValeur());
        return res;
     }
     catch(std::exception &e){}
 
     try{
-       Reel &tmp=dynamic_cast<Reel&>(t);
-       Reel *res=new Reel(valeur+tmp.getValeur());
+       Reel *tmp=dynamic_cast<Reel*>(t);
+       Reel *res=new Reel(valeur+tmp->getValeur());
        return res;
     }
     catch(std::exception &e){}
 
     try{
-       Rationnel &tmp=dynamic_cast<Rationnel&>(t); //conversion de l'entier en rationnel
+       Rationnel *tmp=dynamic_cast<Rationnel*>(t); //conversion de l'entier en rationnel
        Donnee* res;
        Rationnel cur(this); //appel du constructeur avec conversion
-       res=tmp+cur;
+       res=cur+tmp;
        return res;
     }
     catch(std::exception &e){}
 
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(t);
+       Complexe *tmp=dynamic_cast<Complexe*>(t);
        Complexe cur(this); //conversion de l'entier en complexe
        Donnee* res;
        res=cur+tmp; // pas *res car les opérateurs retournent deja des pointeurs
@@ -80,16 +80,16 @@ Donnee* Entier::operator+(Donnee& t)
     catch(std::exception &e){}
 
     try{
-       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
+       ConstanteExp *tmp=dynamic_cast<ConstanteExp*>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp.toQString() + " +'";
+       nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
        return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
     throw ExceptionCooCoo("Erreur sur operateur + avec un entier");
 }
-
+/*
 Donnee* Entier::operator /(Donnee& t)
 {
     try{
@@ -224,5 +224,5 @@ Donnee* Entier::operator-(Donnee& t){
     throw Entier("Erreur sur operateur - avec un entier");
 }
 
-
+*/
 

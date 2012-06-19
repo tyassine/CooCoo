@@ -40,11 +40,11 @@ public:
     Reel* sign(){
         Reel* res=new Reel(-valeur);
         return res;}
-    Donnee* operator+(Donnee & t);
-    Donnee* operator/(Donnee & t);
+    Donnee* operator+(Donnee * t);
+ /*   Donnee* operator/(Donnee & t);
     Donnee* operator*(Donnee & t);
     Donnee* operator-(Donnee & t);
-/*
+
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);
     virtual Donnee* sign();
