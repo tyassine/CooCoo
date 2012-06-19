@@ -2,7 +2,7 @@
 #include "entier.h"
 #include <sstream>
 
-#include "reel.h"
+#include "Reel.h"
 #include "rationnel.h"
 #include "complexe.h"
 #include "fabriquedonnee.h"
@@ -49,14 +49,14 @@ Donnee* Entier::operator+(Donnee& t)
     //ici il faut mieux faire des try catch car les if nous obligent a faire 2 dynamic cast
     try{
        Entier &tmp=dynamic_cast<Entier&>(t);
-       Entier *res=new Entier(valeur+tmp->getValeur());
+       Entier *res=new Entier(valeur+tmp.getValeur());
        return res;
     }
     catch(std::exception &e){}
 
     try{
        Reel &tmp=dynamic_cast<Reel&>(t);
-       Reel *res=new reel(valeur+tmp->getValeur());
+       Reel *res=new Reel(valeur+tmp.getValeur());
        return res;
     }
     catch(std::exception &e){}
@@ -65,7 +65,7 @@ Donnee* Entier::operator+(Donnee& t)
        Rationnel &tmp=dynamic_cast<Rationnel&>(t); //conversion de l'entier en rationnel
        Donnee* res;
        Rationnel cur(valeur,1);
-       *res=tmp+cur;
+       res=tmp+cur;
        return res;
     }
     catch(std::exception &e){}
@@ -74,7 +74,7 @@ Donnee* Entier::operator+(Donnee& t)
        Complexe &tmp=dynamic_cast<Complexe&>(t);
        Complexe cur(toQString()); //conversion de l'entier en complexe
        Donnee* res;
-       *res=cur+tmp;
+       res=cur+tmp; // pas *res car les opérateurs retournent deja des pointeurs
        return res;
     }
     catch(std::exception &e){}
@@ -87,10 +87,141 @@ Donnee* Entier::operator+(Donnee& t)
     }
     catch(std::exception &e){}
 
+    throw ExceptionCooCoo("Erreur opération avec un entier");
+}
+
+Donnee* Entier::operator /(Donnee& t)
+{
+    try{
+       Entier &tmp=dynamic_cast<Entier&>(t);
+       Rationnel *res=new Rationnel(valeur,tmp.getValeur()); // la meilleur solution pour ne pas perdre d'information
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Reel &tmp=dynamic_cast<Reel&>(t);
+       Reel *res=new Reel(valeur/tmp.getValeur());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Rationnel &tmp=dynamic_cast<Rationnel&>(t);
+       Rationnel *res=new Rationnel(valeur*tmp.getDenom(), tmp.getNum());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Complexe &tmp=dynamic_cast<Complexe&>(t);
+       Complexe cur(toQString());
+       Donnee * res;
+       res=cur/tmp;
+       return res;
+    }
+    catch(std::exception &e){}
 
 
-    throw ExceptionCooCoo("erreur entier");
+    try{
+       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
+       QString nouv;
+       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " /'";
+       return new ConstanteExp(nouv);
+    }
+    catch(std::exception &e){}
 
+    throw ExceptionCooCoo("Erreur opération avec un entier");
+}
+
+Donnee* Entier::operator*(Donnee& t){
+    try{
+       Entier &tmp=dynamic_cast<Entier&>(t);
+       Entier *res=new Entier(valeur*tmp.getValeur());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Reel &tmp=dynamic_cast<Reel&>(t);
+       Reel *res=new Reel(valeur*tmp.getValeur());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Rationnel &tmp=dynamic_cast<Rationnel&>(t);
+       Rationnel *res=new Rationnel(valeur*tmp.getNum(), tmp.getDenom());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Complexe &tmp=dynamic_cast<Complexe&>(t);
+       Complexe cur(toQString());
+       Donnee * res;
+       res=cur*tmp;
+       return res;
+    }
+    catch(std::exception &e){}
+
+
+    try{
+
+       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
+       QString nouv;
+       nouv = "'" + toQString() +" "+ tmp.toQString().remove("'") + " *'";
+       return new ConstanteExp(nouv);
+    }
+    catch(std::exception &e){}
+
+    throw Entier("Erreur opération avec un entier");
+}
+
+Donnee* Entier::operator-(Donnee& t){
+    try{
+       Entier &tmp=dynamic_cast<Entier&>(t);
+       Entier *res=new Entier(valeur-tmp.getValeur());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Reel &tmp=dynamic_cast<Reel&>(t);
+       Reel *res=new Reel(valeur-tmp.getValeur());
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+
+       Rationnel &tmp=dynamic_cast<Rationnel&>(t);
+       Donnee* res;
+       Rationnel cur(valeur,1);
+       res=cur-tmp;
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+       Complexe &tmp=dynamic_cast<Complexe&>(t);
+       Complexe cur(toQString());
+       Donnee * res;
+       res=cur-tmp;
+       return res;
+    }
+    catch(std::exception &e){}
+
+    try{
+
+       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
+       QString nouv;
+       nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " -'";
+       return new ConstanteExp(nouv);
+    }
+    catch(std::exception &e){}
+
+    throw Entier("Erreur opération avec un entier");
 }
 
 
