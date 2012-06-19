@@ -33,17 +33,17 @@ public:
 
     double getValeur() const {return valeur;}
     void setValeur(double aValeur) {valeur = aValeur;}
+    int getTaille(){
+       return toQString().section('.', 1,1).size();
+    }
 
 
-    virtual Donnee* operator+(Donnee & t) {}
-    // Surcharger? Ou tester le type de l'argument dans la méthode?
-    // Qu'est-ce qui marche? Qu'est-ce qu'on peut changer sans nous séparer
-    // des méthodes virtuelles pures de la classe Donnee?
-    /*
-    virtual Donnee* operator/(Donnee & t);
-    virtual Donnee* operator*(Donnee & t);
-    virtual Donnee* operator-(Donnee & t);
+    Donnee* operator+(Donnee & t);
 
+    Donnee* operator/(Donnee & t);
+    Donnee* operator*(Donnee & t);
+    Donnee* operator-(Donnee & t);
+/*
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);
     virtual Donnee* sign();
