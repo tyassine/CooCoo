@@ -538,7 +538,7 @@ void MainWindow::MAJParam(){
         else {
             fichier<<"pile remplie"<<std::endl;
             Donnee** tab=instancePile->getTab();
-            for(unsigned int i=0;i<=instancePile->getSommet();i++){
+            for(int i=0;i<=instancePile->getSommet();i++){
                 fichier<<tab[i]->toQString().toStdString()<<std::endl;
             }
         }

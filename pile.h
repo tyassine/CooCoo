@@ -17,15 +17,15 @@
 class Pile//: public QStack<Donnee*>
 {
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
-    unsigned int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
-    unsigned int nbMax;/*!< Taille maximale du tableau */
+    int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
+    int nbMax;/*!< Taille maximale du tableau */
     //Gardien* gard;
 
 
 public:
-    Pile(unsigned int n=100) : sommet(-1), nbMax(n), tab(new Donnee*[n]) {}
-    Pile(const Pile& p) : sommet(p.sommet), nbMax(p.nbMax), tab(new Donnee*[p.nbMax])
-        {for (unsigned int i=0; i<p.nbMax; i++) tab[i] = p.tab[i]; }
+    Pile(unsigned int n=100) : tab(new Donnee*[n]), sommet(-1),nbMax(n) {}
+    Pile(const Pile& p) :  tab(new Donnee*[p.nbMax]), sommet(p.sommet), nbMax(p.nbMax)
+        {for (int i=0; i<p.nbMax; i++) tab[i] = p.tab[i]; }
     ~Pile();
 
     int size() {return sommet+1;}
@@ -72,7 +72,7 @@ public:
     void clear();
 
     Pile& cloner() const;
-    void swap(unsigned int, unsigned int);
+    void swap(int,int);
     void sum(unsigned int);
     void mean(unsigned int);
     void dup();

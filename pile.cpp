@@ -1,11 +1,11 @@
-
+#include "exceptionCooCoo.h"
 #include "pile.h"
 
 
 
 Pile::~Pile()
 {
-    for(unsigned int i=0; i<=sommet; ++i)
+    for(int i=0; i<=sommet; ++i)
         delete tab[i];
     delete[] tab;
 }
@@ -16,7 +16,7 @@ void Pile::empiler(Donnee* aDonnee)
     {
         nbMax += 10;
         Donnee** newtab = new Donnee*[nbMax];
-        for (unsigned int i=0; i<=sommet; i++) newtab[i] = tab[i];
+        for (int i=0; i<=sommet; i++) newtab[i] = tab[i];
 
         delete[] tab;
         tab = newtab;
@@ -32,13 +32,13 @@ Donnee* Pile::depiler()
         sommet--;
         return tab[sommet+1];
     }
-    // Sinon, glisser une exception?
+    throw ExceptionCooCoo("Pile vide");
 }
 
 
 bool Pile::pileVide()
 {
-    return(sommet==-1);
+    return(static_cast<int>(sommet)==-1);
 }
 
 bool Pile::pilePleine()
@@ -48,7 +48,7 @@ bool Pile::pilePleine()
 
 void Pile::clear(){
     if(!pileVide()){
-        for(unsigned int i=0; i<=sommet; ++i)
+        for(int i=0; i<=sommet; ++i)
             delete tab[i];
         sommet=-1;
     }
@@ -65,7 +65,7 @@ Pile& Pile::cloner() const{
 }
 */
 
-void Pile::swap(const unsigned int x, const unsigned int y){
+void Pile::swap(const int x, const int y){
     if (x < this->sommet && y < this->sommet){
         Donnee* tmp = (tab[sommet-x]);
         this->tab[sommet-x]=tab[sommet-y];
