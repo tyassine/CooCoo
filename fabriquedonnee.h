@@ -47,7 +47,7 @@ public:
 
     Donnee* creerDonnee(const Donnee* donneeDepart, const QString typeSouhaite);
 
-private:
+
     template<typename T>
     inline Donnee* creerDonneeStatic(const T* donneeDepart, const QString typeSouhaite) {
         if (typeSouhaite == "Entier") return new Entier(donneeDepart);

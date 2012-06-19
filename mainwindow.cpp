@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <typeinfo>
 #include "entier.h"
 #include "reel.h"
 #include "rationnel.h"
@@ -568,9 +568,14 @@ void MainWindow::parser()
                 Donnee* tmpgch = instancePile->depiler();
 
                 if (listeTermes[i]=="+"){ // 4 5 +
-                        Entier *tmp=static_cast<Entier *>(tmpgch);
-                        Donnee*res=*tmp+tmpdte;
-                        instancePile->empiler(res);
+                       // Entier *tmp=static_cast<Entier *>(tmpgch);
+                        Donnee*res=*tmpgch+tmpdte,*res_finale;
+                        if (typeid(*res)==typeid(Entier)){
+                            Entier * res2=static_cast<Entier*>(res);
+                            res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
+                        }
+
+                        instancePile->empiler(res_finale);
 
                         // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
                         // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante

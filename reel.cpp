@@ -1,4 +1,4 @@
-
+#include <typeinfo>
 #include "Reel.h"
 #include <sstream>
 
@@ -30,8 +30,8 @@ Reel::Reel(const Complexe* aComplexe)
 {
     // Perte d'information
     Constante* tmp = aComplexe->getPRe();
-    if (dynamic_cast<Reel*>(tmp)){
-        Reel* tmp1=dynamic_cast<Reel*>(tmp);
+    if (static_cast<Reel*>(tmp)){
+        Reel* tmp1=static_cast<Reel*>(tmp);
         valeur= tmp1->getValeur();
         delete tmp1;
     }
@@ -49,49 +49,44 @@ Reel::Reel(const Complexe* aComplexe)
 
 Donnee* Reel::operator +(Donnee* d){
 
-    try{
+    if (typeid(*d)==typeid(Entier)){
 
-       Entier *tmp=dynamic_cast<Entier*>(d);
+       Entier *tmp=static_cast<Entier*>(d);
        Reel *res=new Reel(valeur+tmp->getValeur());
        return res;
     }
-    catch(std::exception &e){}
 
-    try{
+    if (typeid(*d)==typeid(Reel)){
 
-       Reel *tmp=dynamic_cast<Reel*>(d);
+       Reel *tmp=static_cast<Reel*>(d);
        Reel *res=new Reel(valeur+tmp->getValeur());
        return res;
     }
-    catch(std::exception &e){}
 
-    try{
+    if (typeid(*d)==typeid(Rationnel)){
 
-       Rationnel *tmp=dynamic_cast<Rationnel*>(d);
+       Rationnel *tmp=static_cast<Rationnel*>(d);
        Rationnel cur(this);
        Donnee* res;
        res=cur+tmp; // simplification dans le + du rationnel
        return res;
     }
-    catch(std::exception &e){}
 
-    try{
-       Complexe *tmp=dynamic_cast<Complexe*>(d);
+    if (typeid(*d)==typeid(Complexe)){
+       Complexe *tmp=static_cast<Complexe*>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur+tmp;
        return res;
     }
-    catch(std::exception &e){}
 
-    try{
+    if (typeid(*d)==typeid(ConstanteExp)){
 
-       ConstanteExp *tmp=dynamic_cast<ConstanteExp*>(d);
+       ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
        QString nouv;
        nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
        return new ConstanteExp(nouv);
     }
-    catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur + avec un reel");
 
@@ -100,7 +95,7 @@ Donnee* Reel::operator +(Donnee* d){
 /*
 Donnee* Reel::operator /(Donnee& d){
     try{
-       Entier &tmp=dynamic_cast<Entier&>(d);
+       Entier &tmp=static_cast<Entier&>(d);
        Rationnel cur(this);
        Rationnel ent(&tmp);
        Donnee *res=cur/ent;
@@ -109,7 +104,7 @@ Donnee* Reel::operator /(Donnee& d){
     catch(std::exception &e){}
 
     try{
-       Reel &tmp=dynamic_cast<Reel&>(d); // pour eviter la perte de données
+       Reel &tmp=static_cast<Reel&>(d); // pour eviter la perte de données
        Rationnel cur(this);
        Rationnel re(&tmp);
        Donnee *res=cur/re;
@@ -119,7 +114,7 @@ Donnee* Reel::operator /(Donnee& d){
 
     try{
 
-       Rationnel &tmp=dynamic_cast<Rationnel&>(d);
+       Rationnel &tmp=static_cast<Rationnel&>(d);
        Rationnel cur(this);
        Donnee* res;
        res=cur/tmp;
@@ -128,7 +123,7 @@ Donnee* Reel::operator /(Donnee& d){
     catch(std::exception &e){}
 
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(d);
+       Complexe &tmp=static_cast<Complexe&>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur/tmp;
@@ -138,7 +133,7 @@ Donnee* Reel::operator /(Donnee& d){
 
     try{
 
-       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
+       ConstanteExp &tmp=static_cast<ConstanteExp&>(d);
        QString nouv;
        nouv = "'" + toQString() + " "+ tmp.toQString() + " /'";
        return new ConstanteExp(nouv);
@@ -150,7 +145,7 @@ Donnee* Reel::operator /(Donnee& d){
 
 Donnee* Reel::operator*(Donnee& d){
     try{
-       Reel &tmp=dynamic_cast<Reel&>(d);
+       Reel &tmp=static_cast<Reel&>(d);
        Reel *res=new Reel(valeur*tmp.getValeur());
        return res;
     }
@@ -158,7 +153,7 @@ Donnee* Reel::operator*(Donnee& d){
 
     try{
 
-       Entier &tmp=dynamic_cast<Entier&>(d);
+       Entier &tmp=static_cast<Entier&>(d);
        Reel *res=new Reel(valeur*tmp.getValeur());
        return res;
     }
@@ -167,7 +162,7 @@ Donnee* Reel::operator*(Donnee& d){
 
     try{
 
-       Rationnel &tmp=dynamic_cast<Rationnel&>(d);
+       Rationnel &tmp=static_cast<Rationnel&>(d);
        Rationnel cur(this);
        Donnee *res=cur*tmp;
        return res;
@@ -175,7 +170,7 @@ Donnee* Reel::operator*(Donnee& d){
     catch(std::exception &e){}
 
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(d);
+       Complexe &tmp=static_cast<Complexe&>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur*tmp;
@@ -185,7 +180,7 @@ Donnee* Reel::operator*(Donnee& d){
 
     try{
 
-       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
+       ConstanteExp &tmp=static_cast<ConstanteExp&>(d);
        QString e;
        e = "'" + toQString() +" "+ tmp.toQString() + " *'";
        return new ConstanteExp(e);
@@ -199,14 +194,14 @@ Donnee* Reel::operator-(Donnee& d){
 
     try{
 
-       Entier &tmp=dynamic_cast<Entier&>(d);
+       Entier &tmp=static_cast<Entier&>(d);
        Reel *res=new Reel(valeur-tmp.getValeur());
        return res;
     }
     catch(std::exception &e){}
 
     try{
-       Reel &tmp=dynamic_cast<Reel&>(d);
+       Reel &tmp=static_cast<Reel&>(d);
        Reel *res=new Reel(valeur-tmp.getValeur());
        return res;
     }
@@ -215,7 +210,7 @@ Donnee* Reel::operator-(Donnee& d){
 
     try{
 
-       Rationnel &tmp=dynamic_cast<Rationnel&>(d);
+       Rationnel &tmp=static_cast<Rationnel&>(d);
        Rationnel r(this);
        Donnee *res=r-tmp;
        return res;
@@ -223,7 +218,7 @@ Donnee* Reel::operator-(Donnee& d){
     catch(std::exception &e){}
 
     try{
-       Complexe &tmp=dynamic_cast<Complexe&>(d);
+       Complexe &tmp=static_cast<Complexe&>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur-tmp;
@@ -233,7 +228,7 @@ Donnee* Reel::operator-(Donnee& d){
 
     try{
 
-       ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(d);
+       ConstanteExp &tmp=static_cast<ConstanteExp&>(d);
        QString e;
        e = "'" + toQString() + " "+ tmp.toQString() + " -'";
        return new ConstanteExp(e);
