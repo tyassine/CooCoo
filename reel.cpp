@@ -69,7 +69,7 @@ Donnee* Reel::operator +(Donnee& d){
 
        Rationnel &tmp=dynamic_cast<Rationnel&>(d);
        Donnee* res;
-       Rationnel cur(valeur*getTaille()*10,getTaille()*10);
+       Rationnel cur(this);
        res=tmp+cur; // simplification dans le + du rationnel
        return res;
     }

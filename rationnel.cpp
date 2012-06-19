@@ -34,20 +34,12 @@ Rationnel::Rationnel(const Entier* aEntier)
 
 Rationnel::Rationnel(const Reel* aReel)
 {
-    QStringList chaine = aReel->toQString().split(".");
-    QString x("1");
-    for(int i=0; i<chaine[1].length(); i++)
-    x += "0";
-    //num=aReel*x;
-    num=0;
-    denom=x.toInt();
+    num=aReel->getValeur()*aReel->getTaille()*10;
+    denum=aReel->getTaille()*10;
     simplifier();
-    /*float p=pgcd(num, denom);
-    num/=p;
-    denom/=p;*/
-
 }
 
+Rationnel cur(valeur*getTaille()*10,getTaille()*10);
 
 
 int Rationnel::pgcd(int a, int b) const {

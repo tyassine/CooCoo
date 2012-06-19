@@ -64,7 +64,7 @@ Donnee* Entier::operator+(Donnee& t)
     try{
        Rationnel &tmp=dynamic_cast<Rationnel&>(t); //conversion de l'entier en rationnel
        Donnee* res;
-       Rationnel cur(valeur,1);
+       Rationnel cur(this); //appel du constructeur avec conversion
        res=tmp+cur;
        return res;
     }
@@ -72,7 +72,7 @@ Donnee* Entier::operator+(Donnee& t)
 
     try{
        Complexe &tmp=dynamic_cast<Complexe&>(t);
-       Complexe cur(toQString()); //conversion de l'entier en complexe
+       Complexe cur(this); //conversion de l'entier en complexe
        Donnee* res;
        res=cur+tmp; // pas *res car les opérateurs retournent deja des pointeurs
        return res;
@@ -115,7 +115,7 @@ Donnee* Entier::operator /(Donnee& t)
 
     try{
        Complexe &tmp=dynamic_cast<Complexe&>(t);
-       Complexe cur(toQString());
+       Complexe cur(this);
        Donnee * res;
        res=cur/tmp;
        return res;
@@ -158,7 +158,7 @@ Donnee* Entier::operator*(Donnee& t){
 
     try{
        Complexe &tmp=dynamic_cast<Complexe&>(t);
-       Complexe cur(toQString());
+       Complexe cur(this);
        Donnee * res;
        res=cur*tmp;
        return res;
@@ -197,7 +197,7 @@ Donnee* Entier::operator-(Donnee& t){
 
        Rationnel &tmp=dynamic_cast<Rationnel&>(t);
        Donnee* res;
-       Rationnel cur(valeur,1);
+       Rationnel cur(this);
        res=cur-tmp;
        return res;
     }
@@ -205,7 +205,7 @@ Donnee* Entier::operator-(Donnee& t){
 
     try{
        Complexe &tmp=dynamic_cast<Complexe&>(t);
-       Complexe cur(toQString());
+       Complexe cur(this);
        Donnee * res;
        res=cur-tmp;
        return res;
