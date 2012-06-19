@@ -2,6 +2,7 @@
 #include "rationnel.h"
 #include <sstream>
 #include <cmath>
+#include <QStringList>
 #include "entier.h"
 #include "reel.h"
 #include "fabriquedonnee.h"
@@ -23,15 +24,16 @@ Rationnel::Rationnel(const Entier* aEntier)
 
 Rationnel::Rationnel(const Reel* aReel)
 {
-    QStringList chaine = QString::aReel->toQString().split(".");
+    QStringList chaine = aReel->toQString().split(".");
     QString x("1");
     for(int i=0; i<chaine[1].length(); i++)
     x += "0";
     num=aReel*x;
     denom=x.toInt();
-    float p=pgcd(num, denom);
+    simplifier();
+    /*float p=pgcd(num, denom);
     num/=p;
-    denom/=p;
+    denom/=p;*/
 
 }
 
@@ -67,15 +69,20 @@ Rationnel::Rationnel(const Complexe* aComplexe)
 {
     // Perte d'information
     Constante* tmp = aComplexe->getPRe();
-    // Besoin de l'instance factory... Du coup include sale, mais bon.
-    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-    Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, "Rationnel"));
-    // static_cast pour permettre la conversion Donnee* ==> Rationnel*
-    // On est surs que ça sera un Rationnel*, puisqu'on le demande spécifiquement!
-    num = tmp2->getNum();
-    denom = tmp2->getDenom();
+    if (dynamic_cast<Entier*>(tmp)){
+        num = tmp->getNum();
+        denom = tmp->getDenom();}
+    else {
+        // Besoin de l'instance factory... Du coup include sale, mais bon.
+        FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+        Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, "Rationnel"));
+        // static_cast pour permettre la conversion Donnee* ==> Rationnel*
+        // On est surs que ça sera un Rationnel*, puisqu'on le demande spécifiquement!
+        num = tmp2->getNum();
+        denom = tmp2->getDenom();
+        delete tmp2;
+    }
     delete tmp;
-    delete tmp2;
 }
 
 

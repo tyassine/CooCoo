@@ -35,8 +35,21 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
 
     if(Donnee::isRationnel(terme))
     {
-        QStringList nombres = terme.split("/");
-        return new Rationnel(nombres[0], nombres[1]);
+        try{
+            return new Rationnel(terme);
+        }
+        catch (std::exception &e) {
+            QMessageBox msgBox;
+             msgBox.setText(e.GetInfo());
+             msgBox.exec();
+        }
+        else return NULL;
+    }
+
+
+    if(Donnee::isComplexe(terme))
+    {
+        return new complexe(s);
     }
 
     if(Donnee::isExpression(terme))

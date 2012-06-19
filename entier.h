@@ -41,11 +41,38 @@ public:
     // Impossible de séparer ça proprement en plusieurs constructeurs
     // Tant pis je vais faire comme Nico, en testant les types à chaque fois
 
-    virtual Donnee* operator+(Donnee& t);
+    Donnee* operator+(Donnee& t);
+
+    /*!
+    * \brief Operateur /
+    *
+    * Implementation de l'operateur binaire / (methode virtuelle dans la classe mere)
+    * \param t : Pointeur sur un type
+    * \return Pointeur sur type, resultat de l'operation
+    *
+    */
+    Donnee* operator /(Donnee& t);
+
+    /*!
+    * \brief Operateur *
+    *
+    * Implementation de l'operateur binaire * (methode virtuelle dans la classe mere)
+    * \param t : Pointeur sur un type
+    * \return Pointeur sur type, resultat de l'operation
+    *
+    */
+    Donnee* operator*(Donnee& t);
+
+        /*!
+    * \brief Operateur -
+    *
+    * Implementation de l'operateur binaire - (methode virtuelle dans la classe mere)
+    * \param t : Pointeur sur un type
+    * \return Pointeur sur type, resultat de l'operation
+    *
+    */
+    Donnee* operator-(Donnee& t);
     /*
-    virtual Donnee* operator/(Donnee & t);
-    virtual Donnee* operator*(Donnee & t);
-    virtual Donnee* operator-(Donnee & t);
 
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);

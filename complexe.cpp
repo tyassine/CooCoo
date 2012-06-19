@@ -6,6 +6,9 @@
 
 Complexe::Complexe(const Complexe* aComplexe)
 {
+   /* Donnee* re=aComplexe->getPRe();
+    Donnee* im=aComplexe->getPIm();
+    */
     // Traitement différent ici, ne pas simplement copier les pointeurs mais faire de nouveaux objets
     // A traiter si le temps... Cette fonction ne sera jamais appelée.
 }
