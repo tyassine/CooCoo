@@ -25,7 +25,7 @@ public:
       Constructeurs par valeur : utilisés par la factory pour les conversions
     */
 
-    Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denom(aInt2) {}
+    Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denom(aInt2) {simplifier();}
     Rationnel(const QString& s);
 
     Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
@@ -45,12 +45,12 @@ public:
     void simplifier();
 
 
-    virtual Donnee* operator+(Donnee & t) {}
-    /*
-    virtual Donnee* operator/(Donnee & t);
-    virtual Donnee* operator*(Donnee & t);
-    virtual Donnee* operator-(Donnee & t);
+    Donnee* operator+(Donnee & t);
 
+    Donnee* operator/(Donnee & t);
+    Donnee* operator*(Donnee & t);
+    Donnee* operator-(Donnee & t);
+/*
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);
     virtual Donnee* sign();
