@@ -6,6 +6,7 @@
 #include "entier.h"
 #include "reel.h"
 #include "fabriquedonnee.h"
+#include "exceptionCooCoo.h"
 
 QString Rationnel::toQString() const
 {
@@ -14,6 +15,15 @@ QString Rationnel::toQString() const
     resDenom.setNum(denom);
     res = resNum + "/" + resDenom;
     return res;
+}
+
+
+Rationnel::Rationnel(const QString& s) {
+    QString copie(s);
+    num=(copie.section('/', 0,0)).toInt();
+    denom=(copie.section('/', 1,1)).toInt();
+    if (denom==0) throw ExceptionCooCoo("Division par 0");
+    simplifier();
 }
 
 Rationnel::Rationnel(const Entier* aEntier)
@@ -28,7 +38,8 @@ Rationnel::Rationnel(const Reel* aReel)
     QString x("1");
     for(int i=0; i<chaine[1].length(); i++)
     x += "0";
-    num=aReel*x;
+    //num=aReel*x;
+    num=0;
     denom=x.toInt();
     simplifier();
     /*float p=pgcd(num, denom);
@@ -69,19 +80,14 @@ Rationnel::Rationnel(const Complexe* aComplexe)
 {
     // Perte d'information
     Constante* tmp = aComplexe->getPRe();
-    if (dynamic_cast<Entier*>(tmp)){
-        num = tmp->getNum();
-        denom = tmp->getDenom();}
-    else {
-        // Besoin de l'instance factory... Du coup include sale, mais bon.
-        FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-        Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, "Rationnel"));
-        // static_cast pour permettre la conversion Donnee* ==> Rationnel*
-        // On est surs que ça sera un Rationnel*, puisqu'on le demande spécifiquement!
-        num = tmp2->getNum();
-        denom = tmp2->getDenom();
-        delete tmp2;
-    }
+    // Besoin de l'instance factory... Du coup include sale, mais bon.
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, "Rationnel"));
+    // static_cast pour permettre la conversion Donnee* ==> Rationnel*
+    // On est surs que ça sera un Rationnel*, puisqu'on le demande spécifiquement!
+    num = tmp2->getNum();
+    denom = tmp2->getDenom();
+    delete tmp2;
     delete tmp;
 }
 

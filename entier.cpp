@@ -34,17 +34,13 @@ Entier::Entier(const Complexe* aComplexe)
 {
     // Perte d'information
     Constante* tmp = aComplexe->getPRe();
-    if (dynamic_cast<Entier*>(tmp)!= NULL)
-        valeur= tmp->getValeur();
-    else {
-        // Besoin de l'instance factory... Du coup include sale, mais bon.
-        FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-        Entier* tmp2 = static_cast<Entier*>(factory->creerDonnee(tmp, "Entier"));
-        // static_cast pour permettre la conversion Donnee* ==> Entier*
-        // On est surs que ça sera un Entier*, puisqu'on le demande spécifiquement!
-        valeur = tmp2->getValeur();
-        delete tmp2;
-    }
+    // Besoin de l'instance factory... Du coup include sale, mais bon.
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    Entier* tmp2 = static_cast<Entier*>(factory->creerDonnee(tmp, "Entier"));
+    // static_cast pour permettre la conversion Donnee* ==> Entier*
+    // On est surs que ça sera un Entier*, puisqu'on le demande spécifiquement!
+    valeur = tmp2->getValeur();
+    delete tmp2;
     delete tmp;
 }
 
@@ -87,13 +83,13 @@ Donnee* Entier::operator+(Donnee& t)
        ConstanteExp &tmp=dynamic_cast<ConstanteExp&>(t);
        QString nouv;
        nouv = "'" + toQString() + " "+ tmp.toQString().remove("'") + " +'";
-       return new Expression(e);
+       return new ConstanteExp(nouv);
     }
     catch(std::exception &e){}
 
 
 
-    throw exceptionCooCoo("erreur entier");
+    throw ExceptionCooCoo("erreur entier");
 
 }
 

@@ -40,7 +40,7 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
         }
         catch (std::exception &e) {
             QMessageBox msgBox;
-             msgBox.setText(e.GetInfo());
+             msgBox.setText(e.GetInfos());
              msgBox.exec();
         }
         else return NULL;

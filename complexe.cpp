@@ -30,3 +30,10 @@ Complexe::Complexe(const Rationnel *aRationnel)
     pRe = new Rationnel(aRationnel);
     pIm = new Entier(0);    // Ou alors faire un 0/1 si on tient vraiment à avoir un rationnel aussi en partie imaginaire...
 }
+Complexe::Complexe(const QString &s)
+{
+    QString copie(s);
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    pRe=dynamic_cast<Constante*>(factory->creerDonnee((copie.section('$', 0,0))));
+    pIm=dynamic_cast<Constante*>(factory->creerDonnee((copie.section('$', 1,1))));
+}

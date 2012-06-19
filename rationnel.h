@@ -8,6 +8,7 @@
 */
 
 #include "constante.h"
+
 class Entier;
 class Reel;
 class Complexe;
@@ -25,13 +26,7 @@ public:
     */
 
     Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denom(aInt2) {}
-    Rationnel(const QString& s) {
-        QString copie(s);
-        num=(copie.section('/', 0,0)).toInt();
-        denom=(copie.section('/', 1,1)).toInt();
-        if (denom==0) throw exceptionCooCoo("Division par 0");
-        simplifier();
-    }
+    Rationnel(const QString& s);
 
     Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
     Rationnel(const Entier* aEntier);

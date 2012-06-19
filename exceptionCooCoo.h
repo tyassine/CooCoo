@@ -14,7 +14,7 @@ using namespace std;
 
 class ExceptionCooCoo :public exception
 {
-    QString infos;/*!< Description de l'exception*/
+    std::string infos;/*!< Description de l'exception*/
 
 public:
     /*!
@@ -23,13 +23,14 @@ public:
     * Construit une exception a partir d'une chaine de caractere
     *
     */
-    ExceptionCooCoo(QString s="") : infos(s){}
+    ExceptionCooCoo(const char * s="") : infos(s){}
     /*!
     * \brief GetInfos
     *
     * Permet d'en savoir plus sur la cause de l'erreur
     */
-    void GetInfos() const {std::cout<<infos.toStdString()<<std::endl;}
+    const char* GetInfos() const throw(){return infos.c_str();}
+    ~ExceptionCooCoo() throw(){}
 
 };
 

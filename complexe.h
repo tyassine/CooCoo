@@ -7,7 +7,6 @@
 */
 
 #include "constante.h"
-#include "fabriquedonnee.h"
 #include <sstream>
 
 class Entier;
@@ -25,12 +24,7 @@ public:
     Complexe(const Entier* aEntier);
     Complexe(const Reel* aReel);
     Complexe(const Rationnel* aRationnel);
-    Complexe(const QString &s){
-        QString copie(s);
-        FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-        pRe=dynamic_cast<Constante*>(factory->creerDonnee((copie.section('$', 0,0))));
-        pIm=dynamic_cast<Constante*>(factory->creerDonnee((copie.section('$', 1,1))));
-    }
+    Complexe(const QString &s);
 
 
     ~Complexe() {delete pRe; delete pIm;}
