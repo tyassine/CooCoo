@@ -32,6 +32,8 @@ public:
     int size() {return sommet+1;}
     Donnee** getTab() const {return tab;}
     int getSommet() const {return sommet;}
+    void setGardien(Gardien* aGardien) {gard = aGardien;}
+
 
     /**
     * \fn void empiler(Donnee* aDonnee);

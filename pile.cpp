@@ -30,7 +30,7 @@ Pile::~Pile()
     for(int i=0; i<=sommet; ++i)
         delete tab[i];
     delete[] tab;
-    if (gard) delete gard;
+    // Ne pas supprimer le gardien pour l'instant, risques qu'il soit supprimé pour les autres états sauvegardés
 }
 
 void Pile::empiler(Donnee* aDonnee)
@@ -129,3 +129,4 @@ void Pile::drop(){
         depiler();
     }
 }
+
