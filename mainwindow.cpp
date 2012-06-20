@@ -683,8 +683,12 @@ void MainWindow::parser()
                     instancePile->mean(x->getValeur());
                 }
                 if (listeTermes[i]=="sign"){
+                    Donnee* res = tmp->sign();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="sin"){
+                    // Donnee* res = tmp->mySin() // ajouter le type d'angle
                 }
                 else if (listeTermes[i]=="cos"){
                 }

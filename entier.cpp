@@ -240,3 +240,12 @@ Donnee* Entier::mod(Donnee* t)
 
     throw ExceptionCooCoo("Erreur sur operateur mod avec un entier");
 }
+
+Donnee* Entier::mySin(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(sin(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(sin(valeur));
+}
+

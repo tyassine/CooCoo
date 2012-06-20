@@ -278,3 +278,12 @@ Donnee* Rationnel::puissance(Donnee* t)
     throw ExceptionCooCoo("Erreur sur operateur pow avec un rationnel");
 }
 
+
+Donnee* Rationnel::mySin(int typeAngle)
+{
+    Reel* tmp = new Reel(this);
+    if (typeAngle == 0) // Degrés
+        return new Reel(sin(tmp->getValeur()*M_PI/180));
+    else    // Radians
+        return new Reel(sin(tmp->getValeur()));
+}

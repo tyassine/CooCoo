@@ -54,15 +54,16 @@ public:
     virtual Donnee* puissance(Donnee* t)
     {throw ExceptionCooCoo("Pas de calcul de puissance avec un complexe : non géré");}
     virtual Donnee* mod(Donnee* t)
-    {throw ExceptionCooCoo("Pas de calcul de mod avec un complexe : non géré.");}/*
-    virtual Donnee* sign();
+    {throw ExceptionCooCoo("Pas de calcul de mod avec un complexe : non géré.");}
 
-    virtual Donnee* sin();
-    virtual Donnee* cos();
-    virtual Donnee* tan();
-    virtual Donnee* sinh();
-    virtual Donnee* cosh();
-    virtual Donnee* tanh();
+    virtual Donnee* mySin(int typeAngle)
+    {throw ExceptionCooCoo("Pas de calcul de sin avec un complexe : non géré.");}
+/*
+    virtual Donnee* myCos(int typeAngle);
+    virtual Donnee* myTan(int typeAngle);
+    virtual Donnee* mySinh(int typeAngle);
+    virtual Donnee* myCosh(int typeAngle);
+    virtual Donnee* myTanh(int typeAngle);
 
     virtual Donnee* ln();
     virtual Donnee* log();

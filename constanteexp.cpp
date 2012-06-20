@@ -40,6 +40,23 @@ Donnee* ConstanteExp::puissance(Donnee * t){
 
 Donnee* ConstanteExp::mod(Donnee * t){
     QString op= chaine.at(chaine.size()-1);
-    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + t->toQString() + op + ' ' + "pow '";
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + t->toQString() + op + ' ' + "mod '";
+    return new ConstanteExp(exp);
+}
+
+// ConstanteExp? Pas Donnee?
+ConstanteExp* ConstanteExp::sign()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "sign '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::mySin(int typeAngle)
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "sin '";
+    // Opérateur unaire : pas sûr du tout!
     return new ConstanteExp(exp);
 }

@@ -238,3 +238,11 @@ Donnee* Reel::puissance(Donnee* t)
     throw ExceptionCooCoo("Erreur sur operateur pow avec un reel");
 }
 
+Donnee* Reel::mySin(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(sin(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(sin(valeur));
+}
+
