@@ -131,7 +131,7 @@ void MainWindow::on_soustraction(){
     ui->Afficheur->insert("-");
 }
 void MainWindow::on_multiplication(){
-    ui->Afficheur->insert("x");
+    ui->Afficheur->insert("*");
 }
 void MainWindow::on_division(){
     ui->Afficheur->insert("/");
@@ -569,30 +569,31 @@ void MainWindow::parser()
                 Donnee* tmpgch = instancePile->depiler();
 
                 if (listeTermes[i]=="+"){ // 4 5 +
-                       // Entier *tmp=static_cast<Entier *>(tmpgch);
-                        Donnee*res=*tmpgch+tmpdte,*res_finale;
-                        if (typeid(*res)==typeid(Entier)){
-                            Entier * res2=static_cast<Entier*>(res);
-                            res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
-                        }
-                        // Pourquoi ne pas appeler la surcharge de CreerDonnee de la factory?
-                        // Genre faire simplement:
-                        // if (typeid(*res) != typeid(typeChoisiDansLaListe)
-                        //      res_finale = instanceFD->creerDonnee(res, "typeChoisiDansLaListe")
-                        // Elle détecte toute seule les bons types
-                        // Elle a justement été faite pour ça ^^
 
-                        instancePile->empiler(res_finale);
+                    std::cout<<"detecte un plus"<<std::endl;
+                        Donnee*res=*tmpgch+tmpdte;
 
-                        // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
-                        // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
-                        // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
+                        std::cout<<"apres +"<<std::endl;
+                        //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
+                        std::cout<<res<<std::endl;
+                        std::cout<<"apres factory"<<std::endl;
+                        instancePile->empiler(res);
+                        std::cout<<"apres fempile"<<std::endl;
                 }
                 else if (listeTermes[i]=="-"){
+                    Donnee*res=*tmpgch-tmpdte;
+                    //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
+                    instancePile->empiler(res);
                 }
                 else if (listeTermes[i]=="/"){
+                    Donnee*res=*tmpgch/tmpdte;
+                    //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
+                    instancePile->empiler(res);
                 }
                 else if (listeTermes[i]=="*"){
+                    Donnee*res=*tmpgch*tmpdte;
+                    //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
+                    instancePile->empiler(res);
                 }
                 else if (listeTermes[i]=="pow"){
                 }

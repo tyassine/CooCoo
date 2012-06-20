@@ -45,14 +45,14 @@ public:
       Deuxième fonction : convertisseuse
     */
 
-    Donnee* creerDonnee(const Donnee* donneeDepart, const QString typeSouhaite);
+    Donnee* creerDonnee(const Donnee* donneeDepart, int typeSouhaite);
 
-
+private:
     template<typename T>
-    inline Donnee* creerDonneeStatic(const T* donneeDepart, const QString typeSouhaite) {
-        if (typeSouhaite == "Entier") return new Entier(donneeDepart);
-        if (typeSouhaite == "Reel") return new Reel(donneeDepart);
-        if (typeSouhaite == "Rationnel") return new Rationnel(donneeDepart);
+    inline Donnee* creerDonneeStatic(const T* donneeDepart, int typeSouhaite) {
+        if (typeSouhaite == 0) return new Entier(donneeDepart);
+        if (typeSouhaite == 2) return new Reel(donneeDepart);
+        if (typeSouhaite == 1) return new Rationnel(donneeDepart);
     }
 
 };
