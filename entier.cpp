@@ -101,7 +101,7 @@ Donnee* Entier::operator /(Donnee* t)
 
     if (typeid(*t)==typeid(Rationnel)){
        Rationnel *tmp=static_cast<Rationnel*>(t);
-       Rationnel *res=new Rationnel(valeur*tmp->getDenom(), tmp.getNum());
+       Rationnel *res=new Rationnel(valeur*tmp->getDenom(), tmp->getNum());
        return res;
     }
 
@@ -160,10 +160,10 @@ Donnee* Entier::operator*(Donnee* t){
     throw Entier("Erreur sur operateur * avec un entier");
 }
 
-Donnee* Entier::operator-(Entier* t){
+Donnee* Entier::operator-(Donnee* t){
     if (typeid(*t)==typeid(Entier)){
-       Entier *tmp=static_cast<Entier&>(t);
-       Entier *res=new Entier(valeur-tmp*getValeur());
+       Entier *tmp=static_cast<Entier*>(t);
+       Entier *res=new Entier(valeur-(tmp->getValeur()));
        return res;
     }
 

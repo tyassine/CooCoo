@@ -131,7 +131,7 @@ void MainWindow::on_soustraction(){
     ui->Afficheur->insert("-");
 }
 void MainWindow::on_multiplication(){
-    ui->Afficheur->insert("x");
+    ui->Afficheur->insert("*");
 }
 void MainWindow::on_division(){
     ui->Afficheur->insert("/");
@@ -568,8 +568,8 @@ void MainWindow::parser()
                 Donnee* tmpgch = instancePile->depiler();
 
                 if (listeTermes[i]=="+"){ // 4 5 +
-                       // Entier *tmp=static_cast<Entier *>(tmpgch);
-                        Donnee*res=*tmpgch+tmpdte,*res_finale;
+
+                        Donnee*res=*tmpgch+tmpdte,*res_finale=res;
                         if (typeid(*res)==typeid(Entier)){
                             Entier * res2=static_cast<Entier*>(res);
                             res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
@@ -582,10 +582,31 @@ void MainWindow::parser()
                         // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
                 }
                 else if (listeTermes[i]=="-"){
+                    Donnee*res=*tmpgch-tmpdte,*res_finale=res;
+                    if (typeid(*res)==typeid(Entier)){
+                        Entier * res2=static_cast<Entier*>(res);
+                        res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
+                    }
+
+                    instancePile->empiler(res_finale);
                 }
                 else if (listeTermes[i]=="/"){
+                    Donnee*res=*tmpgch/tmpdte,*res_finale=res;
+                    if (typeid(*res)==typeid(Entier)){
+                        Entier * res2=static_cast<Entier*>(res);
+                        res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
+                    }
+
+                    instancePile->empiler(res_finale);
                 }
                 else if (listeTermes[i]=="*"){
+                    Donnee*res=*tmpgch*tmpdte,*res_finale=res;
+                    if (typeid(*res)==typeid(Entier)){
+                        Entier * res2=static_cast<Entier*>(res);
+                        res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
+                    }
+
+                    instancePile->empiler(res_finale);
                 }
                 else if (listeTermes[i]=="pow"){
                 }
