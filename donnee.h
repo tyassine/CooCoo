@@ -64,7 +64,7 @@ public:
     }
 
     static bool isExpression(const QString& s){
-        return s.contains ("'*'");
+        return s.count("'")==2;
     }
 
     static bool isComplexe(const QString& s){

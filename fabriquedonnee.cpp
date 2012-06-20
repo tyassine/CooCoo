@@ -19,6 +19,8 @@ void FabriqueDonnee::libereInstance()
 
 Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
 {
+    if(Donnee::isExpression(terme)){
+        return new ConstanteExp(terme);}
 
     if(Donnee::isComplexe(terme))
     {
@@ -29,11 +31,11 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
         return new Complexe(pRe, pIm);
     }
 
-    if(Donnee::isEntier(terme))
-        return new Entier(terme);
+    if(Donnee::isEntier(terme)){
+        return new Entier(terme);}
 
-    if(Donnee::isReel(terme))
-        return new Reel(terme);
+    if(Donnee::isReel(terme)){
+        return new Reel(terme);}
 
     if(Donnee::isRationnel(terme))
     {
@@ -53,9 +55,6 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
     {
         return new Complexe(terme);
     }
-
-    if(Donnee::isExpression(terme))
-        return new ConstanteExp(terme);
     else
         return NULL;
 }
