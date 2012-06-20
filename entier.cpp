@@ -2,7 +2,7 @@
 #include "entier.h"
 #include <sstream>
 
-#include "Reel.h"
+#include "reel.h"
 #include "rationnel.h"
 #include "complexe.h"
 #include "fabriquedonnee.h"
