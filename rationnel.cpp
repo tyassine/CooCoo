@@ -1,10 +1,10 @@
 #include <typeinfo>
-#include "Rationnel.h"
+#include "rationnel.h"
 #include <sstream>
 #include <cmath>
 #include <QStringList>
-#include "Entier.h"
-#include "Reel.h"
+#include "entier.h"
+#include "reel.h"
 #include "fabriquedonnee.h"
 #include "exceptionCooCoo.h"
 

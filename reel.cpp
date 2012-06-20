@@ -1,9 +1,9 @@
 #include <typeinfo>
-#include "Reel.h"
+#include "reel.h"
 #include <sstream>
 
-#include "Entier.h"
-#include "Rationnel.h"
+#include "entier.h"
+#include "rationnel.h"
 #include "fabriquedonnee.h"
 
 QString Reel::toQString() const

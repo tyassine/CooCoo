@@ -1,7 +1,7 @@
-#include "Complexe.h"
-#include "Entier.h"
-#include "Reel.h"
-#include "Rationnel.h"
+#include "complexe.h"
+#include "entier.h"
+#include "reel.h"
+#include "rationnel.h"
 #include "constanteexp.h"
 #include "fabriquedonnee.h"
 #include <typeinfo>
