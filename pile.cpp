@@ -1,13 +1,36 @@
 #include "exceptionCooCoo.h"
 #include "pile.h"
+#include "fabriquedonnee.h"
+#include "memento.h"
+
+Pile::Pile(unsigned int n)
+{
+    tab = new Donnee*[n];
+    sommet = -1;
+    nbMax = n;
+    gard = new Gardien;
+}
 
 
+Pile::Pile(const Pile& p)
+// L'important ici est de reconstruire chaque objet, et pas simplement recopier les pointeurs!
+{
+    tab = new Donnee*[p.nbMax];
+    sommet = p.sommet;
+    nbMax = p.nbMax;
+    gard = p.gard;
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    for (int i=0; i<p.nbMax; i++)
+        // Recopie en convertissant en QString et en l'envoyant à la factory... Il y a surement plus propre.
+        tab[i] = factory->creerDonnee(p.tab[i]->toQString());
+}
 
 Pile::~Pile()
 {
     for(int i=0; i<=sommet; ++i)
         delete tab[i];
     delete[] tab;
+    if (gard) delete gard;
 }
 
 void Pile::empiler(Donnee* aDonnee)
@@ -54,16 +77,13 @@ void Pile::clear(){
     }
 }
 
-/*
-Pile& Pile::cloner() const{
-    Pile *p=new Pile(nbMax);
-    for(int i=0; i<sommet; i++){
-       // p->empiler(type_factory::getInstance().getType(at(i)->toQString()));
-    }
-    p->setgardien(this->getgardien());
-    return *p;
+
+Pile* Pile::cloner() const{
+    // Il suffit d'appeler le constructeur par recopie sur l'objet courant.
+    // Attention, vérifier à ce que ce constructeur soit correctement implémenté.
+    return new Pile(*this);
 }
-*/
+
 
 void Pile::swap(const int x, const int y){
     if (x < this->sommet && y < this->sommet){
