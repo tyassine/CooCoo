@@ -27,9 +27,8 @@ Pile* Gardien::undo()
 
 Pile* Gardien::redo()
 {
-    if (current < tabPile.size()-1)
+    if (tabPile[current+1] != NULL)
     {
-        // Probleme, il rentre quand-meme... size doit pas etre adapté, à revoir!
         current++;
         return tabPile[current]->cloner();
     }

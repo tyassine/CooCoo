@@ -121,12 +121,11 @@ void Pile::mean(const unsigned int x){
 
 
 void Pile::dup(){
-    if (!pileVide()) empiler(tab[sommet]);
+    if (!pileVide())  empiler(tab[sommet]);
 }
 
 void Pile::drop(){
-    if(!pileVide()){
-        depiler();
-    }
+    if(!pileVide()) depiler();
+
 }
 

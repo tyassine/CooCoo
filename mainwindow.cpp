@@ -298,7 +298,10 @@ void MainWindow::on_nbPile(int n){
 
 void MainWindow::on_commit(){
     if (ui->Afficheur->text().isEmpty())
+    {
         on_dup();
+        instancePile->getGardien()->addMemento(instancePile);
+    }
     else{
     parser();
     ui->Afficheur->clear();
@@ -376,27 +379,40 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::on_swap(){
     ui->Afficheur->insert("SWAP");
+    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_sum(){
     ui->Afficheur->insert("SUM");
+    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_dup(){
-    instancePile->dup();
-    refresh();
+    if (!(instancePile->pileVide()))
+    {
+        instancePile->dup();
+        instancePile->getGardien()->addMemento(instancePile);
+        // Régler le problème gardien <-> dup
+        refresh();
+    }
 }
 void MainWindow::on_mean(){
     ui->Afficheur->insert("MEAN");
+    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_clear(){
     instancePile->clear();
+    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_drop(){
-    instancePile->drop();
-    refresh();
+    if (!(instancePile->pileVide()))
+    {
+        instancePile->drop();
+        instancePile->getGardien()->addMemento(instancePile);
+        refresh();
+    }
 }
 
 MainWindow::~MainWindow(){
@@ -473,6 +489,7 @@ void refresh_complexe(Ui::MainWindow *ui){
 }
 
 // fonctions de récupération ou suppression d'historique
+// quelque part parmi elles, s'occuper de récupérer le gardien? Ou au moins en faire un nouveau
 
 void MainWindow::InitParam(){
     std::ifstream fichier("sauvegarde_CooCoo.txt", std::ios::in); // Ouverture en lecture du fichier de sauvegarde
@@ -604,22 +621,22 @@ void MainWindow::parser()
                 if (listeTermes[i]=="+"){ // 4 5 +
 
                         Donnee*res=*tmpgch+tmpdte;
-                        Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                        Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                         instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="-"){
                     Donnee*res=*tmpgch-tmpdte;
-                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="/"){
                     Donnee*res=*tmpgch/tmpdte;
-                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="*"){
                     Donnee*res=*tmpgch*tmpdte;
-                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="pow"){
