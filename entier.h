@@ -53,7 +53,7 @@ public:
     * \return Pointeur sur type, resultat de l'operation
     *
     */
-    //Donnee* operator /(Donnee& t);
+    Donnee* operator /(Donnee* t);
 
     /*!
     * \brief Operateur *
@@ -63,7 +63,7 @@ public:
     * \return Pointeur sur type, resultat de l'operation
     *
     */
-    //Donnee* operator*(Donnee& t);
+    Donnee* operator*(Donnee* t);
 
         /*!
     * \brief Operateur -
@@ -73,7 +73,7 @@ public:
     * \return Pointeur sur type, resultat de l'operation
     *
     */
-    //Donnee* operator-(Donnee& t);
+    Donnee* operator-(Donnee* t);
     /*
 
     virtual Donnee* pow(Donnee & t);

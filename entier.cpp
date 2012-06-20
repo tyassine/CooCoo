@@ -36,7 +36,7 @@ Entier::Entier(const Complexe* aComplexe)
     Constante* tmp = aComplexe->getPRe();
     // Besoin de l'instance factory... Du coup include sale, mais bon.
     FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-    Entier* tmp2 = static_cast<Entier*>(factory->creerDonnee(tmp, "Entier"));
+    Entier* tmp2 = static_cast<Entier*>(factory->creerDonnee(tmp, 0));
     // static_cast pour permettre la conversion Donnee* ==> Entier*
     // On est surs que ça sera un Entier*, puisqu'on le demande spécifiquement!
     valeur = tmp2->getValeur();
@@ -84,7 +84,7 @@ Donnee* Entier::operator+(Donnee* t)
 
     throw ExceptionCooCoo("Erreur sur operateur + avec un entier");
 }
-/*
+
 Donnee* Entier::operator /(Donnee* t)
 {
     if (typeid(*t)==typeid(Entier)){
@@ -101,7 +101,7 @@ Donnee* Entier::operator /(Donnee* t)
 
     if (typeid(*t)==typeid(Rationnel)){
        Rationnel *tmp=static_cast<Rationnel*>(t);
-       Rationnel *res=new Rationnel(valeur*tmp->getDenom(), tmp.getNum());
+       Rationnel *res=new Rationnel(valeur*tmp->getDenom(), tmp->getNum());
        return res;
     }
 
@@ -160,10 +160,10 @@ Donnee* Entier::operator*(Donnee* t){
     throw Entier("Erreur sur operateur * avec un entier");
 }
 
-Donnee* Entier::operator-(Entier* t){
+Donnee* Entier::operator-(Donnee* t){
     if (typeid(*t)==typeid(Entier)){
-       Entier *tmp=static_cast<Entier&>(t);
-       Entier *res=new Entier(valeur-tmp*getValeur());
+       Entier *tmp=static_cast<Entier*>(t);
+       Entier *res=new Entier(valeur-(tmp->getValeur()));
        return res;
     }
 
@@ -198,6 +198,4 @@ Donnee* Entier::operator-(Entier* t){
 
     throw Entier("Erreur sur operateur - avec un entier");
 }
-
-*/
 
