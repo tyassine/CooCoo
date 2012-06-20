@@ -154,10 +154,6 @@ void MainWindow::on_effacer_el(){
 }
 
 void MainWindow::on_dollar(){
-   /* if (ui->Complexes->currentIndex()==0){// complexes non autorisés
-        QMessageBox::warning(this, "Mode complexe", "Attention, le mode complexe doit être activé !");
-    }
-    else*/
         ui->Afficheur->insert("$");
 }
 
@@ -380,12 +376,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::on_swap(){
     ui->Afficheur->insert("SWAP");
-    instancePile->swap(1,2);
     refresh();
 }
 void MainWindow::on_sum(){
     ui->Afficheur->insert("SUM");
-    //instancePile->sum(10);
     refresh();
 }
 void MainWindow::on_dup(){
@@ -394,7 +388,6 @@ void MainWindow::on_dup(){
 }
 void MainWindow::on_mean(){
     ui->Afficheur->insert("MEAN");
-    //instancePile->mean(10);
     refresh();
 }
 void MainWindow::on_clear(){
@@ -576,17 +569,37 @@ void MainWindow::parser()
     QStringList listeTermes = tmp.split(" ");
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
     // Je pense que j'ai une technique pour remédier à ça
-    QString opBinaires = "+-/*powmod";
-    QString opUnaires = "signsincostansinhcoshtanhlnloginvsqrtsqrcube!";
+    QString opBinaires = "+-/*powmodSWAP";
+    QString opUnaires = "SUMMEANsignsincostansinhcoshtanhlnloginvsqrtsqrcube!";
     for (int i=0; i<listeTermes.size(); i++)
     {
-        if (opBinaires.contains(listeTermes[i]))
+        if (listeTermes[i].contains("'")){
+            i++;
+            std::cout<<"rentrededans"<<std::endl;
+            QString s("' ");
+            while(listeTermes[i]!="'"){
+                s=s+listeTermes[i]+" ";
+                i++;
+            }
+            s=s+"'";
+            ConstanteExp *exp=new ConstanteExp(s);
+            instancePile->empiler(exp);
+
+        }
+        else if (opBinaires.contains(listeTermes[i]))
         {
             // Opérateur binaire
             if (instancePile->size() >= 2)  // Au moins 2 éléments
             {
                 Donnee* tmpdte = instancePile->depiler();
                 Donnee* tmpgch = instancePile->depiler();
+                if (listeTermes[i]=="SWAP"){
+                    Entier *x=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmpdte, 0, 0));
+                    Entier *y=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmpgch, 0, 0));
+                    instancePile->swap(x->getValeur(),y->getValeur());
+                    delete y;
+                    delete x;
+                }
 
                 if (listeTermes[i]=="+"){ // 4 5 +
 
@@ -614,7 +627,6 @@ void MainWindow::parser()
                 else if (listeTermes[i]=="mod"){
                 }
 
-                // Ici : placer test, si type obtenu différent de celui souhaité par l'utilisateur, lancer la conversion
 
                 delete tmpdte;
                 delete tmpgch;
@@ -626,6 +638,14 @@ void MainWindow::parser()
             if (!(instancePile->pileVide()))    // Au moins 1 élément
             {
                 Donnee* tmp = instancePile->depiler();
+                if (listeTermes[i]=="SUM"){
+                    Entier *x=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmp, 0, 0));
+                    instancePile->sum(x->getValeur());
+                }
+                if (listeTermes[i]=="MEAN"){
+                    Entier *x=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmp, 0, 0));
+                    instancePile->mean(x->getValeur());
+                }
                 if (listeTermes[i]=="sign"){
                 }
                 else if (listeTermes[i]=="sin"){

@@ -105,20 +105,20 @@ void Pile::sum(const unsigned int x){
         empiler(res);
     }
 }
-/*
+
 void Pile::mean(const unsigned int x){
     if(!pileVide()){
-            Donnee* res;
-            *res=0;
+            Donnee* res=new Entier(0);
             for(unsigned int i=0; i<x; i++){
-                *res=*res+(*tab[sommet-i]);
+                res=*res+tab[sommet-i];
             }
-            int taille=sommet+1;
+            Entier *taille=new Entier(sommet+1);
             res=*res/taille;
+            delete taille;
             empiler(res);
     }
 }
-*/
+
 
 void Pile::dup(){
     if (!pileVide()) empiler(tab[sommet]);

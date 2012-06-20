@@ -82,8 +82,6 @@ public:
     void mean(unsigned int);
     void dup();
     void drop();
-
-    // En profiter pour glisser un iterator? oui
 };
 
 
