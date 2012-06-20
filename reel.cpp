@@ -30,20 +30,13 @@ Reel::Reel(const Complexe* aComplexe)
 {
     // Perte d'information
     Constante* tmp = aComplexe->getPRe();
-    if (static_cast<Reel*>(tmp)){
-        Reel* tmp1=static_cast<Reel*>(tmp);
-        valeur= tmp1->getValeur();
-        delete tmp1;
-    }
-    else {
-        // Besoin de l'instance factory... Du coup include sale, mais bon.
-        FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-        Reel* tmp2 = static_cast<Reel*>(factory->creerDonnee(tmp, 2, 0));
-        // static_cast pour permettre la conversion Donnee* ==> Reel*
-        // On est surs que ça sera un Reel*, puisqu'on le demande spécifiquement!
-        valeur = tmp2->getValeur();
-        delete tmp2;
-    }
+    // Besoin de l'instance factory... Du coup include sale, mais bon.
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    Reel* tmp2 = static_cast<Reel*>(factory->creerDonnee(tmp, 2, 0));
+    // static_cast pour permettre la conversion Donnee* ==> Reel*
+    // On est surs que ça sera un Reel*, puisqu'on le demande spécifiquement!
+    valeur = tmp2->getValeur();
+    delete tmp2;
     delete tmp;
 }
 
