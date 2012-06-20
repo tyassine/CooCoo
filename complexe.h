@@ -20,7 +20,7 @@ class Complexe : public Donnee
 public:
 
     Complexe(Constante* D1=0, Constante* D2=0) : pRe(D1), pIm(D2) {}
-    Complexe(const Complexe* aComplexe);    // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
+    Complexe(const Complexe* aComplexe);
     Complexe(const Entier* aEntier);
     Complexe(const Reel* aReel);
     Complexe(const Rationnel* aRationnel);

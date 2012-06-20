@@ -9,11 +9,15 @@
 
 Complexe::Complexe(const Complexe* aComplexe)
 {
-   /* Donnee* pRe=aComplexe->getPRe();
-    Donnee* pIm=aComplexe->getpIm();
-    */
-    // Traitement différent ici, ne pas simplement copier les pointeurs mais faire de nouveaux objets
-    // A traiter si le temps... Cette fonction ne sera jamais appelée.
+    // IMPORTANT A TRAITER POUR LE MEMENTO
+    //Donnee* pRe=aComplexe->getPRe();
+    //Donnee* pIm=aComplexe->getpIm();
+
+    // On va faire une copie des objets vers lesquels pointent pRe et pIm.
+    // Comme on ne sait pas de quel type ils sont, on les convertit en QString et on les passe à la factory.
+    FabriqueDonnee* factory = FabriqueDonnee::getInstance();
+    pRe = static_cast<Constante*>(factory->creerDonnee(aComplexe->getPRe()->toQString()));
+    pIm = static_cast<Constante*>(factory->creerDonnee(aComplexe->getPIm()->toQString()));
 }
 
 Complexe::Complexe(const Entier* aEntier)

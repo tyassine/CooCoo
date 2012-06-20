@@ -555,6 +555,7 @@ void MainWindow::parser()
 
     QStringList listeTermes = tmp.split(" ");
     // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
+    // Je pense que j'ai une technique pour remédier à ça
     QString opBinaires = "+-/*powmod";
     QString opUnaires = "signsincostansinhcoshtanhlnloginvsqrtsqrcube!";
     for (int i=0; i<listeTermes.size(); i++)
@@ -574,6 +575,12 @@ void MainWindow::parser()
                             Entier * res2=static_cast<Entier*>(res);
                             res_finale=FabriqueDonnee::getInstance()->creerDonneeStatic(res2,"Rationnel");
                         }
+                        // Pourquoi ne pas appeler la surcharge de CreerDonnee de la factory?
+                        // Genre faire simplement:
+                        // if (typeid(*res) != typeid(typeChoisiDansLaListe)
+                        //      res_finale = instanceFD->creerDonnee(res, "typeChoisiDansLaListe")
+                        // Elle détecte toute seule les bons types
+                        // Elle a justement été faite pour ça ^^
 
                         instancePile->empiler(res_finale);
 

@@ -20,5 +20,6 @@ int main(int argc, char *argv[])
     fenetre.show();
     fenetre.refresh();
 
+
     return CooCoo.exec();
 }

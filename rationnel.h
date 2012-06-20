@@ -28,7 +28,7 @@ public:
     Rationnel(int aInt1 =0, int aInt2 =1) : num(aInt1), denom(aInt2) {simplifier();}
     Rationnel(const QString& s);
 
-    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}  // Ne sera jamais appelé, mais nécessaire pour Donnee* FabriqueDonnee::creerDonnee(const Donnee*, const QString);
+    Rationnel(const Rationnel* aRationnel) : num(aRationnel->num), denom(aRationnel->denom) {}
     Rationnel(const Entier* aEntier);
     Rationnel(const Reel* aReel);
     Rationnel(const Complexe* aComplexe);

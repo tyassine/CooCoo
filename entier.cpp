@@ -84,7 +84,7 @@ Donnee* Entier::operator+(Donnee* t)
 
     throw ExceptionCooCoo("Erreur sur operateur + avec un entier");
 }
-
+/*
 Donnee* Entier::operator /(Donnee* t)
 {
     if (typeid(*t)==typeid(Entier)){
@@ -199,5 +199,5 @@ Donnee* Entier::operator-(Donnee* t){
     throw Entier("Erreur sur operateur - avec un entier");
 }
 
-
+*/
 

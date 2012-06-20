@@ -8,9 +8,10 @@
 */
 
 //#include <QStack>
-#include "memento.h"
-#include "donnee.h"
 
+
+#include "donnee.h"
+class Gardien;
 
 
 
@@ -19,18 +20,20 @@ class Pile//: public QStack<Donnee*>
     Donnee** tab; /*!< Tableau de pointeurs sur Donnee, contient les objets de la pile */
     int sommet;/*!< Numéro de la case contenant le dernier élément ajouté*/
     int nbMax;/*!< Taille maximale du tableau */
-    //Gardien* gard;
+    Gardien* gard;
+    // Attention, vérifier que le gardien soit sauvegardé quand on quitte/relance le programme
 
 
 public:
-    Pile(unsigned int n=100) : tab(new Donnee*[n]), sommet(-1),nbMax(n) {}
-    Pile(const Pile& p) :  tab(new Donnee*[p.nbMax]), sommet(p.sommet), nbMax(p.nbMax)
-        {for (int i=0; i<p.nbMax; i++) tab[i] = p.tab[i]; }
+    Pile(unsigned int n=100);
+    Pile(const Pile& p);
     ~Pile();
 
     int size() {return sommet+1;}
     Donnee** getTab() const {return tab;}
     int getSommet() const {return sommet;}
+    void setGardien(Gardien* aGardien) {gard = aGardien;}
+
 
     /**
     * \fn void empiler(Donnee* aDonnee);
@@ -71,35 +74,13 @@ public:
     */
     void clear();
 
-    Pile& cloner() const;
+    Pile* cloner() const;
     void swap(int,int);
     void sum(unsigned int);
     void mean(unsigned int);
     void dup();
     void drop();
 
-/*
-    void setgardien(Gardien* g)
-    {
-        gard=g;
-    }
-    Gardien* getgardien()const
-    {
-        return gard;
-    }*/
-
-/*
-
-    Memento *createMemento()
-       {
-           return new Memento(tab, sommet, nbMax);
-       }
-
-   void reinstateMemento(Memento *mem)
-   {
-       tab = mem->tabCur;
-   }
-*/
     // En profiter pour glisser un iterator? oui
 };
 
