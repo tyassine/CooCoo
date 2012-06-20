@@ -72,6 +72,11 @@ Donnee* FabriqueDonnee::creerDonnee(const Donnee* donneeDepart, int typeSouhaite
         return creerDonneeStatic(static_cast<const Rationnel*>(donneeDepart), typeSouhaite, complexe);
     if (typeid(*donneeDepart)==typeid(Complexe))
         return creerDonneeStatic(static_cast<const Complexe*>(donneeDepart), typeSouhaite, complexe);
+    if (typeid(*donneeDepart)==typeid(ConstanteExp)){
+        Donnee * d= new ConstanteExp(static_cast<const ConstanteExp *>(donneeDepart)->getChaine() );
+        delete donneeDepart;
+        return d;
+        }
 
 }
 

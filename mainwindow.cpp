@@ -624,7 +624,6 @@ void MainWindow::parser()
             // Opérateur binaire
             if (instancePile->size() >= 2)  // Au moins 2 éléments
             {
-                std::cout<<"PROUTPROUT"<<std::endl;
                 Donnee* tmpdte = instancePile->depiler();
                 Donnee* tmpgch = instancePile->depiler();
                 if (listeTermes[i]=="SWAP"){

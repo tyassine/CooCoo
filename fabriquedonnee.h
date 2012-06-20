@@ -50,14 +50,24 @@ public:
 private:
     template<typename T>
     inline Donnee* creerDonneeStatic(const T* donneeDepart, int typeSouhaite, int complexe) {
+        Donnee* d;
         if (complexe==0){
-            if (typeSouhaite == 0) return new Entier(donneeDepart);
-            if (typeSouhaite == 2) return new Reel(donneeDepart);
-            if (typeSouhaite == 1) return new Rationnel(donneeDepart);
+            if (typeSouhaite == 0){
+                d=new Entier(donneeDepart);
+            }
+            if (typeSouhaite == 2){
+                d=new Reel(donneeDepart);
+            }
+            if (typeSouhaite == 1){
+                d=new Rationnel(donneeDepart);
+            }
         }
         else
-            return new Complexe(donneeDepart, typeSouhaite);
+            d= new Complexe(donneeDepart, typeSouhaite);
+        delete donneeDepart;
+        return d;
     }
+
 
 };
 

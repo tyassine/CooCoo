@@ -77,7 +77,7 @@ Donnee* Reel::operator +(Donnee* d){
 
        ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
+       nouv = "'" + toQString() + " "+ tmp->toQString().remove("'") + " + '";
        return new ConstanteExp(nouv);
     }
 
@@ -124,7 +124,7 @@ Donnee* Reel::operator /(Donnee* d){
 
        ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp->toQString() + " /'";
+       nouv = "'" + toQString() + " "+ tmp->toQString().remove("'") + " / '";
        return new ConstanteExp(nouv);
     }
 
@@ -165,7 +165,7 @@ Donnee* Reel::operator*(Donnee* d){
 
        ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
        QString e;
-       e = "'" + toQString() +" "+ tmp->toQString() + " *'";
+       e = "'" + toQString() +" "+ tmp->toQString().remove("'") + " * '";
        return new ConstanteExp(e);
     }
 
@@ -205,7 +205,7 @@ Donnee* Reel::operator-(Donnee* d){
     if (typeid(*d)==typeid(ConstanteExp)){
        ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
        QString e;
-       e = "'" + toQString() + " "+ tmp->toQString() + " -'";
+       e = "'" + toQString() + " "+ tmp->toQString().remove("'") + " - '";
        return new ConstanteExp(e);
     }
 
