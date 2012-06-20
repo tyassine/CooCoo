@@ -55,7 +55,9 @@ class Gardien
 
 
 public:
-    Gardien() : current(-1) {}
+    // On est obligés d'allouer dès le départ de la mémoire, si l'on veut utiliser, par exemple, tabPile[i]
+    Gardien() : tabPile(QVector<Pile*>(200)), current(-1) {}
+    ~Gardien();
     void addMemento(Pile* aPile);
     Pile* undo();
     Pile* redo();

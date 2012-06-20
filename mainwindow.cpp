@@ -4,6 +4,7 @@
 #include "entier.h"
 #include "reel.h"
 #include "rationnel.h"
+#include "memento.h"
 
 // DANS LA FONCTION EMPILER IL FAUT EMPILER TORATIONNEL(S), TOREEL(S)...
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
@@ -11,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     this->grabKeyboard();
     instancePile = new Pile;
     instanceFD = FabriqueDonnee::getInstance();
+    // Sauvegarde de l'état initial dans le memento
+    instancePile->getGardien()->addMemento(instancePile);
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
 
@@ -226,9 +229,25 @@ void MainWindow::on_clavier(bool checked){
         ui->Clavier->show();
     setClavier(checked);
 }
-void MainWindow::on_Annuler_triggered(){
+void MainWindow::on_Annuler_triggered()
+{
+    Pile* tmp = instancePile->getGardien()->undo();
+    if (tmp)    // L'undo a été accepté
+    {
+        delete instancePile;
+        instancePile = tmp;
+    }
+    refresh();
 }
-void MainWindow::on_Retablir_triggered(){
+void MainWindow::on_Retablir_triggered()
+{
+    Pile* tmp = instancePile->getGardien()->redo();
+    if (tmp)    // Le redo a été accepté
+    {
+        delete instancePile;
+        instancePile = tmp;
+    }
+    refresh();
 }
 
 void MainWindow::on_complexe(int c){
@@ -550,6 +569,7 @@ void MainWindow::MAJParam(){
 
 void MainWindow::parser()
 {
+
     QString tmp = ui->Afficheur->text();
     Donnee* objetTerme;
 
@@ -648,6 +668,9 @@ void MainWindow::parser()
                 QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
         }
     }
+    // Sauvegarder l'état de la pile : il faudrait le faire seulement s'il n'y a pas eu d'erreur
+    instancePile->getGardien()->addMemento(instancePile);
+
 }
 
 // BACKUP OLD PARSER

@@ -22,6 +22,7 @@ class Pile//: public QStack<Donnee*>
     int nbMax;/*!< Taille maximale du tableau */
     Gardien* gard;
     // Attention, vérifier que le gardien soit sauvegardé quand on quitte/relance le programme
+    // Ou alors qu'on lui en refasse un nouveau!
 
 
 public:
@@ -33,6 +34,7 @@ public:
     Donnee** getTab() const {return tab;}
     int getSommet() const {return sommet;}
     void setGardien(Gardien* aGardien) {gard = aGardien;}
+    Gardien* getGardien() const {return gard;}
 
 
     /**
@@ -58,7 +60,7 @@ public:
     *
     * \return true si la pile est vide et false si la pile est non-vide
     */
-    bool pileVide();
+    bool pileVide() const;
 
     /**
     * \fn bool pilePleine()
@@ -66,7 +68,7 @@ public:
     *
     * \return true si la pile est pleine et false si la pile est non-pleine
     */
-    bool pilePleine();
+    bool pilePleine() const;
 
     /**
     * \fn void clear()
