@@ -64,7 +64,7 @@ private:
         }
         else
             d= new Complexe(donneeDepart, typeSouhaite);
-        delete donneeDepart;
+
         return d;
     }
 
