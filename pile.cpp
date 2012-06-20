@@ -99,9 +99,12 @@ void Pile::swap(const int x, const int y){
 
 void Pile::sum(const unsigned int x){
 if (static_cast<unsigned int>(size()) >= x){
-        Donnee* res=new Entier(0);
+    Donnee* res=new Entier(0);
+        Donnee*tmp;
         for(unsigned int i=0; i<x; i++){
-            res=*res+tab[sommet-i];
+            tmp=res;
+            res=*tmp+tab[sommet-i];
+            delete tmp;
         }
         empiler(res);
     }
@@ -115,14 +118,27 @@ if (static_cast<unsigned int>(size()) >= x){
 
 void Pile::mean(const unsigned int x){
 if (static_cast<unsigned int>(size()) >= x){
-            Donnee* res=new Entier(0);
-            for(unsigned int i=0; i<x; i++){
+            Donnee* res=tab[sommet];
+            for(unsigned int i=1; i<x; i++){
                 res=*res+tab[sommet-i];
             }
-            Entier *taille=new Entier(sommet+1);
-            res=*res/taille;
-            delete taille;
-            empiler(res);
+            Entier * y=new Entier(static_cast<int>(x));
+            std::cout<<"avant div"<<std::endl;
+            std::cout<<static_cast<ConstanteExp *> (res)->getChaine().toStdString()<<std::endl;
+            std::cout<<"aqsdflkjht div"<<std::endl;
+            Donnee * d;
+            try{
+                d=*res/y;
+            }catch(exception &e) {
+                QMessageBox msgBox;
+                msgBox.setText(e.what() );
+                msgBox.exec();
+
+            }
+                std::cout<<"apres div"<<std::endl;
+            delete y;
+            delete res;
+            empiler(d);
     }
     else
         {

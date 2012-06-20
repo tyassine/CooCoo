@@ -5,6 +5,7 @@
 #include "reel.h"
 #include "rationnel.h"
 #include "memento.h"
+#include "logsystem.h"
 
 // DANS LA FONCTION EMPILER IL FAUT EMPILER TORATIONNEL(S), TOREEL(S)...
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
@@ -223,6 +224,7 @@ void MainWindow::on_eval(){
      else{
          instancePile->empiler(tmp);
          QMessageBox::information(this, "Evaluation", "La dernière donnée entrée dans la pile doit être une expression");
+         LogSystem::imprim(LogMessage("Dernière donnée entrée non valide pour une évaluation", 2));
      }
     }
 }
@@ -244,7 +246,8 @@ void MainWindow::on_Annuler_triggered()
     {
         delete instancePile;
         instancePile = tmp;
-    }
+    }else
+        LogSystem::imprim(LogMessage("Plus d'opérations à annuler", 2));
     refresh();
 }
 void MainWindow::on_Retablir_triggered()
