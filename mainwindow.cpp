@@ -159,7 +159,7 @@ void MainWindow::on_dollar(){
 
 // Slots fonctions
 void MainWindow::on_quote(){
-      ui->Afficheur->insert("' ");
+      ui->Afficheur->insert("'");
 }
 void MainWindow::on_cos(){
     ui->Afficheur->insert("cos");
@@ -210,9 +210,21 @@ void MainWindow::on_pow(){
     ui->Afficheur->insert("pow");
  }
 void MainWindow::on_eval(){
-    // ici il faut empiler =)
-     ui->Afficheur->clear();
-     refresh();
+    if (!instancePile->pileVide()){
+     Donnee* tmp=instancePile->depiler();
+     if (typeid(*tmp)==typeid(ConstanteExp)){
+         ConstanteExp *exp=static_cast<ConstanteExp*>(tmp);
+         ui->Afficheur->clear();
+         ui->Afficheur->insert(exp->getChaine().remove("'"));
+         parser();
+         ui->Afficheur->clear();
+         refresh();
+     }
+     else{
+         instancePile->empiler(tmp);
+         QMessageBox::information(this, "Evaluation", "La dernière donnée entrée dans la pile doit être une expression");
+     }
+    }
 }
 
 // Slots paramètres
@@ -582,6 +594,8 @@ void MainWindow::parser()
 
     QString tmp = ui->Afficheur->text();
     Donnee* objetTerme;
+    //if (tmp.begin()==QString(" ")) tmp.remove(0);
+    //if (tmp.end()==QString(" ")) tmp.remove(chaine.size());
     if (tmp.contains("'")&&(tmp.count("'")%2!=0))
         QMessageBox::information(this,"Erreur de saisie", "Il faut fermer les expressions");
     else{
@@ -605,11 +619,12 @@ void MainWindow::parser()
             }
             else instancePile->empiler(exp);
         }
-        else if (opBinaires.contains(listeTermes[i]))
+        else if (opBinaires.contains(listeTermes[i])&&listeTermes[i]!="")
         {
             // Opérateur binaire
             if (instancePile->size() >= 2)  // Au moins 2 éléments
             {
+                std::cout<<"PROUTPROUT"<<std::endl;
                 Donnee* tmpdte = instancePile->depiler();
                 Donnee* tmpgch = instancePile->depiler();
                 if (listeTermes[i]=="SWAP"){
@@ -651,7 +666,7 @@ void MainWindow::parser()
                 delete tmpgch;
             }
         }
-        else if (opUnaires.contains(listeTermes[i]))
+        else if (opUnaires.contains(listeTermes[i])&&listeTermes[i]!="")
         {
             // Opérateur unaire
             if (!(instancePile->pileVide()))    // Au moins 1 élément
@@ -700,12 +715,15 @@ void MainWindow::parser()
         else
         {
             // Constante
-            objetTerme = instanceFD->creerDonnee(listeTermes[i]);
-            if (objetTerme)
-                instancePile->empiler(objetTerme);
-            else
-                QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
+            if(listeTermes[i]!=""){
+                objetTerme = instanceFD->creerDonnee(listeTermes[i]);
+                if (objetTerme)
+                    instancePile->empiler(objetTerme);
+                else
+                    QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
+            }
         }
+
     }
     // Sauvegarder l'état de la pile : il faudrait le faire seulement s'il n'y a pas eu d'erreur
     instancePile->getGardien()->addMemento(instancePile);
