@@ -92,138 +92,151 @@ Donnee* Reel::operator +(Donnee* d){
 
 
 }
-
-Donnee* Reel::operator /(Donnee* d){
-    if (typeid(*d)==typeid(Entier)){
-       Entier *tmp=static_cast<Entier*>(d);
+/*
+Donnee* Reel::operator /(Donnee& d){
+    try{
+       Entier &tmp=static_cast<Entier&>(d);
        Rationnel cur(this);
-       Rationnel *ent=new Rationnel(tmp);
+       Rationnel ent(&tmp);
        Donnee *res=cur/ent;
-       delete ent;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Reel)){
-       Reel *tmp=static_cast<Reel*>(d); // pour eviter la perte de données
+    try{
+       Reel &tmp=static_cast<Reel&>(d); // pour eviter la perte de données
        Rationnel cur(this);
-       Rationnel *re= new Rationnel(tmp);
+       Rationnel re(&tmp);
        Donnee *res=cur/re;
-       delete re;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Rationnel)){
+    try{
 
-       Rationnel *tmp=static_cast<Rationnel*>(d);
+       Rationnel &tmp=static_cast<Rationnel&>(d);
        Rationnel cur(this);
        Donnee* res;
        res=cur/tmp;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Complexe)){
-       Complexe *tmp=static_cast<Complexe*>(d);
+    try{
+       Complexe &tmp=static_cast<Complexe&>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur/tmp;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(ConstanteExp)){
+    try{
 
-       ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
+       ConstanteExp &tmp=static_cast<ConstanteExp&>(d);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp->toQString() + " /'";
+       nouv = "'" + toQString() + " "+ tmp.toQString() + " /'";
        return new ConstanteExp(nouv);
     }
+    catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur / avec un reel");
 }
 
-Donnee* Reel::operator*(Donnee* d){
-    if (typeid(*d)==typeid(Reel)){
-       Reel *tmp=static_cast<Reel*>(d);
-       Reel *res=new Reel(valeur*tmp->getValeur());
+Donnee* Reel::operator*(Donnee& d){
+    try{
+       Reel &tmp=static_cast<Reel&>(d);
+       Reel *res=new Reel(valeur*tmp.getValeur());
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Entier)){
+    try{
 
-       Entier *tmp=static_cast<Entier*>(d);
-       Reel *res=new Reel(valeur*tmp->getValeur());
+       Entier &tmp=static_cast<Entier&>(d);
+       Reel *res=new Reel(valeur*tmp.getValeur());
        return res;
     }
+    catch(std::exception &e){}
 
 
-    if (typeid(*d)==typeid(Rationnel)){
+    try{
 
-       Rationnel *tmp=static_cast<Rationnel*>(d);
+       Rationnel &tmp=static_cast<Rationnel&>(d);
        Rationnel cur(this);
        Donnee *res=cur*tmp;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Complexe)){
-       Complexe *tmp=static_cast<Complexe*>(d);
+    try{
+       Complexe &tmp=static_cast<Complexe&>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur*tmp;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(ConstanteExp)){
+    try{
 
-       ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
+       ConstanteExp &tmp=static_cast<ConstanteExp&>(d);
        QString e;
-       e = "'" + toQString() +" "+ tmp->toQString() + " *'";
+       e = "'" + toQString() +" "+ tmp.toQString() + " *'";
        return new ConstanteExp(e);
     }
+    catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur * avec un reel");
 }
 
-Donnee* Reel::operator-(Donnee* d){
+Donnee* Reel::operator-(Donnee& d){
 
-    if (typeid(*d)==typeid(Entier)){
+    try{
 
-       Entier *tmp=static_cast<Entier*>(d);
-       Reel *res=new Reel(valeur-tmp->getValeur());
+       Entier &tmp=static_cast<Entier&>(d);
+       Reel *res=new Reel(valeur-tmp.getValeur());
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Reel)){
-       Reel *tmp=static_cast<Reel*>(d);
-       Reel *res=new Reel(valeur-tmp->getValeur());
+    try{
+       Reel &tmp=static_cast<Reel&>(d);
+       Reel *res=new Reel(valeur-tmp.getValeur());
        return res;
     }
+    catch(std::exception &e){}
 
 
-    if (typeid(*d)==typeid(Rationnel)){
+    try{
 
-       Rationnel *tmp=static_cast<Rationnel*>(d);
-       Rationnel cur(this);
-       Donnee *res=cur-tmp;
+       Rationnel &tmp=static_cast<Rationnel&>(d);
+       Rationnel r(this);
+       Donnee *res=r-tmp;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(Complexe)){
-       Complexe *tmp=static_cast<Complexe*>(d);
+    try{
+       Complexe &tmp=static_cast<Complexe&>(d);
        Complexe cur(this);
        Donnee * res;
        res=cur-tmp;
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*d)==typeid(ConstanteExp)){
+    try{
 
-       ConstanteExp *tmp=static_cast<ConstanteExp*>(d);
+       ConstanteExp &tmp=static_cast<ConstanteExp&>(d);
        QString e;
-       e = "'" + toQString() + " "+ tmp->toQString() + " -'";
+       e = "'" + toQString() + " "+ tmp.toQString() + " -'";
        return new ConstanteExp(e);
     }
+    catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur - avec un reel");
 }
 
 
-
+*/

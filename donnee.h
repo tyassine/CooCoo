@@ -21,11 +21,11 @@ public:
 
 
     virtual Donnee* operator+(Donnee * t)=0;
-
-    virtual Donnee* operator/(Donnee * t)=0;
-    virtual Donnee* operator*(Donnee * t)=0;
-    virtual Donnee* operator-(Donnee * t)=0;
 /*
+    virtual Donnee* operator/(Donnee & t)=0;
+    virtual Donnee* operator*(Donnee & t)=0;
+    virtual Donnee* operator-(Donnee & t)=0;
+
     virtual Donnee* pow(Donnee & t)=0;
     virtual Donnee* mod(Donnee & t)=0;
     virtual Donnee* sign()=0;

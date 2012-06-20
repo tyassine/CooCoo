@@ -97,152 +97,136 @@ Donnee* Complexe::operator +(Donnee * t){
 
 
 }
-
-Donnee* Complexe::operator /(Donnee * t)
+/*
+Donnee* Complexe::operator /(Donnee & t)
 {
-    if (typeid(*t)==typeid(Complexe)){
-       Complexe *tmp=static_cast<Complexe*>(t);
+    try{
+       Complexe &tmp=static_cast<Complexe&>(t);
        Donnee *res;
-       Donnee * num=((*this) * (tmp->conj()));
-       Donnee * denum=(*tmp * (tmp->conj()));
-       res= *num/denum ;
+       res= *(*this * *(tmp.conj())) / *(tmp * *(tmp.conj())) ;
        return res;
     }
+    catch(std::exception &e){}
 
-
-    if (typeid(*t)==typeid(Entier)){
-       Entier *tmp=static_cast<Entier*>(t);
+    try{
+       Constante *tmp=static_cast<Constante*>(&t);
        if (tmp)
        {
        Complexe *res=new Complexe;
-       res->pRe= static_cast<Constante*> (*pRe / tmp);
-       res->pIm= static_cast<Constante*>(*pIm / tmp);
+       res->pRe= static_cast<Constante*> (*pRe / *tmp);
+       res->pIm= static_cast<Constante*>(*pIm / *tmp);
        return res;
        }
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Reel)){
-       Reel *tmp=static_cast<Reel*>(t);
-       if (tmp)
-       {
-       Complexe *res=new Complexe;
-       res->pRe= static_cast<Constante*> (*pRe / tmp);
-       res->pIm= static_cast<Constante*>(*pIm / tmp);
-       return res;
-       }
+    try{
+           ConstanteExp &tmp=static_cast<ConstanteExp&>(t);
+           QString e;
+           e = "'" + toQString() + " "+ tmp.toQString() + " /'";
+           return new ConstanteExp(e);
     }
-
-    if (typeid(*t)==typeid(Rationnel)){
-       Rationnel *tmp=static_cast<Rationnel*>(t);
-       if (tmp)
-       {
-       Complexe *res=new Complexe;
-       res->pRe= static_cast<Constante*> (*pRe / tmp);
-       res->pIm= static_cast<Constante*>(*pIm / tmp);
-       return res;
-       }
-    }
-
-    if (typeid(*t)==typeid(ConstanteExp)){
-           ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
-           QString nouv;
-           nouv = "'" + toQString() + " "+ tmp->toQString() + " /'";
-           return new ConstanteExp(nouv);
-    }
+    catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur / avec un complexe");
 }
 
-Donnee* Complexe::operator*(Donnee* t){
-    if (typeid(*t)==typeid(Complexe)){
-       Complexe *tmp=static_cast<Complexe*>(t);
-       if ((*(*pRe * (tmp->getPIm()))+(*pIm * (tmp->getPRe())))->toQString()=="0")
-           return FabriqueDonnee::getInstance()->creerDonnee((*(*pRe * tmp->getPRe())-(*pIm * tmp->getPIm()))->toQString());
-
-       Constante* pre= static_cast<Constante*> (*(*pRe * tmp->getPRe())-(*pIm * tmp->getPIm()));
-       Constante* pim=static_cast<Constante*>(*(*pRe * tmp->getPIm())+(*pIm * tmp->getPRe()));
-       Complexe *res=new Complexe(pre,pim);
+Donnee* Complexe::operator*(Donnee& t){
+    try{
+       Complexe &tmp=static_cast<Complexe&>(t);
+       if ((*(*pRe * *tmp.getPIm())+*(*pIm * *tmp.getPRe()))->toQString()=="0")
+           return FabriqueDonnee::getInstance()->creerDonnee((*(*pRe * *tmp.pRe)-*(*pIm * *tmp.pIm))->toQString());
+       Complexe *res=new Complexe;
+       res->pRe= static_cast<Constante*> (*(*pRe * *tmp.pRe)-*(*pIm * *tmp.pIm));
+       res->pIm= static_cast<Constante*>(*(*pRe * *tmp.pIm)+*(*pIm * *tmp.pRe));
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Entier)){
-       Entier *tmp=static_cast<Entier*>(t);
-       Complexe cur(tmp);
+    try{
+       Entier &tmp=static_cast<Entier&>(t);
+       Complexe cur(&tmp);
        Donnee* res;
-       res=cur*(this);
+       res=cur*(*this);
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Reel)){
-       Reel *tmp=static_cast<Reel*>(t);
-       Complexe cur(tmp);
+    try{
+       Reel &tmp=static_cast<Reel&>(t);
+       Complexe cur(&tmp);
        Donnee * res;
-       res=cur*(this);
+       res=cur*(*this);
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Rationnel)){
-       Rationnel *tmp=static_cast<Rationnel*>(t);
-       Complexe cur(tmp);
+    try{
+       Rationnel &tmp=static_cast<Rationnel&>(t);
+       Complexe cur(&tmp);
        Donnee * res;
-       res=cur*(this);
+       res=cur*(*this);
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(ConstanteExp)){
-        ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
-        QString nouv;
-        nouv = "'" + toQString() + " "+ tmp->toQString() + " *'";
-        return new ConstanteExp(nouv);
+
+    try{
+        ConstanteExp &tmp=static_cast<ConstanteExp&>(t);
+        QString e;
+        e = "'" + toQString() + " "+ tmp.toQString() + " *'";
+        return new ConstanteExp(e);
     }
+    catch(std::exception &e){}
 
     throw ExceptionCooCoo("erreur sur operateur * avec un complexe");
 }
 
-Donnee* Complexe::operator-(Donnee* t){
+Donnee* Complexe::operator-(Donnee& t){
+    try{
+       Complexe &tmp=static_cast<Complexe&>(t);
+       Complexe *res=new Complexe;
+       res->pRe= static_cast<Constante*> (*pRe - *tmp.pRe);
+       res->pIm= static_cast<Constante*>(*pIm - *tmp.pIm);
 
-    if (typeid(*t)==typeid(Complexe)){
-       Complexe *tmp=static_cast<Complexe*>(t);
-
-       Constante * pre= static_cast<Constante*> (*pRe - tmp->getPRe());
-       Constante * pim= static_cast<Constante*>(*pIm - tmp->getPIm());
-       Complexe *res=new Complexe(pre,pim);
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Entier)){
-       Entier *tmp=static_cast<Entier*>(t);
-       Complexe* cur=new Complexe(tmp);
+    try{
+       Entier &tmp=static_cast<Entier&>(t);
+       Complexe cur(tmp.toQString());
        Donnee * res;
-       res=*this-cur;
-       delete cur;
+       res=cur-(*this);
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Reel)){
-       Reel *tmp=static_cast<Reel*>(t);
-       Complexe* cur=new Complexe(tmp);
+    try{
+       Reel &tmp=static_cast<Reel&>(t);
+       Complexe cur(tmp.toQString());
        Donnee * res;
-       res=*this-cur;
-       delete cur;
+       res=cur-(*this);
        return res;
     }
+    catch(std::exception &e){}
 
-    if (typeid(*t)==typeid(Rationnel)){
-       Rationnel *tmp=static_cast<Rationnel*>(t);
-       Complexe* cur=new Complexe(tmp);
+    try{
+        ConstanteExp &tmp=static_cast<ConstanteExp&>(t);
+        QString e;
+        e = "'" + toQString() + " "+ tmp.toQString() + " -'";
+        return new ConstanteExp(e);
+    }
+    catch(std::exception &e){}
+
+    try{
+       Rationnel &tmp=static_cast<Rationnel&>(t);
+       Complexe cur(tmp.toQString());
        Donnee * res;
-       res=*this-cur;
-       delete cur;
+       res=cur-(*this);
        return res;
     }
-
-    if (typeid(*t)==typeid(ConstanteExp)){
-        ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
-        QString nouv;
-        nouv = "'" + toQString() + " "+ tmp->toQString() + " -'";
-        return new ConstanteExp(nouv);
-    }
+    catch(std::exception &e){}
     throw ExceptionCooCoo("erreur sur operateur - avec un complexe");
 }
-
+*/

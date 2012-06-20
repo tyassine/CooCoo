@@ -19,9 +19,9 @@ public:
 
     Donnee* operator+(Donnee* t);
 
-    Donnee* operator/(Donnee * t);
-    Donnee* operator*(Donnee * t);
-    Donnee* operator-(Donnee * t);
+    Donnee* operator/(Donnee & t);
+    Donnee* operator*(Donnee & t);
+    Donnee* operator-(Donnee & t);
 /*
     virtual Donnee* pow(Donnee & t);
     virtual Donnee* mod(Donnee & t);
