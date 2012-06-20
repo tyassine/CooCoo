@@ -608,22 +608,22 @@ void MainWindow::parser()
                 if (listeTermes[i]=="+"){ // 4 5 +
 
                         Donnee*res=*tmpgch+tmpdte;
-                        Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                        Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                         instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="-"){
                     Donnee*res=*tmpgch-tmpdte;
-                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="/"){
                     Donnee*res=*tmpgch/tmpdte;
-                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="*"){
                     Donnee*res=*tmpgch*tmpdte;
-                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="pow"){
