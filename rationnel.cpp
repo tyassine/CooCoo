@@ -248,3 +248,33 @@ Donnee* Rationnel::operator*(Donnee* t)
     throw ExceptionCooCoo("erreur sur operateur avec un rationnel");
 }
 
+
+Donnee* Rationnel::puissance(Donnee* t)
+{
+    // perte d'information, on convertira le rationnel en réel pour le faire rentrer dans pow...
+    if (typeid(*t)==typeid(Entier)){
+        Reel* operande = new Reel(this);
+        Entier *tmp=static_cast<Entier*>(t);
+        return new Reel(pow(operande->getValeur(), tmp->getValeur()));
+    }
+    if (typeid(*t)==typeid(Reel)){
+        Reel* operande = new Reel(this);
+       Reel *tmp=static_cast<Reel*>(t);
+       return new Reel(pow(operande->getValeur(), tmp->getValeur()));
+    }
+    if (typeid(*t)==typeid(Rationnel)){
+        Reel* operande = new Reel(this);
+        Rationnel *tmp=static_cast<Rationnel*>(t);
+       Reel *tmp2 = new Reel(tmp);
+       return new Reel(pow(operande->getValeur(), tmp2->getValeur()));
+    }
+    if (typeid(*t)==typeid(ConstanteExp)){
+       ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
+       QString nouv;
+       nouv = "'" + toQString() + " "+ tmp->toQString() + " pow'";
+       return new ConstanteExp(nouv);
+    }
+
+    throw ExceptionCooCoo("Erreur sur operateur pow avec un rationnel");
+}
+

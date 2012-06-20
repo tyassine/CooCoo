@@ -50,9 +50,11 @@ public:
     Complexe* sign(){
         Complexe* res=new Complexe(pRe->sign(),pIm->sign());
         return res;}
-/*
-    virtual Donnee* pow(Donnee & t);
-    virtual Donnee* mod(Donnee & t);
+
+    virtual Donnee* puissance(Donnee* t)
+    {throw ExceptionCooCoo("Pas de calcul de puissance avec un complexe : non géré");}
+    virtual Donnee* mod(Donnee* t)
+    {throw ExceptionCooCoo("Pas de calcul de mod avec un complexe : non géré.");}/*
     virtual Donnee* sign();
 
     virtual Donnee* sin();

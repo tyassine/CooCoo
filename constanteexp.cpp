@@ -31,3 +31,15 @@ Donnee* ConstanteExp::operator /(Donnee * t){
     QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + t->toQString() + " / '";
     return new ConstanteExp(exp);
 }
+
+Donnee* ConstanteExp::puissance(Donnee * t){
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + t->toQString() + op + ' ' + "pow '";
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::mod(Donnee * t){
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + t->toQString() + op + ' ' + "pow '";
+    return new ConstanteExp(exp);
+}

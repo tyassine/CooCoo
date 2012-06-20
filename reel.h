@@ -44,9 +44,10 @@ public:
     Donnee* operator/(Donnee * t);
     Donnee* operator*(Donnee * t);
     Donnee* operator-(Donnee * t);
-/*
-    virtual Donnee* pow(Donnee & t);
-    virtual Donnee* mod(Donnee & t);
+
+    virtual Donnee* puissance(Donnee* t);
+    virtual Donnee* mod(Donnee* t)
+    {throw ExceptionCooCoo("Pas de calcul de mod avec un réel : non géré.");}/*
     virtual Donnee* sign();
 
     virtual Donnee* sin();

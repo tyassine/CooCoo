@@ -40,8 +40,6 @@ public:
     int getValeur() const {return valeur;}
     void setValeur(int aValeur) {valeur = aValeur;}
 
-    // Impossible de séparer ça proprement en plusieurs constructeurs
-    // Tant pis je vais faire comme Nico, en testant les types à chaque fois
 
     Donnee* operator+(Donnee* t);
 
@@ -74,10 +72,10 @@ public:
     *
     */
     Donnee* operator-(Donnee* t);
-    /*
 
-    virtual Donnee* pow(Donnee & t);
-    virtual Donnee* mod(Donnee & t);
+
+    virtual Donnee* puissance(Donnee* t);
+    virtual Donnee* mod(Donnee* t);/*
     virtual Donnee* sign();
 
     virtual Donnee* sin();
