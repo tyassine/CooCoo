@@ -143,13 +143,13 @@ void MainWindow::on_effacer(){
     ui->Afficheur->clear();
 }
 void MainWindow::on_effacer_el(){
-    if (ui->Afficheur->text().isEmpty())
+    /*if (ui->Afficheur->text().isEmpty())
         on_drop();
-    else{
+    else{*/
         QString aff = ui->Afficheur->text();
         aff.chop(1);
         ui->Afficheur->setText(aff);
-    }
+    //}
 
 }
 
@@ -391,12 +391,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::on_swap(){
     ui->Afficheur->insert("SWAP");
-    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_sum(){
     ui->Afficheur->insert("SUM");
-    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_dup(){
@@ -410,7 +408,6 @@ void MainWindow::on_dup(){
 }
 void MainWindow::on_mean(){
     ui->Afficheur->insert("MEAN");
-    instancePile->getGardien()->addMemento(instancePile);
     refresh();
 }
 void MainWindow::on_clear(){

@@ -2,6 +2,7 @@
 #include "pile.h"
 #include "fabriquedonnee.h"
 #include "memento.h"
+#include <QMessageBox>
 
 Pile::Pile(unsigned int n)
 {
@@ -97,17 +98,23 @@ void Pile::swap(const int x, const int y){
 }
 
 void Pile::sum(const unsigned int x){
-    if(!pileVide()){
+if (static_cast<unsigned int>(size()) >= x){
         Donnee* res=new Entier(0);
         for(unsigned int i=0; i<x; i++){
             res=*res+tab[sommet-i];
         }
         empiler(res);
     }
+    else
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Il n'y a pas assez d'éléments dans la pile !");
+            msgBox.exec();
+        }
 }
 
 void Pile::mean(const unsigned int x){
-    if(!pileVide()){
+if (static_cast<unsigned int>(size()) >= x){
             Donnee* res=new Entier(0);
             for(unsigned int i=0; i<x; i++){
                 res=*res+tab[sommet-i];
@@ -117,6 +124,12 @@ void Pile::mean(const unsigned int x){
             delete taille;
             empiler(res);
     }
+    else
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Il n'y a pas assez d'éléments dans la pile !");
+            msgBox.exec();
+        }
 }
 
 
