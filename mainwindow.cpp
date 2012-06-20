@@ -159,7 +159,7 @@ void MainWindow::on_dollar(){
 
 // Slots fonctions
 void MainWindow::on_quote(){
-      ui->Afficheur->insert("'");
+      ui->Afficheur->insert("' ");
 }
 void MainWindow::on_cos(){
     ui->Afficheur->insert("cos");
@@ -582,26 +582,28 @@ void MainWindow::parser()
 
     QString tmp = ui->Afficheur->text();
     Donnee* objetTerme;
-
+    if (tmp.contains("'")&&(tmp.count("'")%2!=0))
+        QMessageBox::information(this,"Erreur de saisie", "Il faut fermer les expressions");
+    else{
     QStringList listeTermes = tmp.split(" ");
-    // ATTENTION, il peut y avoir des espaces dans les expressions-quote!!!
-    // Je pense que j'ai une technique pour remédier à ça
+
     QString opBinaires = "+-/*powmodSWAP";
     QString opUnaires = "SUMMEANsignsincostansinhcoshtanhlnloginvsqrtsqrcube!";
     for (int i=0; i<listeTermes.size(); i++)
     {
         if (listeTermes[i].contains("'")){
             i++;
-            std::cout<<"rentrededans"<<std::endl;
             QString s("' ");
-            while(listeTermes[i]!="'"){
+            while(!listeTermes[i].contains("'")){
                 s=s+listeTermes[i]+" ";
                 i++;
             }
             s=s+"'";
             ConstanteExp *exp=new ConstanteExp(s);
-            instancePile->empiler(exp);
-
+            if(exp->getChaine()=="' '"){
+                delete exp;
+            }
+            else instancePile->empiler(exp);
         }
         else if (opBinaires.contains(listeTermes[i]))
         {
@@ -620,9 +622,9 @@ void MainWindow::parser()
 
                 if (listeTermes[i]=="+"){ // 4 5 +
 
-                        Donnee*res=*tmpgch+tmpdte;
-                        Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                        instancePile->empiler(res_final);
+                    Donnee*res=*tmpgch+tmpdte;
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="-"){
                     Donnee*res=*tmpgch-tmpdte;
@@ -707,6 +709,7 @@ void MainWindow::parser()
     }
     // Sauvegarder l'état de la pile : il faudrait le faire seulement s'il n'y a pas eu d'erreur
     instancePile->getGardien()->addMemento(instancePile);
+}
 
 }
 
