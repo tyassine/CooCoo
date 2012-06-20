@@ -20,9 +20,12 @@ Pile::Pile(const Pile& p)
     nbMax = p.nbMax;
     gard = p.gard;
     FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-    for (int i=0; i<p.nbMax; i++)
+    QString muh;
+    for (int i=0; i<=sommet; i++)
+    {
         // Recopie en convertissant en QString et en l'envoyant à la factory... Il y a surement plus propre.
         tab[i] = factory->creerDonnee(p.tab[i]->toQString());
+    }
 }
 
 Pile::~Pile()
@@ -30,7 +33,7 @@ Pile::~Pile()
     for(int i=0; i<=sommet; ++i)
         delete tab[i];
     delete[] tab;
-    // Ne pas supprimer le gardien pour l'instant, risques qu'il soit supprimé pour les autres états sauvegardés
+    // Il ne faut pas delete le gardien ici! Voir où
 }
 
 void Pile::empiler(Donnee* aDonnee)
@@ -59,12 +62,12 @@ Donnee* Pile::depiler()
 }
 
 
-bool Pile::pileVide()
+bool Pile::pileVide() const
 {
     return(static_cast<int>(sommet)==-1);
 }
 
-bool Pile::pilePleine()
+bool Pile::pilePleine() const
 {
     return(sommet==nbMax-1);
 }

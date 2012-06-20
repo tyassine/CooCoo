@@ -1,27 +1,24 @@
 #include "memento.h"
 #include "pile.h"
+#include <iostream>
 
+Gardien::~Gardien()
+{
+    for (int i=0; i<tabPile.size(); i++) delete tabPile[i];
+}
 
 void Gardien::addMemento(Pile* aPile)
 {
-    /*
-    tabPile.push_back(aPile->cloner());
-    current++;
-    */
-    // Analyser l'enchainement, comportement suite à plusieurs annulations/restaurations
-    // A essayer : simplement écraser la prochaine valeur, mais penser à la supprimer SI CE N'EST PAS LA MEME!
     current++;
     tabPile[current] = aPile->cloner();
-    // Dangereux? Pas de risque de problème d'allocation?
 }
 
 Pile* Gardien::undo()
 {
-    if(current > -1)
+    if(current > 0)
     {
-        Pile* res = tabPile[current]->cloner();
         current--;
-        return res;
+        return tabPile[current]->cloner();
     }
     return 0; // NULL
     // Gérer le cas de pile vide, ce qu'il doit renvoyer!
@@ -30,8 +27,9 @@ Pile* Gardien::undo()
 
 Pile* Gardien::redo()
 {
-    if (current < tabPile.size())
+    if (current < tabPile.size()-1)
     {
+        // Probleme, il rentre quand-meme... size doit pas etre adapté, à revoir!
         current++;
         return tabPile[current]->cloner();
     }
