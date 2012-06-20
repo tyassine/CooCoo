@@ -19,6 +19,7 @@ class Complexe : public Donnee
     Constante* pIm;
 public:
 
+    Complexe(const Donnee* donneeDepart, int typeSouhaite);
     Complexe(Constante* D1=0, Constante* D2=0) : pRe(D1), pIm(D2) {}
     Complexe(const Complexe* aComplexe);
     Complexe(const Entier* aEntier);

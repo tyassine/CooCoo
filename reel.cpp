@@ -38,7 +38,7 @@ Reel::Reel(const Complexe* aComplexe)
     else {
         // Besoin de l'instance factory... Du coup include sale, mais bon.
         FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-        Reel* tmp2 = static_cast<Reel*>(factory->creerDonnee(tmp, 2));
+        Reel* tmp2 = static_cast<Reel*>(factory->creerDonnee(tmp, 2, 0));
         // static_cast pour permettre la conversion Donnee* ==> Reel*
         // On est surs que ça sera un Reel*, puisqu'on le demande spécifiquement!
         valeur = tmp2->getValeur();

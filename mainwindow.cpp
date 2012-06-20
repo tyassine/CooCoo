@@ -570,30 +570,24 @@ void MainWindow::parser()
 
                 if (listeTermes[i]=="+"){ // 4 5 +
 
-                    std::cout<<"detecte un plus"<<std::endl;
                         Donnee*res=*tmpgch+tmpdte;
-
-                        std::cout<<"apres +"<<std::endl;
-                        //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
-                        std::cout<<res<<std::endl;
-                        std::cout<<"apres factory"<<std::endl;
-                        instancePile->empiler(res);
-                        std::cout<<"apres fempile"<<std::endl;
+                        Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                        instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="-"){
                     Donnee*res=*tmpgch-tmpdte;
-                    //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
-                    instancePile->empiler(res);
+                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="/"){
                     Donnee*res=*tmpgch/tmpdte;
-                    //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
-                    instancePile->empiler(res);
+                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="*"){
                     Donnee*res=*tmpgch*tmpdte;
-                    //Donnee * res_finale= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante());
-                    instancePile->empiler(res);
+                    Donnee * res_final= FabriqueDonnee::getInstance()->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="pow"){
                 }

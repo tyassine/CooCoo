@@ -71,7 +71,7 @@ Rationnel::Rationnel(const Complexe* aComplexe)
     Constante* tmp = aComplexe->getPRe();
     // Besoin de l'instance factory... Du coup include sale, mais bon.
     FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-    Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, 1));
+    Rationnel* tmp2 = static_cast<Rationnel*>(factory->creerDonnee(tmp, 1, 0));
     // static_cast pour permettre la curersion Donnee* ==> Rationnel*
     // On est surs que ça sera un Rationnel*, puisqu'on le demande spécifiquement!
     num = tmp2->getNum();

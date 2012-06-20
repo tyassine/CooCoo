@@ -1,6 +1,7 @@
 #include "fabriquedonnee.h"
 #include <QStringList>
 #include <QMessageBox>
+#include <typeinfo>
 
 // Initialisation du membre statique du singleton
 FabriqueDonnee* FabriqueDonnee::instance = 0;
@@ -61,14 +62,16 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
 
 
 
-Donnee* FabriqueDonnee::creerDonnee(const Donnee* donneeDepart, int typeSouhaite)
+Donnee* FabriqueDonnee::creerDonnee(const Donnee* donneeDepart, int typeSouhaite, int complexe)
 {
-    if (dynamic_cast<const Entier*>(donneeDepart))
-        return creerDonneeStatic(static_cast<const Entier*>(donneeDepart), typeSouhaite);
-    if (dynamic_cast<const Reel*>(donneeDepart))
-        return creerDonneeStatic(static_cast<const Reel*>(donneeDepart), typeSouhaite);
-    if (dynamic_cast<const Rationnel*>(donneeDepart))
-        return creerDonneeStatic(static_cast<const Rationnel*>(donneeDepart), typeSouhaite);
+    if (typeid(*donneeDepart)==typeid(Entier))
+        return creerDonneeStatic(static_cast<const Entier*>(donneeDepart), typeSouhaite, complexe);
+    if (typeid(*donneeDepart)==typeid(Reel))
+        return creerDonneeStatic(static_cast<const Reel*>(donneeDepart), typeSouhaite, complexe);
+    if (typeid(*donneeDepart)==typeid(Rationnel))
+        return creerDonneeStatic(static_cast<const Rationnel*>(donneeDepart), typeSouhaite, complexe);
+    if (typeid(*donneeDepart)==typeid(Complexe))
+        return creerDonneeStatic(static_cast<const Complexe*>(donneeDepart), typeSouhaite, complexe);
 
 }
 

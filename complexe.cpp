@@ -6,6 +6,19 @@
 #include "fabriquedonnee.h"
 #include <typeinfo>
 
+Complexe::Complexe(const Donnee* donneeDepart, int typeSouhaite){
+    if (typeid(*donneeDepart)==typeid(Complexe))
+    {
+        const Complexe * tmp=static_cast<const Complexe*>(donneeDepart);
+        pRe = static_cast<Constante*>(FabriqueDonnee::getInstance()->creerDonnee(tmp->getPRe(),typeSouhaite,0));
+        pIm = static_cast<Constante*>(FabriqueDonnee::getInstance()->creerDonnee(tmp->getPIm(),typeSouhaite,0));
+    }else{
+        pRe = static_cast<Constante*>(FabriqueDonnee::getInstance()->creerDonnee(donneeDepart,typeSouhaite,0));
+        Entier ent(0);
+        pIm = static_cast<Constante*>(FabriqueDonnee::getInstance()->creerDonnee(&ent,typeSouhaite,0));
+    }
+
+}
 
 Complexe::Complexe(const Complexe* aComplexe)
 {

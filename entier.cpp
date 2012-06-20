@@ -36,7 +36,7 @@ Entier::Entier(const Complexe* aComplexe)
     Constante* tmp = aComplexe->getPRe();
     // Besoin de l'instance factory... Du coup include sale, mais bon.
     FabriqueDonnee* factory = FabriqueDonnee::getInstance();
-    Entier* tmp2 = static_cast<Entier*>(factory->creerDonnee(tmp, 0));
+    Entier* tmp2 = static_cast<Entier*>(factory->creerDonnee(tmp, 0, 0));
     // static_cast pour permettre la conversion Donnee* ==> Entier*
     // On est surs que ça sera un Entier*, puisqu'on le demande spécifiquement!
     valeur = tmp2->getValeur();

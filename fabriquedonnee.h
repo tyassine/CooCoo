@@ -45,14 +45,18 @@ public:
       Deuxième fonction : convertisseuse
     */
 
-    Donnee* creerDonnee(const Donnee* donneeDepart, int typeSouhaite);
+    Donnee* creerDonnee(const Donnee* donneeDepart, int typeSouhaite, int complexe);
 
 private:
     template<typename T>
-    inline Donnee* creerDonneeStatic(const T* donneeDepart, int typeSouhaite) {
-        if (typeSouhaite == 0) return new Entier(donneeDepart);
-        if (typeSouhaite == 2) return new Reel(donneeDepart);
-        if (typeSouhaite == 1) return new Rationnel(donneeDepart);
+    inline Donnee* creerDonneeStatic(const T* donneeDepart, int typeSouhaite, int complexe) {
+        if (complexe==0){
+            if (typeSouhaite == 0) return new Entier(donneeDepart);
+            if (typeSouhaite == 2) return new Reel(donneeDepart);
+            if (typeSouhaite == 1) return new Rationnel(donneeDepart);
+        }
+        else
+            return new Complexe(donneeDepart, typeSouhaite);
     }
 
 };
