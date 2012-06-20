@@ -22,10 +22,11 @@ public:
     Donnee* operator/(Donnee * t);
     Donnee* operator*(Donnee * t);
     Donnee* operator-(Donnee * t);
-    QString getChaine(){return chaine;}
 
     virtual Donnee* puissance(Donnee* t);
-    virtual Donnee* mod(Donnee* t); /*
+    virtual Donnee* mod(Donnee* t); 
+    QString getChaine()const{return chaine;}
+/*
     virtual Donnee* sign();
 
     virtual Donnee* sin();

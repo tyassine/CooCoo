@@ -80,7 +80,7 @@ Donnee* Entier::operator+(Donnee* t)
     if (typeid(*t)==typeid(ConstanteExp)){
        ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp->toQString() + " +'";
+       nouv = "'" + toQString() + " "+ tmp->toQString().remove("'") + " + '";
        return new ConstanteExp(nouv);
     }
 
@@ -118,7 +118,7 @@ Donnee* Entier::operator /(Donnee* t)
     if (typeid(*t)==typeid(ConstanteExp)){
        ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp->toQString() + " /'";
+       nouv = "'" + toQString() + " "+ tmp->toQString().remove("'") + " / '";
        return new ConstanteExp(nouv);
     }
 
@@ -155,7 +155,7 @@ Donnee* Entier::operator*(Donnee* t){
     if (typeid(*t)==typeid(ConstanteExp)){
        ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
        QString nouv;
-       nouv = "'" + toQString() +" "+ tmp->toQString() + " *'";
+       nouv = "'" + toQString() +" "+ tmp->toQString().remove("'") + " * '";
        return new ConstanteExp(nouv);
     }
 
@@ -194,7 +194,7 @@ Donnee* Entier::operator-(Donnee* t){
     if (typeid(*t)==typeid(ConstanteExp)){
        ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
        QString nouv;
-       nouv = "'" + toQString() + " "+ tmp->toQString() + " -'";
+       nouv = "'" + toQString() + " "+ tmp->toQString().remove("'") + " - '";
        return new ConstanteExp(nouv);
     }
 
