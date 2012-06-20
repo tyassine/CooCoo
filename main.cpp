@@ -27,9 +27,8 @@ int main(int argc, char *argv[])
     fenetre.show();
     fenetre.refresh();
 
-
-    LogSystem::imprim(LogMessage("Fermeture de l'application", 1));
     CooCoo.exec();
+    LogSystem::imprim(LogMessage("Fermeture de l'application", 1));
 
     return 0;
 }

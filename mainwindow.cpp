@@ -534,6 +534,8 @@ void MainWindow::InitParam(){
         getline(fichier, pile);
         if(pile!="pile vide"){
             while(getline(fichier, pile)){
+
+                std::cout<<pile.c_str()<<std::endl;
                 instancePile->empiler(instanceFD->creerDonnee((QString)pile.c_str()));
              }
         }
