@@ -8,6 +8,7 @@
 
 #include <QString>
 #include <QRegExp>
+#include "exceptionCooCoo.h"
 
 using namespace std;
 
@@ -25,9 +26,9 @@ public:
     virtual Donnee* operator/(Donnee * t)=0;
     virtual Donnee* operator*(Donnee * t)=0;
     virtual Donnee* operator-(Donnee * t)=0;
-/*
-    virtual Donnee* pow(Donnee & t)=0;
-    virtual Donnee* mod(Donnee & t)=0;
+
+    virtual Donnee* puissance(Donnee* t)=0;
+    virtual Donnee* mod(Donnee* t)=0;/*
     virtual Donnee* sign()=0;
 
     virtual Donnee* sin()=0;

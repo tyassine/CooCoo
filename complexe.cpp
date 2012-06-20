@@ -22,10 +22,6 @@ Complexe::Complexe(const Donnee* donneeDepart, int typeSouhaite){
 
 Complexe::Complexe(const Complexe* aComplexe)
 {
-    // IMPORTANT A TRAITER POUR LE MEMENTO
-    //Donnee* pRe=aComplexe->getPRe();
-    //Donnee* pIm=aComplexe->getpIm();
-
     // On va faire une copie des objets vers lesquels pointent pRe et pIm.
     // Comme on ne sait pas de quel type ils sont, on les convertit en QString et on les passe à la factory.
     FabriqueDonnee* factory = FabriqueDonnee::getInstance();

@@ -642,8 +642,14 @@ void MainWindow::parser()
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="pow"){
+                    Donnee* res = tmpgch->puissance(tmpdte);
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="mod"){
+                    Donnee* res = tmpgch->mod(tmpdte);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
 
 

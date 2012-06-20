@@ -7,6 +7,8 @@
 #include "complexe.h"
 #include "fabriquedonnee.h"
 #include <typeinfo>
+#include <math.h>
+
 QString Entier::toQString() const
 {
     QString res;
@@ -157,7 +159,7 @@ Donnee* Entier::operator*(Donnee* t){
        return new ConstanteExp(nouv);
     }
 
-    throw Entier("Erreur sur operateur * avec un entier");
+    throw ExceptionCooCoo("Erreur sur operateur * avec un entier");
 }
 
 Donnee* Entier::operator-(Donnee* t){
@@ -196,6 +198,45 @@ Donnee* Entier::operator-(Donnee* t){
        return new ConstanteExp(nouv);
     }
 
-    throw Entier("Erreur sur operateur - avec un entier");
+    throw ExceptionCooCoo("Erreur sur operateur - avec un entier");
 }
 
+Donnee* Entier::puissance(Donnee* t)
+
+{
+    if (typeid(*t)==typeid(Entier)){
+        Entier *tmp=static_cast<Entier*>(t);
+        if (tmp->getValeur() >= 0)  // puissance positive
+            return new Entier(pow(valeur,tmp->getValeur()));
+       else // puissance négative
+            return new Reel(pow(valeur, tmp->getValeur()));
+    }
+    if (typeid(*t)==typeid(Reel)){
+       Reel *tmp=static_cast<Reel*>(t);
+       return new Reel(pow(valeur, tmp->getValeur()));
+    }
+    if (typeid(*t)==typeid(Rationnel)){
+       Rationnel *tmp=static_cast<Rationnel*>(t);
+       Reel *tmp2 = new Reel(tmp);
+       return new Reel(pow(valeur, tmp2->getValeur()));
+    }
+
+    if (typeid(*t)==typeid(ConstanteExp)){
+       ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
+       QString nouv;
+       nouv = "'" + toQString() + " "+ tmp->toQString() + " pow'";
+       return new ConstanteExp(nouv);
+    }
+
+    throw ExceptionCooCoo("Erreur sur operateur pow avec un entier");
+}
+
+Donnee* Entier::mod(Donnee* t)
+{
+    if (typeid(*t)==typeid(Entier)){
+        Entier *tmp=static_cast<Entier*>(t);
+        return new Entier( valeur % tmp->getValeur());
+    }
+
+    throw ExceptionCooCoo("Erreur sur operateur mod avec un entier");
+}

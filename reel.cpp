@@ -5,6 +5,7 @@
 #include "entier.h"
 #include "rationnel.h"
 #include "fabriquedonnee.h"
+#include <math.h>
 
 QString Reel::toQString() const
 {
@@ -210,5 +211,30 @@ Donnee* Reel::operator-(Donnee* d){
     }
 
     throw ExceptionCooCoo("erreur sur operateur - avec un reel");
+}
+
+Donnee* Reel::puissance(Donnee* t)
+{
+    if (typeid(*t)==typeid(Entier)){
+        Entier *tmp=static_cast<Entier*>(t);
+        return new Reel(pow(valeur, tmp->getValeur()));
+    }
+    if (typeid(*t)==typeid(Reel)){
+       Reel *tmp=static_cast<Reel*>(t);
+       return new Reel(pow(valeur, tmp->getValeur()));
+    }
+    if (typeid(*t)==typeid(Rationnel)){
+       Rationnel *tmp=static_cast<Rationnel*>(t);
+       Reel *tmp2 = new Reel(tmp);
+       return new Reel(pow(valeur, tmp2->getValeur()));
+    }
+    if (typeid(*t)==typeid(ConstanteExp)){
+       ConstanteExp *tmp=static_cast<ConstanteExp*>(t);
+       QString nouv;
+       nouv = "'" + toQString() + " "+ tmp->toQString() + " pow'";
+       return new ConstanteExp(nouv);
+    }
+
+    throw ExceptionCooCoo("Erreur sur operateur pow avec un reel");
 }
 
