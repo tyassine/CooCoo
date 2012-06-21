@@ -249,3 +249,43 @@ Donnee* Entier::mySin(int typeAngle)
         return new Reel(sin(valeur));
 }
 
+Donnee* Entier::myCos(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(cos(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(cos(valeur));
+}
+
+Donnee* Entier::myTan(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(tan(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(tan(valeur));
+}
+
+Donnee* Entier::mySinh(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(sinh(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(sinh(valeur));
+}
+
+Donnee* Entier::myCosh(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(cosh(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(cosh(valeur));
+}
+
+Donnee* Entier::myTanh(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(tanh(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(tanh(valeur));
+}
+

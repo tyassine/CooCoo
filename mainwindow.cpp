@@ -227,6 +227,7 @@ void MainWindow::on_eval(){
          LogSystem::imprim(LogMessage("Dernière donnée entrée non valide pour une évaluation", 2));
      }
     }
+    // mettre quelque part un addmemento... lorsque la pile est modifiée.
 }
 
 // Slots paramètres
@@ -693,17 +694,34 @@ void MainWindow::parser()
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="sin"){
-                    // Donnee* res = tmp->mySin() // ajouter le type d'angle
+                    Donnee* res = tmp->mySin(angle);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="cos"){
+                    Donnee* res = tmp->myCos(angle);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="tan"){
+                    Donnee* res = tmp->myTan(angle);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="sinh"){
+                    Donnee* res = tmp->mySinh(angle);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="cosh"){
+                    Donnee* res = tmp->myCosh(angle);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="tanh"){
+                    Donnee* res = tmp->myTanh(angle);
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="ln"){
                 }

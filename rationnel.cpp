@@ -287,3 +287,48 @@ Donnee* Rationnel::mySin(int typeAngle)
     else    // Radians
         return new Reel(sin(tmp->getValeur()));
 }
+
+Donnee* Rationnel::myCos(int typeAngle)
+{
+    Reel* tmp = new Reel(this);
+    if (typeAngle == 0) // Degrés
+        return new Reel(cos(tmp->getValeur()*M_PI/180));
+    else    // Radians
+        return new Reel(cos(tmp->getValeur()));
+}
+
+Donnee* Rationnel::myTan(int typeAngle)
+{
+    Reel* tmp = new Reel(this);
+    if (typeAngle == 0) // Degrés
+        return new Reel(tan(tmp->getValeur()*M_PI/180));
+    else    // Radians
+        return new Reel(tan(tmp->getValeur()));
+}
+
+Donnee* Rationnel::mySinh(int typeAngle)
+{
+    Reel* tmp = new Reel(this);
+    if (typeAngle == 0) // Degrés
+        return new Reel(sinh(tmp->getValeur()*M_PI/180));
+    else    // Radians
+        return new Reel(sinh(tmp->getValeur()));
+}
+
+Donnee* Rationnel::myCosh(int typeAngle)
+{
+    Reel* tmp = new Reel(this);
+    if (typeAngle == 0) // Degrés
+        return new Reel(cosh(tmp->getValeur()*M_PI/180));
+    else    // Radians
+        return new Reel(cosh(tmp->getValeur()));
+}
+
+Donnee* Rationnel::myTanh(int typeAngle)
+{
+    Reel* tmp = new Reel(this);
+    if (typeAngle == 0) // Degrés
+        return new Reel(tanh(tmp->getValeur()*M_PI/180));
+    else    // Radians
+        return new Reel(tanh(tmp->getValeur()));
+}

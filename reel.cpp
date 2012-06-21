@@ -246,3 +246,43 @@ Donnee* Reel::mySin(int typeAngle)
         return new Reel(sin(valeur));
 }
 
+Donnee* Reel::myCos(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(cos(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(cos(valeur));
+}
+
+Donnee* Reel::myTan(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(tan(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(tan(valeur));
+}
+
+Donnee* Reel::mySinh(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(sinh(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(sinh(valeur));
+}
+
+Donnee* Reel::myCosh(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(cosh(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(cosh(valeur));
+}
+
+Donnee* Reel::myTanh(int typeAngle)
+{
+    if (typeAngle == 0) // Degrés
+        return new Reel(tanh(valeur*M_PI/180));
+    else    // Radians
+        return new Reel(tanh(valeur));
+}
+

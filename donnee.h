@@ -31,12 +31,12 @@ public:
     virtual Donnee* mod(Donnee* t)=0;
     virtual Donnee* sign()=0;
 
-    virtual Donnee* mySin(int typeAngle)=0;/*
+    virtual Donnee* mySin(int typeAngle)=0;
     virtual Donnee* myCos(int typeAngle)=0;
     virtual Donnee* myTan(int typeAngle)=0;
     virtual Donnee* mySinh(int typeAngle)=0;
     virtual Donnee* myCosh(int typeAngle)=0;
-    virtual Donnee* myTanh(int typeAngle)=0;
+    virtual Donnee* myTanh(int typeAngle)=0;/*
 
     virtual Donnee* myLn()=0;
     virtual Donnee* myLog()=0;

@@ -29,12 +29,12 @@ public:
 
     virtual ConstanteExp* sign();
 
-    virtual Donnee* mySin(int typeAngle);/*
+    virtual Donnee* mySin(int typeAngle);
     virtual Donnee* myCos(int typeAngle);
     virtual Donnee* myTan(int typeAngle);
     virtual Donnee* mySinh(int typeAngle);
     virtual Donnee* myCosh(int typeAngle);
-    virtual Donnee* myTanh(int typeAngle);
+    virtual Donnee* myTanh(int typeAngle);/*
 
     virtual Donnee* ln();
     virtual Donnee* log();

@@ -56,3 +56,43 @@ Donnee* ConstanteExp::mySin(int typeAngle)
     // Opérateur unaire : pas sûr du tout!
     return new ConstanteExp(exp);
 }
+
+Donnee* ConstanteExp::myCos(int typeAngle)
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "cos '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myTan(int typeAngle)
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "tan '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::mySinh(int typeAngle)
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "sinh '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myCosh(int typeAngle)
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "cosh '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myTanh(int typeAngle)
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "tanh '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
