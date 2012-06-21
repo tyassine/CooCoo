@@ -34,16 +34,15 @@ public:
     virtual Donnee* myTan(int typeAngle);
     virtual Donnee* mySinh(int typeAngle);
     virtual Donnee* myCosh(int typeAngle);
-    virtual Donnee* myTanh(int typeAngle);/*
+    virtual Donnee* myTanh(int typeAngle);
 
-    virtual Donnee* ln();
-    virtual Donnee* log();
-    virtual Donnee* inv();
-    virtual Donnee* sqrt();
-    virtual Donnee* sqr();
-    virtual Donnee* cube();
-    virtual Donnee* fact();
-    virtual Donnee* eval();*/
+    virtual Donnee* myLn();
+    virtual Donnee* myLog();
+    virtual Donnee* myInv();
+    virtual Donnee* mySqrt();
+    virtual Donnee* mySqr();
+    virtual Donnee* myCube();
+    virtual Donnee* myFact();
 
 
 };

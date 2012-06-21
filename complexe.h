@@ -68,16 +68,22 @@ public:
     {throw ExceptionCooCoo("Pas de calcul de cosh avec un complexe : non géré.");}
     virtual Donnee* myTanh(int typeAngle)
     {throw ExceptionCooCoo("Pas de calcul de tanh avec un complexe : non géré.");}
-/*
-    virtual Donnee* ln();
-    virtual Donnee* log();
-    virtual Donnee* inv();
-    virtual Donnee* sqrt();
-    virtual Donnee* sqr();
-    virtual Donnee* cube();
-    virtual Donnee* fact();
-    virtual Donnee* eval();
-    */
+    virtual Donnee* myLn()
+    {throw ExceptionCooCoo("Pas de calcul de ln avec un complexe : non géré.");}
+    virtual Donnee* myLog()
+    {throw ExceptionCooCoo("Pas de calcul de log avec un complexe : non géré.");}
+    virtual Donnee* myInv()
+    {throw ExceptionCooCoo("Pas de calcul de inv avec un complexe : non géré.");}
+    virtual Donnee* mySqrt()
+    {throw ExceptionCooCoo("Pas de calcul de sqrt avec un complexe : non géré.");}
+
+    virtual Donnee* mySqr();
+    virtual Donnee* myCube();
+
+
+    virtual Donnee* myFact()
+    {throw ExceptionCooCoo("Pas de calcul de fact avec un complexe : non géré.");}
+
 
 };
 

@@ -252,3 +252,13 @@ Donnee* Complexe::operator-(Donnee* t){
 
     throw ExceptionCooCoo("erreur sur operateur - avec un complexe");
 }
+
+Donnee* Complexe::mySqr()
+{
+
+}
+
+Donnee* Complexe::myCube()
+{
+
+}

@@ -286,3 +286,32 @@ Donnee* Reel::myTanh(int typeAngle)
         return new Reel(tanh(valeur));
 }
 
+Donnee* Reel::myLn()
+{
+    return new Reel(log(valeur));
+}
+
+Donnee* Reel::myLog()
+{
+    return new Reel(log10(valeur));
+}
+
+Donnee* Reel::myInv()
+{
+    return new Rationnel(1, valeur);
+}
+
+Donnee* Reel::mySqrt()
+{
+    return new Reel(sqrt(valeur));
+}
+
+Donnee* Reel::mySqr()
+{
+    return new Reel(valeur*valeur);
+}
+
+Donnee* Reel::myCube()
+{
+    return new Reel(valeur*valeur*valeur);
+}

@@ -289,3 +289,46 @@ Donnee* Entier::myTanh(int typeAngle)
         return new Reel(tanh(valeur));
 }
 
+Donnee* Entier::myLn()
+{
+    return new Reel(log(valeur));
+}
+
+Donnee* Entier::myLog()
+{
+    return new Reel(log10(valeur));
+}
+
+Donnee* Entier::myInv()
+{
+    return new Rationnel(1, valeur);
+}
+
+Donnee* Entier::mySqrt()
+{
+    return new Reel(sqrt(valeur));
+}
+
+Donnee* Entier::mySqr()
+{
+    return new Entier(valeur*valeur);
+}
+
+Donnee* Entier::myCube()
+{
+    return new Entier(valeur*valeur*valeur);
+}
+
+Donnee* Entier::myFact()
+{
+    int f = facto(valeur);
+    return new Entier(f);
+}
+
+int Entier::facto(int n)
+{
+    if ( (n==0) || (n == 1) )
+        return 1;
+    else
+        return n * facto(n - 1);
+}

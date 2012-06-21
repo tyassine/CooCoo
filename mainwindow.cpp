@@ -688,6 +688,7 @@ void MainWindow::parser()
                     Entier *x=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmp, 0, 0));
                     instancePile->mean(x->getValeur());
                 }
+                // Après ce point, y'a moyen de vraiment factoriser les opérations!
                 if (listeTermes[i]=="sign"){
                     Donnee* res = tmp->sign();
                     Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
@@ -724,18 +725,39 @@ void MainWindow::parser()
                     instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="ln"){
+                    Donnee* res = tmp->myLn();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="log"){
+                    Donnee* res = tmp->myLog();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="inv"){
+                    Donnee* res = tmp->myInv();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="sqrt"){
+                    Donnee* res = tmp->mySqrt();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="sqr"){
+                    Donnee* res = tmp->mySqr();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="cube"){
+                    Donnee* res = tmp->myCube();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
                 else if (listeTermes[i]=="!"){
+                    Donnee* res = tmp->myFact();
+                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
                 }
 
                 delete tmp;

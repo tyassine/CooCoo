@@ -332,3 +332,36 @@ Donnee* Rationnel::myTanh(int typeAngle)
     else    // Radians
         return new Reel(tanh(tmp->getValeur()));
 }
+
+Donnee* Rationnel::myLn()
+{
+    Reel* tmp = new Reel(this);
+    return new Reel(log(tmp->getValeur()));
+}
+
+Donnee* Rationnel::myLog()
+{
+    Reel* tmp = new Reel(this);
+    return new Reel(log10(tmp->getValeur()));
+}
+
+Donnee* Rationnel::myInv()
+{
+    return new Rationnel(denom, num);
+}
+
+Donnee* Rationnel::mySqrt()
+{
+    Reel* tmp = new Reel(this);
+    return new Reel(sqrt(tmp->getValeur()));
+}
+
+Donnee* Rationnel::mySqr()
+{
+    return new Rationnel(num*num, denom*denom);
+}
+
+Donnee* Rationnel::myCube()
+{
+    return new Rationnel(num*num*num, denom*denom*denom);
+}

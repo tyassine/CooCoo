@@ -96,3 +96,59 @@ Donnee* ConstanteExp::myTanh(int typeAngle)
     // Opérateur unaire : pas sûr du tout!
     return new ConstanteExp(exp);
 }
+
+Donnee* ConstanteExp::myLn()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "ln '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myLog()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "log '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myInv()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "inv '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::mySqrt()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "sqrt '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::mySqr()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "sqr '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myCube()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "cube '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}
+
+Donnee* ConstanteExp::myFact()
+{
+    QString op= chaine.at(chaine.size()-1);
+    QString exp = exp.remove(chaine.size()-1,chaine.size()-1) + ' ' + op + ' ' + "fact '";
+    // Opérateur unaire : pas sûr du tout!
+    return new ConstanteExp(exp);
+}

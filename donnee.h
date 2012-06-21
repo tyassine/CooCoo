@@ -36,7 +36,7 @@ public:
     virtual Donnee* myTan(int typeAngle)=0;
     virtual Donnee* mySinh(int typeAngle)=0;
     virtual Donnee* myCosh(int typeAngle)=0;
-    virtual Donnee* myTanh(int typeAngle)=0;/*
+    virtual Donnee* myTanh(int typeAngle)=0;
 
     virtual Donnee* myLn()=0;
     virtual Donnee* myLog()=0;
@@ -45,9 +45,7 @@ public:
     virtual Donnee* mySqr()=0;
     virtual Donnee* myCube()=0;
     virtual Donnee* myFact()=0;
-    virtual Donnee* myEval()=0;
 
-    */
 
     static bool isEntier(const QString& s){
         QRegExp rx("^-?\\d+$");
