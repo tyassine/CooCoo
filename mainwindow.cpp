@@ -150,7 +150,7 @@ void MainWindow::on_effacer(){
 }
 void MainWindow::on_effacer_el(){
     if (ui->Afficheur->text().isEmpty()){
-         instancePile->drop();
+         on_drop();
          LogSystem::imprim(LogMessage("La ligne est deja vide, suppression du dernier element de la pile", 1));
     }
     else{

@@ -15,8 +15,8 @@
 #include "donnee.h"
 
 class Pile;
-/*! \class gardien
-* \brief Classe de gardien
+/*! \class Gardien
+* \brief Classe de Gardien
 * La classe permet de sauvegarder les etats d'une pile, dans le but de pouvoir les restaurer
 * Partie du design pattern "Memento"
 *

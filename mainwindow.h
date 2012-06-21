@@ -25,13 +25,12 @@
 
 namespace Ui {
 
+class MainWindow;
+}
 /*! \class MainWindow
 * \brief Classe s'occupant de l'affichage et de l'interface avec l'utilisateur
 * Elle herite de la classe QMainWindow.
 */
-class MainWindow;
-}
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
