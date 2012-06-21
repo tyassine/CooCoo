@@ -4,6 +4,15 @@
 /*!
 * \file exceptionCooCoo.h
 * \author Letellier/Yassine
+* \brief Gestion d'exceptions
+*/
+
+/*! \class ExceptionCooCoo
+* \brief Classe d'exception
+*
+* Derive de std::exception
+*
+*
 */
 
 #include <QString>
@@ -30,6 +39,11 @@ public:
     * Permet d'en savoir plus sur la cause de l'erreur
     */
     const char* GetInfos() const throw(){return infos.c_str();}
+    /*!
+* \brief Destructeur
+*
+*
+*/
     ~ExceptionCooCoo() throw(){}
 
 };

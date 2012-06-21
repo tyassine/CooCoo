@@ -156,7 +156,14 @@ public:
 
  */
     void simplifier();
-
+    /*!
+    * \brief Operateur +
+    *
+    * Implementation de l'operateur binaire + (methode virtuelle dans la classe mere)
+    * \param t : Pointeur sur un type
+    * \return Pointeur sur type, resultat de l'operation
+    *
+    */
     Donnee* operator+(Donnee * t);
 
     /*!
