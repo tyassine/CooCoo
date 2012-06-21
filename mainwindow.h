@@ -102,23 +102,43 @@ public:
     bool getComplexe(){
         return complexe;
     }
+    /*!
+    * \brief setComplexe
+    * Modificateur permettant de choisir ou non le mode complexe.
+    * \param bool c, choix du mode complexe
+    */
     void setComplexe(bool c){
         complexe=c;
     }
     /*!
     * \brief getClavier
-    * Accesseur permettant le mode d'affichage du clavier (oui ou non)
+    * Accesseur permettant de recuperer le mode d'affichage du clavier (oui ou non)
     * \return Le mode actuel de la calculatrice.
     */
     bool getClavier(){
         return clavier;
     }
+    /*!
+    * \brief setClavier
+    * Modificateur permettant de choisir ou non l'affichage du clavier numerique
+    * \param bool c, choix de l'affichage
+    */
     void setClavier(bool c){
         clavier=c;
     }
+    /*!
+    * \brief getNbPile
+    * Accesseur permettant de recuperer le nombre actuel de Donnee de la pile a afficher
+    * \return Le mode actuel de la calculatrice.
+    */
     int getNbPile(){
         return nb_elem_affiche;
     }
+    /*!
+    * \brief setNbPile
+    * Modificateur permettant de choisir le nombre de Donnee a afficher dans la pile
+    * \param int n, nombre a afficher
+    */
     void setNbPile(int n){
         nb_elem_affiche=n;
     }
