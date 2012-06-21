@@ -1,12 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-/*!
-* \file mainwindow.h
-* \brief Fenêtre principale
-* \author Letellier/Yassine
-*/
-
 #include <QMainWindow>
 #include <QStringListModel>
 #include <QKeyEvent>
@@ -22,8 +16,19 @@
 #include "pile.h"
 #include "fabriquedonnee.h"
 
+/*!
+* \file mainwindow.h
+* \author Letellier/Yassine
+* \brief Fenêtre principale
+*/
+
 
 namespace Ui {
+
+/*! \class MainWindow
+* \brief Classe s'occupant de l'affichage et de l'interface avec l'utilisateur
+* Elle herite de la classe QMainWindow.
+*/
 class MainWindow;
 }
 
@@ -34,16 +39,16 @@ class MainWindow : public QMainWindow
     Q_ENUMS(cste)
 
 private:
-    Ui::MainWindow *ui;
-    Pile* instancePile; // Ce n'est plus un singleton
-    FabriqueDonnee* instanceFD; // Mais la factory en est un maintenant.
-    bool complexe; //0 pour non complexe et 1 pour complexe
-    bool clavier; //1 pour caché et 0 pour visible
+    Ui::MainWindow *ui; /*!< Fenêtre*/
+    Pile* instancePile; /*!< Pile de Donnee */
+    FabriqueDonnee* instanceFD; /*!< Fabrique de Donnee */
+    bool complexe; /*!< booleen d'etat 0 si non complexe souahitez 1 sinon */
+    bool clavier; /*!< booleen pour affichage du clavier */
     enum TypeAngle {DEGRE, RADIAN};
-    TypeAngle angle;
+    TypeAngle angle; /*!< type d'angle actuellement utilisé */
     enum TypeConstante {ENTIER, RATIONNEL, REEL};
-    TypeConstante cste;
-    int nb_elem_affiche;
+    TypeConstante cste;/*!< type de constante actuellement utilisée */
+    int nb_elem_affiche;/*!< nombre d'elements de la pile a afficher dans la Qlistview */
 
 
 public:
@@ -57,24 +62,54 @@ public:
     void calcul_moins();
     void calcul_mult();
     void keyPressEvent(QKeyEvent *);
+    /*!
+    * \brief setAngle
+    * Modificateur permettant de changer le mode d'angle en cours (Degre, Radian).
+    * \param TypeAngle a, instance de l'enum TypeAngle
+    */
     void setAngle(TypeAngle a){
         angle=a;
     }
+    /*!
+    * \brief getAngle
+    * Accesseur permettant d'obtenir le mode d'angle en cours (Degre, Radian).
+    * \return Le mode actuel de la calculatrice.
+    */
     TypeAngle getAngle(){
         return angle;
     }
+    /*!
+    * \brief setConstante
+    * Modificateur permettant de changer le mode de constante en cours (Entier, Rationnel, Reel).
+    * \param TypeConstante c, instance de l'enum TypeConstante
+    */
     void setConstante(TypeConstante c){
         cste=c;
     }
+    /*!
+    * \brief getConstante
+    * Accesseur permettant d'obtenir le mode de constante en cours (Entier, Rationnel, Reel).
+    * \return Le mode actuel de la calculatrice.
+    */
     TypeConstante getConstante(){
         return cste;
     }
+    /*!
+    * \brief getComplexe
+    * Accesseur permettant le mode de complexe (Oui ou non).
+    * \return Le mode actuel de la calculatrice.
+    */
     bool getComplexe(){
         return complexe;
     }
     void setComplexe(bool c){
         complexe=c;
     }
+    /*!
+    * \brief getClavier
+    * Accesseur permettant le mode d'affichage du clavier (oui ou non)
+    * \return Le mode actuel de la calculatrice.
+    */
     bool getClavier(){
         return clavier;
     }
@@ -87,12 +122,6 @@ public:
     void setNbPile(int n){
         nb_elem_affiche=n;
     }
-
-/* TODO    signals:
-        void pushStack_signal(const QString&);
-        void cleanList_signal();
-        void refresh_signal();
-*/
 
 
 private slots:
