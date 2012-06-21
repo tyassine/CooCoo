@@ -141,16 +141,23 @@ void MainWindow::on_division(){
     ui->Afficheur->insert("/");
 }
 void MainWindow::on_effacer(){
+    if (ui->Afficheur->text().isEmpty()){
+
+         LogSystem::imprim(LogMessage("La ligne est deja vide", 1));
+    }
+    else
     ui->Afficheur->clear();
 }
 void MainWindow::on_effacer_el(){
-    /*if (ui->Afficheur->text().isEmpty())
-        on_drop();
-    else{*/
+    if (ui->Afficheur->text().isEmpty()){
+         instancePile->drop();
+         LogSystem::imprim(LogMessage("La ligne est deja vide, suppression du dernier element de la pile", 1));
+    }
+    else{
         QString aff = ui->Afficheur->text();
         aff.chop(1);
         ui->Afficheur->setText(aff);
-    //}
+    }
 
 }
 
@@ -234,10 +241,12 @@ void MainWindow::on_eval(){
 
 void MainWindow::on_clavier(bool checked){
     if (checked){
+        LogSystem::imprim(LogMessage("Clavier numerique caché", 1));
         ui->Clavier->hide();
     }
-    else
-        ui->Clavier->show();
+    else{
+        LogSystem::imprim(LogMessage("Affichage du clavier numerique", 1));
+        ui->Clavier->show();}
     setClavier(checked);
 }
 void MainWindow::on_Annuler_triggered()
@@ -263,6 +272,7 @@ void MainWindow::on_Retablir_triggered()
 }
 
 void MainWindow::on_complexe(int c){
+    LogSystem::imprim(LogMessage("Modification du mode complexe", 1));
     if (c==1){// complexes
         setComplexe(1);
         if (getConstante()==1){ // entiers
@@ -285,6 +295,7 @@ void MainWindow::on_complexe(int c){
 }
 
 void MainWindow::on_constante(int c){
+    LogSystem::imprim(LogMessage("Modification de la constante", 1));
 
     setConstante(TypeConstante(c));
     if (c==0){//entiers
@@ -303,10 +314,12 @@ void MainWindow::on_constante(int c){
     }
 }
 void MainWindow::on_angle(int a){
+    LogSystem::imprim(LogMessage("Modification de l'unité d'angle", 1));
     setAngle(TypeAngle(a));
 }
 
 void MainWindow::on_nbPile(int n){
+    LogSystem::imprim(LogMessage("Modification du nombre d'element de la pile a afficher", 1));
     setNbPile(n);
     refresh();
 }
@@ -315,6 +328,7 @@ void MainWindow::on_nbPile(int n){
 void MainWindow::on_commit(){
     if (ui->Afficheur->text().isEmpty())
     {
+        LogSystem::imprim(LogMessage("Aucune entree, duplication du dernier element de la pile", 2));
         on_dup();
         instancePile->getGardien()->addMemento(instancePile);
     }
@@ -431,6 +445,7 @@ void MainWindow::on_drop(){
 MainWindow::~MainWindow(){
     int maj = QMessageBox::question(this, "Sauvegarde contexte", "Voulez-vous sauvegarder la pile et les paramètres pour la prochaine utilisation ?", QMessageBox::Yes | QMessageBox::No);
     if (maj== QMessageBox::Yes){
+        LogSystem::imprim(LogMessage("Sauvegarde du contexte", 1));
         MAJParam();
     }
     else{
@@ -508,6 +523,7 @@ void MainWindow::InitParam(){
     std::ifstream fichier("sauvegarde_CooCoo.txt", std::ios::in); // Ouverture en lecture du fichier de sauvegarde
     if(fichier)
     {
+        LogSystem::imprim(LogMessage("Chargement du contexte de dernière utilisation", 1));
         QMessageBox::information(this, "Initialisation", "Initialisation des paramètres et de la pile avec la sauvegarde de la dernière utilisation de CooCoo.");
         // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), NbElementAffichés, Pile
         std::string tmp, pile;
@@ -544,7 +560,7 @@ void MainWindow::InitParam(){
     else{ // Sinon le fichier n'existait pas, on ouvre en écriture et on l'initialise avec les valeurs pas défaut
         QMessageBox::information(this, "Initialisation", "Il n'existe pas de fichier de sauvegarde.");
         std::ofstream fichier("sauvegarde_CooCoo.txt", std::ios::out);
-
+        LogSystem::imprim(LogMessage("Aucun fichier de sauvegarde", 1));
         if(fichier)
         {   // le fichier contient : complexe(0-1), clavier(0-1), constante (0,1,2), Angle (0,1), Pile
             fichier<<0<<std::endl;
@@ -597,10 +613,9 @@ void MainWindow::parser()
 
     QString tmp = ui->Afficheur->text();
     Donnee* objetTerme;
-    //if (tmp.begin()==QString(" ")) tmp.remove(0);
-    //if (tmp.end()==QString(" ")) tmp.remove(chaine.size());
-    if (tmp.contains("'")&&(tmp.count("'")%2!=0))
+    if (tmp.contains("'")&&(tmp.count("'")%2!=0)){
         QMessageBox::information(this,"Erreur de saisie", "Il faut fermer les expressions");
+    LogSystem::imprim(LogMessage("Erreur de saisie, impossible d'empiler", 3));}
     else{
     QStringList listeTermes = tmp.split(" ");
 
@@ -770,8 +785,10 @@ void MainWindow::parser()
                 objetTerme = instanceFD->creerDonnee(listeTermes[i]);
                 if (objetTerme)
                     instancePile->empiler(objetTerme);
-                else
+                else{
                     QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
+                    LogSystem::imprim(LogMessage("Erreur de saisie, type non reconnu", 3));
+                }
             }
         }
 

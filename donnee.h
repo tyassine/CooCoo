@@ -47,24 +47,60 @@ public:
     virtual Donnee* myFact()=0;
 
 
+
+
+    /*!
+ * \brief isEntier
+ * Methode statique permettant de determiner le type avec Qregexp
+ * \param Qstring s, chaine de caractere source
+ * \return true si la chaine est construite comme un entier
+ */
     static bool isEntier(const QString& s){
         QRegExp rx("^-?\\d+$");
         return s.contains (rx);
     }
 
+    /*!
+* \brief isReel
+* Methode statique permettant de determiner le type
+* \param Qstring s, chaine de caractere source
+* \return true si la chaine est construite comme  un reel
+*/
     static bool isReel(const QString& s){
         QRegExp rx("^-?\\d*\\.?\\d*$");
         return s.contains(rx);}
 
+
+    /*!
+ * \brief isRationnel
+ * Methode statique permettant de determiner le type (Utiisation de regexp)
+ * \param Qstring s, chaine de caractere source
+ * \return true si la chaine ressemble a un rationnel,
+ * false sinon
+ */
     static bool isRationnel(const QString& s){
         QRegExp rx("^-?\\d*/-?\\d*$");
         return s.contains (rx);
     }
 
+
+    /*!
+* \brief isExpression
+* Methode statique permettant de determiner le type
+* \param Qstring s, chaine de caractere source
+* \return true si la chaine ressemble a une expression
+*/
     static bool isExpression(const QString& s){
         return s.count("'")==2;
     }
 
+    /*!
+* \brief isComplexe
+* Methode statique permettant de determiner le type
+* \param Qstring s, chaine de caractere source
+* \return true si la chaine ressemble a un complexe,
+* false sinon
+*/
     static bool isComplexe(const QString& s){
         QRegExp rx("^-?\\d+((/|\\.)\\d+)?\\$-?\\d+((/|\\.)\\d+)?$");
         return s.contains (rx);

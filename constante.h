@@ -6,15 +6,31 @@
 * \author Letellier/Yassine
 */
 
+
 #include "donnee.h"
 
-// ABSTRAITE
 
+/**
+ * \class     Constante
+ * \author    Letellier/Yassine
+ * \brief       Classe representant les types de constantes non complexes
+ *
+ * \details    Il s'agit d'une classe abstraite dérivant de Donnee.
+ *
+ */
 class Constante : public Donnee
 {
 public:
+    /*!
+* \brief Constructeur
+*
+*/
     Constante();
-
+    /*!
+    * \brief sign
+    * Methode virtuelle pure
+    *
+    */
     virtual Constante* sign()=0;
 };
 

@@ -1,12 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-/*!
-* \file mainwindow.h
-* \brief Fenêtre principale
-* \author Letellier/Yassine
-*/
-
 #include <QMainWindow>
 #include <QStringListModel>
 #include <QKeyEvent>
@@ -22,8 +16,19 @@
 #include "pile.h"
 #include "fabriquedonnee.h"
 
+/*!
+* \file mainwindow.h
+* \author Letellier/Yassine
+* \brief Fenêtre principale
+*/
+
 
 namespace Ui {
+
+/*! \class MainWindow
+* \brief Classe s'occupant de l'affichage et de l'interface avec l'utilisateur
+* Elle herite de la classe QMainWindow.
+*/
 class MainWindow;
 }
 
@@ -34,65 +39,139 @@ class MainWindow : public QMainWindow
     Q_ENUMS(cste)
 
 private:
-    Ui::MainWindow *ui;
-    Pile* instancePile; // Ce n'est plus un singleton
-    FabriqueDonnee* instanceFD; // Mais la factory en est un maintenant.
-    bool complexe; //0 pour non complexe et 1 pour complexe
-    bool clavier; //1 pour caché et 0 pour visible
+    Ui::MainWindow *ui; /*!< Fenêtre*/
+    Pile* instancePile; /*!< Pile de Donnee */
+    FabriqueDonnee* instanceFD; /*!< Fabrique de Donnee */
+    bool complexe; /*!< booleen d'etat 0 si non complexe souahitez 1 sinon */
+    bool clavier; /*!< booleen pour affichage du clavier */
     enum TypeAngle {DEGRE, RADIAN};
-    TypeAngle angle;
+    TypeAngle angle; /*!< type d'angle actuellement utilisé */
     enum TypeConstante {ENTIER, RATIONNEL, REEL};
-    TypeConstante cste;
-    int nb_elem_affiche;
+    TypeConstante cste;/*!< type de constante actuellement utilisée */
+    int nb_elem_affiche;/*!< nombre d'elements de la pile a afficher dans la Qlistview */
 
 
 public:
+    /*!
+    * \brief Constructeur
+    *
+    * Constructeur de la classe MainWindow
+    *
+    */
     explicit MainWindow(QWidget *parent = 0);
+    /*!
+    * \brief Destructeur
+    *
+    * Destructeur de la classe MainWindow
+    *
+    */
     ~MainWindow();
+    /*!
+    * \brief InitParam
+    * Initialisation des listes de selections, checkbox et afficheur de pile à l'ouverture de l'application
+    */
     void InitParam();
+    /*!
+    * \brief MAJParam
+    * Mise à jour des paramètres dans le fichier de sauvegarde
+    */
     void MAJParam();
+    /*!
+    * \brief parser
+    * Parser de l'afficheur pour empiler des donnees ou effectuer des operations
+    */
     void parser();
+    /*!
+    * \brief refresh
+    * Mise à jour de l'affichage de la pile
+    */
     void refresh();
-    void calcul_plus();
-    void calcul_moins();
-    void calcul_mult();
+    /*!
+    * \brief keyPressEvent
+    * Redefinition de la methode keyPressEvent pour capter des evenements bien definis
+    * \param QKeyEvent *, evenements à capter
+    */
     void keyPressEvent(QKeyEvent *);
+    /*!
+    * \brief setAngle
+    * Modificateur permettant de changer le mode d'angle en cours (Degre, Radian).
+    * \param TypeAngle a, instance de l'enum TypeAngle
+    */
     void setAngle(TypeAngle a){
         angle=a;
     }
+    /*!
+    * \brief getAngle
+    * Accesseur permettant d'obtenir le mode d'angle en cours (Degre, Radian).
+    * \return Le mode actuel de la calculatrice.
+    */
     TypeAngle getAngle(){
         return angle;
     }
+    /*!
+    * \brief setConstante
+    * Modificateur permettant de changer le mode de constante en cours (Entier, Rationnel, Reel).
+    * \param TypeConstante c, instance de l'enum TypeConstante
+    */
     void setConstante(TypeConstante c){
         cste=c;
     }
+    /*!
+    * \brief getConstante
+    * Accesseur permettant d'obtenir le mode de constante en cours (Entier, Rationnel, Reel).
+    * \return Le mode actuel de la calculatrice.
+    */
     TypeConstante getConstante(){
         return cste;
     }
+    /*!
+    * \brief getComplexe
+    * Accesseur permettant le mode de complexe (Oui ou non).
+    * \return Le mode actuel de la calculatrice.
+    */
     bool getComplexe(){
         return complexe;
     }
+    /*!
+    * \brief setComplexe
+    * Modificateur permettant de choisir ou non le mode complexe.
+    * \param bool c, choix du mode complexe
+    */
     void setComplexe(bool c){
         complexe=c;
     }
+    /*!
+    * \brief getClavier
+    * Accesseur permettant de recuperer le mode d'affichage du clavier (oui ou non)
+    * \return Le mode actuel de la calculatrice.
+    */
     bool getClavier(){
         return clavier;
     }
+    /*!
+    * \brief setClavier
+    * Modificateur permettant de choisir ou non l'affichage du clavier numerique
+    * \param bool c, choix de l'affichage
+    */
     void setClavier(bool c){
         clavier=c;
     }
+    /*!
+    * \brief getNbPile
+    * Accesseur permettant de recuperer le nombre actuel de Donnee de la pile a afficher
+    * \return Le mode actuel de la calculatrice.
+    */
     int getNbPile(){
         return nb_elem_affiche;
     }
+    /*!
+    * \brief setNbPile
+    * Modificateur permettant de choisir le nombre de Donnee a afficher dans la pile
+    * \param int n, nombre a afficher
+    */
     void setNbPile(int n){
         nb_elem_affiche=n;
     }
-
-/* TODO    signals:
-        void pushStack_signal(const QString&);
-        void cleanList_signal();
-        void refresh_signal();
-*/
 
 
 private slots:
@@ -172,9 +251,26 @@ private slots:
 };
 
 
-
+/*!
+* \brief refresh_entier
+* Fonction d'actualisation des boutons cachés selon les paramètres demandés par l'utilisateur
+* \param Ui::MainWindow *, fenêtre concernee
+*
+*/
 void refresh_entier(Ui::MainWindow *);
+/*!
+* \brief refresh_reel_rationnel
+* Fonction d'actualisation des boutons cachés selon les paramètres demandés par l'utilisateur
+* \param Ui::MainWindow *, fenêtre concernee
+*
+*/
 void refresh_reel_rationnel(Ui::MainWindow *);
+/*!
+* \brief refresh_complexe
+* Fonction d'actualisation des boutons cachés selon les paramètres demandés par l'utilisateur
+* \param Ui::MainWindow *, fenêtre concernee
+*
+*/
 void refresh_complexe(Ui::MainWindow *);
 
 
