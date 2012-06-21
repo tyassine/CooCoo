@@ -163,15 +163,15 @@ public:
 
     virtual Donnee* puissance(Donnee* t);
     virtual Donnee* mod(Donnee* t)
-    {throw ExceptionCooCoo("Pas de calcul de mod avec un réel : non géré.");}/*
-    virtual Donnee* sign();
+    {throw ExceptionCooCoo("Pas de calcul de mod avec un réel : non géré.");}
 
-    virtual Donnee* sin();
-    virtual Donnee* cos();
-    virtual Donnee* tan();
-    virtual Donnee* sinh();
-    virtual Donnee* cosh();
-    virtual Donnee* tanh();
+
+    virtual Donnee* mySin(int typeAngle);
+    virtual Donnee* myCos(int typeAngle);
+    virtual Donnee* myTan(int typeAngle);
+    virtual Donnee* mySinh(int typeAngle);
+    virtual Donnee* myCosh(int typeAngle);
+    virtual Donnee* myTanh(int typeAngle);/*
 
     virtual Donnee* ln();
     virtual Donnee* log();

@@ -28,24 +28,24 @@ public:
     virtual Donnee* operator-(Donnee * t)=0;
 
     virtual Donnee* puissance(Donnee* t)=0;
-    virtual Donnee* mod(Donnee* t)=0;/*
+    virtual Donnee* mod(Donnee* t)=0;
     virtual Donnee* sign()=0;
 
-    virtual Donnee* sin()=0;
-    virtual Donnee* cos()=0;
-    virtual Donnee* tan()=0;
-    virtual Donnee* sinh()=0;
-    virtual Donnee* cosh()=0;
-    virtual Donnee* tanh()=0;
+    virtual Donnee* mySin(int typeAngle)=0;
+    virtual Donnee* myCos(int typeAngle)=0;
+    virtual Donnee* myTan(int typeAngle)=0;
+    virtual Donnee* mySinh(int typeAngle)=0;
+    virtual Donnee* myCosh(int typeAngle)=0;
+    virtual Donnee* myTanh(int typeAngle)=0;/*
 
-    virtual Donnee* ln()=0;
-    virtual Donnee* log()=0;
-    virtual Donnee* inv()=0;
-    virtual Donnee* sqrt()=0;
-    virtual Donnee* sqr()=0;
-    virtual Donnee* cube()=0;
-    virtual Donnee* fact()=0;
-    virtual Donnee* eval()=0;
+    virtual Donnee* myLn()=0;
+    virtual Donnee* myLog()=0;
+    virtual Donnee* myInv()=0;
+    virtual Donnee* mySqrt()=0;
+    virtual Donnee* mySqr()=0;
+    virtual Donnee* myCube()=0;
+    virtual Donnee* myFact()=0;
+    virtual Donnee* myEval()=0;
 
     */
 

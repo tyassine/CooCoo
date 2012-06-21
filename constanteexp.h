@@ -26,15 +26,15 @@ public:
     virtual Donnee* puissance(Donnee* t);
     virtual Donnee* mod(Donnee* t); 
     QString getChaine()const{return chaine;}
-/*
-    virtual Donnee* sign();
 
-    virtual Donnee* sin();
-    virtual Donnee* cos();
-    virtual Donnee* tan();
-    virtual Donnee* sinh();
-    virtual Donnee* cosh();
-    virtual Donnee* tanh();
+    virtual ConstanteExp* sign();
+
+    virtual Donnee* mySin(int typeAngle);
+    virtual Donnee* myCos(int typeAngle);
+    virtual Donnee* myTan(int typeAngle);
+    virtual Donnee* mySinh(int typeAngle);
+    virtual Donnee* myCosh(int typeAngle);
+    virtual Donnee* myTanh(int typeAngle);/*
 
     virtual Donnee* ln();
     virtual Donnee* log();
@@ -43,8 +43,8 @@ public:
     virtual Donnee* sqr();
     virtual Donnee* cube();
     virtual Donnee* fact();
-    virtual Donnee* eval();
-    */
+    virtual Donnee* eval();*/
+
 
 };
 
