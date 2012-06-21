@@ -687,7 +687,11 @@ void MainWindow::parser()
                             res=*tmpgch-tmpdte;
                         }
                         else if (listeTermes[i]=="/"){
-                            res=*tmpgch/tmpdte;
+                            if(tmpdte->isZero()){
+                                throw ExceptionCooCoo("Division par 0");}
+                            else
+                                res=*tmpgch/tmpdte;
+
                         }
                         else if (listeTermes[i]=="*"){
                             res=*tmpgch*tmpdte;
@@ -755,13 +759,22 @@ void MainWindow::parser()
                         res = tmp->myTanh(angle);
                         }
                         else if (listeTermes[i]=="ln"){
-                        res = tmp->myLn();
+                            if(tmp->isNeg()){
+                                throw ExceptionCooCoo("Ln d'un nombre négatif");}
+                            else
+                                res = tmp->myLn();
                         }
                         else if (listeTermes[i]=="log"){
-                        res = tmp->myLog();
+                            if(tmp->isNeg()){
+                                throw ExceptionCooCoo("Log d'un nombre négatif");}
+                            else
+                                res = tmp->myLog();
                         }
                         else if (listeTermes[i]=="inv"){
-                        res = tmp->myInv();
+                            if(tmp->isZero()){
+                                throw ExceptionCooCoo("Division par 0");}
+                            else
+                                res = tmp->myInv();
                         }
                         else if (listeTermes[i]=="sqrt"){
                         res = tmp->mySqrt();

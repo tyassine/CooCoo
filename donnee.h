@@ -106,6 +106,9 @@ public:
         return s.contains (rx);
     }
 
+    virtual bool isZero()=0;
+    virtual bool isNeg()=0;
+
 
 };
 

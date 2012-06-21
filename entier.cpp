@@ -332,3 +332,4 @@ int Entier::facto(int n)
     else
         return n * facto(n - 1);
 }
+

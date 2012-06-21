@@ -234,6 +234,13 @@ public:
 */
     virtual Donnee* myFact();
 
+    bool isZero(){
+        return false;
+    }
+    bool isNeg(){
+        return false;
+    }
+
 
 };
 

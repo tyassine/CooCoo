@@ -340,6 +340,12 @@ public:
     Donnee* myFact()
     {throw ExceptionCooCoo("Pas de calcul de fact avec un rationnel : non géré.");}
 
+    bool isZero(){
+        return(num==0);
+    }
+    bool isNeg(){
+        return((num<=0&&denom>0)||(num>0&&denom<0));
+    }
 
 };
 

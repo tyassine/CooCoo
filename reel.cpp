@@ -94,6 +94,8 @@ Donnee* Reel::operator /(Donnee* d){
        Rationnel *ent=new Rationnel(tmp);
        Donnee *res=cur/ent;
        return res;
+
+
     }
 
     if (typeid(*d)==typeid(Reel)){

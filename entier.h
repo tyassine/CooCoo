@@ -161,6 +161,13 @@ public:
     virtual Donnee* myCube();
     virtual Donnee* myFact();
 
+    bool isZero(){
+        return(valeur==0);
+    }
+    bool isNeg(){
+        return(valeur<=0);
+    }
+
 };
 
 #endif // ENTIER_H

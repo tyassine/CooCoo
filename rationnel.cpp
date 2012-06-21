@@ -365,3 +365,4 @@ Donnee* Rationnel::myCube()
 {
     return new Rationnel(num*num*num, denom*denom*denom);
 }
+

@@ -329,6 +329,12 @@ public:
     virtual Donnee* myFact()
     {throw ExceptionCooCoo("Pas de calcul de fact avec un complexe : non géré.");}
 
+    bool isZero(){
+        return(pRe->isZero()&& pIm->isZero());
+    }
+    bool isNeg(){
+        return(pRe->isNeg()&&pIm->isNeg());
+    }
 
 };
 

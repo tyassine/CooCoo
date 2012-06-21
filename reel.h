@@ -305,7 +305,12 @@ public:
     virtual Donnee* myFact()
     {throw ExceptionCooCoo("Pas de calcul de fact avec un réel : non géré.");}
 
-
+    bool isZero(){
+        return(valeur==0);
+    }
+    bool isNeg(){
+        return(valeur<=0);
+    }
 
 };
 
