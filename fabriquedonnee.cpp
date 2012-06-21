@@ -2,6 +2,7 @@
 #include <QStringList>
 #include <QMessageBox>
 #include <typeinfo>
+#include "logsystem.h"
 
 // Initialisation du membre statique du singleton
 FabriqueDonnee* FabriqueDonnee::instance = 0;
@@ -46,6 +47,7 @@ Donnee* FabriqueDonnee::creerDonnee(const QString& terme)
              QMessageBox msgBox;
              msgBox.setText(e.GetInfos());
              msgBox.exec();
+             LogSystem::imprim(LogMessage("Construction de rationnel impossible", 3));
         }
         return NULL;
     }

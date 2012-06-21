@@ -654,29 +654,38 @@ void MainWindow::parser()
 
                 else
                 {
-                    Donnee* res;
+                    try{
+                        Donnee* res;
 
-                    if (listeTermes[i]=="+"){ // 4 5 +
-                       res=*tmpgch+tmpdte;
-                    }
-                    else if (listeTermes[i]=="-"){
-                        res=*tmpgch-tmpdte;
-                    }
-                    else if (listeTermes[i]=="/"){
-                        res=*tmpgch/tmpdte;
-                    }
-                    else if (listeTermes[i]=="*"){
-                        res=*tmpgch*tmpdte;
-                    }
-                    else if (listeTermes[i]=="pow"){
-                        res = tmpgch->puissance(tmpdte);
-                    }
-                    else if (listeTermes[i]=="mod"){
-                        res = tmpgch->mod(tmpdte);
-                    }
+                        if (listeTermes[i]=="+"){ // 4 5 +
+                           res=*tmpgch+tmpdte;
+                        }
+                        else if (listeTermes[i]=="-"){
+                            res=*tmpgch-tmpdte;
+                        }
+                        else if (listeTermes[i]=="/"){
+                            res=*tmpgch/tmpdte;
+                        }
+                        else if (listeTermes[i]=="*"){
+                            res=*tmpgch*tmpdte;
+                        }
+                        else if (listeTermes[i]=="pow"){
+                            res = tmpgch->puissance(tmpdte);
+                        }
+                        else if (listeTermes[i]=="mod"){
+                            res = tmpgch->mod(tmpdte);
+                        }
 
-                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
+                        Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                        instancePile->empiler(res_final);
+
+                    } catch(ExceptionCooCoo &e){
+
+                        QMessageBox msgBox;
+                        msgBox.setText(e.GetInfos());
+                        msgBox.exec();
+                        LogSystem::imprim(LogMessage(e.GetInfos(), 3));
+                    }
                 }
 
                 delete tmpdte;
@@ -699,54 +708,60 @@ void MainWindow::parser()
                 }
 
                 else
-                {
-                    Donnee* res;
-                    if (listeTermes[i]=="sign"){
-                    res = tmp->sign();
-                    }
-                    else if (listeTermes[i]=="sin"){
-                    res = tmp->mySin(angle);
-                    }
-                    else if (listeTermes[i]=="cos"){
-                    res = tmp->myCos(angle);
-                    }
-                    else if (listeTermes[i]=="tan"){
-                    res = tmp->myTan(angle);
-                    }
-                    else if (listeTermes[i]=="sinh"){
-                    res = tmp->mySinh(angle);
-                    }
-                    else if (listeTermes[i]=="cosh"){
-                    res = tmp->myCosh(angle);
-                    }
-                    else if (listeTermes[i]=="tanh"){
-                    res = tmp->myTanh(angle);
-                    }
-                    else if (listeTermes[i]=="ln"){
-                    res = tmp->myLn();
-                    }
-                    else if (listeTermes[i]=="log"){
-                    res = tmp->myLog();
-                    }
-                    else if (listeTermes[i]=="inv"){
-                    res = tmp->myInv();
-                    }
-                    else if (listeTermes[i]=="sqrt"){
-                    res = tmp->mySqrt();
-                    }
-                    else if (listeTermes[i]=="sqr"){
-                    res = tmp->mySqr();
-                    }
-                    else if (listeTermes[i]=="cube"){
-                    res = tmp->myCube();
-                    }
-                    else if (listeTermes[i]=="!"){
-                        res = tmp->myFact();
+                {   try{
+                        Donnee* res;
+                        if (listeTermes[i]=="sign"){
+                        res = tmp->sign();
                         }
+                        else if (listeTermes[i]=="sin"){
+                        res = tmp->mySin(angle);
+                        }
+                        else if (listeTermes[i]=="cos"){
+                        res = tmp->myCos(angle);
+                        }
+                        else if (listeTermes[i]=="tan"){
+                        res = tmp->myTan(angle);
+                        }
+                        else if (listeTermes[i]=="sinh"){
+                        res = tmp->mySinh(angle);
+                        }
+                        else if (listeTermes[i]=="cosh"){
+                        res = tmp->myCosh(angle);
+                        }
+                        else if (listeTermes[i]=="tanh"){
+                        res = tmp->myTanh(angle);
+                        }
+                        else if (listeTermes[i]=="ln"){
+                        res = tmp->myLn();
+                        }
+                        else if (listeTermes[i]=="log"){
+                        res = tmp->myLog();
+                        }
+                        else if (listeTermes[i]=="inv"){
+                        res = tmp->myInv();
+                        }
+                        else if (listeTermes[i]=="sqrt"){
+                        res = tmp->mySqrt();
+                        }
+                        else if (listeTermes[i]=="sqr"){
+                        res = tmp->mySqr();
+                        }
+                        else if (listeTermes[i]=="cube"){
+                        res = tmp->myCube();
+                        }
+                        else if (listeTermes[i]=="!"){
+                            res = tmp->myFact();
+                            }
 
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
+                        Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                        instancePile->empiler(res_final);
+                        } catch(ExceptionCooCoo &e){
+                            QMessageBox msgBox;
+                            msgBox.setText(e.GetInfos());
+                            msgBox.exec();
+                            LogSystem::imprim(LogMessage(e.GetInfos(), 3));
+                       }
+                    }
 
 
                 delete tmp;
@@ -773,148 +788,6 @@ void MainWindow::parser()
 
 }
 
-// BACKUP OLD PARSER
-
-    /*
-    if (listeTermes[i]=="+"){ // 4 5 +
-            Donnee* tmpdte=instancePile->depiler(); //5
-            Donnee* tmpgch=instancePile->depiler(); //4
-            Donnee* res = *tmpdte + *tmpgch;
-            // operator+ va lui-même appeler factory, et nous renvoyer un objet d'un type décidé par l'opérateur
-            // on vérifiera alors s'il y a besoin de faire une conversion, pour obtenir un objet du même type que dans la liste déroulante
-            // Si c'est le cas, il suffira d'appeler la deuxième fonction de factory
-            delete tmpdte;
-            delete tmpgch;
-    }
-    else if (listeTermes[i]=="-"){
-        Donnee* tmpdte=instancePile->depiler();
-        Donnee* tmpgch=instancePile->depiler();
-        delete tmpdte;
-        delete tmpgch;
-    }
-    else if (listeTermes[i]=="/"){
-        Donnee* tmpdte=instancePile->depiler();
-        Donnee* tmpgch=instancePile->depiler();
-        delete tmpdte;
-        delete tmpgch;
-    }
-    else if (listeTermes[i]=="*"){
-        Donnee* tmpdte=instancePile->depiler();
-        Donnee* tmpgch=instancePile->depiler();
-        delete tmpdte;
-        delete tmpgch;
-    }
-    else if (listeTermes[i]=="pow"){
-        Donnee* tmpdte=instancePile->depiler();
-        Donnee* tmpgch=instancePile->depiler();
-        delete tmpdte;
-        delete tmpgch;
-    }
-    else if (listeTermes[i]=="mod"){
-        Donnee* tmpdte=instancePile->depiler();
-        Donnee* tmpgch=instancePile->depiler();
-        delete tmpdte;
-        delete tmpgch;
-    }
-    else if (listeTermes[i]=="sign"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="sin"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="cos"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="tan"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="sinh"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="cosh"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="tanh"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="ln"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="log"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="inv"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="sqrt"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="sqr"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="cube"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else if (listeTermes[i]=="!"){
-        Donnee* tmp=instancePile->depiler();
-        delete tmp;
-    }
-    else
-    {
-        objetTerme = instanceFD->creerDonnee(listeTermes[i]);
-        if (objetTerme)
-            instancePile->empiler(objetTerme);
-        else
-        {
-            QMessageBox::information(this,"Erreur de saisie", "Type de constante non reconnu !");
-        }
-     }
-    // fin détection
-    */
-
-// FIN BACKUP OLD PARSER
-
-
-
-
-
-
-
-
-/*
-if(!Expression::isExpression(s)){
-        type* test=0;
-
-        QRegExp rx("\\s+");
-        QStringList t=(s.split(rx));
-        for(int i=0; i<t.size();i++)
-        {
-
-        }
-    }
-
-    else
-    {
-
-        instancePile->empiler(new Expression(s));
-    }
-
-}
-
-*/
 void MainWindow::refresh()
 {
     ui->AffichagePile->clear();
@@ -924,84 +797,6 @@ void MainWindow::refresh()
 
     for (unsigned int i=0; i<limite; i++)
         ui->AffichagePile->insertItem(0, tab[instancePile->getSommet() - i]->toQString());
-/*
-    delete[] tab;
-    delete tab;
-*/
+
 }
 
-/*
-// Fonctions post commit de calcul
-void MainWindow::calcul_plus()
-{
-    if(pile->GetPtr().size()<2)
-    {
-        ExceptionCooCoo e("Pas assez d'operandes dans la pile");
-        e.GetInfos();
-    }
-    else
-    {
-        try
-        {
-            Constante* tmp1=&(pile->Depiler());
-            Constante* tmp2=&(pile->Depiler());
-            Constante* c;
-            c = tmp2+ tmp1; //&(tmp2->operator +(tmp1));
-
-            pile->Empiler(c);
-         }
-        catch(ExceptionCooCoo e){e.GetInfos();}
-
-    }
-    AffichageEcran();
-}*/
-/*
-
-void MainWindow::calcul_moins()
-{
-    if(pile->GetPtr().size()<2)
-    {
-        ExceptionCooCoo e("Pas assez d'operandes dans la pile");
-        e.GetInfos();
-    }
-    else
-    {
-        try
-        {
-            Constante* tmp1=&(pile->Depiler());
-            Constante* tmp2=&(pile->Depiler());
-            Constante* c;
-            c = tmp2-tmp1;
-
-            pile->Empiler(c);
-        }
-        catch(ExceptionCooCoo e){e.GetInfos();}
-
-    }
-    AffichageEcran();
-}*/
-/*
-void MainWindow::calcul_mult()
-{
-    if(pa->GetPtr().size()<2)
-    {
-        ExceptionCooCoo e("Pas assez d'operandes dans la pile");
-        e.GetInfos();
-    }
-    else
-    {
-        try
-        {
-            Constante* tmp1=&(pile->Depiler());
-            Constante* tmp2=&(pile->Depiler());
-            Constante* c;
-            c = tmp2 *tmp1;
-
-            pile->Empiler(c);
-        }
-        catch(ExceptionCooCoo e){e.GetInfos();}
-    }
-    //pa->AffichagePile(); ps->AffichagePile();
-    AffichageEcran();
-}
-*/
