@@ -652,38 +652,32 @@ void MainWindow::parser()
                     delete x;
                 }
 
-                if (listeTermes[i]=="+"){ // 4 5 +
+                else
+                {
+                    Donnee* res;
 
-                    Donnee*res=*tmpgch+tmpdte;
-                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="-"){
-                    Donnee*res=*tmpgch-tmpdte;
-                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="/"){
-                    Donnee*res=*tmpgch/tmpdte;
-                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="*"){
-                    Donnee*res=*tmpgch*tmpdte;
-                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="pow"){
-                    Donnee* res = tmpgch->puissance(tmpdte);
-                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="mod"){
-                    Donnee* res = tmpgch->mod(tmpdte);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
+                    if (listeTermes[i]=="+"){ // 4 5 +
+                       res=*tmpgch+tmpdte;
+                    }
+                    else if (listeTermes[i]=="-"){
+                        res=*tmpgch-tmpdte;
+                    }
+                    else if (listeTermes[i]=="/"){
+                        res=*tmpgch/tmpdte;
+                    }
+                    else if (listeTermes[i]=="*"){
+                        res=*tmpgch*tmpdte;
+                    }
+                    else if (listeTermes[i]=="pow"){
+                        res = tmpgch->puissance(tmpdte);
+                    }
+                    else if (listeTermes[i]=="mod"){
+                        res = tmpgch->mod(tmpdte);
+                    }
 
+                    Donnee * res_final= instanceFD->creerDonnee(res, getConstante(), getComplexe());
+                    instancePile->empiler(res_final);
+                }
 
                 delete tmpdte;
                 delete tmpgch;
@@ -699,81 +693,61 @@ void MainWindow::parser()
                     Entier *x=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmp, 0, 0));
                     instancePile->sum(x->getValeur());
                 }
-                if (listeTermes[i]=="MEAN"){
+                else if (listeTermes[i]=="MEAN"){
                     Entier *x=static_cast<Entier*>(FabriqueDonnee::getInstance()->creerDonnee(tmp, 0, 0));
                     instancePile->mean(x->getValeur());
                 }
-                // Après ce point, y'a moyen de vraiment factoriser les opérations!
-                if (listeTermes[i]=="sign"){
-                    Donnee* res = tmp->sign();
+
+                else
+                {
+                    Donnee* res;
+                    if (listeTermes[i]=="sign"){
+                    res = tmp->sign();
+                    }
+                    else if (listeTermes[i]=="sin"){
+                    res = tmp->mySin(angle);
+                    }
+                    else if (listeTermes[i]=="cos"){
+                    res = tmp->myCos(angle);
+                    }
+                    else if (listeTermes[i]=="tan"){
+                    res = tmp->myTan(angle);
+                    }
+                    else if (listeTermes[i]=="sinh"){
+                    res = tmp->mySinh(angle);
+                    }
+                    else if (listeTermes[i]=="cosh"){
+                    res = tmp->myCosh(angle);
+                    }
+                    else if (listeTermes[i]=="tanh"){
+                    res = tmp->myTanh(angle);
+                    }
+                    else if (listeTermes[i]=="ln"){
+                    res = tmp->myLn();
+                    }
+                    else if (listeTermes[i]=="log"){
+                    res = tmp->myLog();
+                    }
+                    else if (listeTermes[i]=="inv"){
+                    res = tmp->myInv();
+                    }
+                    else if (listeTermes[i]=="sqrt"){
+                    res = tmp->mySqrt();
+                    }
+                    else if (listeTermes[i]=="sqr"){
+                    res = tmp->mySqr();
+                    }
+                    else if (listeTermes[i]=="cube"){
+                    res = tmp->myCube();
+                    }
+                    else if (listeTermes[i]=="!"){
+                        res = tmp->myFact();
+                        }
+
                     Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
                     instancePile->empiler(res_final);
                 }
-                else if (listeTermes[i]=="sin"){
-                    Donnee* res = tmp->mySin(angle);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="cos"){
-                    Donnee* res = tmp->myCos(angle);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="tan"){
-                    Donnee* res = tmp->myTan(angle);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="sinh"){
-                    Donnee* res = tmp->mySinh(angle);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="cosh"){
-                    Donnee* res = tmp->myCosh(angle);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="tanh"){
-                    Donnee* res = tmp->myTanh(angle);
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="ln"){
-                    Donnee* res = tmp->myLn();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="log"){
-                    Donnee* res = tmp->myLog();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="inv"){
-                    Donnee* res = tmp->myInv();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="sqrt"){
-                    Donnee* res = tmp->mySqrt();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="sqr"){
-                    Donnee* res = tmp->mySqr();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="cube"){
-                    Donnee* res = tmp->myCube();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
-                else if (listeTermes[i]=="!"){
-                    Donnee* res = tmp->myFact();
-                    Donnee* res_final = instanceFD->creerDonnee(res, getConstante(), getComplexe());
-                    instancePile->empiler(res_final);
-                }
+
 
                 delete tmp;
             }
