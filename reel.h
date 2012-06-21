@@ -160,28 +160,151 @@ public:
     *
     */
     Donnee* operator-(Donnee * t);
-
+    /*!
+    * \brief puissance
+    *
+    * Implementation de l'operateur binaire puissance (methode virtuelle dans la classe mere)
+    * \param Donnee*: Pointeur sur une donnee
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
     virtual Donnee* puissance(Donnee* t);
+    /*!
+    * \brief mod
+    *
+    * Implementation de l'operateur binaire modulo (methode virtuelle dans la classe mere)
+    * \param Donnee*: Pointeur sur une donnee
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
     virtual Donnee* mod(Donnee* t)
     {throw ExceptionCooCoo("Pas de calcul de mod avec un réel : non géré.");}
 
-
-    virtual Donnee* mySin(int typeAngle);
-    virtual Donnee* myCos(int typeAngle);
-    virtual Donnee* myTan(int typeAngle);
-    virtual Donnee* mySinh(int typeAngle);
-    virtual Donnee* myCosh(int typeAngle);
-    virtual Donnee* myTanh(int typeAngle);/*
-
-    virtual Donnee* ln();
-    virtual Donnee* log();
-    virtual Donnee* inv();
-    virtual Donnee* sqrt();
-    virtual Donnee* sqr();
-    virtual Donnee* cube();
-    virtual Donnee* fact();
-    virtual Donnee* eval();
+    /*!
+    * \brief mySin
+    *
+    * Implementation de l'operateur unaire sinus (methode virtuelle dans la classe mere)
+    * \param typeAngle : entier, 0 si utilisation des degre, 1 si utilisation des radians
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
     */
+    virtual Donnee* mySin(int typeAngle);
+
+    /*!
+    * \brief myCos
+    *
+    * Implementation de l'operateur unaire cosinus (methode virtuelle dans la classe mere)
+    * \param typeAngle : entier, 0 si utilisation des degre, 1 si utilisation des radians
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    virtual Donnee* myCos(int typeAngle);
+    /*!
+    * \brief myTan
+    *
+    * Implementation de l'operateur unaire tangente (methode virtuelle dans la classe mere)
+    * \param typeAngle : entier, 0 si utilisation des degre, 1 si utilisation des radians
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    virtual Donnee* myTan(int typeAngle);
+    /*!
+* \brief mySinh
+*
+* Implementation de l'operateur unaire sinush (methode virtuelle dans la classe mere)
+    * \param typeAngle : entier, 0 si utilisation des degre, 1 si utilisation des radians
+    * \return Pointeur sur donnee, resultat de l'operation
+*
+*/
+    virtual Donnee* mySinh(int typeAngle);
+    /*!
+* \brief myCosh
+*
+* Implementation de l'operateur unaire cosinush (methode virtuelle dans la classe mere)
+    * \param typeAngle : entier, 0 si utilisation des degre, 1 si utilisation des radians
+    * \return Pointeur sur donnee, resultat de l'operation
+*
+*/
+    virtual Donnee* myCosh(int typeAngle);
+    /*!
+* \brief myTanh
+*
+* Implementation de l'operateur unaire tangenteh (methode virtuelle dans la classe mere)
+    * \param typeAngle : entier, 0 si utilisation des degre, 1 si utilisation des radians
+    * \return Pointeur sur donnee, resultat de l'operation
+*
+*/
+    virtual Donnee* myTanh(int typeAngle);
+
+    /*!
+    * \brief Ln
+    *
+    * Implementation de l'operateur unaire ln (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+        //virtual Donnee* ln();
+
+
+        /*!
+    * \brief Log
+    *
+    * Implementation de l'operateur unaire log (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    //virtual Donnee* log();
+
+        /*!
+    * \brief Inv
+    *
+    * Implementation de l'operateur unaire inv (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    //virtual Donnee* inv();
+
+
+        /*!
+    * \brief Sqrt
+    *
+    * Implementation de l'operateur unaire sqrt (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    //virtual Donnee* sqrt();
+
+
+        /*!
+    * \brief Sqr
+    *
+    * Implementation de l'operateur unaire sqr (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    //virtual Donnee* sqr();
+
+        /*!
+    * \brief Cube
+    *
+    * Implementation de l'operateur unaire Cube (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    //virtual Donnee* cube();
+
+
+        /*!
+    * \brief Fact
+    *
+    * Implementation de l'operateur unaire fact (methode virtuelle dans la classe mere)
+    * \return Pointeur sur donnee, resultat de l'operation
+    *
+    */
+    //virtual Donnee* fact();
+
+
+
 
 };
 

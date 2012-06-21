@@ -52,15 +52,45 @@ private:
 
 
 public:
+    /*!
+    * \brief Constructeur
+    *
+    * Constructeur de la classe MainWindow
+    *
+    */
     explicit MainWindow(QWidget *parent = 0);
+    /*!
+    * \brief Destructeur
+    *
+    * Destructeur de la classe MainWindow
+    *
+    */
     ~MainWindow();
+    /*!
+    * \brief InitParam
+    * Initialisation des listes de selections, checkbox et afficheur de pile à l'ouverture de l'application
+    */
     void InitParam();
+    /*!
+    * \brief MAJParam
+    * Mise à jour des paramètres dans le fichier de sauvegarde
+    */
     void MAJParam();
+    /*!
+    * \brief parser
+    * Parser de l'afficheur pour empiler des donnees ou effectuer des operations
+    */
     void parser();
+    /*!
+    * \brief refresh
+    * Mise à jour de l'affichage de la pile
+    */
     void refresh();
-    void calcul_plus();
-    void calcul_moins();
-    void calcul_mult();
+    /*!
+    * \brief keyPressEvent
+    * Redefinition de la methode keyPressEvent pour capter des evenements bien definis
+    * \param QKeyEvent *, evenements à capter
+    */
     void keyPressEvent(QKeyEvent *);
     /*!
     * \brief setAngle
@@ -221,9 +251,26 @@ private slots:
 };
 
 
-
+/*!
+* \brief refresh_entier
+* Fonction d'actualisation des boutons cachés selon les paramètres demandés par l'utilisateur
+* \param Ui::MainWindow *, fenêtre concernee
+*
+*/
 void refresh_entier(Ui::MainWindow *);
+/*!
+* \brief refresh_reel_rationnel
+* Fonction d'actualisation des boutons cachés selon les paramètres demandés par l'utilisateur
+* \param Ui::MainWindow *, fenêtre concernee
+*
+*/
 void refresh_reel_rationnel(Ui::MainWindow *);
+/*!
+* \brief refresh_complexe
+* Fonction d'actualisation des boutons cachés selon les paramètres demandés par l'utilisateur
+* \param Ui::MainWindow *, fenêtre concernee
+*
+*/
 void refresh_complexe(Ui::MainWindow *);
 
 
