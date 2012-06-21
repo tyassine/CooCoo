@@ -92,7 +92,7 @@ public:
  *
  * \return   Elle retourne un Qstring tel qu'un rationnel puisse etre construit à partir de ça.
  */
-    virtual QString toQString() const;
+    QString toQString() const;
 	
 	
 /**
@@ -194,7 +194,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
-    virtual Donnee* puissance(Donnee* t);
+    Donnee* puissance(Donnee* t);
     /*!
     * \brief mod
     *
@@ -203,7 +203,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
-    virtual Donnee* mod(Donnee* t)
+    Donnee* mod(Donnee* t)
     {throw ExceptionCooCoo("Pas de calcul de mod avec un rationnel : non géré.");}
 
 
@@ -215,7 +215,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
-    virtual Donnee* mySin(int typeAngle);
+    Donnee* mySin(int typeAngle);
 
     /*!
     * \brief myCos
@@ -225,7 +225,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
-    virtual Donnee* myCos(int typeAngle);
+    Donnee* myCos(int typeAngle);
     /*!
     * \brief myTan
     *
@@ -234,7 +234,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
-    virtual Donnee* myTan(int typeAngle);
+    Donnee* myTan(int typeAngle);
     /*!
 * \brief mySinh
 *
@@ -243,7 +243,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
 *
 */
-    virtual Donnee* mySinh(int typeAngle);
+    Donnee* mySinh(int typeAngle);
     /*!
 * \brief myCosh
 *
@@ -252,7 +252,7 @@ public:
     * \return Pointeur sur donnee, resultat de l'operation
 *
 */
-    virtual Donnee* myCosh(int typeAngle);
+    Donnee* myCosh(int typeAngle);
     /*!
 * \brief myTanh
 *
