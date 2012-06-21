@@ -15,8 +15,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     instanceFD = FabriqueDonnee::getInstance();
     // Sauvegarde de l'état initial dans le memento
     instancePile->getGardien()->addMemento(instancePile);
+    redoPossible = false;
     this->setWindowTitle("CooCoo");
     this->setWindowIcon(QIcon(QString("E:/Dropbox/LO21/CooCoo/CooCoo.png")));
+    redoPossible = false;
 
 
 
@@ -227,6 +229,8 @@ void MainWindow::on_eval(){
          parser();
          ui->Afficheur->clear();
          refresh();
+         instancePile->getGardien()->addMemento(instancePile);
+         redoPossible = false;
      }
      else{
          instancePile->empiler(tmp);
@@ -234,7 +238,6 @@ void MainWindow::on_eval(){
          LogSystem::imprim(LogMessage("Dernière donnée entrée non valide pour une évaluation", 2));
      }
     }
-    // mettre quelque part un addmemento... lorsque la pile est modifiée.
 }
 
 // Slots paramètres
@@ -252,23 +255,39 @@ void MainWindow::on_clavier(bool checked){
 void MainWindow::on_Annuler_triggered()
 {
     Pile* tmp = instancePile->getGardien()->undo();
-    if (tmp)    // L'undo a été accepté
+    if (tmp)
     {
         delete instancePile;
         instancePile = tmp;
+        redoPossible = true;
     }else
+    {
+        QMessageBox::information(this, "Annulation impossible","Plus d'opérations à annuler");
         LogSystem::imprim(LogMessage("Plus d'opérations à annuler", 2));
+    }
     refresh();
 }
 void MainWindow::on_Retablir_triggered()
 {
-    Pile* tmp = instancePile->getGardien()->redo();
-    if (tmp)    // Le redo a été accepté
+    if (redoPossible)
     {
-        delete instancePile;
-        instancePile = tmp;
+        Pile* tmp = instancePile->getGardien()->redo();
+        if (tmp)    // Le redo a été accepté
+        {
+            delete instancePile;
+            instancePile = tmp;
+        }
+        else
+        {
+            QMessageBox::information(this, "Rétablir impossible","Aucune opération à rétablir");
+            LogSystem::imprim(LogMessage("Aucune opération à rétablir", 2));
+        }
+        refresh();
+    }else
+    {
+        QMessageBox::information(this, "Rétablir impossible","Aucune opération à rétablir");
+        LogSystem::imprim(LogMessage("Aucune opération à rétablir", 2));
     }
-    refresh();
 }
 
 void MainWindow::on_complexe(int c){
@@ -331,6 +350,7 @@ void MainWindow::on_commit(){
         LogSystem::imprim(LogMessage("Aucune entree, duplication du dernier element de la pile", 2));
         on_dup();
         instancePile->getGardien()->addMemento(instancePile);
+        redoPossible = false;
     }
     else{
     parser();
@@ -420,6 +440,7 @@ void MainWindow::on_dup(){
     {
         instancePile->dup();
         instancePile->getGardien()->addMemento(instancePile);
+        redoPossible = false;
         // Régler le problème gardien <-> dup
         refresh();
     }
@@ -431,6 +452,7 @@ void MainWindow::on_mean(){
 void MainWindow::on_clear(){
     instancePile->clear();
     instancePile->getGardien()->addMemento(instancePile);
+    redoPossible = false;
     refresh();
 }
 void MainWindow::on_drop(){
@@ -438,6 +460,7 @@ void MainWindow::on_drop(){
     {
         instancePile->drop();
         instancePile->getGardien()->addMemento(instancePile);
+        redoPossible = false;
         refresh();
     }
 }
@@ -784,6 +807,7 @@ void MainWindow::parser()
     }
     // Sauvegarder l'état de la pile : il faudrait le faire seulement s'il n'y a pas eu d'erreur
     instancePile->getGardien()->addMemento(instancePile);
+    redoPossible = false;
 }
 
 }

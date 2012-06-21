@@ -48,6 +48,7 @@ private:
     enum TypeConstante {ENTIER, RATIONNEL, REEL};
     TypeConstante cste;/*!< type de constante actuellement utilisée */
     int nb_elem_affiche;/*!< nombre d'elements de la pile a afficher dans la Qlistview */
+    bool redoPossible;
 
 
 public:
