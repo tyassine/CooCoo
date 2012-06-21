@@ -1,0 +1,256 @@
+\hypertarget{class_main_window}{\section{Main\-Window Class Reference}
+\label{class_main_window}\index{Main\-Window@{Main\-Window}}
+}
+
+
+Classe s'occupant de l'affichage et de l'interface avec l'utilisateur Elle herite de la classe Q\-Main\-Window.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\-Window} (Q\-Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\-Main\-Window} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_a19564c9faee3e04539c431230b0beb03}{void \hyperlink{class_main_window_a19564c9faee3e04539c431230b0beb03}{Init\-Param} ()}\label{class_main_window_a19564c9faee3e04539c431230b0beb03}
+
+\begin{DoxyCompactList}\small\item\em Init\-Param Initialisation des listes de selections, checkbox et afficheur de pile à l'ouverture de l'application. \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_af644382f0604f07829f789f2c807e06f}{void \hyperlink{class_main_window_af644382f0604f07829f789f2c807e06f}{M\-A\-J\-Param} ()}\label{class_main_window_af644382f0604f07829f789f2c807e06f}
+
+\begin{DoxyCompactList}\small\item\em M\-A\-J\-Param Mise à jour des paramètres dans le fichier de sauvegarde. \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_aa6c7b8d135b7779f1f5f71039e2f3313}{void \hyperlink{class_main_window_aa6c7b8d135b7779f1f5f71039e2f3313}{parser} ()}\label{class_main_window_aa6c7b8d135b7779f1f5f71039e2f3313}
+
+\begin{DoxyCompactList}\small\item\em parser Parser de l'afficheur pour empiler des donnees ou effectuer des operations \end{DoxyCompactList}\item 
+\hypertarget{class_main_window_ab27297114529e4c16d6d8d7a54927a0e}{void \hyperlink{class_main_window_ab27297114529e4c16d6d8d7a54927a0e}{refresh} ()}\label{class_main_window_ab27297114529e4c16d6d8d7a54927a0e}
+
+\begin{DoxyCompactList}\small\item\em refresh Mise à jour de l'affichage de la pile \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}{key\-Press\-Event} (Q\-Key\-Event $\ast$)
+\begin{DoxyCompactList}\small\item\em key\-Press\-Event Redefinition de la methode key\-Press\-Event pour capter des evenements bien definis \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a7f43b4f52c9df752845252890fbe88e8}{set\-Angle} (Type\-Angle a)
+\begin{DoxyCompactList}\small\item\em set\-Angle Modificateur permettant de changer le mode d'angle en cours (Degre, Radian). \end{DoxyCompactList}\item 
+Type\-Angle \hyperlink{class_main_window_a57a3073dad0c61d53e90efda6323dec7}{get\-Angle} ()
+\begin{DoxyCompactList}\small\item\em get\-Angle Accesseur permettant d'obtenir le mode d'angle en cours (Degre, Radian). \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a67ce8be6046875b4056e23414fb23c2c}{set\-Constante} (Type\-Constante c)
+\begin{DoxyCompactList}\small\item\em set\-Constante Modificateur permettant de changer le mode de constante en cours (\hyperlink{class_entier}{Entier}, \hyperlink{class_rationnel}{Rationnel}, \hyperlink{class_reel}{Reel}). \end{DoxyCompactList}\item 
+Type\-Constante \hyperlink{class_main_window_ac8a8a5091f3fa8bafa55029852be0f63}{get\-Constante} ()
+\begin{DoxyCompactList}\small\item\em get\-Constante Accesseur permettant d'obtenir le mode de constante en cours (\hyperlink{class_entier}{Entier}, \hyperlink{class_rationnel}{Rationnel}, \hyperlink{class_reel}{Reel}). \end{DoxyCompactList}\item 
+bool \hyperlink{class_main_window_a12742fbba72b271df59dc094fc128414}{get\-Complexe} ()
+\begin{DoxyCompactList}\small\item\em get\-Complexe Accesseur permettant le mode de complexe (Oui ou non). \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a761385697e19bcf245ecc08ad96b91d3}{set\-Complexe} (bool c)
+\begin{DoxyCompactList}\small\item\em set\-Complexe Modificateur permettant de choisir ou non le mode complexe. \end{DoxyCompactList}\item 
+bool \hyperlink{class_main_window_ac7d321ddef5fb8b7eed493e0b3cb7bf8}{get\-Clavier} ()
+\begin{DoxyCompactList}\small\item\em get\-Clavier Accesseur permettant de recuperer le mode d'affichage du clavier (oui ou non) \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a3f560703775f70cac584fc4deb4852a3}{set\-Clavier} (bool c)
+\begin{DoxyCompactList}\small\item\em set\-Clavier Modificateur permettant de choisir ou non l'affichage du clavier numerique \end{DoxyCompactList}\item 
+int \hyperlink{class_main_window_a5f873f34743f6d6f72737890598dd06c}{get\-Nb\-Pile} ()
+\begin{DoxyCompactList}\small\item\em get\-Nb\-Pile Accesseur permettant de recuperer le nombre actuel de \hyperlink{class_donnee}{Donnee} de la pile a afficher \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_ab8b6238ff0141e502f5b73fba8a9ab1e}{set\-Nb\-Pile} (int n)
+\begin{DoxyCompactList}\small\item\em set\-Nb\-Pile Modificateur permettant de choisir le nombre de \hyperlink{class_donnee}{Donnee} a afficher dans la pile \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe s'occupant de l'affichage et de l'interface avec l'utilisateur Elle herite de la classe Q\-Main\-Window. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{\index{Main\-Window@{Main\-Window}!Main\-Window@{Main\-Window}}
+\index{Main\-Window@{Main\-Window}!MainWindow@{Main\-Window}}
+\subsubsection[{Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Main\-Window\-::\-Main\-Window (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{class_main_window}{Main\-Window} \hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\index{Main\-Window@{Main\-Window}!$\sim$\-Main\-Window@{$\sim$\-Main\-Window}}
+\index{$\sim$\-Main\-Window@{$\sim$\-Main\-Window}!MainWindow@{Main\-Window}}
+\subsubsection[{$\sim$\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Main\-Window\-::$\sim$\-Main\-Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+
+
+Destructeur. 
+
+Destructeur de la classe \hyperlink{class_main_window}{Main\-Window} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_main_window_a57a3073dad0c61d53e90efda6323dec7}{\index{Main\-Window@{Main\-Window}!get\-Angle@{get\-Angle}}
+\index{get\-Angle@{get\-Angle}!MainWindow@{Main\-Window}}
+\subsubsection[{get\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}Type\-Angle Main\-Window\-::get\-Angle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a57a3073dad0c61d53e90efda6323dec7}
+
+
+get\-Angle Accesseur permettant d'obtenir le mode d'angle en cours (Degre, Radian). 
+
+\begin{DoxyReturn}{Returns}
+Le mode actuel de la calculatrice. 
+\end{DoxyReturn}
+\hypertarget{class_main_window_ac7d321ddef5fb8b7eed493e0b3cb7bf8}{\index{Main\-Window@{Main\-Window}!get\-Clavier@{get\-Clavier}}
+\index{get\-Clavier@{get\-Clavier}!MainWindow@{Main\-Window}}
+\subsubsection[{get\-Clavier}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\-Window\-::get\-Clavier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_ac7d321ddef5fb8b7eed493e0b3cb7bf8}
+
+
+get\-Clavier Accesseur permettant de recuperer le mode d'affichage du clavier (oui ou non) 
+
+\begin{DoxyReturn}{Returns}
+Le mode actuel de la calculatrice. 
+\end{DoxyReturn}
+\hypertarget{class_main_window_a12742fbba72b271df59dc094fc128414}{\index{Main\-Window@{Main\-Window}!get\-Complexe@{get\-Complexe}}
+\index{get\-Complexe@{get\-Complexe}!MainWindow@{Main\-Window}}
+\subsubsection[{get\-Complexe}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\-Window\-::get\-Complexe (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a12742fbba72b271df59dc094fc128414}
+
+
+get\-Complexe Accesseur permettant le mode de complexe (Oui ou non). 
+
+\begin{DoxyReturn}{Returns}
+Le mode actuel de la calculatrice. 
+\end{DoxyReturn}
+\hypertarget{class_main_window_ac8a8a5091f3fa8bafa55029852be0f63}{\index{Main\-Window@{Main\-Window}!get\-Constante@{get\-Constante}}
+\index{get\-Constante@{get\-Constante}!MainWindow@{Main\-Window}}
+\subsubsection[{get\-Constante}]{\setlength{\rightskip}{0pt plus 5cm}Type\-Constante Main\-Window\-::get\-Constante (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_ac8a8a5091f3fa8bafa55029852be0f63}
+
+
+get\-Constante Accesseur permettant d'obtenir le mode de constante en cours (\hyperlink{class_entier}{Entier}, \hyperlink{class_rationnel}{Rationnel}, \hyperlink{class_reel}{Reel}). 
+
+\begin{DoxyReturn}{Returns}
+Le mode actuel de la calculatrice. 
+\end{DoxyReturn}
+\hypertarget{class_main_window_a5f873f34743f6d6f72737890598dd06c}{\index{Main\-Window@{Main\-Window}!get\-Nb\-Pile@{get\-Nb\-Pile}}
+\index{get\-Nb\-Pile@{get\-Nb\-Pile}!MainWindow@{Main\-Window}}
+\subsubsection[{get\-Nb\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}int Main\-Window\-::get\-Nb\-Pile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a5f873f34743f6d6f72737890598dd06c}
+
+
+get\-Nb\-Pile Accesseur permettant de recuperer le nombre actuel de \hyperlink{class_donnee}{Donnee} de la pile a afficher 
+
+\begin{DoxyReturn}{Returns}
+Le mode actuel de la calculatrice. 
+\end{DoxyReturn}
+\hypertarget{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}{\index{Main\-Window@{Main\-Window}!key\-Press\-Event@{key\-Press\-Event}}
+\index{key\-Press\-Event@{key\-Press\-Event}!MainWindow@{Main\-Window}}
+\subsubsection[{key\-Press\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::key\-Press\-Event (
+\begin{DoxyParamCaption}
+\item[{Q\-Key\-Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_a6b8e934fca603cf7678eabb9a6dfc709}
+
+
+key\-Press\-Event Redefinition de la methode key\-Press\-Event pour capter des evenements bien definis 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Q\-Key\-Event} & $\ast$, evenements à capter \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_a7f43b4f52c9df752845252890fbe88e8}{\index{Main\-Window@{Main\-Window}!set\-Angle@{set\-Angle}}
+\index{set\-Angle@{set\-Angle}!MainWindow@{Main\-Window}}
+\subsubsection[{set\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::set\-Angle (
+\begin{DoxyParamCaption}
+\item[{Type\-Angle}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a7f43b4f52c9df752845252890fbe88e8}
+
+
+set\-Angle Modificateur permettant de changer le mode d'angle en cours (Degre, Radian). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Type\-Angle} & a, instance de l'enum Type\-Angle \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_a3f560703775f70cac584fc4deb4852a3}{\index{Main\-Window@{Main\-Window}!set\-Clavier@{set\-Clavier}}
+\index{set\-Clavier@{set\-Clavier}!MainWindow@{Main\-Window}}
+\subsubsection[{set\-Clavier}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::set\-Clavier (
+\begin{DoxyParamCaption}
+\item[{bool}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a3f560703775f70cac584fc4deb4852a3}
+
+
+set\-Clavier Modificateur permettant de choisir ou non l'affichage du clavier numerique 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & c, choix de l'affichage \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_a761385697e19bcf245ecc08ad96b91d3}{\index{Main\-Window@{Main\-Window}!set\-Complexe@{set\-Complexe}}
+\index{set\-Complexe@{set\-Complexe}!MainWindow@{Main\-Window}}
+\subsubsection[{set\-Complexe}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::set\-Complexe (
+\begin{DoxyParamCaption}
+\item[{bool}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a761385697e19bcf245ecc08ad96b91d3}
+
+
+set\-Complexe Modificateur permettant de choisir ou non le mode complexe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & c, choix du mode complexe \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_a67ce8be6046875b4056e23414fb23c2c}{\index{Main\-Window@{Main\-Window}!set\-Constante@{set\-Constante}}
+\index{set\-Constante@{set\-Constante}!MainWindow@{Main\-Window}}
+\subsubsection[{set\-Constante}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::set\-Constante (
+\begin{DoxyParamCaption}
+\item[{Type\-Constante}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_a67ce8be6046875b4056e23414fb23c2c}
+
+
+set\-Constante Modificateur permettant de changer le mode de constante en cours (\hyperlink{class_entier}{Entier}, \hyperlink{class_rationnel}{Rationnel}, \hyperlink{class_reel}{Reel}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Type\-Constante} & c, instance de l'enum Type\-Constante \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_main_window_ab8b6238ff0141e502f5b73fba8a9ab1e}{\index{Main\-Window@{Main\-Window}!set\-Nb\-Pile@{set\-Nb\-Pile}}
+\index{set\-Nb\-Pile@{set\-Nb\-Pile}!MainWindow@{Main\-Window}}
+\subsubsection[{set\-Nb\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::set\-Nb\-Pile (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_main_window_ab8b6238ff0141e502f5b73fba8a9ab1e}
+
+
+set\-Nb\-Pile Modificateur permettant de choisir le nombre de \hyperlink{class_donnee}{Donnee} a afficher dans la pile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & n, nombre a afficher \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mainwindow_8h}{mainwindow.\-h}\item 
+mainwindow.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\hypertarget{class_log_message}{\section{Log\-Message Class Reference}
+\label{class_log_message}\index{Log\-Message@{Log\-Message}}
+}
+
+
+Classe de message log pour garder une trace de l'execution.  
+
+
+
+
+{\ttfamily \#include $<$logsystem.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_log_message_a4f09753304180179419558a4ba145f8e}{Log\-Message} (const std\-::string \&, unsigned int)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_log_message_a0197adf0d9ba3c1af36e538467bfb9b1}{get\-Log} () const 
+\begin{DoxyCompactList}\small\item\em get\-Log Methode retournant le message formaté avec la chaine de caractère et le degré d'importance \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe de message log pour garder une trace de l'execution. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_log_message_a4f09753304180179419558a4ba145f8e}{\index{Log\-Message@{Log\-Message}!Log\-Message@{Log\-Message}}
+\index{Log\-Message@{Log\-Message}!LogMessage@{Log\-Message}}
+\subsubsection[{Log\-Message}]{\setlength{\rightskip}{0pt plus 5cm}Log\-Message\-::\-Log\-Message (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{str, }
+\item[{unsigned int}]{d}
+\end{DoxyParamCaption}
+)}}\label{class_log_message_a4f09753304180179419558a4ba145f8e}
+
+
+Constructeur. 
+
+Constructeur de la classe \hyperlink{class_log_message}{Log\-Message} 
+\begin{DoxyParams}{Parameters}
+{\em const} & std\-::string\&, chaine de caractere servant à l'initialisation de l'attribut log \\
+\hline
+{\em unsigned} & int, entier servant à l'initialisation du degree du message imp \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_log_message_a0197adf0d9ba3c1af36e538467bfb9b1}{\index{Log\-Message@{Log\-Message}!get\-Log@{get\-Log}}
+\index{get\-Log@{get\-Log}!LogMessage@{Log\-Message}}
+\subsubsection[{get\-Log}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Log\-Message\-::get\-Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_log_message_a0197adf0d9ba3c1af36e538467bfb9b1}
+
+
+get\-Log Methode retournant le message formaté avec la chaine de caractère et le degré d'importance 
+
+\begin{DoxyReturn}{Returns}
+la chaine de caractère concatenant les deux informations\-: importance et signalisation de l'action effectuee 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{logsystem_8h}{logsystem.\-h}\item 
+logsystem.\-cpp\end{DoxyCompactItemize}

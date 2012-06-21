@@ -1,0 +1,99 @@
+\hypertarget{class_fabrique_donnee}{\section{Fabrique\-Donnee Class Reference}
+\label{class_fabrique_donnee}\index{Fabrique\-Donnee@{Fabrique\-Donnee}}
+}
+
+
+Classe fabrique de donnee.  
+
+
+
+
+{\ttfamily \#include $<$fabriquedonnee.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_fabrique_donnee_a134aaa24758a0d8fc8a013c86b43aba2}{creer\-Donnee} (const Q\-String \&terme)
+\begin{DoxyCompactList}\small\item\em creer\-Donnee Methode permettant de creer une nouvelle \hyperlink{class_donnee}{Donnee}, teste le type represente par la chaine et cree la \hyperlink{class_donnee}{Donnee} correspondante en appellant le constructeur de son type \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_fabrique_donnee_a6598e4d4d69047836b5f079dc8684636}{creer\-Donnee} (const \hyperlink{class_donnee}{Donnee} $\ast$donnee\-Depart, int type\-Souhaite, int complexe)
+\begin{DoxyCompactList}\small\item\em creer\-Donnee Methode surchargée permettant de convertir des objets d'une classe fille de \hyperlink{class_donnee}{Donnee} en une autre \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_fabrique_donnee}{Fabrique\-Donnee} $\ast$ \hyperlink{class_fabrique_donnee_a9b14e807a2702c4a4c0a607d6b337db7}{get\-Instance} ()
+\begin{DoxyCompactList}\small\item\em get\-Instance Methode retournant l'instance unique de la classe Fabrique\-Donne \end{DoxyCompactList}\item 
+\hypertarget{class_fabrique_donnee_a4ca786abc0119d5e69d054632398bfa3}{static void \hyperlink{class_fabrique_donnee_a4ca786abc0119d5e69d054632398bfa3}{libere\-Instance} ()}\label{class_fabrique_donnee_a4ca786abc0119d5e69d054632398bfa3}
+
+\begin{DoxyCompactList}\small\item\em libere\-Instance Methode liberant l'instance unique de la classe \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe fabrique de donnee. 
+
+La classe est un singleton, implementation du design pattern Factory 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fabrique_donnee_a134aaa24758a0d8fc8a013c86b43aba2}{\index{Fabrique\-Donnee@{Fabrique\-Donnee}!creer\-Donnee@{creer\-Donnee}}
+\index{creer\-Donnee@{creer\-Donnee}!FabriqueDonnee@{Fabrique\-Donnee}}
+\subsubsection[{creer\-Donnee}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Fabrique\-Donnee\-::creer\-Donnee (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{terme}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_donnee_a134aaa24758a0d8fc8a013c86b43aba2}
+
+
+creer\-Donnee Methode permettant de creer une nouvelle \hyperlink{class_donnee}{Donnee}, teste le type represente par la chaine et cree la \hyperlink{class_donnee}{Donnee} correspondante en appellant le constructeur de son type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & Q\-String\& terme, chaine de caractere source \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur \hyperlink{class_donnee}{Donnee}, nouvelle \hyperlink{class_donnee}{Donnee} cree 
+\end{DoxyReturn}
+\hypertarget{class_fabrique_donnee_a6598e4d4d69047836b5f079dc8684636}{\index{Fabrique\-Donnee@{Fabrique\-Donnee}!creer\-Donnee@{creer\-Donnee}}
+\index{creer\-Donnee@{creer\-Donnee}!FabriqueDonnee@{Fabrique\-Donnee}}
+\subsubsection[{creer\-Donnee}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Fabrique\-Donnee\-::creer\-Donnee (
+\begin{DoxyParamCaption}
+\item[{const {\bf Donnee} $\ast$}]{donnee\-Depart, }
+\item[{int}]{type\-Souhaite, }
+\item[{int}]{complexe}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_donnee_a6598e4d4d69047836b5f079dc8684636}
+
+
+creer\-Donnee Methode surchargée permettant de convertir des objets d'une classe fille de \hyperlink{class_donnee}{Donnee} en une autre 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & Donnee$\ast$ donnee\-Depart, pointeur const de \hyperlink{class_donnee}{Donnee}, la donnée que l'on veut convertir \\
+\hline
+{\em int} & type\-Souhaite, entier indiquant le type de retour souhaité (0=reel, 1=rationnel, 2=reel) \\
+\hline
+{\em int} & complexe, entier indiquant si le retour doit être complexe ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur \hyperlink{class_donnee}{Donnee}, nouvelle \hyperlink{class_donnee}{Donnee} cree 
+\end{DoxyReturn}
+\hypertarget{class_fabrique_donnee_a9b14e807a2702c4a4c0a607d6b337db7}{\index{Fabrique\-Donnee@{Fabrique\-Donnee}!get\-Instance@{get\-Instance}}
+\index{get\-Instance@{get\-Instance}!FabriqueDonnee@{Fabrique\-Donnee}}
+\subsubsection[{get\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Fabrique\-Donnee} $\ast$ Fabrique\-Donnee\-::get\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_fabrique_donnee_a9b14e807a2702c4a4c0a607d6b337db7}
+
+
+get\-Instance Methode retournant l'instance unique de la classe Fabrique\-Donne 
+
+\begin{DoxyReturn}{Returns}
+Instance unique de la classe 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+fabriquedonnee.\-h\item 
+fabriquedonnee.\-cpp\end{DoxyCompactItemize}

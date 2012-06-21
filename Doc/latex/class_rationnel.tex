@@ -1,0 +1,809 @@
+\hypertarget{class_rationnel}{\section{Rationnel Class Reference}
+\label{class_rationnel}\index{Rationnel@{Rationnel}}
+}
+
+
+Classe des rationnels héritant de \hyperlink{class_constante}{Constante}.  
+
+
+
+
+{\ttfamily \#include $<$rationnel.\-h$>$}
+
+Inheritance diagram for Rationnel\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_rationnel}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_rationnel_ab7c6a6474b910a9b70e177299ef82baa}{Rationnel} (int a\-Int1=0, int a\-Int2=1)
+\begin{DoxyCompactList}\small\item\em Constructeur de rationnel à partir de 2 constantes. \end{DoxyCompactList}\item 
+\hyperlink{class_rationnel_a26a99758636a64b724fd6cf483695937}{Rationnel} (const Q\-String \&s)
+\begin{DoxyCompactList}\small\item\em Constructeur de rationnel à partir d'une Q\-String. \end{DoxyCompactList}\item 
+\hyperlink{class_rationnel_ad82fad96095d0a1303c42bf8fb7dc78f}{Rationnel} (const \hyperlink{class_rationnel}{Rationnel} $\ast$a\-Rationnel)
+\begin{DoxyCompactList}\small\item\em Constructeur de recopie. \end{DoxyCompactList}\item 
+\hyperlink{class_rationnel_aa5c9000f9f895d56c61677819075f0df}{Rationnel} (const \hyperlink{class_entier}{Entier} $\ast$a\-Entier)
+\begin{DoxyCompactList}\small\item\em Constructeur de rationnel à partir d'entier. \end{DoxyCompactList}\item 
+\hyperlink{class_rationnel_a394538bfd8a92370e327aa29ff614c5f}{Rationnel} (const \hyperlink{class_reel}{Reel} $\ast$a\-Reel)
+\begin{DoxyCompactList}\small\item\em Constructeur de rationnel à partir d'entier. \end{DoxyCompactList}\item 
+\hyperlink{class_rationnel_ab6abfabdca69244452c910a60cf4d1ff}{Rationnel} (const \hyperlink{class_complexe}{Complexe} $\ast$a\-Complexe)
+\begin{DoxyCompactList}\small\item\em Constructeur de rationnel à partir d'entier. \end{DoxyCompactList}\item 
+Q\-String \hyperlink{class_rationnel_a9a07315a6ccda0ff220ddebf6e650c2e}{to\-Q\-String} () const 
+\begin{DoxyCompactList}\small\item\em Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. \end{DoxyCompactList}\item 
+\hyperlink{class_rationnel}{Rationnel} $\ast$ \hyperlink{class_rationnel_a32478893e33c8a1b7ada199592130eb6}{sign} ()
+\begin{DoxyCompactList}\small\item\em Retourne un \hyperlink{class_rationnel}{Rationnel} ayant les meme valeur mais avec le sign inversé \end{DoxyCompactList}\item 
+int \hyperlink{class_rationnel_ac9596f5d24cef6120c0cabcd7923aa29}{get\-Num} () const 
+\begin{DoxyCompactList}\small\item\em Acccesseur au numérateur. \end{DoxyCompactList}\item 
+int \hyperlink{class_rationnel_a3809b3a6ac86e4b0a87bbf49f03dac6c}{get\-Denom} () const 
+\begin{DoxyCompactList}\small\item\em Acccesseur au dénominateur. \end{DoxyCompactList}\item 
+void \hyperlink{class_rationnel_a84693706f85612a94811984b26f43b5e}{set\-Num} (int a\-Num)
+\begin{DoxyCompactList}\small\item\em Modificateur du numérateur. \end{DoxyCompactList}\item 
+void \hyperlink{class_rationnel_ada2605f9e377cb574ba9ce83dbccf3c0}{set\-Denom} (int adenom)
+\begin{DoxyCompactList}\small\item\em Modificateur du dénominateur. \end{DoxyCompactList}\item 
+int \hyperlink{class_rationnel_aced52c94493f4ec44492e3c8dcc07632}{pgcd} (int a, int b) const 
+\begin{DoxyCompactList}\small\item\em Calcul du pgcd entre 2 nombre. \end{DoxyCompactList}\item 
+void \hyperlink{class_rationnel_a12ee060e5fca5f4291b222983d727268}{simplifier} ()
+\begin{DoxyCompactList}\small\item\em simplifie this pour que num et denum soit premier entre eux. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a59aa5ca6395412169b6eeea5ebed7d34}{operator+} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur +. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a361a11f3a3f1a6a18a047e90f36da098}{operator/} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur /. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a74b9d6827f9871aef113cc6eb665e1c8}{operator$\ast$} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur $\ast$. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a939fb751ab75cc266ae5db7318ede036}{operator-\/} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur -\/. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a4d56f2f93a4243db020e43d3be842da0}{puissance} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em puissance \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a5e60a48c0ec51f7c9ceef85c4feb1799}{mod} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em mod \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a5684344a9fb59a529c26e2003dddca2a}{my\-Sin} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Sin \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a995e0aa451d09c98fae7a5aa75fa2047}{my\-Cos} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Cos \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a973973c46875e00d8126ae06f637f7e9}{my\-Tan} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Tan \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_ae89d62d68819b71ea51d01f8be3983c3}{my\-Sinh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Sinh \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a20893c5f74c24222a5f80579b2aa2b2f}{my\-Cosh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Cosh \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a5aedb2c197cda490f2dfe59eea937eb0}{my\-Tanh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Tanh \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_aa290c50b2917771b26a761e07c62a574}{my\-Ln} ()
+\begin{DoxyCompactList}\small\item\em my\-Ln \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_aa3d968de9d5467e20681f802fdb20cc3}{my\-Log} ()
+\begin{DoxyCompactList}\small\item\em my\-Log \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_ae860fd09ed94a2d60a197030822ada92}{my\-Inv} ()
+\begin{DoxyCompactList}\small\item\em my\-Inv \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a0305394c891df6b266852e22ab8dcca4}{my\-Sqrt} ()
+\begin{DoxyCompactList}\small\item\em my\-Sqrt \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_add9f83270c7989dd0e984a3617337f8d}{my\-Sqr} ()
+\begin{DoxyCompactList}\small\item\em my\-Sqr \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_a1bd3ee26d57c50c6eea7b62e671f3697}{my\-Cube} ()
+\begin{DoxyCompactList}\small\item\em my\-Cube \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_rationnel_aff2c6401047b78474705e1d392195bae}{my\-Fact} ()
+\begin{DoxyCompactList}\small\item\em my\-Fact \end{DoxyCompactList}\item 
+bool \hyperlink{class_rationnel_a61b12cda29f28591138415085bdc1a3d}{is\-Zero} ()
+\begin{DoxyCompactList}\small\item\em is\-Zero \end{DoxyCompactList}\item 
+bool \hyperlink{class_rationnel_a2180b4f282661ab844fee297be89018a}{is\-Neg} ()
+\begin{DoxyCompactList}\small\item\em is\-Neg \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe des rationnels héritant de \hyperlink{class_constante}{Constante}. 
+
+\begin{DoxyAuthor}{Author}
+Letellier/\-Yassine
+\end{DoxyAuthor}
+Pour fonctionner cette classe encapsule deux entiers (numérateur et dénominateur). Tout les opérateurs sont égalements redéfinis. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_rationnel_ab7c6a6474b910a9b70e177299ef82baa}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
+\begin{DoxyParamCaption}
+\item[{int}]{a\-Int1 = {\ttfamily 0}, }
+\item[{int}]{a\-Int2 = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_rationnel_ab7c6a6474b910a9b70e177299ef82baa}
+
+
+Constructeur de rationnel à partir de 2 constantes. 
+
+Les deux paramètres sont évalués pour pouvoir obtenir un entier.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Int1} & Premier paramètre = numérateur \\
+\hline
+{\em a\-Int2} & deuxiéme paramètre = dénominateur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit. 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_a26a99758636a64b724fd6cf483695937}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_rationnel_a26a99758636a64b724fd6cf483695937}
+
+
+Constructeur de rationnel à partir d'une Q\-String. 
+
+Le Q\-String est splité au niveau du / puis les valeurs séparé donne le numérateur et le dénominateur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Une Qstring de la forme '\textbackslash{}d+/\textbackslash{}d+' \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit. 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_ad82fad96095d0a1303c42bf8fb7dc78f}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rationnel} $\ast$}]{a\-Rationnel}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_rationnel_ad82fad96095d0a1303c42bf8fb7dc78f}
+
+
+Constructeur de recopie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Rationnel} & Un pointeur vers un autre rationnel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit. 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_aa5c9000f9f895d56c61677819075f0df}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
+\begin{DoxyParamCaption}
+\item[{const {\bf Entier} $\ast$}]{a\-Entier}
+\end{DoxyParamCaption}
+)}}\label{class_rationnel_aa5c9000f9f895d56c61677819075f0df}
+
+
+Constructeur de rationnel à partir d'entier. 
+
+Le rationnel construit aura la forme a\-Entier/1
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Entier} & Un entier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit. 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_a394538bfd8a92370e327aa29ff614c5f}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reel} $\ast$}]{a\-Reel}
+\end{DoxyParamCaption}
+)}}\label{class_rationnel_a394538bfd8a92370e327aa29ff614c5f}
+
+
+Constructeur de rationnel à partir d'entier. 
+
+Le rationnel construit aura la forme a\-Reel/1
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Reel} & Un reel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit. 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_ab6abfabdca69244452c910a60cf4d1ff}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
+\subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
+\begin{DoxyParamCaption}
+\item[{const {\bf Complexe} $\ast$}]{a\-Complexe}
+\end{DoxyParamCaption}
+)}}\label{class_rationnel_ab6abfabdca69244452c910a60cf4d1ff}
+
+
+Constructeur de rationnel à partir d'entier. 
+
+Le rationnel construit aura la forme a\-Complexe/1
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Complexe} & Un complexe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit. 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_rationnel_a3809b3a6ac86e4b0a87bbf49f03dac6c}{\index{Rationnel@{Rationnel}!get\-Denom@{get\-Denom}}
+\index{get\-Denom@{get\-Denom}!Rationnel@{Rationnel}}
+\subsubsection[{get\-Denom}]{\setlength{\rightskip}{0pt plus 5cm}int Rationnel\-::get\-Denom (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_rationnel_a3809b3a6ac86e4b0a87bbf49f03dac6c}
+
+
+Acccesseur au dénominateur. 
+
+\begin{DoxyReturn}{Returns}
+Elle retourne le dénominateur du rationnel 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_ac9596f5d24cef6120c0cabcd7923aa29}{\index{Rationnel@{Rationnel}!get\-Num@{get\-Num}}
+\index{get\-Num@{get\-Num}!Rationnel@{Rationnel}}
+\subsubsection[{get\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int Rationnel\-::get\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_rationnel_ac9596f5d24cef6120c0cabcd7923aa29}
+
+
+Acccesseur au numérateur. 
+
+\begin{DoxyReturn}{Returns}
+Elle retourne le numérateu du rationnel 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_a2180b4f282661ab844fee297be89018a}{\index{Rationnel@{Rationnel}!is\-Neg@{is\-Neg}}
+\index{is\-Neg@{is\-Neg}!Rationnel@{Rationnel}}
+\subsubsection[{is\-Neg}]{\setlength{\rightskip}{0pt plus 5cm}bool Rationnel\-::is\-Neg (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_rationnel_a2180b4f282661ab844fee297be89018a}
+
+
+is\-Neg 
+
+Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est inferieure ou egale à 0 \begin{DoxyReturn}{Returns}
+bool true si la \hyperlink{class_donnee}{Donnee} est inferieur ou egale à 0 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a0efb324f0c2e0682b971c3692c46e7c3}{Donnee}.
+
+\hypertarget{class_rationnel_a61b12cda29f28591138415085bdc1a3d}{\index{Rationnel@{Rationnel}!is\-Zero@{is\-Zero}}
+\index{is\-Zero@{is\-Zero}!Rationnel@{Rationnel}}
+\subsubsection[{is\-Zero}]{\setlength{\rightskip}{0pt plus 5cm}bool Rationnel\-::is\-Zero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_rationnel_a61b12cda29f28591138415085bdc1a3d}
+
+
+is\-Zero 
+
+Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est egale à 0 \begin{DoxyReturn}{Returns}
+bool true si la \hyperlink{class_donnee}{Donnee} est egale à 0 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_aad251e4148c791719d7d7bff18680611}{Donnee}.
+
+\hypertarget{class_rationnel_a5e60a48c0ec51f7c9ceef85c4feb1799}{\index{Rationnel@{Rationnel}!mod@{mod}}
+\index{mod@{mod}!Rationnel@{Rationnel}}
+\subsubsection[{mod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee}$\ast$ Rationnel\-::mod (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_rationnel_a5e60a48c0ec51f7c9ceef85c4feb1799}
+
+
+mod 
+
+Implementation de l'operateur binaire modulo (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a995e0aa451d09c98fae7a5aa75fa2047}{\index{Rationnel@{Rationnel}!my\-Cos@{my\-Cos}}
+\index{my\-Cos@{my\-Cos}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Cos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Cos (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a995e0aa451d09c98fae7a5aa75fa2047}
+
+
+my\-Cos 
+
+Implementation de l'operateur unaire cosinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a20893c5f74c24222a5f80579b2aa2b2f}{\index{Rationnel@{Rationnel}!my\-Cosh@{my\-Cosh}}
+\index{my\-Cosh@{my\-Cosh}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Cosh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Cosh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a20893c5f74c24222a5f80579b2aa2b2f}
+
+
+my\-Cosh 
+
+Implementation de l'operateur unaire cosinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a1bd3ee26d57c50c6eea7b62e671f3697}{\index{Rationnel@{Rationnel}!my\-Cube@{my\-Cube}}
+\index{my\-Cube@{my\-Cube}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a1bd3ee26d57c50c6eea7b62e671f3697}
+
+
+my\-Cube 
+
+Implementation de l'operateur unaire Cube (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_aff2c6401047b78474705e1d392195bae}{\index{Rationnel@{Rationnel}!my\-Fact@{my\-Fact}}
+\index{my\-Fact@{my\-Fact}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Fact}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee}$\ast$ Rationnel\-::my\-Fact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_rationnel_aff2c6401047b78474705e1d392195bae}
+
+
+my\-Fact 
+
+Implementation de l'operateur unaire fact (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_ae860fd09ed94a2d60a197030822ada92}{\index{Rationnel@{Rationnel}!my\-Inv@{my\-Inv}}
+\index{my\-Inv@{my\-Inv}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Inv}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Inv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_ae860fd09ed94a2d60a197030822ada92}
+
+
+my\-Inv 
+
+Implementation de l'operateur unaire inv (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_aa290c50b2917771b26a761e07c62a574}{\index{Rationnel@{Rationnel}!my\-Ln@{my\-Ln}}
+\index{my\-Ln@{my\-Ln}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Ln}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Ln (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_aa290c50b2917771b26a761e07c62a574}
+
+
+my\-Ln 
+
+Implementation de l'operateur unaire ln (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_aa3d968de9d5467e20681f802fdb20cc3}{\index{Rationnel@{Rationnel}!my\-Log@{my\-Log}}
+\index{my\-Log@{my\-Log}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_aa3d968de9d5467e20681f802fdb20cc3}
+
+
+my\-Log 
+
+Implementation de l'operateur unaire log (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a5684344a9fb59a529c26e2003dddca2a}{\index{Rationnel@{Rationnel}!my\-Sin@{my\-Sin}}
+\index{my\-Sin@{my\-Sin}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Sin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Sin (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a5684344a9fb59a529c26e2003dddca2a}
+
+
+my\-Sin 
+
+Implementation de l'operateur unaire sinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_ae89d62d68819b71ea51d01f8be3983c3}{\index{Rationnel@{Rationnel}!my\-Sinh@{my\-Sinh}}
+\index{my\-Sinh@{my\-Sinh}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Sinh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Sinh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_ae89d62d68819b71ea51d01f8be3983c3}
+
+
+my\-Sinh 
+
+Implementation de l'operateur unaire sinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_add9f83270c7989dd0e984a3617337f8d}{\index{Rationnel@{Rationnel}!my\-Sqr@{my\-Sqr}}
+\index{my\-Sqr@{my\-Sqr}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Sqr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Sqr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_add9f83270c7989dd0e984a3617337f8d}
+
+
+my\-Sqr 
+
+Implementation de l'operateur unaire sqr (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a0305394c891df6b266852e22ab8dcca4}{\index{Rationnel@{Rationnel}!my\-Sqrt@{my\-Sqrt}}
+\index{my\-Sqrt@{my\-Sqrt}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Sqrt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Sqrt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a0305394c891df6b266852e22ab8dcca4}
+
+
+my\-Sqrt 
+
+Implementation de l'operateur unaire sqrt (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a973973c46875e00d8126ae06f637f7e9}{\index{Rationnel@{Rationnel}!my\-Tan@{my\-Tan}}
+\index{my\-Tan@{my\-Tan}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Tan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Tan (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a973973c46875e00d8126ae06f637f7e9}
+
+
+my\-Tan 
+
+Implementation de l'operateur unaire tangente (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a5aedb2c197cda490f2dfe59eea937eb0}{\index{Rationnel@{Rationnel}!my\-Tanh@{my\-Tanh}}
+\index{my\-Tanh@{my\-Tanh}!Rationnel@{Rationnel}}
+\subsubsection[{my\-Tanh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::my\-Tanh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a5aedb2c197cda490f2dfe59eea937eb0}
+
+
+my\-Tanh 
+
+Implementation de l'operateur unaire tangenteh (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a74b9d6827f9871aef113cc6eb665e1c8}{\index{Rationnel@{Rationnel}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Rationnel@{Rationnel}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a74b9d6827f9871aef113cc6eb665e1c8}
+
+
+Operateur $\ast$. 
+
+Implementation de l'operateur binaire $\ast$ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a59aa5ca6395412169b6eeea5ebed7d34}{\index{Rationnel@{Rationnel}!operator+@{operator+}}
+\index{operator+@{operator+}!Rationnel@{Rationnel}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a59aa5ca6395412169b6eeea5ebed7d34}
+
+
+Operateur +. 
+
+Implementation de l'operateur binaire + (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a939fb751ab75cc266ae5db7318ede036}{\index{Rationnel@{Rationnel}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Rationnel@{Rationnel}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a939fb751ab75cc266ae5db7318ede036}
+
+
+Operateur -\/. 
+
+Implementation de l'operateur binaire -\/ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_a361a11f3a3f1a6a18a047e90f36da098}{\index{Rationnel@{Rationnel}!operator/@{operator/}}
+\index{operator/@{operator/}!Rationnel@{Rationnel}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a361a11f3a3f1a6a18a047e90f36da098}
+
+
+Operateur /. 
+
+Implementation de l'operateur binaire / (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_aced52c94493f4ec44492e3c8dcc07632}{\index{Rationnel@{Rationnel}!pgcd@{pgcd}}
+\index{pgcd@{pgcd}!Rationnel@{Rationnel}}
+\subsubsection[{pgcd}]{\setlength{\rightskip}{0pt plus 5cm}int Rationnel\-::pgcd (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b}
+\end{DoxyParamCaption}
+) const}}\label{class_rationnel_aced52c94493f4ec44492e3c8dcc07632}
+
+
+Calcul du pgcd entre 2 nombre. 
+
+Méthode utilisé pour simplifier une fraction
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Le premier entier \\
+\hline
+{\em b} & Le deuxiéme entier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le pgcd entre a et b 
+\end{DoxyReturn}
+\hypertarget{class_rationnel_a4d56f2f93a4243db020e43d3be842da0}{\index{Rationnel@{Rationnel}!puissance@{puissance}}
+\index{puissance@{puissance}!Rationnel@{Rationnel}}
+\subsubsection[{puissance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Rationnel\-::puissance (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a4d56f2f93a4243db020e43d3be842da0}
+
+
+puissance 
+
+Implementation de l'operateur binaire puissance (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+\hypertarget{class_rationnel_ada2605f9e377cb574ba9ce83dbccf3c0}{\index{Rationnel@{Rationnel}!set\-Denom@{set\-Denom}}
+\index{set\-Denom@{set\-Denom}!Rationnel@{Rationnel}}
+\subsubsection[{set\-Denom}]{\setlength{\rightskip}{0pt plus 5cm}void Rationnel\-::set\-Denom (
+\begin{DoxyParamCaption}
+\item[{int}]{adenom}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_rationnel_ada2605f9e377cb574ba9ce83dbccf3c0}
+
+
+Modificateur du dénominateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adenom} & Le nouveau dénominateur du rationnel \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rationnel_a84693706f85612a94811984b26f43b5e}{\index{Rationnel@{Rationnel}!set\-Num@{set\-Num}}
+\index{set\-Num@{set\-Num}!Rationnel@{Rationnel}}
+\subsubsection[{set\-Num}]{\setlength{\rightskip}{0pt plus 5cm}void Rationnel\-::set\-Num (
+\begin{DoxyParamCaption}
+\item[{int}]{a\-Num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_rationnel_a84693706f85612a94811984b26f43b5e}
+
+
+Modificateur du numérateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Num} & Le nouveau numérateu du rationnel \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_rationnel_a32478893e33c8a1b7ada199592130eb6}{\index{Rationnel@{Rationnel}!sign@{sign}}
+\index{sign@{sign}!Rationnel@{Rationnel}}
+\subsubsection[{sign}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Rationnel}$\ast$ Rationnel\-::sign (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_rationnel_a32478893e33c8a1b7ada199592130eb6}
+
+
+Retourne un \hyperlink{class_rationnel}{Rationnel} ayant les meme valeur mais avec le sign inversé 
+
+Pour fonctionner, elle utilise le constructeut Rationnel(\-Constante $\ast$,\-Constante $\ast$)
+
+\begin{DoxyReturn}{Returns}
+Elle retourne le rationnel construit (=-\/this). 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_constante_a3d218a44f46136c5d69f04821f100953}{Constante}.
+
+\hypertarget{class_rationnel_a12ee060e5fca5f4291b222983d727268}{\index{Rationnel@{Rationnel}!simplifier@{simplifier}}
+\index{simplifier@{simplifier}!Rationnel@{Rationnel}}
+\subsubsection[{simplifier}]{\setlength{\rightskip}{0pt plus 5cm}void Rationnel\-::simplifier (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_rationnel_a12ee060e5fca5f4291b222983d727268}
+
+
+simplifie this pour que num et denum soit premier entre eux. 
+
+Cette méthode utilise \hyperlink{class_rationnel_aced52c94493f4ec44492e3c8dcc07632}{pgcd()} pour déterminer comment simplifier this \hypertarget{class_rationnel_a9a07315a6ccda0ff220ddebf6e650c2e}{\index{Rationnel@{Rationnel}!to\-Q\-String@{to\-Q\-String}}
+\index{to\-Q\-String@{to\-Q\-String}!Rationnel@{Rationnel}}
+\subsubsection[{to\-Q\-String}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Rationnel\-::to\-Q\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_rationnel_a9a07315a6ccda0ff220ddebf6e650c2e}
+
+
+Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. 
+
+\begin{DoxyReturn}{Returns}
+Elle retourne un Qstring tel qu'un rationnel puisse etre construit à partir de ça. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee}{Donnee}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rationnel_8h}{rationnel.\-h}\item 
+rationnel.\-cpp\end{DoxyCompactItemize}
