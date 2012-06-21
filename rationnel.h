@@ -339,10 +339,23 @@ public:
 */
     Donnee* myFact()
     {throw ExceptionCooCoo("Pas de calcul de fact avec un rationnel : non géré.");}
-
+    /*!
+* \brief isZero
+*
+* Mathode permettant de savoir si la Donnee est egale à 0
+* \return bool true si la Donnee est egale à 0
+*
+*/
     bool isZero(){
         return(num==0);
     }
+    /*!
+* \brief isNeg
+*
+* Mathode permettant de savoir si la Donnee est inferieure ou egale à 0
+* \return bool true si la Donnee est inferieur ou egale à 0
+*
+*/
     bool isNeg(){
         return((num<=0&&denom>0)||(num>0&&denom<0));
     }

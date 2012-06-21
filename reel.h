@@ -304,10 +304,23 @@ public:
 */
     virtual Donnee* myFact()
     {throw ExceptionCooCoo("Pas de calcul de fact avec un réel : non géré.");}
-
+    /*!
+* \brief isZero
+*
+* Mathode permettant de savoir si la Donnee est egale à 0
+* \return bool true si la Donnee est egale à 0
+*
+*/
     bool isZero(){
         return(valeur==0);
     }
+    /*!
+* \brief isNeg
+*
+* Mathode permettant de savoir si la Donnee est inferieure ou egale à 0
+* \return bool true si la Donnee est inferieur ou egale à 0
+*
+*/
     bool isNeg(){
         return(valeur<=0);
     }

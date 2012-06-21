@@ -233,10 +233,23 @@ public:
 *
 */
     virtual Donnee* myFact();
-
+    /*!
+* \brief isZero
+*
+* Mathode permettant de savoir si la Donnee est egale à 0
+* \return bool true si la Donnee est egale à 0
+*
+*/
     bool isZero(){
         return false;
     }
+    /*!
+* \brief isNeg
+*
+* Mathode permettant de savoir si la Donnee est inferieure ou egale à 0
+* \return bool true si la Donnee est inferieur ou egale à 0
+*
+*/
     bool isNeg(){
         return false;
     }

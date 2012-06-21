@@ -105,8 +105,21 @@ public:
         QRegExp rx("^-?\\d+((/|\\.)\\d+)?\\$-?\\d+((/|\\.)\\d+)?$");
         return s.contains (rx);
     }
-
+    /*!
+* \brief isZero
+*
+* Mathode permettant de savoir si la Donnee est egale à 0
+* \return bool true si la Donnee est egale à 0
+*
+*/
     virtual bool isZero()=0;
+    /*!
+* \brief isNeg
+*
+* Mathode permettant de savoir si la Donnee est inferieure ou egale à 0
+* \return bool true si la Donnee est inferieur ou egale à 0
+*
+*/
     virtual bool isNeg()=0;
 
 
