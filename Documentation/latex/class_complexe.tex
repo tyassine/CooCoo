@@ -1,0 +1,764 @@
+\hypertarget{class_complexe}{\section{Complexe Class Reference}
+\label{class_complexe}\index{Complexe@{Complexe}}
+}
+
+
+Classe modélisant les complexes. Elle hérite de \hyperlink{class_donnee}{Donnee}.  
+
+
+
+
+{\ttfamily \#include $<$complexe.\-h$>$}
+
+Inheritance diagram for Complexe\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_complexe}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_complexe_a3e6bebaadf5b74659cf6b4eabd581733}{Complexe} (const \hyperlink{class_donnee}{Donnee} $\ast$donnee\-Depart, int type\-Souhaite)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'une \hyperlink{class_donnee}{Donnee} initiale et selon un type souhaité \end{DoxyCompactList}\item 
+\hyperlink{class_complexe_a161e05ff800f7c550e014459d11948ce}{Complexe} (\hyperlink{class_constante}{Constante} $\ast$D1=0, \hyperlink{class_constante}{Constante} $\ast$D2=0)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir de 2 pointeurs de Constantes. \end{DoxyCompactList}\item 
+\hyperlink{class_complexe_a185ea35403490637aab61d1422f4bae1}{Complexe} (const \hyperlink{class_complexe}{Complexe} $\ast$a\-Complexe)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_complexe}{Complexe}. \end{DoxyCompactList}\item 
+\hyperlink{class_complexe_a4330a88cb943a61238dde5f8f58ca8a5}{Complexe} (const \hyperlink{class_entier}{Entier} $\ast$a\-Entier)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_entier}{Entier}. \end{DoxyCompactList}\item 
+\hyperlink{class_complexe_a2ad5ef5f7aa244603ff6fdd13bb8cd1c}{Complexe} (const \hyperlink{class_reel}{Reel} $\ast$a\-Reel)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_reel}{Reel}. \end{DoxyCompactList}\item 
+\hyperlink{class_complexe_abcd436bc78e96ed80dac1c9dbe764e6c}{Complexe} (const \hyperlink{class_rationnel}{Rationnel} $\ast$a\-Rationnel)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_rationnel}{Rationnel}. \end{DoxyCompactList}\item 
+\hyperlink{class_complexe_a8ae4f6c56823f3dd6522883b3dbcf059}{Complexe} (const Q\-String \&s)
+\begin{DoxyCompactList}\small\item\em Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'une Q\-String. \end{DoxyCompactList}\item 
+\hypertarget{class_complexe_ac92996231047d39d40e11384bb9311b6}{\hyperlink{class_complexe_ac92996231047d39d40e11384bb9311b6}{$\sim$\-Complexe} ()}\label{class_complexe_ac92996231047d39d40e11384bb9311b6}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual Q\-String \hyperlink{class_complexe_ab58e8f5243f79c4a9053a100e8b418f5}{to\-Q\-String} () const 
+\begin{DoxyCompactList}\small\item\em Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. \end{DoxyCompactList}\item 
+\hyperlink{class_constante}{Constante} $\ast$ \hyperlink{class_complexe_ad557f0b0553a4210da67dd906b35efa7}{get\-P\-Re} () const 
+\begin{DoxyCompactList}\small\item\em Accesseur à la partie réelle. \end{DoxyCompactList}\item 
+\hyperlink{class_constante}{Constante} $\ast$ \hyperlink{class_complexe_af1e92ffcc7aaf7bbb118b2406410b03e}{get\-P\-Im} () const 
+\begin{DoxyCompactList}\small\item\em Accesseur à la partie imaginaire. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a6ebc6f1b73086fdfe5807ed157cd219b}{conj} ()
+\begin{DoxyCompactList}\small\item\em Construit le conjugué du \hyperlink{class_complexe}{Complexe}. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_ad4472b5e5eb0cc7ecd7ae26e20672f4a}{operator+} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur +. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a67686b9d236ff43809a4fd82197abadd}{operator/} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur /. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a620f8ada80203699ee56323c6e30477b}{operator$\ast$} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur $\ast$. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_acee489797c36716c369ec81f368adf11}{operator-\/} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur -\/. \end{DoxyCompactList}\item 
+\hyperlink{class_complexe}{Complexe} $\ast$ \hyperlink{class_complexe_afa604ee69a629d0244fd1f60640e76f1}{sign} ()
+\begin{DoxyCompactList}\small\item\em Retourne un \hyperlink{class_complexe}{Complexe} ayant les memes valeurs mais avec le signe inversé \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a0ffebc558e7de92e447c12e0878d2216}{puissance} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em puissance \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a51e608468a6d5772ccf83b2c1c3dae00}{mod} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em mod \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a28ef9488dd8b7cfdf3693933f05c7602}{my\-Sin} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Sin \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a8d3b7489a1d26778436bd618fd068e9d}{my\-Cos} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Cos \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_aa983852c4813b6dfc7d63f3f7e24376e}{my\-Tan} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Tan \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_acaa8fd8e9e1875586de3a5f6cf878e26}{my\-Sinh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Sinh \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_ac45496aad709a8b088661fee205d7ec7}{my\-Cosh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Cosh \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a524e5444c902beeb324a2769e6b92fff}{my\-Tanh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Tanh \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_aeb9ab54d908c6fbe602d29ac21c52b16}{my\-Ln} ()
+\begin{DoxyCompactList}\small\item\em my\-Ln \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a3582455cbfc8c3c5a066711f75b0cc63}{my\-Log} ()
+\begin{DoxyCompactList}\small\item\em my\-Log \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a020741c51dc93a684739dcbadd18b0f6}{my\-Inv} ()
+\begin{DoxyCompactList}\small\item\em my\-Inv \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a2c36d7a1ce2b853d371f4f3ea6248a95}{my\-Sqrt} ()
+\begin{DoxyCompactList}\small\item\em my\-Sqrt \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_aba5e89ace5cb5f41923926a69dd6e240}{my\-Sqr} ()
+\begin{DoxyCompactList}\small\item\em my\-Sqr \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a8d8487e7073e297e0abba4913baaa1c8}{my\-Cube} ()
+\begin{DoxyCompactList}\small\item\em my\-Cube \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_complexe_a8ad7815a2c7d75f51bc3aa19d99062eb}{my\-Fact} ()
+\begin{DoxyCompactList}\small\item\em my\-Fact \end{DoxyCompactList}\item 
+bool \hyperlink{class_complexe_a37fff7862b069bb790a439e968d820bf}{is\-Zero} ()
+\begin{DoxyCompactList}\small\item\em is\-Zero \end{DoxyCompactList}\item 
+bool \hyperlink{class_complexe_a8946f7fadb114404aaef719bb1c17f1b}{is\-Neg} ()
+\begin{DoxyCompactList}\small\item\em is\-Neg \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Classe modélisant les complexes. Elle hérite de \hyperlink{class_donnee}{Donnee}. 
+
+\begin{DoxyAuthor}{Author}
+Letellier/\-Yassine
+\end{DoxyAuthor}
+Pour fonctionner cette classe encapsule deux Constantes \-: sa partie réelle et sa partie imaginaire. Tous les opérateurs sont égalements redéfinis. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_complexe_a3e6bebaadf5b74659cf6b4eabd581733}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{const {\bf Donnee} $\ast$}]{donnee\-Depart, }
+\item[{int}]{type\-Souhaite}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_a3e6bebaadf5b74659cf6b4eabd581733}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'une \hyperlink{class_donnee}{Donnee} initiale et selon un type souhaité 
+
+
+\begin{DoxyParams}{Parameters}
+{\em donnee\-Depart} & Pointeur vers la \hyperlink{class_donnee}{Donnee} contenant les valeurs nous intéressant \\
+\hline
+{\em type\-Souhaite} & Descripteur du type qui formatera les attributs de ce \hyperlink{class_complexe}{Complexe} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_a161e05ff800f7c550e014459d11948ce}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{{\bf Constante} $\ast$}]{D1 = {\ttfamily 0}, }
+\item[{{\bf Constante} $\ast$}]{D2 = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_complexe_a161e05ff800f7c550e014459d11948ce}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir de 2 pointeurs de Constantes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em D1} & \hyperlink{class_constante}{Constante} initialisant la partie réelle \\
+\hline
+{\em D2} & \hyperlink{class_constante}{Constante} initialisant la partie imaginaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_a185ea35403490637aab61d1422f4bae1}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{const {\bf Complexe} $\ast$}]{a\-Complexe}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_a185ea35403490637aab61d1422f4bae1}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_complexe}{Complexe}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Complexe} & Pointeur vers un \hyperlink{class_complexe}{Complexe} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_a4330a88cb943a61238dde5f8f58ca8a5}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{const {\bf Entier} $\ast$}]{a\-Entier}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_a4330a88cb943a61238dde5f8f58ca8a5}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_entier}{Entier}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Entier} & Pointeur vers un \hyperlink{class_entier}{Entier} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_a2ad5ef5f7aa244603ff6fdd13bb8cd1c}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reel} $\ast$}]{a\-Reel}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_a2ad5ef5f7aa244603ff6fdd13bb8cd1c}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_reel}{Reel}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Reel} & Pointeur vers un \hyperlink{class_reel}{Reel} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_abcd436bc78e96ed80dac1c9dbe764e6c}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rationnel} $\ast$}]{a\-Rationnel}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_abcd436bc78e96ed80dac1c9dbe764e6c}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'un pointeur vers \hyperlink{class_rationnel}{Rationnel}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Rationnel} & Pointeur vers un \hyperlink{class_rationnel}{Rationnel} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_a8ae4f6c56823f3dd6522883b3dbcf059}{\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\index{Complexe@{Complexe}!Complexe@{Complexe}}
+\subsubsection[{Complexe}]{\setlength{\rightskip}{0pt plus 5cm}Complexe\-::\-Complexe (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_a8ae4f6c56823f3dd6522883b3dbcf059}
+
+
+Constructeur de \hyperlink{class_complexe}{Complexe} à partir d'une Q\-String. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Q\-String de la forme reel\$imaginaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne le \hyperlink{class_complexe}{Complexe} construit. 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_complexe_a6ebc6f1b73086fdfe5807ed157cd219b}{\index{Complexe@{Complexe}!conj@{conj}}
+\index{conj@{conj}!Complexe@{Complexe}}
+\subsubsection[{conj}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::conj (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_complexe_a6ebc6f1b73086fdfe5807ed157cd219b}
+
+
+Construit le conjugué du \hyperlink{class_complexe}{Complexe}. 
+
+\begin{DoxyReturn}{Returns}
+Retourne un pointeur vers ce nouveau \hyperlink{class_complexe}{Complexe}. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_af1e92ffcc7aaf7bbb118b2406410b03e}{\index{Complexe@{Complexe}!get\-P\-Im@{get\-P\-Im}}
+\index{get\-P\-Im@{get\-P\-Im}!Complexe@{Complexe}}
+\subsubsection[{get\-P\-Im}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Constante}$\ast$ Complexe\-::get\-P\-Im (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_complexe_af1e92ffcc7aaf7bbb118b2406410b03e}
+
+
+Accesseur à la partie imaginaire. 
+
+\begin{DoxyReturn}{Returns}
+Retourne l'attribut-\/pointeur vers la partie imaginaire du \hyperlink{class_complexe}{Complexe}. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_ad557f0b0553a4210da67dd906b35efa7}{\index{Complexe@{Complexe}!get\-P\-Re@{get\-P\-Re}}
+\index{get\-P\-Re@{get\-P\-Re}!Complexe@{Complexe}}
+\subsubsection[{get\-P\-Re}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Constante}$\ast$ Complexe\-::get\-P\-Re (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_complexe_ad557f0b0553a4210da67dd906b35efa7}
+
+
+Accesseur à la partie réelle. 
+
+\begin{DoxyReturn}{Returns}
+Retourne l'attribut-\/pointeur vers la partie réelle du \hyperlink{class_complexe}{Complexe}. 
+\end{DoxyReturn}
+\hypertarget{class_complexe_a8946f7fadb114404aaef719bb1c17f1b}{\index{Complexe@{Complexe}!is\-Neg@{is\-Neg}}
+\index{is\-Neg@{is\-Neg}!Complexe@{Complexe}}
+\subsubsection[{is\-Neg}]{\setlength{\rightskip}{0pt plus 5cm}bool Complexe\-::is\-Neg (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a8946f7fadb114404aaef719bb1c17f1b}
+
+
+is\-Neg 
+
+Méthode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est inferieure ou egale à 0 \begin{DoxyReturn}{Returns}
+bool true si la \hyperlink{class_donnee}{Donnee} est inferieur ou egale à 0 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a0efb324f0c2e0682b971c3692c46e7c3}{Donnee}.
+
+\hypertarget{class_complexe_a37fff7862b069bb790a439e968d820bf}{\index{Complexe@{Complexe}!is\-Zero@{is\-Zero}}
+\index{is\-Zero@{is\-Zero}!Complexe@{Complexe}}
+\subsubsection[{is\-Zero}]{\setlength{\rightskip}{0pt plus 5cm}bool Complexe\-::is\-Zero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a37fff7862b069bb790a439e968d820bf}
+
+
+is\-Zero 
+
+Méthode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est egale à 0 \begin{DoxyReturn}{Returns}
+bool true si la \hyperlink{class_donnee}{Donnee} est egale à 0 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_aad251e4148c791719d7d7bff18680611}{Donnee}.
+
+\hypertarget{class_complexe_a51e608468a6d5772ccf83b2c1c3dae00}{\index{Complexe@{Complexe}!mod@{mod}}
+\index{mod@{mod}!Complexe@{Complexe}}
+\subsubsection[{mod}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::mod (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a51e608468a6d5772ccf83b2c1c3dae00}
+
+
+mod 
+
+Implémentation de l'operateur binaire modulo (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a52ce1aa17ce2c613e98428f82e3f85b8}{Donnee}.
+
+\hypertarget{class_complexe_a8d3b7489a1d26778436bd618fd068e9d}{\index{Complexe@{Complexe}!my\-Cos@{my\-Cos}}
+\index{my\-Cos@{my\-Cos}!Complexe@{Complexe}}
+\subsubsection[{my\-Cos}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Cos (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a8d3b7489a1d26778436bd618fd068e9d}
+
+
+my\-Cos 
+
+Implémentation de l'operateur unaire cosinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_abd9a62bd6b7d189f50db350823e895c3}{Donnee}.
+
+\hypertarget{class_complexe_ac45496aad709a8b088661fee205d7ec7}{\index{Complexe@{Complexe}!my\-Cosh@{my\-Cosh}}
+\index{my\-Cosh@{my\-Cosh}!Complexe@{Complexe}}
+\subsubsection[{my\-Cosh}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Cosh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_ac45496aad709a8b088661fee205d7ec7}
+
+
+my\-Cosh 
+
+Implémentation de l'operateur unaire cosinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_afe9b3532677d394b4b596021b74b6d17}{Donnee}.
+
+\hypertarget{class_complexe_a8d8487e7073e297e0abba4913baaa1c8}{\index{Complexe@{Complexe}!my\-Cube@{my\-Cube}}
+\index{my\-Cube@{my\-Cube}!Complexe@{Complexe}}
+\subsubsection[{my\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::my\-Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_complexe_a8d8487e7073e297e0abba4913baaa1c8}
+
+
+my\-Cube 
+
+Implémentation de l'operateur unaire Cube (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a875c21efdd22695c7999cfeb52ce4b2a}{Donnee}.
+
+\hypertarget{class_complexe_a8ad7815a2c7d75f51bc3aa19d99062eb}{\index{Complexe@{Complexe}!my\-Fact@{my\-Fact}}
+\index{my\-Fact@{my\-Fact}!Complexe@{Complexe}}
+\subsubsection[{my\-Fact}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Fact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a8ad7815a2c7d75f51bc3aa19d99062eb}
+
+
+my\-Fact 
+
+Implémentation de l'operateur unaire fact (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a79a2a3f835e09d0ed1888800c595a715}{Donnee}.
+
+\hypertarget{class_complexe_a020741c51dc93a684739dcbadd18b0f6}{\index{Complexe@{Complexe}!my\-Inv@{my\-Inv}}
+\index{my\-Inv@{my\-Inv}!Complexe@{Complexe}}
+\subsubsection[{my\-Inv}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Inv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a020741c51dc93a684739dcbadd18b0f6}
+
+
+my\-Inv 
+
+Implémentation de l'operateur unaire inv (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ad84c463eb43d4b98bed081045160fea1}{Donnee}.
+
+\hypertarget{class_complexe_aeb9ab54d908c6fbe602d29ac21c52b16}{\index{Complexe@{Complexe}!my\-Ln@{my\-Ln}}
+\index{my\-Ln@{my\-Ln}!Complexe@{Complexe}}
+\subsubsection[{my\-Ln}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Ln (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_aeb9ab54d908c6fbe602d29ac21c52b16}
+
+
+my\-Ln 
+
+Implémentation de l'operateur unaire ln (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ac24ba41baf90eb99bcf91145c541780a}{Donnee}.
+
+\hypertarget{class_complexe_a3582455cbfc8c3c5a066711f75b0cc63}{\index{Complexe@{Complexe}!my\-Log@{my\-Log}}
+\index{my\-Log@{my\-Log}!Complexe@{Complexe}}
+\subsubsection[{my\-Log}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a3582455cbfc8c3c5a066711f75b0cc63}
+
+
+my\-Log 
+
+Implémentation de l'operateur unaire log (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a7ac3f554be1fc579b02d9c877185cf50}{Donnee}.
+
+\hypertarget{class_complexe_a28ef9488dd8b7cfdf3693933f05c7602}{\index{Complexe@{Complexe}!my\-Sin@{my\-Sin}}
+\index{my\-Sin@{my\-Sin}!Complexe@{Complexe}}
+\subsubsection[{my\-Sin}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Sin (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a28ef9488dd8b7cfdf3693933f05c7602}
+
+
+my\-Sin 
+
+Implémentation de l'operateur unaire sinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a86f71d87c3a69dc6dcede4b411d94043}{Donnee}.
+
+\hypertarget{class_complexe_acaa8fd8e9e1875586de3a5f6cf878e26}{\index{Complexe@{Complexe}!my\-Sinh@{my\-Sinh}}
+\index{my\-Sinh@{my\-Sinh}!Complexe@{Complexe}}
+\subsubsection[{my\-Sinh}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Sinh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_acaa8fd8e9e1875586de3a5f6cf878e26}
+
+
+my\-Sinh 
+
+Implémentation de l'operateur unaire sinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_af3c408a3fda8f24ee70f34fd8688fe63}{Donnee}.
+
+\hypertarget{class_complexe_aba5e89ace5cb5f41923926a69dd6e240}{\index{Complexe@{Complexe}!my\-Sqr@{my\-Sqr}}
+\index{my\-Sqr@{my\-Sqr}!Complexe@{Complexe}}
+\subsubsection[{my\-Sqr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::my\-Sqr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_complexe_aba5e89ace5cb5f41923926a69dd6e240}
+
+
+my\-Sqr 
+
+Implémentation de l'operateur unaire sqr (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a708281bf8ddb3f6c33a100b3db925901}{Donnee}.
+
+\hypertarget{class_complexe_a2c36d7a1ce2b853d371f4f3ea6248a95}{\index{Complexe@{Complexe}!my\-Sqrt@{my\-Sqrt}}
+\index{my\-Sqrt@{my\-Sqrt}!Complexe@{Complexe}}
+\subsubsection[{my\-Sqrt}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Sqrt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a2c36d7a1ce2b853d371f4f3ea6248a95}
+
+
+my\-Sqrt 
+
+Implémentation de l'operateur unaire sqrt (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a07484cd79bc071fbfc48ace5bcd94e8f}{Donnee}.
+
+\hypertarget{class_complexe_aa983852c4813b6dfc7d63f3f7e24376e}{\index{Complexe@{Complexe}!my\-Tan@{my\-Tan}}
+\index{my\-Tan@{my\-Tan}!Complexe@{Complexe}}
+\subsubsection[{my\-Tan}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Tan (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_aa983852c4813b6dfc7d63f3f7e24376e}
+
+
+my\-Tan 
+
+Implémentation de l'operateur unaire tangente (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ad3b4b9d20c0693915d9c17b528bed4d8}{Donnee}.
+
+\hypertarget{class_complexe_a524e5444c902beeb324a2769e6b92fff}{\index{Complexe@{Complexe}!my\-Tanh@{my\-Tanh}}
+\index{my\-Tanh@{my\-Tanh}!Complexe@{Complexe}}
+\subsubsection[{my\-Tanh}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::my\-Tanh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a524e5444c902beeb324a2769e6b92fff}
+
+
+my\-Tanh 
+
+Implémentation de l'operateur unaire tangenteh (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a20a90ca79d91dc75ea01cc3842b0e6dd}{Donnee}.
+
+\hypertarget{class_complexe_a620f8ada80203699ee56323c6e30477b}{\index{Complexe@{Complexe}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Complexe@{Complexe}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_complexe_a620f8ada80203699ee56323c6e30477b}
+
+
+Operateur $\ast$. 
+
+Implémentation de l'opérateur binaire $\ast$ (méthode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'opération 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ae655c41f021de91a35d652a8519d4eb2}{Donnee}.
+
+\hypertarget{class_complexe_ad4472b5e5eb0cc7ecd7ae26e20672f4a}{\index{Complexe@{Complexe}!operator+@{operator+}}
+\index{operator+@{operator+}!Complexe@{Complexe}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_complexe_ad4472b5e5eb0cc7ecd7ae26e20672f4a}
+
+
+Operateur +. 
+
+Implémentation de l'opérateur binaire + (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, résultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_acda2976724adeef2233e7077953c1a9a}{Donnee}.
+
+\hypertarget{class_complexe_acee489797c36716c369ec81f368adf11}{\index{Complexe@{Complexe}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Complexe@{Complexe}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_complexe_acee489797c36716c369ec81f368adf11}
+
+
+Operateur -\/. 
+
+Implémentation de l'operateur binaire -\/ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a053ea4f3f00b6e0a73b4ea453adca1be}{Donnee}.
+
+\hypertarget{class_complexe_a67686b9d236ff43809a4fd82197abadd}{\index{Complexe@{Complexe}!operator/@{operator/}}
+\index{operator/@{operator/}!Complexe@{Complexe}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Complexe\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_complexe_a67686b9d236ff43809a4fd82197abadd}
+
+
+Operateur /. 
+
+Implémentation de l'opérateur binaire / (méthode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'opération 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_abc63ffa0d62612446435ff1eca34344b}{Donnee}.
+
+\hypertarget{class_complexe_a0ffebc558e7de92e447c12e0878d2216}{\index{Complexe@{Complexe}!puissance@{puissance}}
+\index{puissance@{puissance}!Complexe@{Complexe}}
+\subsubsection[{puissance}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Donnee}$\ast$ Complexe\-::puissance (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_a0ffebc558e7de92e447c12e0878d2216}
+
+
+puissance 
+
+Implémentation de l'operateur binaire puissance (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_af25f76885c91b1a497023c9dd2231990}{Donnee}.
+
+\hypertarget{class_complexe_afa604ee69a629d0244fd1f60640e76f1}{\index{Complexe@{Complexe}!sign@{sign}}
+\index{sign@{sign}!Complexe@{Complexe}}
+\subsubsection[{sign}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complexe}$\ast$ Complexe\-::sign (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_afa604ee69a629d0244fd1f60640e76f1}
+
+
+Retourne un \hyperlink{class_complexe}{Complexe} ayant les memes valeurs mais avec le signe inversé 
+
+Pour fonctionner, elle utilise le constructeur \hyperlink{class_complexe_a161e05ff800f7c550e014459d11948ce}{Complexe(\-Constante$\ast$, Constante$\ast$)} \begin{DoxyVerb}   \return   Elle retourne le Complexe construit.\end{DoxyVerb}
+ 
+
+Implements \hyperlink{class_donnee_a3a2d30e5c70d0a6d74a4282dc31841a9}{Donnee}.
+
+\hypertarget{class_complexe_ab58e8f5243f79c4a9053a100e8b418f5}{\index{Complexe@{Complexe}!to\-Q\-String@{to\-Q\-String}}
+\index{to\-Q\-String@{to\-Q\-String}!Complexe@{Complexe}}
+\subsubsection[{to\-Q\-String}]{\setlength{\rightskip}{0pt plus 5cm}virtual Q\-String Complexe\-::to\-Q\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_complexe_ab58e8f5243f79c4a9053a100e8b418f5}
+
+
+Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. 
+
+\begin{DoxyReturn}{Returns}
+Elle retourne une Q\-String définissant et représentant le \hyperlink{class_complexe}{Complexe}. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ad96590e462f8db33aefca28ba8e31e52}{Donnee}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{complexe_8h}{complexe.\-h}\item 
+complexe.\-cpp\end{DoxyCompactItemize}

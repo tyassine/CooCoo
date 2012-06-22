@@ -1,0 +1,96 @@
+\hypertarget{class_gardien}{\section{Gardien Class Reference}
+\label{class_gardien}\index{Gardien@{Gardien}}
+}
+
+
+Classe de \hyperlink{class_gardien}{Gardien} La classe permet de sauvegarder les etats d'une pile, dans le but de pouvoir les restaurer Partie du design pattern \char`\"{}\-Memento\char`\"{}.  
+
+
+
+
+{\ttfamily \#include $<$memento.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_gardien_aab8526f0f25e03d4cb1babbc1aa6d09e}{Gardien} ()
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\hypertarget{class_gardien_afef6202d924fef9d882bb40dfc4ac9fb}{\hyperlink{class_gardien_afef6202d924fef9d882bb40dfc4ac9fb}{$\sim$\-Gardien} ()}\label{class_gardien_afef6202d924fef9d882bb40dfc4ac9fb}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \hyperlink{class_gardien_ab152ac41cab1dc3f3a1dc0f143a54aa3}{add\-Memento} (\hyperlink{class_pile}{Pile} $\ast$a\-Pile)
+\begin{DoxyCompactList}\small\item\em add\-Memento Permet d'ajouter un etat dans le vecteur de pile \end{DoxyCompactList}\item 
+\hyperlink{class_pile}{Pile} $\ast$ \hyperlink{class_gardien_ac0145da9f36f0dbf7a6894723249dd1f}{undo} ()
+\begin{DoxyCompactList}\small\item\em Undo Permet de restaurer l'etat precedent. \end{DoxyCompactList}\item 
+\hyperlink{class_pile}{Pile} $\ast$ \hyperlink{class_gardien_a9fa7f0b6196b9b551b9ff9506d9ef8bf}{redo} ()
+\begin{DoxyCompactList}\small\item\em Redo Permet de restaurer l'etat suivant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe de \hyperlink{class_gardien}{Gardien} La classe permet de sauvegarder les etats d'une pile, dans le but de pouvoir les restaurer Partie du design pattern \char`\"{}\-Memento\char`\"{}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_gardien_aab8526f0f25e03d4cb1babbc1aa6d09e}{\index{Gardien@{Gardien}!Gardien@{Gardien}}
+\index{Gardien@{Gardien}!Gardien@{Gardien}}
+\subsubsection[{Gardien}]{\setlength{\rightskip}{0pt plus 5cm}Gardien\-::\-Gardien (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_gardien_aab8526f0f25e03d4cb1babbc1aa6d09e}
+
+
+Constructeur. 
+
+Construit un gardien 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_gardien_ab152ac41cab1dc3f3a1dc0f143a54aa3}{\index{Gardien@{Gardien}!add\-Memento@{add\-Memento}}
+\index{add\-Memento@{add\-Memento}!Gardien@{Gardien}}
+\subsubsection[{add\-Memento}]{\setlength{\rightskip}{0pt plus 5cm}void Gardien\-::add\-Memento (
+\begin{DoxyParamCaption}
+\item[{{\bf Pile} $\ast$}]{a\-Pile}
+\end{DoxyParamCaption}
+)}}\label{class_gardien_ab152ac41cab1dc3f3a1dc0f143a54aa3}
+
+
+add\-Memento Permet d'ajouter un etat dans le vecteur de pile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Pile} & pile a ajouter \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_gardien_a9fa7f0b6196b9b551b9ff9506d9ef8bf}{\index{Gardien@{Gardien}!redo@{redo}}
+\index{redo@{redo}!Gardien@{Gardien}}
+\subsubsection[{redo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pile} $\ast$ Gardien\-::redo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_gardien_a9fa7f0b6196b9b551b9ff9506d9ef8bf}
+
+
+Redo Permet de restaurer l'etat suivant. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_pile}{Pile} a restaurer 
+\end{DoxyReturn}
+\hypertarget{class_gardien_ac0145da9f36f0dbf7a6894723249dd1f}{\index{Gardien@{Gardien}!undo@{undo}}
+\index{undo@{undo}!Gardien@{Gardien}}
+\subsubsection[{undo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pile} $\ast$ Gardien\-::undo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_gardien_ac0145da9f36f0dbf7a6894723249dd1f}
+
+
+Undo Permet de restaurer l'etat precedent. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_pile}{Pile} a restaurer 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memento_8h}{memento.\-h}\item 
+memento.\-cpp\end{DoxyCompactItemize}

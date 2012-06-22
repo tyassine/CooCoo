@@ -16,7 +16,6 @@ class Complexe;
 
 /**
  * \class     Rationnel
- * \author    Letellier/Yassine
  * \brief       Classe des rationnels héritant de Constante
  *
  * \details    Pour fonctionner cette classe encapsule deux entiers (numérateur et dénominateur).

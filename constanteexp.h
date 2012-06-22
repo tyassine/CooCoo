@@ -3,7 +3,7 @@
 
 /*!
 * \file constanteExp.h
-* \brief Definition de la classe des constantes expression. Herite de la classe Donnee.
+* \brief Definition de la classe des constantes expression.
 * \author Letellier/Yassine
 */
 
@@ -12,7 +12,7 @@
 /**
  * \class     ConstanteExp
  * \author    Letellier/Yassine
- * \brief       Classe regroupant les Constantes Expressions
+ * \brief       Classe regroupant les Constantes Expressions. Elle herite de Donnee.
  *
  * \details    Les objets de cette classe travaillent autour d'une chaine de caractères.
  *              Celle-ci décrit une expression.

@@ -15,7 +15,6 @@ class Complexe;
 
 /**
  * \class     Reel
- * \author    Letellier/Yassine
  * \brief       Classe des reels héritant de Constante
  *
  * \details    Pour fonctionner cette classe encapsule un double.

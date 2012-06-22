@@ -1,0 +1,307 @@
+\hypertarget{class_pile}{\section{Pile Class Reference}
+\label{class_pile}\index{Pile@{Pile}}
+}
+
+
+C'est une simple Implémentation de std\-::stack$<$\-Donnee $\ast$$>$  
+
+
+
+
+{\ttfamily \#include $<$pile.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pile_acc3e10e3f78074f62afee57592bdaf5a}{Pile} (unsigned int n=100)
+\begin{DoxyCompactList}\small\item\em Constructeur de pile à partir d'un unsigned int. \end{DoxyCompactList}\item 
+\hyperlink{class_pile_a3077815b003b8a847c5c86e95d3062fc}{Pile} (const \hyperlink{class_pile}{Pile} \&p)
+\begin{DoxyCompactList}\small\item\em Constructeur de recopie de piler. \end{DoxyCompactList}\item 
+\hypertarget{class_pile_ab2d1398d675586ff34994e2b109df152}{\hyperlink{class_pile_ab2d1398d675586ff34994e2b109df152}{$\sim$\-Pile} ()}\label{class_pile_ab2d1398d675586ff34994e2b109df152}
+
+\begin{DoxyCompactList}\small\item\em Desctruteur de pile qui desalloue toute la mémoire. \end{DoxyCompactList}\item 
+int \hyperlink{class_pile_a32730bf75cbc79b0ddf9d80965e58984}{size} ()
+\begin{DoxyCompactList}\small\item\em Accesseur nombre d'objet dans pile. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$$\ast$ \hyperlink{class_pile_a787faaec98af6134a23fc10f92eb9030}{get\-Tab} () const 
+\begin{DoxyCompactList}\small\item\em Accesseur sur le tableau de donnée \end{DoxyCompactList}\item 
+int \hyperlink{class_pile_a07523337ff16cd3845527c00523609b7}{get\-Sommet} () const 
+\begin{DoxyCompactList}\small\item\em Accesseur sur sommet de la pile. \end{DoxyCompactList}\item 
+void \hyperlink{class_pile_aab3c51f45eab0d9d5f774ffdb43cbc9f}{set\-Gardien} (\hyperlink{class_gardien}{Gardien} $\ast$a\-Gardien)
+\begin{DoxyCompactList}\small\item\em Modificateur du gardien de la pile. \end{DoxyCompactList}\item 
+\hyperlink{class_gardien}{Gardien} $\ast$ \hyperlink{class_pile_a9593d3960d6430aa215e4d125161e612}{get\-Gardien} () const 
+\begin{DoxyCompactList}\small\item\em Accesseur sur le gardien de la pile. \end{DoxyCompactList}\item 
+void \hyperlink{class_pile_acacf656c1db600eb5ad3a7739dec3b5b}{empiler} (\hyperlink{class_donnee}{Donnee} $\ast$a\-Donnee)
+\begin{DoxyCompactList}\small\item\em Fonction \-: Empiler un objet sur la pile. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_pile_a0637fa6ecff49aad88b14aa656d28380}{depiler} ()
+\begin{DoxyCompactList}\small\item\em Fonction \-: Dépiler la pile et renvoyer l'objet dépilé \end{DoxyCompactList}\item 
+bool \hyperlink{class_pile_a68afe07669558489c40723b55c8cafe8}{pile\-Vide} () const 
+\begin{DoxyCompactList}\small\item\em Fonction \-: Tester si la pile est vide. \end{DoxyCompactList}\item 
+bool \hyperlink{class_pile_abf242a2beba67e993da164e1efca70eb}{pile\-Pleine} () const 
+\begin{DoxyCompactList}\small\item\em Fonction \-: Tester si la pile est pleine. \end{DoxyCompactList}\item 
+\hypertarget{class_pile_aa3991438f190580607d7bbbd50ecc0c3}{void \hyperlink{class_pile_aa3991438f190580607d7bbbd50ecc0c3}{clear} ()}\label{class_pile_aa3991438f190580607d7bbbd50ecc0c3}
+
+\begin{DoxyCompactList}\small\item\em Fonction \-: Vider la pile. \end{DoxyCompactList}\item 
+\hyperlink{class_pile}{Pile} $\ast$ \hyperlink{class_pile_ab13c9693b69e35e3399077e40e55aedb}{cloner} () const 
+\begin{DoxyCompactList}\small\item\em Méhode permettant de cloner la pile. \end{DoxyCompactList}\item 
+void \hyperlink{class_pile_af3abafcb5311f930344bba85f2a170ed}{swap} (int nb1, int nb2)
+\begin{DoxyCompactList}\small\item\em Echange de deux éléments de la pile. \end{DoxyCompactList}\item 
+void \hyperlink{class_pile_a4b4c0f4feac7acdaf4191d56fe7bb7a7}{sum} (unsigned int nb)
+\begin{DoxyCompactList}\small\item\em effectue la somme des donnee de la pile sur n étage et empile le résultat. \end{DoxyCompactList}\item 
+void \hyperlink{class_pile_aca77ac894d2eb53d1e7ce6f24a69745a}{mean} (unsigned int nb)
+\begin{DoxyCompactList}\small\item\em effectue la moyenne des donnee de la pile sur n étage et empile le résultat. \end{DoxyCompactList}\item 
+\hypertarget{class_pile_a081f7843d01cae1f0f7be7d92e46d5d2}{void \hyperlink{class_pile_a081f7843d01cae1f0f7be7d92e46d5d2}{dup} ()}\label{class_pile_a081f7843d01cae1f0f7be7d92e46d5d2}
+
+\begin{DoxyCompactList}\small\item\em Duplique le sommet de la pile. \end{DoxyCompactList}\item 
+\hypertarget{class_pile_a7488ed257c6ceb16ed57a9fffb0726d5}{void \hyperlink{class_pile_a7488ed257c6ceb16ed57a9fffb0726d5}{drop} ()}\label{class_pile_a7488ed257c6ceb16ed57a9fffb0726d5}
+
+\begin{DoxyCompactList}\small\item\em Supprime le sommet de la pile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C'est une simple Implémentation de std\-::stack$<$\-Donnee $\ast$$>$ 
+
+La fonction stack n'a pas été utilisée car des fonctions vitales n'auraient pu etre implémentées. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_pile_acc3e10e3f78074f62afee57592bdaf5a}{\index{Pile@{Pile}!Pile@{Pile}}
+\index{Pile@{Pile}!Pile@{Pile}}
+\subsubsection[{Pile}]{\setlength{\rightskip}{0pt plus 5cm}Pile\-::\-Pile (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{n = {\ttfamily 100}}
+\end{DoxyParamCaption}
+)}}\label{class_pile_acc3e10e3f78074f62afee57592bdaf5a}
+
+
+Constructeur de pile à partir d'un unsigned int. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Il s'agit de la taille maximale voulue pour la pile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne la pile construite. 
+\end{DoxyReturn}
+\hypertarget{class_pile_a3077815b003b8a847c5c86e95d3062fc}{\index{Pile@{Pile}!Pile@{Pile}}
+\index{Pile@{Pile}!Pile@{Pile}}
+\subsubsection[{Pile}]{\setlength{\rightskip}{0pt plus 5cm}Pile\-::\-Pile (
+\begin{DoxyParamCaption}
+\item[{const {\bf Pile} \&}]{p}
+\end{DoxyParamCaption}
+)}}\label{class_pile_a3077815b003b8a847c5c86e95d3062fc}
+
+
+Constructeur de recopie de piler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Une réf de pile depuis laquelle recopiait la nouvelle pile. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elle retourne la pile construite. 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_pile_ab13c9693b69e35e3399077e40e55aedb}{\index{Pile@{Pile}!cloner@{cloner}}
+\index{cloner@{cloner}!Pile@{Pile}}
+\subsubsection[{cloner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Pile} $\ast$ Pile\-::cloner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_pile_ab13c9693b69e35e3399077e40e55aedb}
+
+
+Méhode permettant de cloner la pile. 
+
+\begin{DoxyReturn}{Returns}
+Retourne le clone de this. 
+\end{DoxyReturn}
+\hypertarget{class_pile_a0637fa6ecff49aad88b14aa656d28380}{\index{Pile@{Pile}!depiler@{depiler}}
+\index{depiler@{depiler}!Pile@{Pile}}
+\subsubsection[{depiler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Pile\-::depiler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_pile_a0637fa6ecff49aad88b14aa656d28380}
+
+
+Fonction \-: Dépiler la pile et renvoyer l'objet dépilé 
+
+\begin{DoxyReturn}{Returns}
+pointeur vers l'objet dépilé 
+\end{DoxyReturn}
+\hypertarget{class_pile_acacf656c1db600eb5ad3a7739dec3b5b}{\index{Pile@{Pile}!empiler@{empiler}}
+\index{empiler@{empiler}!Pile@{Pile}}
+\subsubsection[{empiler}]{\setlength{\rightskip}{0pt plus 5cm}void Pile\-::empiler (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{a\-Donnee}
+\end{DoxyParamCaption}
+)}}\label{class_pile_acacf656c1db600eb5ad3a7739dec3b5b}
+
+
+Fonction \-: Empiler un objet sur la pile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Donnee} & pointeur vers l'objet à empiler \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_pile_a9593d3960d6430aa215e4d125161e612}{\index{Pile@{Pile}!get\-Gardien@{get\-Gardien}}
+\index{get\-Gardien@{get\-Gardien}!Pile@{Pile}}
+\subsubsection[{get\-Gardien}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Gardien}$\ast$ Pile\-::get\-Gardien (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_pile_a9593d3960d6430aa215e4d125161e612}
+
+
+Accesseur sur le gardien de la pile. 
+
+\begin{DoxyReturn}{Returns}
+Retourne le gardien de la pile 
+\end{DoxyReturn}
+\hypertarget{class_pile_a07523337ff16cd3845527c00523609b7}{\index{Pile@{Pile}!get\-Sommet@{get\-Sommet}}
+\index{get\-Sommet@{get\-Sommet}!Pile@{Pile}}
+\subsubsection[{get\-Sommet}]{\setlength{\rightskip}{0pt plus 5cm}int Pile\-::get\-Sommet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_pile_a07523337ff16cd3845527c00523609b7}
+
+
+Accesseur sur sommet de la pile. 
+
+\begin{DoxyReturn}{Returns}
+Retourne l'indice du sommet de pile 
+\end{DoxyReturn}
+\hypertarget{class_pile_a787faaec98af6134a23fc10f92eb9030}{\index{Pile@{Pile}!get\-Tab@{get\-Tab}}
+\index{get\-Tab@{get\-Tab}!Pile@{Pile}}
+\subsubsection[{get\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee}$\ast$$\ast$ Pile\-::get\-Tab (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_pile_a787faaec98af6134a23fc10f92eb9030}
+
+
+Accesseur sur le tableau de donnée 
+
+\begin{DoxyReturn}{Returns}
+Retourne le tableau de donnée de la pile 
+\end{DoxyReturn}
+\hypertarget{class_pile_aca77ac894d2eb53d1e7ce6f24a69745a}{\index{Pile@{Pile}!mean@{mean}}
+\index{mean@{mean}!Pile@{Pile}}
+\subsubsection[{mean}]{\setlength{\rightskip}{0pt plus 5cm}void Pile\-::mean (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{nb}
+\end{DoxyParamCaption}
+)}}\label{class_pile_aca77ac894d2eb53d1e7ce6f24a69745a}
+
+
+effectue la moyenne des donnee de la pile sur n étage et empile le résultat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb} & Le nombre d'étage qu'il faudra moyenner. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_pile_abf242a2beba67e993da164e1efca70eb}{\index{Pile@{Pile}!pile\-Pleine@{pile\-Pleine}}
+\index{pile\-Pleine@{pile\-Pleine}!Pile@{Pile}}
+\subsubsection[{pile\-Pleine}]{\setlength{\rightskip}{0pt plus 5cm}bool Pile\-::pile\-Pleine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_pile_abf242a2beba67e993da164e1efca70eb}
+
+
+Fonction \-: Tester si la pile est pleine. 
+
+\begin{DoxyReturn}{Returns}
+true si la pile est pleine et false si la pile est non-\/pleine 
+\end{DoxyReturn}
+\hypertarget{class_pile_a68afe07669558489c40723b55c8cafe8}{\index{Pile@{Pile}!pile\-Vide@{pile\-Vide}}
+\index{pile\-Vide@{pile\-Vide}!Pile@{Pile}}
+\subsubsection[{pile\-Vide}]{\setlength{\rightskip}{0pt plus 5cm}bool Pile\-::pile\-Vide (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_pile_a68afe07669558489c40723b55c8cafe8}
+
+
+Fonction \-: Tester si la pile est vide. 
+
+\begin{DoxyReturn}{Returns}
+true si la pile est vide et false si la pile est non-\/vide 
+\end{DoxyReturn}
+\hypertarget{class_pile_aab3c51f45eab0d9d5f774ffdb43cbc9f}{\index{Pile@{Pile}!set\-Gardien@{set\-Gardien}}
+\index{set\-Gardien@{set\-Gardien}!Pile@{Pile}}
+\subsubsection[{set\-Gardien}]{\setlength{\rightskip}{0pt plus 5cm}void Pile\-::set\-Gardien (
+\begin{DoxyParamCaption}
+\item[{{\bf Gardien} $\ast$}]{a\-Gardien}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_pile_aab3c51f45eab0d9d5f774ffdb43cbc9f}
+
+
+Modificateur du gardien de la pile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Gardien} & Le gardien que l'on veux assigner à la pile \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_pile_a32730bf75cbc79b0ddf9d80965e58984}{\index{Pile@{Pile}!size@{size}}
+\index{size@{size}!Pile@{Pile}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}int Pile\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_pile_a32730bf75cbc79b0ddf9d80965e58984}
+
+
+Accesseur nombre d'objet dans pile. 
+
+\begin{DoxyReturn}{Returns}
+Retourne le nombre d'objet dans la pile 
+\end{DoxyReturn}
+\hypertarget{class_pile_a4b4c0f4feac7acdaf4191d56fe7bb7a7}{\index{Pile@{Pile}!sum@{sum}}
+\index{sum@{sum}!Pile@{Pile}}
+\subsubsection[{sum}]{\setlength{\rightskip}{0pt plus 5cm}void Pile\-::sum (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{nb}
+\end{DoxyParamCaption}
+)}}\label{class_pile_a4b4c0f4feac7acdaf4191d56fe7bb7a7}
+
+
+effectue la somme des donnee de la pile sur n étage et empile le résultat. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb} & Le nombre d'étage qu'il faudra sommer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_pile_af3abafcb5311f930344bba85f2a170ed}{\index{Pile@{Pile}!swap@{swap}}
+\index{swap@{swap}!Pile@{Pile}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void Pile\-::swap (
+\begin{DoxyParamCaption}
+\item[{int}]{nb1, }
+\item[{int}]{nb2}
+\end{DoxyParamCaption}
+)}}\label{class_pile_af3abafcb5311f930344bba85f2a170ed}
+
+
+Echange de deux éléments de la pile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb1} & Place dans tab du premier élément \\
+\hline
+{\em nb2} & Place dans tab du deuxiéme élément \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{pile_8h}{pile.\-h}\item 
+pile.\-cpp\end{DoxyCompactItemize}

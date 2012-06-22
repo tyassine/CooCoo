@@ -18,7 +18,6 @@ class Gardien;
 
 /**
  * \class     Pile
- * \author    Letellier Perrine
  * \brief      C'est une simple Implémentation de std::stack<Donnee *> 
  *
  * \details    La fonction stack n'a pas été utilisée car des fonctions vitales n'auraient pu etre implémentées.

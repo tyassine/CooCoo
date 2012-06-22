@@ -1,0 +1,678 @@
+\hypertarget{class_entier}{\section{Entier Class Reference}
+\label{class_entier}\index{Entier@{Entier}}
+}
+
+
+Classe des rationnels héritant de \hyperlink{class_constante}{Constante}.  
+
+
+
+
+{\ttfamily \#include $<$entier.\-h$>$}
+
+Inheritance diagram for Entier\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_entier}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_entier_ab7343e7337fe0f74b26a370bd60e83fd}{Entier} (int val=0)
+\begin{DoxyCompactList}\small\item\em Constructeur d'entier à partir d'un int. \end{DoxyCompactList}\item 
+\hypertarget{class_entier_a2b243303497639116f0934b4adb065ae}{\hyperlink{class_entier_a2b243303497639116f0934b4adb065ae}{Entier} (const Q\-String \&a\-Q\-String=\char`\"{}0\char`\"{})}\label{class_entier_a2b243303497639116f0934b4adb065ae}
+
+\begin{DoxyCompactList}\small\item\em Constructeur d'entier à partir d'une Q\-String. \end{DoxyCompactList}\item 
+\hyperlink{class_entier_aaac9349e0d80cdab4e21701356d6268e}{Entier} (const \hyperlink{class_entier}{Entier} $\ast$a\-Entier)
+\begin{DoxyCompactList}\small\item\em Constructeur de recopie. \end{DoxyCompactList}\item 
+\hyperlink{class_entier_a158e9e75f76ddc9ecac74a26c192be65}{Entier} (const \hyperlink{class_reel}{Reel} $\ast$a\-Reel)
+\begin{DoxyCompactList}\small\item\em Constructeur d'entier à partir de reel. \end{DoxyCompactList}\item 
+\hyperlink{class_entier_aedf6d32377e1b4d190eb84590ea49c17}{Entier} (const \hyperlink{class_rationnel}{Rationnel} $\ast$a\-Rationnel)
+\begin{DoxyCompactList}\small\item\em Constructeur d'entier à partir de rationnel. \end{DoxyCompactList}\item 
+\hyperlink{class_entier_a891d9ad01b50f5fa0e310c58e18b16b3}{Entier} (const \hyperlink{class_complexe}{Complexe} $\ast$a\-Complexe)
+\begin{DoxyCompactList}\small\item\em Constructeur d'entier à partir de complexe. \end{DoxyCompactList}\item 
+virtual Q\-String \hyperlink{class_entier_ad3603b763e1d76b38fb2bceb883c8c89}{to\-Q\-String} () const 
+\begin{DoxyCompactList}\small\item\em Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. \end{DoxyCompactList}\item 
+\hyperlink{class_entier}{Entier} $\ast$ \hyperlink{class_entier_a3a796ec0bc75a4bcae44fb6eea67cc10}{sign} ()
+\begin{DoxyCompactList}\small\item\em Retourne un \hyperlink{class_entier}{Entier} ayant les memes valeurs mais avec le signe inversé \end{DoxyCompactList}\item 
+int \hyperlink{class_entier_afe38ee7f81afc3c88a2c774ff0af2bcd}{get\-Valeur} () const 
+\begin{DoxyCompactList}\small\item\em Acccesseur à la valeur. \end{DoxyCompactList}\item 
+void \hyperlink{class_entier_a0f32791080ea409e112ce2893e9242cd}{set\-Valeur} (int a\-Valeur)
+\begin{DoxyCompactList}\small\item\em Modificateur de valeur. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a1bcc1af417fd36f62bab9808f8fe6632}{operator+} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur +. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a7253903447c5e1922c80e90af4e50e7f}{operator/} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur /. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a3cd7bc09aaa5a9aa94fb868ef90c3cfa}{operator$\ast$} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur $\ast$. \end{DoxyCompactList}\item 
+\hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a42b4d223e6deb8e59abf5554488ede16}{operator-\/} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Operateur -\/. \end{DoxyCompactList}\item 
+\hypertarget{class_entier_a70e589bc0a3f0f6fdf08a6a7fc5470bd}{int {\bfseries facto} (int n)}\label{class_entier_a70e589bc0a3f0f6fdf08a6a7fc5470bd}
+
+\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_ad2ff142a939a6e22b69d3d3915ef0371}{puissance} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em puissance \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a4da8411b9f00afe85cab5874eb44c02a}{mod} (\hyperlink{class_donnee}{Donnee} $\ast$t)
+\begin{DoxyCompactList}\small\item\em mod \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_ac95bc2f1d50e5b4a851625ed5678e8a8}{my\-Sin} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Sin \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a54c679369d395d8e912ea5f19734e54a}{my\-Cos} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Cos \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a0b9531ba9f783a3f5d800b5caaa11370}{my\-Tan} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Tan \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a28fdbd55d1208bb97c971052a43e16a5}{my\-Sinh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Sinh \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a278a767d66e7db0e4020bcdffb7f4b49}{my\-Cosh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Cosh \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a6157a86c4c407d35f5fec5d226e4dc6e}{my\-Tanh} (int type\-Angle)
+\begin{DoxyCompactList}\small\item\em my\-Tanh \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a90a4a540f85f4295123eee2315439d6b}{my\-Ln} ()
+\begin{DoxyCompactList}\small\item\em my\-Ln \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a4f95567ebc7c915427a4a840c4feb0c9}{my\-Log} ()
+\begin{DoxyCompactList}\small\item\em my\-Log \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_aa195655fde681a4ab18acecd54fb6e2f}{my\-Inv} ()
+\begin{DoxyCompactList}\small\item\em my\-Inv \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a8ccc00629d9d7588998e9443916c2cff}{my\-Sqrt} ()
+\begin{DoxyCompactList}\small\item\em my\-Sqrt \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a5379013e91b1d33c3a733594f6ae1db9}{my\-Sqr} ()
+\begin{DoxyCompactList}\small\item\em my\-Sqr \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a2024dd6554fd0c38ab8c8d0ba6cf9e54}{my\-Cube} ()
+\begin{DoxyCompactList}\small\item\em my\-Cube \end{DoxyCompactList}\item 
+virtual \hyperlink{class_donnee}{Donnee} $\ast$ \hyperlink{class_entier_a0c512c175d294c572d19169293d503d3}{my\-Fact} ()
+\begin{DoxyCompactList}\small\item\em my\-Fact \end{DoxyCompactList}\item 
+bool \hyperlink{class_entier_ad152cf4769e7806be51719146043bf9d}{is\-Zero} ()
+\begin{DoxyCompactList}\small\item\em is\-Zero \end{DoxyCompactList}\item 
+bool \hyperlink{class_entier_a5fb33d1ee09365cb12703cc2e0737841}{is\-Neg} ()
+\begin{DoxyCompactList}\small\item\em is\-Neg \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe des rationnels héritant de \hyperlink{class_constante}{Constante}. 
+
+Pour fonctionner cette classe encapsule un entier. Tout les opérateurs sont égalements redéfinit. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_entier_ab7343e7337fe0f74b26a370bd60e83fd}{\index{Entier@{Entier}!Entier@{Entier}}
+\index{Entier@{Entier}!Entier@{Entier}}
+\subsubsection[{Entier}]{\setlength{\rightskip}{0pt plus 5cm}Entier\-::\-Entier (
+\begin{DoxyParamCaption}
+\item[{int}]{val = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_entier_ab7343e7337fe0f74b26a370bd60e83fd}
+
+
+Constructeur d'entier à partir d'un int. 
+
+Constructeur par valeur \begin{DoxyVerb}   \param   val        pour initialiser la valeur\end{DoxyVerb}
+ \hypertarget{class_entier_aaac9349e0d80cdab4e21701356d6268e}{\index{Entier@{Entier}!Entier@{Entier}}
+\index{Entier@{Entier}!Entier@{Entier}}
+\subsubsection[{Entier}]{\setlength{\rightskip}{0pt plus 5cm}Entier\-::\-Entier (
+\begin{DoxyParamCaption}
+\item[{const {\bf Entier} $\ast$}]{a\-Entier}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_entier_aaac9349e0d80cdab4e21701356d6268e}
+
+
+Constructeur de recopie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Entier} & Un pointeur vers un autre entier \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_entier_a158e9e75f76ddc9ecac74a26c192be65}{\index{Entier@{Entier}!Entier@{Entier}}
+\index{Entier@{Entier}!Entier@{Entier}}
+\subsubsection[{Entier}]{\setlength{\rightskip}{0pt plus 5cm}Entier\-::\-Entier (
+\begin{DoxyParamCaption}
+\item[{const {\bf Reel} $\ast$}]{a\-Reel}
+\end{DoxyParamCaption}
+)}}\label{class_entier_a158e9e75f76ddc9ecac74a26c192be65}
+
+
+Constructeur d'entier à partir de reel. 
+
+On effectue un cast en ajoutant + 0,5 pour avoir un arrondi et non une troncature \begin{DoxyVerb}   \param   aReel pointeur sur le reel qui sert de modele à la construction\end{DoxyVerb}
+ \hypertarget{class_entier_aedf6d32377e1b4d190eb84590ea49c17}{\index{Entier@{Entier}!Entier@{Entier}}
+\index{Entier@{Entier}!Entier@{Entier}}
+\subsubsection[{Entier}]{\setlength{\rightskip}{0pt plus 5cm}Entier\-::\-Entier (
+\begin{DoxyParamCaption}
+\item[{const {\bf Rationnel} $\ast$}]{a\-Rationnel}
+\end{DoxyParamCaption}
+)}}\label{class_entier_aedf6d32377e1b4d190eb84590ea49c17}
+
+
+Constructeur d'entier à partir de rationnel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Reel} & pointeur sur le rationnel qui sert de modele à la construction \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_entier_a891d9ad01b50f5fa0e310c58e18b16b3}{\index{Entier@{Entier}!Entier@{Entier}}
+\index{Entier@{Entier}!Entier@{Entier}}
+\subsubsection[{Entier}]{\setlength{\rightskip}{0pt plus 5cm}Entier\-::\-Entier (
+\begin{DoxyParamCaption}
+\item[{const {\bf Complexe} $\ast$}]{a\-Complexe}
+\end{DoxyParamCaption}
+)}}\label{class_entier_a891d9ad01b50f5fa0e310c58e18b16b3}
+
+
+Constructeur d'entier à partir de complexe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Reel} & pointeur sur le complexe qui sert de modele à la construction \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_entier_afe38ee7f81afc3c88a2c774ff0af2bcd}{\index{Entier@{Entier}!get\-Valeur@{get\-Valeur}}
+\index{get\-Valeur@{get\-Valeur}!Entier@{Entier}}
+\subsubsection[{get\-Valeur}]{\setlength{\rightskip}{0pt plus 5cm}int Entier\-::get\-Valeur (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_entier_afe38ee7f81afc3c88a2c774ff0af2bcd}
+
+
+Acccesseur à la valeur. 
+
+\begin{DoxyReturn}{Returns}
+Elle retourne la valeur de l'\hyperlink{class_entier}{Entier} 
+\end{DoxyReturn}
+\hypertarget{class_entier_a5fb33d1ee09365cb12703cc2e0737841}{\index{Entier@{Entier}!is\-Neg@{is\-Neg}}
+\index{is\-Neg@{is\-Neg}!Entier@{Entier}}
+\subsubsection[{is\-Neg}]{\setlength{\rightskip}{0pt plus 5cm}bool Entier\-::is\-Neg (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_entier_a5fb33d1ee09365cb12703cc2e0737841}
+
+
+is\-Neg 
+
+Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est inferieure ou egale à 0 \begin{DoxyReturn}{Returns}
+bool true si la \hyperlink{class_donnee}{Donnee} est inferieur ou egale à 0 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a0efb324f0c2e0682b971c3692c46e7c3}{Donnee}.
+
+\hypertarget{class_entier_ad152cf4769e7806be51719146043bf9d}{\index{Entier@{Entier}!is\-Zero@{is\-Zero}}
+\index{is\-Zero@{is\-Zero}!Entier@{Entier}}
+\subsubsection[{is\-Zero}]{\setlength{\rightskip}{0pt plus 5cm}bool Entier\-::is\-Zero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_entier_ad152cf4769e7806be51719146043bf9d}
+
+
+is\-Zero 
+
+Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est egale à 0 \begin{DoxyReturn}{Returns}
+bool true si la \hyperlink{class_donnee}{Donnee} est egale à 0 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_aad251e4148c791719d7d7bff18680611}{Donnee}.
+
+\hypertarget{class_entier_a4da8411b9f00afe85cab5874eb44c02a}{\index{Entier@{Entier}!mod@{mod}}
+\index{mod@{mod}!Entier@{Entier}}
+\subsubsection[{mod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::mod (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a4da8411b9f00afe85cab5874eb44c02a}
+
+
+mod 
+
+Implementation de l'opérateur binaire modulo (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a52ce1aa17ce2c613e98428f82e3f85b8}{Donnee}.
+
+\hypertarget{class_entier_a54c679369d395d8e912ea5f19734e54a}{\index{Entier@{Entier}!my\-Cos@{my\-Cos}}
+\index{my\-Cos@{my\-Cos}!Entier@{Entier}}
+\subsubsection[{my\-Cos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Cos (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a54c679369d395d8e912ea5f19734e54a}
+
+
+my\-Cos 
+
+Implementation de l'opérateur unaire cosinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_abd9a62bd6b7d189f50db350823e895c3}{Donnee}.
+
+\hypertarget{class_entier_a278a767d66e7db0e4020bcdffb7f4b49}{\index{Entier@{Entier}!my\-Cosh@{my\-Cosh}}
+\index{my\-Cosh@{my\-Cosh}!Entier@{Entier}}
+\subsubsection[{my\-Cosh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Cosh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a278a767d66e7db0e4020bcdffb7f4b49}
+
+
+my\-Cosh 
+
+Implementation de l'opérateur unaire cosinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_afe9b3532677d394b4b596021b74b6d17}{Donnee}.
+
+\hypertarget{class_entier_a2024dd6554fd0c38ab8c8d0ba6cf9e54}{\index{Entier@{Entier}!my\-Cube@{my\-Cube}}
+\index{my\-Cube@{my\-Cube}!Entier@{Entier}}
+\subsubsection[{my\-Cube}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Cube (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a2024dd6554fd0c38ab8c8d0ba6cf9e54}
+
+
+my\-Cube 
+
+Implementation de l'opérateur unaire Cube (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a875c21efdd22695c7999cfeb52ce4b2a}{Donnee}.
+
+\hypertarget{class_entier_a0c512c175d294c572d19169293d503d3}{\index{Entier@{Entier}!my\-Fact@{my\-Fact}}
+\index{my\-Fact@{my\-Fact}!Entier@{Entier}}
+\subsubsection[{my\-Fact}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Fact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a0c512c175d294c572d19169293d503d3}
+
+
+my\-Fact 
+
+Implementation de l'opérateur unaire fact (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a79a2a3f835e09d0ed1888800c595a715}{Donnee}.
+
+\hypertarget{class_entier_aa195655fde681a4ab18acecd54fb6e2f}{\index{Entier@{Entier}!my\-Inv@{my\-Inv}}
+\index{my\-Inv@{my\-Inv}!Entier@{Entier}}
+\subsubsection[{my\-Inv}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Inv (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_aa195655fde681a4ab18acecd54fb6e2f}
+
+
+my\-Inv 
+
+Implementation de l'opérateur unaire inv (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ad84c463eb43d4b98bed081045160fea1}{Donnee}.
+
+\hypertarget{class_entier_a90a4a540f85f4295123eee2315439d6b}{\index{Entier@{Entier}!my\-Ln@{my\-Ln}}
+\index{my\-Ln@{my\-Ln}!Entier@{Entier}}
+\subsubsection[{my\-Ln}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Ln (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a90a4a540f85f4295123eee2315439d6b}
+
+
+my\-Ln 
+
+Implementation de l'opérateur unaire ln (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ac24ba41baf90eb99bcf91145c541780a}{Donnee}.
+
+\hypertarget{class_entier_a4f95567ebc7c915427a4a840c4feb0c9}{\index{Entier@{Entier}!my\-Log@{my\-Log}}
+\index{my\-Log@{my\-Log}!Entier@{Entier}}
+\subsubsection[{my\-Log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a4f95567ebc7c915427a4a840c4feb0c9}
+
+
+my\-Log 
+
+Implementation de l'opérateur unaire log (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a7ac3f554be1fc579b02d9c877185cf50}{Donnee}.
+
+\hypertarget{class_entier_ac95bc2f1d50e5b4a851625ed5678e8a8}{\index{Entier@{Entier}!my\-Sin@{my\-Sin}}
+\index{my\-Sin@{my\-Sin}!Entier@{Entier}}
+\subsubsection[{my\-Sin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Sin (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_ac95bc2f1d50e5b4a851625ed5678e8a8}
+
+
+my\-Sin 
+
+Implementation de l'opérateur unaire sinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a86f71d87c3a69dc6dcede4b411d94043}{Donnee}.
+
+\hypertarget{class_entier_a28fdbd55d1208bb97c971052a43e16a5}{\index{Entier@{Entier}!my\-Sinh@{my\-Sinh}}
+\index{my\-Sinh@{my\-Sinh}!Entier@{Entier}}
+\subsubsection[{my\-Sinh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Sinh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a28fdbd55d1208bb97c971052a43e16a5}
+
+
+my\-Sinh 
+
+Implementation de l'opérateur unaire sinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_af3c408a3fda8f24ee70f34fd8688fe63}{Donnee}.
+
+\hypertarget{class_entier_a5379013e91b1d33c3a733594f6ae1db9}{\index{Entier@{Entier}!my\-Sqr@{my\-Sqr}}
+\index{my\-Sqr@{my\-Sqr}!Entier@{Entier}}
+\subsubsection[{my\-Sqr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Sqr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a5379013e91b1d33c3a733594f6ae1db9}
+
+
+my\-Sqr 
+
+Implementation de l'opérateur unaire sqr (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a708281bf8ddb3f6c33a100b3db925901}{Donnee}.
+
+\hypertarget{class_entier_a8ccc00629d9d7588998e9443916c2cff}{\index{Entier@{Entier}!my\-Sqrt@{my\-Sqrt}}
+\index{my\-Sqrt@{my\-Sqrt}!Entier@{Entier}}
+\subsubsection[{my\-Sqrt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Sqrt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a8ccc00629d9d7588998e9443916c2cff}
+
+
+my\-Sqrt 
+
+Implementation de l'opérateur unaire sqrt (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a07484cd79bc071fbfc48ace5bcd94e8f}{Donnee}.
+
+\hypertarget{class_entier_a0b9531ba9f783a3f5d800b5caaa11370}{\index{Entier@{Entier}!my\-Tan@{my\-Tan}}
+\index{my\-Tan@{my\-Tan}!Entier@{Entier}}
+\subsubsection[{my\-Tan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Tan (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a0b9531ba9f783a3f5d800b5caaa11370}
+
+
+my\-Tan 
+
+Implementation de l'opérateur unaire tangente (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ad3b4b9d20c0693915d9c17b528bed4d8}{Donnee}.
+
+\hypertarget{class_entier_a6157a86c4c407d35f5fec5d226e4dc6e}{\index{Entier@{Entier}!my\-Tanh@{my\-Tanh}}
+\index{my\-Tanh@{my\-Tanh}!Entier@{Entier}}
+\subsubsection[{my\-Tanh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::my\-Tanh (
+\begin{DoxyParamCaption}
+\item[{int}]{type\-Angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a6157a86c4c407d35f5fec5d226e4dc6e}
+
+
+my\-Tanh 
+
+Implementation de l'opérateur unaire tangenteh (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a20a90ca79d91dc75ea01cc3842b0e6dd}{Donnee}.
+
+\hypertarget{class_entier_a3cd7bc09aaa5a9aa94fb868ef90c3cfa}{\index{Entier@{Entier}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Entier@{Entier}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a3cd7bc09aaa5a9aa94fb868ef90c3cfa}
+
+
+Operateur $\ast$. 
+
+Implementation de l'opérateur binaire $\ast$ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ae655c41f021de91a35d652a8519d4eb2}{Donnee}.
+
+\hypertarget{class_entier_a1bcc1af417fd36f62bab9808f8fe6632}{\index{Entier@{Entier}!operator+@{operator+}}
+\index{operator+@{operator+}!Entier@{Entier}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a1bcc1af417fd36f62bab9808f8fe6632}
+
+
+Operateur +. 
+
+Implementation de l'opérateur binaire + (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_acda2976724adeef2233e7077953c1a9a}{Donnee}.
+
+\hypertarget{class_entier_a42b4d223e6deb8e59abf5554488ede16}{\index{Entier@{Entier}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Entier@{Entier}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a42b4d223e6deb8e59abf5554488ede16}
+
+
+Operateur -\/. 
+
+Implementation de l'opérateur binaire -\/ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_a053ea4f3f00b6e0a73b4ea453adca1be}{Donnee}.
+
+\hypertarget{class_entier_a7253903447c5e1922c80e90af4e50e7f}{\index{Entier@{Entier}!operator/@{operator/}}
+\index{operator/@{operator/}!Entier@{Entier}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_a7253903447c5e1922c80e90af4e50e7f}
+
+
+Operateur /. 
+
+Implementation de l'opérateur binaire / (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em t} & \-: Pointeur sur un type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur type, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_abc63ffa0d62612446435ff1eca34344b}{Donnee}.
+
+\hypertarget{class_entier_ad2ff142a939a6e22b69d3d3915ef0371}{\index{Entier@{Entier}!puissance@{puissance}}
+\index{puissance@{puissance}!Entier@{Entier}}
+\subsubsection[{puissance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Donnee} $\ast$ Entier\-::puissance (
+\begin{DoxyParamCaption}
+\item[{{\bf Donnee} $\ast$}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_ad2ff142a939a6e22b69d3d3915ef0371}
+
+
+puissance 
+
+Implementation de l'opérateur binaire puissance (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{Parameters}
+{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointeur sur donnee, resultat de l'operation 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_af25f76885c91b1a497023c9dd2231990}{Donnee}.
+
+\hypertarget{class_entier_a0f32791080ea409e112ce2893e9242cd}{\index{Entier@{Entier}!set\-Valeur@{set\-Valeur}}
+\index{set\-Valeur@{set\-Valeur}!Entier@{Entier}}
+\subsubsection[{set\-Valeur}]{\setlength{\rightskip}{0pt plus 5cm}void Entier\-::set\-Valeur (
+\begin{DoxyParamCaption}
+\item[{int}]{a\-Valeur}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_entier_a0f32791080ea409e112ce2893e9242cd}
+
+
+Modificateur de valeur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Valeur} & La nouvelle valeur de l'entier \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_entier_a3a796ec0bc75a4bcae44fb6eea67cc10}{\index{Entier@{Entier}!sign@{sign}}
+\index{sign@{sign}!Entier@{Entier}}
+\subsubsection[{sign}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entier}$\ast$ Entier\-::sign (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_entier_a3a796ec0bc75a4bcae44fb6eea67cc10}
+
+
+Retourne un \hyperlink{class_entier}{Entier} ayant les memes valeurs mais avec le signe inversé 
+
+Pour fonctionner, elle utilise le constructeur \hyperlink{class_entier}{Entier} par valeur \begin{DoxyVerb}   \return   Elle retourne le rationnel construit (=-this).\end{DoxyVerb}
+ 
+
+Implements \hyperlink{class_constante_a3d218a44f46136c5d69f04821f100953}{Constante}.
+
+\hypertarget{class_entier_ad3603b763e1d76b38fb2bceb883c8c89}{\index{Entier@{Entier}!to\-Q\-String@{to\-Q\-String}}
+\index{to\-Q\-String@{to\-Q\-String}!Entier@{Entier}}
+\subsubsection[{to\-Q\-String}]{\setlength{\rightskip}{0pt plus 5cm}Q\-String Entier\-::to\-Q\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entier_ad3603b763e1d76b38fb2bceb883c8c89}
+
+
+Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. 
+
+\begin{DoxyReturn}{Returns}
+Elle retourne un Qstring tel qu'un entier puisse etre construit à partir de ça, ou affiché. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_donnee_ad96590e462f8db33aefca28ba8e31e52}{Donnee}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{entier_8h}{entier.\-h}\item 
+entier.\-cpp\end{DoxyCompactItemize}

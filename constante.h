@@ -13,9 +13,9 @@
 /**
  * \class     Constante
  * \author    Letellier/Yassine
- * \brief       Classe representant les types de constantes non complexes
+ * \brief       Classe representant les types de constantes non complexes. Il s'agit d'une classe abstraite dérivant de Donnee.
  *
- * \details    Il s'agit d'une classe abstraite dérivant de Donnee.
+ *
  *
  */
 class Constante : public Donnee
