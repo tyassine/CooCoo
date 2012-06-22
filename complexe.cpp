@@ -102,7 +102,7 @@ Donnee* Complexe::operator +(Donnee * t){
         return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur + avec un complexe");
+    throw ExceptionCooCoo("erreur sur opérateur + avec un complexe");
 
 
 }
@@ -156,7 +156,7 @@ Donnee* Complexe::operator /(Donnee * t)
            return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur / avec un complexe");
+    throw ExceptionCooCoo("erreur sur opérateur / avec un complexe");
 }
 
 Donnee* Complexe::operator*(Donnee* t){
@@ -203,7 +203,7 @@ Donnee* Complexe::operator*(Donnee* t){
         return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur * avec un complexe");
+    throw ExceptionCooCoo("erreur sur opérateur * avec un complexe");
 }
 
 Donnee* Complexe::operator-(Donnee* t){
@@ -250,7 +250,7 @@ Donnee* Complexe::operator-(Donnee* t){
         return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur - avec un complexe");
+    throw ExceptionCooCoo("erreur sur opérateur - avec un complexe");
 }
 
 Donnee* Complexe::mySqr()

@@ -19,8 +19,6 @@ class Pile;
 * \brief Classe de Gardien
 * La classe permet de sauvegarder les etats d'une pile, dans le but de pouvoir les restaurer
 * Partie du design pattern "Memento"
-*
-*
 */
 class Gardien
 {
@@ -45,7 +43,7 @@ public:
     /*!
 * \brief addMemento
 * Permet d'ajouter un etat dans le vecteur de pile
-* \param pile: pile a ajouter
+* \param aPile  pile a ajouter
 */
     void addMemento(Pile* aPile);
 

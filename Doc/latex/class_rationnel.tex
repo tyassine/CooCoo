@@ -1,4 +1,4 @@
-\hypertarget{class_rationnel}{\section{Rationnel Class Reference}
+\hypertarget{class_rationnel}{\section{RÃ©fÃ©rence de la classe Rationnel}
 \label{class_rationnel}\index{Rationnel@{Rationnel}}
 }
 
@@ -10,13 +10,13 @@ Classe des rationnels héritant de \hyperlink{class_constante}{Constante}.
 
 {\ttfamily \#include $<$rationnel.\-h$>$}
 
-Inheritance diagram for Rationnel\-:\begin{figure}[H]
+Graphe d'hÃ©ritage de Rationnel\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=3.000000cm]{class_rationnel}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_rationnel_ab7c6a6474b910a9b70e177299ef82baa}{Rationnel} (int a\-Int1=0, int a\-Int2=1)
@@ -91,15 +91,15 @@ bool \hyperlink{class_rationnel_a2180b4f282661ab844fee297be89018a}{is\-Neg} ()
 \begin{DoxyCompactList}\small\item\em is\-Neg \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Description dÃ©taillÃ©e}
 Classe des rationnels héritant de \hyperlink{class_constante}{Constante}. 
 
-\begin{DoxyAuthor}{Author}
+\begin{DoxyAuthor}{Auteur}
 Letellier/\-Yassine
 \end{DoxyAuthor}
 Pour fonctionner cette classe encapsule deux entiers (numérateur et dénominateur). Tout les opérateurs sont égalements redéfinis. 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsection{Documentation des constructeurs et destructeur}
 \hypertarget{class_rationnel_ab7c6a6474b910a9b70e177299ef82baa}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
 \index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
 \subsubsection[{Rationnel}]{\setlength{\rightskip}{0pt plus 5cm}Rationnel\-::\-Rationnel (
@@ -115,13 +115,13 @@ Constructeur de rationnel à partir de 2 constantes.
 Les deux paramètres sont évalués pour pouvoir obtenir un entier.
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a\-Int1} & Premier paramètre = numérateur \\
 \hline
 {\em a\-Int2} & deuxiéme paramètre = dénominateur. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit. 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_a26a99758636a64b724fd6cf483695937}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
@@ -138,11 +138,11 @@ Constructeur de rationnel à partir d'une Q\-String.
 Le Q\-String est splité au niveau du / puis les valeurs séparé donne le numérateur et le dénominateur.
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em s} & Une Qstring de la forme '\textbackslash{}d+/\textbackslash{}d+' \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit. 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_ad82fad96095d0a1303c42bf8fb7dc78f}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
@@ -157,11 +157,11 @@ Elle retourne le rationnel construit.
 Constructeur de recopie. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a\-Rationnel} & Un pointeur vers un autre rationnel \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit. 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_aa5c9000f9f895d56c61677819075f0df}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
@@ -178,11 +178,11 @@ Constructeur de rationnel à partir d'entier.
 Le rationnel construit aura la forme a\-Entier/1
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a\-Entier} & Un entier \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit. 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_a394538bfd8a92370e327aa29ff614c5f}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
@@ -199,11 +199,11 @@ Constructeur de rationnel à partir d'entier.
 Le rationnel construit aura la forme a\-Reel/1
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a\-Reel} & Un reel \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit. 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_ab6abfabdca69244452c910a60cf4d1ff}{\index{Rationnel@{Rationnel}!Rationnel@{Rationnel}}
@@ -220,16 +220,16 @@ Constructeur de rationnel à partir d'entier.
 Le rationnel construit aura la forme a\-Complexe/1
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a\-Complexe} & Un complexe \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit. 
 \end{DoxyReturn}
 
 
-\subsection{Member Function Documentation}
+\subsection{Documentation des fonctions membres}
 \hypertarget{class_rationnel_a3809b3a6ac86e4b0a87bbf49f03dac6c}{\index{Rationnel@{Rationnel}!get\-Denom@{get\-Denom}}
 \index{get\-Denom@{get\-Denom}!Rationnel@{Rationnel}}
 \subsubsection[{get\-Denom}]{\setlength{\rightskip}{0pt plus 5cm}int Rationnel\-::get\-Denom (
@@ -241,7 +241,7 @@ Elle retourne le rationnel construit.
 
 Acccesseur au dénominateur. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le dénominateur du rationnel 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_ac9596f5d24cef6120c0cabcd7923aa29}{\index{Rationnel@{Rationnel}!get\-Num@{get\-Num}}
@@ -255,7 +255,7 @@ Elle retourne le dénominateur du rationnel
 
 Acccesseur au numérateur. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le numérateu du rationnel 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_a2180b4f282661ab844fee297be89018a}{\index{Rationnel@{Rationnel}!is\-Neg@{is\-Neg}}
@@ -269,12 +269,12 @@ Elle retourne le numérateu du rationnel
 
 is\-Neg 
 
-Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est inferieure ou egale à 0 \begin{DoxyReturn}{Returns}
+Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est inferieure ou egale à 0 \begin{DoxyReturn}{Renvoie}
 bool true si la \hyperlink{class_donnee}{Donnee} est inferieur ou egale à 0 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee_a0efb324f0c2e0682b971c3692c46e7c3}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a0efb324f0c2e0682b971c3692c46e7c3}{Donnee}.
 
 \hypertarget{class_rationnel_a61b12cda29f28591138415085bdc1a3d}{\index{Rationnel@{Rationnel}!is\-Zero@{is\-Zero}}
 \index{is\-Zero@{is\-Zero}!Rationnel@{Rationnel}}
@@ -287,12 +287,12 @@ Implements \hyperlink{class_donnee_a0efb324f0c2e0682b971c3692c46e7c3}{Donnee}.
 
 is\-Zero 
 
-Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est egale à 0 \begin{DoxyReturn}{Returns}
+Mathode permettant de savoir si la \hyperlink{class_donnee}{Donnee} est egale à 0 \begin{DoxyReturn}{Renvoie}
 bool true si la \hyperlink{class_donnee}{Donnee} est egale à 0 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee_aad251e4148c791719d7d7bff18680611}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_aad251e4148c791719d7d7bff18680611}{Donnee}.
 
 \hypertarget{class_rationnel_a5e60a48c0ec51f7c9ceef85c4feb1799}{\index{Rationnel@{Rationnel}!mod@{mod}}
 \index{mod@{mod}!Rationnel@{Rationnel}}
@@ -305,17 +305,17 @@ Implements \hyperlink{class_donnee_aad251e4148c791719d7d7bff18680611}{Donnee}.
 
 mod 
 
-Implementation de l'operateur binaire modulo (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
-{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+Implementation de l'opérateur binaire modulo (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em t} & \-: Pointeur sur une donnee \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a52ce1aa17ce2c613e98428f82e3f85b8}{Donnee}.
 
 \hypertarget{class_rationnel_a995e0aa451d09c98fae7a5aa75fa2047}{\index{Rationnel@{Rationnel}!my\-Cos@{my\-Cos}}
 \index{my\-Cos@{my\-Cos}!Rationnel@{Rationnel}}
@@ -328,17 +328,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Cos 
 
-Implementation de l'operateur unaire cosinus (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur unaire cosinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_abd9a62bd6b7d189f50db350823e895c3}{Donnee}.
 
 \hypertarget{class_rationnel_a20893c5f74c24222a5f80579b2aa2b2f}{\index{Rationnel@{Rationnel}!my\-Cosh@{my\-Cosh}}
 \index{my\-Cosh@{my\-Cosh}!Rationnel@{Rationnel}}
@@ -351,17 +351,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Cosh 
 
-Implementation de l'operateur unaire cosinush (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur unaire cosinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_afe9b3532677d394b4b596021b74b6d17}{Donnee}.
 
 \hypertarget{class_rationnel_a1bd3ee26d57c50c6eea7b62e671f3697}{\index{Rationnel@{Rationnel}!my\-Cube@{my\-Cube}}
 \index{my\-Cube@{my\-Cube}!Rationnel@{Rationnel}}
@@ -374,12 +374,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Cube 
 
-Implementation de l'operateur unaire Cube (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire Cube (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a875c21efdd22695c7999cfeb52ce4b2a}{Donnee}.
 
 \hypertarget{class_rationnel_aff2c6401047b78474705e1d392195bae}{\index{Rationnel@{Rationnel}!my\-Fact@{my\-Fact}}
 \index{my\-Fact@{my\-Fact}!Rationnel@{Rationnel}}
@@ -392,12 +392,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Fact 
 
-Implementation de l'operateur unaire fact (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire fact (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a79a2a3f835e09d0ed1888800c595a715}{Donnee}.
 
 \hypertarget{class_rationnel_ae860fd09ed94a2d60a197030822ada92}{\index{Rationnel@{Rationnel}!my\-Inv@{my\-Inv}}
 \index{my\-Inv@{my\-Inv}!Rationnel@{Rationnel}}
@@ -410,12 +410,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Inv 
 
-Implementation de l'operateur unaire inv (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire inv (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_ad84c463eb43d4b98bed081045160fea1}{Donnee}.
 
 \hypertarget{class_rationnel_aa290c50b2917771b26a761e07c62a574}{\index{Rationnel@{Rationnel}!my\-Ln@{my\-Ln}}
 \index{my\-Ln@{my\-Ln}!Rationnel@{Rationnel}}
@@ -428,12 +428,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Ln 
 
-Implementation de l'operateur unaire ln (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire ln (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_ac24ba41baf90eb99bcf91145c541780a}{Donnee}.
 
 \hypertarget{class_rationnel_aa3d968de9d5467e20681f802fdb20cc3}{\index{Rationnel@{Rationnel}!my\-Log@{my\-Log}}
 \index{my\-Log@{my\-Log}!Rationnel@{Rationnel}}
@@ -446,12 +446,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Log 
 
-Implementation de l'operateur unaire log (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire log (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a7ac3f554be1fc579b02d9c877185cf50}{Donnee}.
 
 \hypertarget{class_rationnel_a5684344a9fb59a529c26e2003dddca2a}{\index{Rationnel@{Rationnel}!my\-Sin@{my\-Sin}}
 \index{my\-Sin@{my\-Sin}!Rationnel@{Rationnel}}
@@ -464,17 +464,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Sin 
 
-Implementation de l'operateur unaire sinus (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur unaire sinus (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a86f71d87c3a69dc6dcede4b411d94043}{Donnee}.
 
 \hypertarget{class_rationnel_ae89d62d68819b71ea51d01f8be3983c3}{\index{Rationnel@{Rationnel}!my\-Sinh@{my\-Sinh}}
 \index{my\-Sinh@{my\-Sinh}!Rationnel@{Rationnel}}
@@ -487,17 +487,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Sinh 
 
-Implementation de l'operateur unaire sinush (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur unaire sinush (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_af3c408a3fda8f24ee70f34fd8688fe63}{Donnee}.
 
 \hypertarget{class_rationnel_add9f83270c7989dd0e984a3617337f8d}{\index{Rationnel@{Rationnel}!my\-Sqr@{my\-Sqr}}
 \index{my\-Sqr@{my\-Sqr}!Rationnel@{Rationnel}}
@@ -510,12 +510,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Sqr 
 
-Implementation de l'operateur unaire sqr (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire sqr (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a708281bf8ddb3f6c33a100b3db925901}{Donnee}.
 
 \hypertarget{class_rationnel_a0305394c891df6b266852e22ab8dcca4}{\index{Rationnel@{Rationnel}!my\-Sqrt@{my\-Sqrt}}
 \index{my\-Sqrt@{my\-Sqrt}!Rationnel@{Rationnel}}
@@ -528,12 +528,12 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Sqrt 
 
-Implementation de l'operateur unaire sqrt (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Returns}
+Implementation de l'opérateur unaire sqrt (methode virtuelle dans la classe mere) \begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a07484cd79bc071fbfc48ace5bcd94e8f}{Donnee}.
 
 \hypertarget{class_rationnel_a973973c46875e00d8126ae06f637f7e9}{\index{Rationnel@{Rationnel}!my\-Tan@{my\-Tan}}
 \index{my\-Tan@{my\-Tan}!Rationnel@{Rationnel}}
@@ -546,17 +546,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Tan 
 
-Implementation de l'operateur unaire tangente (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur unaire tangente (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_ad3b4b9d20c0693915d9c17b528bed4d8}{Donnee}.
 
 \hypertarget{class_rationnel_a5aedb2c197cda490f2dfe59eea937eb0}{\index{Rationnel@{Rationnel}!my\-Tanh@{my\-Tanh}}
 \index{my\-Tanh@{my\-Tanh}!Rationnel@{Rationnel}}
@@ -569,17 +569,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 my\-Tanh 
 
-Implementation de l'operateur unaire tangenteh (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur unaire tangenteh (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em type\-Angle} & \-: entier, 0 si utilisation des degres, 1 si utilisation des radians \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a20a90ca79d91dc75ea01cc3842b0e6dd}{Donnee}.
 
 \hypertarget{class_rationnel_a74b9d6827f9871aef113cc6eb665e1c8}{\index{Rationnel@{Rationnel}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Rationnel@{Rationnel}}
@@ -592,17 +592,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 Operateur $\ast$. 
 
-Implementation de l'operateur binaire $\ast$ (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur binaire $\ast$ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em t} & \-: Pointeur sur un type \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur type, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_ae655c41f021de91a35d652a8519d4eb2}{Donnee}.
 
 \hypertarget{class_rationnel_a59aa5ca6395412169b6eeea5ebed7d34}{\index{Rationnel@{Rationnel}!operator+@{operator+}}
 \index{operator+@{operator+}!Rationnel@{Rationnel}}
@@ -615,17 +615,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 Operateur +. 
 
-Implementation de l'operateur binaire + (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur binaire + (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em t} & \-: Pointeur sur un type \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur type, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_acda2976724adeef2233e7077953c1a9a}{Donnee}.
 
 \hypertarget{class_rationnel_a939fb751ab75cc266ae5db7318ede036}{\index{Rationnel@{Rationnel}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!Rationnel@{Rationnel}}
@@ -638,17 +638,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 Operateur -\/. 
 
-Implementation de l'operateur binaire -\/ (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur binaire -\/ (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em t} & \-: Pointeur sur un type \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur type, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_a053ea4f3f00b6e0a73b4ea453adca1be}{Donnee}.
 
 \hypertarget{class_rationnel_a361a11f3a3f1a6a18a047e90f36da098}{\index{Rationnel@{Rationnel}!operator/@{operator/}}
 \index{operator/@{operator/}!Rationnel@{Rationnel}}
@@ -661,17 +661,17 @@ Implements \hyperlink{class_donnee}{Donnee}.
 
 Operateur /. 
 
-Implementation de l'operateur binaire / (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
+Implementation de l'opérateur binaire / (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em t} & \-: Pointeur sur un type \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur type, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_abc63ffa0d62612446435ff1eca34344b}{Donnee}.
 
 \hypertarget{class_rationnel_aced52c94493f4ec44492e3c8dcc07632}{\index{Rationnel@{Rationnel}!pgcd@{pgcd}}
 \index{pgcd@{pgcd}!Rationnel@{Rationnel}}
@@ -688,13 +688,13 @@ Calcul du pgcd entre 2 nombre.
 Méthode utilisé pour simplifier une fraction
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a} & Le premier entier \\
 \hline
 {\em b} & Le deuxiéme entier \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le pgcd entre a et b 
 \end{DoxyReturn}
 \hypertarget{class_rationnel_a4d56f2f93a4243db020e43d3be842da0}{\index{Rationnel@{Rationnel}!puissance@{puissance}}
@@ -708,17 +708,17 @@ Elle retourne le pgcd entre a et b
 
 puissance 
 
-Implementation de l'operateur binaire puissance (methode virtuelle dans la classe mere) 
-\begin{DoxyParams}{Parameters}
-{\em Donnee$\ast$,\-:} & Pointeur sur une donnee \\
+Implementation de l'opérateur binaire puissance (methode virtuelle dans la classe mere) 
+\begin{DoxyParams}{ParamÃ¨tres}
+{\em t,\-:} & Pointeur sur une donnee \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Pointeur sur donnee, resultat de l'operation 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_af25f76885c91b1a497023c9dd2231990}{Donnee}.
 
 \hypertarget{class_rationnel_ada2605f9e377cb574ba9ce83dbccf3c0}{\index{Rationnel@{Rationnel}!set\-Denom@{set\-Denom}}
 \index{set\-Denom@{set\-Denom}!Rationnel@{Rationnel}}
@@ -732,7 +732,7 @@ Implements \hyperlink{class_donnee}{Donnee}.
 Modificateur du dénominateur. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em adenom} & Le nouveau dénominateur du rationnel \\
 \hline
 \end{DoxyParams}
@@ -748,7 +748,7 @@ Modificateur du dénominateur.
 Modificateur du numérateur. 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{ParamÃ¨tres}
 {\em a\-Num} & Le nouveau numérateu du rationnel \\
 \hline
 \end{DoxyParams}
@@ -763,14 +763,14 @@ Modificateur du numérateur.
 
 Retourne un \hyperlink{class_rationnel}{Rationnel} ayant les meme valeur mais avec le sign inversé 
 
-Pour fonctionner, elle utilise le constructeut Rationnel(\-Constante $\ast$,\-Constante $\ast$)
+Pour fonctionner, elle utilise le constructeur Rationnel(\-Constante $\ast$,\-Constante $\ast$)
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne le rationnel construit (=-\/this). 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_constante_a3d218a44f46136c5d69f04821f100953}{Constante}.
+ImplÃ©mente \hyperlink{class_constante_a3d218a44f46136c5d69f04821f100953}{Constante}.
 
 \hypertarget{class_rationnel_a12ee060e5fca5f4291b222983d727268}{\index{Rationnel@{Rationnel}!simplifier@{simplifier}}
 \index{simplifier@{simplifier}!Rationnel@{Rationnel}}
@@ -794,16 +794,16 @@ Cette méthode utilise \hyperlink{class_rationnel_aced52c94493f4ec44492e3c8dcc076
 
 Méthode permettant d'obtenir l'objet sous la forme d'une Qstring. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 Elle retourne un Qstring tel qu'un rationnel puisse etre construit à partir de ça. 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{class_donnee}{Donnee}.
+ImplÃ©mente \hyperlink{class_donnee_ad96590e462f8db33aefca28ba8e31e52}{Donnee}.
 
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+La documentation de cette classe a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
 \hyperlink{rationnel_8h}{rationnel.\-h}\item 
 rationnel.\-cpp\end{DoxyCompactItemize}

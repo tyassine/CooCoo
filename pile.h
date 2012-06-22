@@ -19,7 +19,7 @@ class Gardien;
 /**
  * \class     Pile
  * \author    Letellier Perrine
- * \brief      C'est une simple implémentation de std::stack<Donnee *> 
+ * \brief      C'est une simple Implémentation de std::stack<Donnee *> 
  *
  * \details    La fonction stack n'a pas été utilisée car des fonctions vitales n'auraient pu etre implémentées.
  */
@@ -82,7 +82,7 @@ public:
 /**
  * \brief       Modificateur du gardien de la pile
  *
- * \param      Le gardien que l'on veux assigner à la pile
+ * \param    aGardien  Le gardien que l'on veux assigner à la pile
  */
     void setGardien(Gardien* aGardien) {gard = aGardien;}
 	
@@ -98,7 +98,7 @@ public:
     * \fn void empiler(Donnee* aDonnee);
     * \brief Fonction : Empiler un objet sur la pile
     *
-    * \param pointeur vers l'objet à empiler
+    * \param aDonnee pointeur vers l'objet à empiler
     */
 
     void empiler(Donnee* aDonnee);
@@ -142,26 +142,26 @@ public:
 /**
  * \brief       Echange de deux éléments de la pile
  *
- * \param 1   Place dans tab du premier élément
-  * \param 2   Place dans tab du deuxiéme élément
+ * \param nb1   Place dans tab du premier élément
+  * \param nb2   Place dans tab du deuxiéme élément
  */
-    void swap(int,int);
+    void swap(int nb1,int nb2);
 	
 	
 /**
  * \brief       effectue la somme des donnee de la pile sur n étage et empile le résultat.
  *
- * \param 1   Le nombre d'étage qu'il faudra sommer.
+ * \param nb   Le nombre d'étage qu'il faudra sommer.
  */
-    void sum(unsigned int);
+    void sum(unsigned int nb);
 	
 	
 /**
  * \brief       effectue la moyenne des donnee de la pile sur n étage et empile le résultat.
  *
- * \param 1   Le nombre d'étage qu'il faudra moyenner.
+ * \param nb   Le nombre d'étage qu'il faudra moyenner.
  */
-    void mean(unsigned int);
+    void mean(unsigned int nb);
 	
 /**
  * \brief       Duplique le sommet de la pile.

@@ -28,7 +28,7 @@ public:
     Constante();
     /*!
     * \brief sign
-    * Methode virtuelle pure
+    * Méthode virtuelle pure
     *
     */
     virtual Constante* sign()=0;

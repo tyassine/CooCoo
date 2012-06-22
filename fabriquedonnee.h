@@ -10,6 +10,7 @@
 */
 
 
+
 #include "complexe.h"
 #include "rationnel.h"
 #include "reel.h"
@@ -42,7 +43,7 @@ class FabriqueDonnee
     *
     * Constructeur par recopie (prive) de la classe FabriqueDonnee
     * Non implemente pour le rendre inoperant
-    *
+    * \param fd Instance à recopier
     */
     FabriqueDonnee(const FabriqueDonnee& fd) {}
     /*!
@@ -50,6 +51,7 @@ class FabriqueDonnee
     *
     * Operateur = (prive) de la classe FabriqueDonne
     * Non implemente pour le rendre inoperant
+    * \param fd Instance à recopier
     */
     void operator=(const FabriqueDonnee& fd) {}
     /*!
@@ -80,7 +82,7 @@ public:
     * \brief creerDonnee
     * Methode permettant de creer une nouvelle Donnee, teste le type represente par la chaine et cree
     *       la Donnee correspondante en appellant le constructeur de son type
-    * \param const QString& terme, chaine de caractere source
+    * \param terme, chaine de caractere source
     * \return Pointeur sur Donnee, nouvelle Donnee cree
     */
     Donnee* creerDonnee(const QString& terme);
@@ -88,9 +90,9 @@ public:
     /*!
     * \brief creerDonnee
     * Methode surchargée permettant de convertir des objets d'une classe fille de Donnee en une autre
-    * \param const Donnee* donneeDepart, pointeur const de Donnee, la donnée que l'on veut convertir
-    * \param int typeSouhaite, entier indiquant le type de retour souhaité (0=reel, 1=rationnel, 2=reel)
-    * \param int complexe, entier indiquant si le retour doit être complexe ou non
+    * \param donneeDepart pointeur const de Donnee, la donnée que l'on veut convertir
+    * \param typeSouhaite entier indiquant le type de retour souhaité (0=reel, 1=rationnel, 2=reel)
+    * \param complexe entier indiquant si le retour doit être complexe ou non
     * \return Pointeur sur Donnee, nouvelle Donnee cree
     */
     Donnee* creerDonnee(const Donnee* donneeDepart, int typeSouhaite, int complexe);
@@ -99,9 +101,9 @@ private:
     /*!
     * \brief creerDonneeStatic
     * Methode privee appellee par creerDonnee, le type de donneeDepart est connu, on appelle le constructeur correspondant au type souhaite
-    * \param const T* donneeDepart, pointeur const de Donnee, la donnée que l'on veut convertir, T est une classe fille de Donnee
-    * \param int typeSouhaite, entier indiquant le type de retour souhaité (0=reel, 1=rationnel, 2=reel)
-    * \param int complexe, entier indiquant si le retour doit être complexe ou non
+    * \param donneeDepart pointeur const de Donnee, la donnée que l'on veut convertir, T est une classe fille de Donnee
+    * \param typeSouhaite entier indiquant le type de retour souhaité (0=reel, 1=rationnel, 2=reel)
+    * \param complexe entier indiquant si le retour doit être complexe ou non
     * \return Pointeur sur Donnee, nouvelle Donnee cree
     */
 

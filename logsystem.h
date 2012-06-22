@@ -32,10 +32,10 @@ public:
     * \brief Constructeur
     *
     * Constructeur de la classe LogMessage
-    * \param const std::string&, chaine de caractere servant à l'initialisation de l'attribut log
-    * \param unsigned int, entier servant à l'initialisation du degree du message imp
+    * \param str chaine de caractere servant à l'initialisation de l'attribut log
+    * \param d entier servant à l'initialisation du degree du message imp
     */
-    LogMessage(const std::string&,unsigned int);
+    LogMessage(const std::string& str,unsigned int d);
     /*!
     * \brief getLog
     * Methode retournant le message formaté avec la chaine de caractère et le degré d'importance
@@ -61,9 +61,9 @@ public:
     /*!
     * \brief imprim
     * Methode static imprimant le message
-    *
+    * \param mes Message à imprimer
     */
-    static void imprim(const LogMessage &);
+    static void imprim(const LogMessage& mes);
 };
 
 #endif // LOGSYSTEM_H

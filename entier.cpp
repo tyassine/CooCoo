@@ -84,7 +84,7 @@ Donnee* Entier::operator+(Donnee* t)
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur + avec un entier");
+    throw ExceptionCooCoo("Erreur sur opérateur + avec un entier");
 }
 
 Donnee* Entier::operator /(Donnee* t)
@@ -122,7 +122,7 @@ Donnee* Entier::operator /(Donnee* t)
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur / avec un entier");
+    throw ExceptionCooCoo("Erreur sur opérateur / avec un entier");
 }
 
 Donnee* Entier::operator*(Donnee* t){
@@ -159,7 +159,7 @@ Donnee* Entier::operator*(Donnee* t){
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur * avec un entier");
+    throw ExceptionCooCoo("Erreur sur opérateur * avec un entier");
 }
 
 Donnee* Entier::operator-(Donnee* t){
@@ -198,7 +198,7 @@ Donnee* Entier::operator-(Donnee* t){
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur - avec un entier");
+    throw ExceptionCooCoo("Erreur sur opérateur - avec un entier");
 }
 
 Donnee* Entier::puissance(Donnee* t)
@@ -228,7 +228,7 @@ Donnee* Entier::puissance(Donnee* t)
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur pow avec un entier");
+    throw ExceptionCooCoo("Erreur sur opérateur pow avec un entier");
 }
 
 Donnee* Entier::mod(Donnee* t)
@@ -238,7 +238,7 @@ Donnee* Entier::mod(Donnee* t)
         return new Entier( valeur % tmp->getValeur());
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur mod avec un entier");
+    throw ExceptionCooCoo("Erreur sur opérateur mod avec un entier");
 }
 
 Donnee* Entier::mySin(int typeAngle)

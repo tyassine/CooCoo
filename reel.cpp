@@ -82,7 +82,7 @@ Donnee* Reel::operator +(Donnee* d){
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur + avec un reel");
+    throw ExceptionCooCoo("erreur sur opérateur + avec un reel");
 
 
 }
@@ -131,7 +131,7 @@ Donnee* Reel::operator /(Donnee* d){
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur / avec un reel");
+    throw ExceptionCooCoo("erreur sur opérateur / avec un reel");
 }
 
 Donnee* Reel::operator*(Donnee* d){
@@ -172,7 +172,7 @@ Donnee* Reel::operator*(Donnee* d){
        return new ConstanteExp(e);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur * avec un reel");
+    throw ExceptionCooCoo("erreur sur opérateur * avec un reel");
 }
 
 Donnee* Reel::operator-(Donnee* d){
@@ -212,7 +212,7 @@ Donnee* Reel::operator-(Donnee* d){
        return new ConstanteExp(e);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur - avec un reel");
+    throw ExceptionCooCoo("erreur sur opérateur - avec un reel");
 }
 
 Donnee* Reel::puissance(Donnee* t)
@@ -237,7 +237,7 @@ Donnee* Reel::puissance(Donnee* t)
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur pow avec un reel");
+    throw ExceptionCooCoo("Erreur sur opérateur pow avec un reel");
 }
 
 Donnee* Reel::mySin(int typeAngle)

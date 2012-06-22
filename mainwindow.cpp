@@ -359,7 +359,7 @@ void MainWindow::on_commit(){
     }
 }
 
-//reimplémentation keyPressEvent pour le clavier
+//reImplémentation keyPressEvent pour le clavier
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     switch(event->key())

@@ -82,7 +82,7 @@ Rationnel::Rationnel(const Complexe* aComplexe)
 
 Donnee* Rationnel::operator +(Donnee * t){
 
-    std::cout<<"debut operateur"<<std::endl;
+    std::cout<<"debut opérateur"<<std::endl;
     if (typeid(*t)==typeid(Rationnel)){
        Rationnel *tmp=static_cast<Rationnel*>(t);
        Rationnel *res=new Rationnel(num*tmp->denom+tmp->num*denom,denom*tmp->denom);
@@ -116,7 +116,7 @@ Donnee* Rationnel::operator +(Donnee * t){
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur + avec un rationnel");
+    throw ExceptionCooCoo("erreur sur opérateur + avec un rationnel");
 }
 
 Donnee* Rationnel::operator -(Donnee * t){
@@ -158,7 +158,7 @@ Donnee* Rationnel::operator -(Donnee * t){
     }
 
 
-    throw ExceptionCooCoo("erreur sur operateur - avec un rationnel");
+    throw ExceptionCooCoo("erreur sur opérateur - avec un rationnel");
 }
 
 Donnee* Rationnel::operator /(Donnee * t){
@@ -203,7 +203,7 @@ Donnee* Rationnel::operator /(Donnee * t){
     }
 
 
-    throw ExceptionCooCoo("erreur sur operateur / avec un rationnel");
+    throw ExceptionCooCoo("erreur sur opérateur / avec un rationnel");
 }
 
 Donnee* Rationnel::operator*(Donnee* t)
@@ -245,7 +245,7 @@ Donnee* Rationnel::operator*(Donnee* t)
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("erreur sur operateur avec un rationnel");
+    throw ExceptionCooCoo("erreur sur opérateur avec un rationnel");
 }
 
 
@@ -275,7 +275,7 @@ Donnee* Rationnel::puissance(Donnee* t)
        return new ConstanteExp(nouv);
     }
 
-    throw ExceptionCooCoo("Erreur sur operateur pow avec un rationnel");
+    throw ExceptionCooCoo("Erreur sur opérateur pow avec un rationnel");
 }
 
 

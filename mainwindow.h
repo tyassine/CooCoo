@@ -48,7 +48,7 @@ private:
     enum TypeConstante {ENTIER, RATIONNEL, REEL};
     TypeConstante cste;/*!< type de constante actuellement utilisée */
     int nb_elem_affiche;/*!< nombre d'elements de la pile a afficher dans la Qlistview */
-    bool redoPossible;
+    bool redoPossible;/*!< Flag permettant de contrôler l'usage de la fonction Rétablir */
 
 
 public:
@@ -95,7 +95,7 @@ public:
     /*!
     * \brief setAngle
     * Modificateur permettant de changer le mode d'angle en cours (Degre, Radian).
-    * \param TypeAngle a, instance de l'enum TypeAngle
+    * \param a instance de l'enum TypeAngle
     */
     void setAngle(TypeAngle a){
         angle=a;
@@ -111,7 +111,7 @@ public:
     /*!
     * \brief setConstante
     * Modificateur permettant de changer le mode de constante en cours (Entier, Rationnel, Reel).
-    * \param TypeConstante c, instance de l'enum TypeConstante
+    * \param c instance de l'enum TypeConstante
     */
     void setConstante(TypeConstante c){
         cste=c;
@@ -135,7 +135,7 @@ public:
     /*!
     * \brief setComplexe
     * Modificateur permettant de choisir ou non le mode complexe.
-    * \param bool c, choix du mode complexe
+    * \param c choix du mode complexe
     */
     void setComplexe(bool c){
         complexe=c;
@@ -151,7 +151,7 @@ public:
     /*!
     * \brief setClavier
     * Modificateur permettant de choisir ou non l'affichage du clavier numerique
-    * \param bool c, choix de l'affichage
+    * \param c choix de l'affichage
     */
     void setClavier(bool c){
         clavier=c;
@@ -167,7 +167,7 @@ public:
     /*!
     * \brief setNbPile
     * Modificateur permettant de choisir le nombre de Donnee a afficher dans la pile
-    * \param int n, nombre a afficher
+    * \param n nombre a afficher
     */
     void setNbPile(int n){
         nb_elem_affiche=n;

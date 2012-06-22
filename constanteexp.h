@@ -39,7 +39,7 @@ public:
     /*!
     * \brief Operateur +
     *
-    * Implementation de l'operateur binaire + (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur binaire + (methode virtuelle dans la classe mere)
     * \param t : Pointeur sur un type
     * \return Pointeur sur type, resultat de l'operation
     *
@@ -49,7 +49,7 @@ public:
     /*!
     * \brief Operateur /
     *
-    * Implementation de l'operateur binaire / (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur binaire / (methode virtuelle dans la classe mere)
     * \param t : Pointeur sur un type
     * \return Pointeur sur type, resultat de l'operation
     *
@@ -59,7 +59,7 @@ public:
     /*!
     * \brief Operateur *
     *
-    * Implementation de l'operateur binaire * (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur binaire * (methode virtuelle dans la classe mere)
     * \param t : Pointeur sur un type
     * \return Pointeur sur type, resultat de l'operation
     *
@@ -69,7 +69,7 @@ public:
     /*!
     * \brief Operateur -
     *
-    * Implementation de l'operateur binaire - (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur binaire - (methode virtuelle dans la classe mere)
     * \param t : Pointeur sur un type
     * \return Pointeur sur type, resultat de l'operation
     *
@@ -79,7 +79,7 @@ public:
     /*!
     * \brief puissance
     *
-    * Implementation de l'operateur binaire puissance (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur binaire puissance (methode virtuelle dans la classe mere)
     * \param Donnee*: Pointeur sur une donnee
     * \return Pointeur sur donnee, resultat de l'operation
     *
@@ -89,7 +89,7 @@ public:
     /*!
     * \brief mod
     *
-    * Implementation de l'operateur binaire modulo (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur binaire modulo (methode virtuelle dans la classe mere)
     * \param Donnee*: Pointeur sur une donnee
     * \return Pointeur sur donnee, resultat de l'operation
     *
@@ -114,7 +114,7 @@ public:
     /*!
     * \brief mySin
     *
-    * Implementation de l'operateur unaire sinus (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur unaire sinus (methode virtuelle dans la classe mere)
     * \param typeAngle : entier, 0 si utilisation des degres, 1 si utilisation des radians
     * \return Pointeur sur donnee, resultat de l'operation
     *
@@ -124,7 +124,7 @@ public:
     /*!
     * \brief myCos
     *
-    * Implementation de l'operateur unaire cosinus (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur unaire cosinus (methode virtuelle dans la classe mere)
     * \param typeAngle : entier, 0 si utilisation des degres, 1 si utilisation des radians
     * \return Pointeur sur donnee, resultat de l'operation
     *
@@ -134,7 +134,7 @@ public:
     /*!
     * \brief myTan
     *
-    * Implementation de l'operateur unaire tangente (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur unaire tangente (methode virtuelle dans la classe mere)
     * \param typeAngle : entier, 0 si utilisation des degres, 1 si utilisation des radians
     * \return Pointeur sur donnee, resultat de l'operation
     *
@@ -144,7 +144,7 @@ public:
     /*!
 * \brief mySinh
 *
-* Implementation de l'operateur unaire sinush (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire sinush (methode virtuelle dans la classe mere)
     * \param typeAngle : entier, 0 si utilisation des degres, 1 si utilisation des radians
     * \return Pointeur sur donnee, resultat de l'operation
 *
@@ -154,7 +154,7 @@ public:
     /*!
 * \brief myCosh
 *
-* Implementation de l'operateur unaire cosinush (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire cosinush (methode virtuelle dans la classe mere)
     * \param typeAngle : entier, 0 si utilisation des degres, 1 si utilisation des radians
     * \return Pointeur sur donnee, resultat de l'operation
 *
@@ -164,7 +164,7 @@ public:
     /*!
 * \brief myTanh
 *
-* Implementation de l'operateur unaire tangenteh (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire tangenteh (methode virtuelle dans la classe mere)
     * \param typeAngle : entier, 0 si utilisation des degres, 1 si utilisation des radians
     * \return Pointeur sur donnee, resultat de l'operation
 *
@@ -174,7 +174,7 @@ public:
     /*!
     * \brief myLn
     *
-    * Implementation de l'operateur unaire ln (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur unaire ln (methode virtuelle dans la classe mere)
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
@@ -183,7 +183,7 @@ public:
     /*!
     * \brief myLog
     *
-    * Implementation de l'operateur unaire log (methode virtuelle dans la classe mere)
+    * Implementation de l'opérateur unaire log (methode virtuelle dans la classe mere)
     * \return Pointeur sur donnee, resultat de l'operation
     *
     */
@@ -192,7 +192,7 @@ public:
     /*!
 * \brief myInv
 *
-* Implementation de l'operateur unaire inv (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire inv (methode virtuelle dans la classe mere)
 * \return Pointeur sur donnee, resultat de l'operation
 *
 */
@@ -201,7 +201,7 @@ public:
     /*!
 * \brief mySqrt
 *
-* Implementation de l'operateur unaire sqrt (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire sqrt (methode virtuelle dans la classe mere)
 * \return Pointeur sur donnee, resultat de l'operation
 *
 */
@@ -210,7 +210,7 @@ public:
     /*!
 * \brief mySqr
 *
-* Implementation de l'operateur unaire sqr (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire sqr (methode virtuelle dans la classe mere)
 * \return Pointeur sur donnee, resultat de l'operation
 *
 */
@@ -219,7 +219,7 @@ public:
     /*!
 * \brief myCube
 *
-* Implementation de l'operateur unaire Cube (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire Cube (methode virtuelle dans la classe mere)
 * \return Pointeur sur donnee, resultat de l'operation
 *
 */
@@ -228,7 +228,7 @@ public:
     /*!
 * \brief myFact
 *
-* Implementation de l'operateur unaire fact (methode virtuelle dans la classe mere)
+* Implementation de l'opérateur unaire fact (methode virtuelle dans la classe mere)
 * \return Pointeur sur donnee, resultat de l'operation
 *
 */
